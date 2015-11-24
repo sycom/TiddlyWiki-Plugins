@@ -51,15 +51,15 @@
 		"id": "dark",
 		"nom": "Dark Matter",
 		"url": "http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
-		"attrib": "&copy;Map tiles by <a href='http://cartodb.com/attributions#basemaps'>CartoDB</a>, under <a href='https://creativecommons.org/licenses/by/3.0/' target='_blank'>CC BY 3.0</a>. Data by <a href='http://www.openstreetmap.org/' target='_blank'>OpenStreetMap</a>, under ODbL.",
+		"attrib": "&copy;Map tiles by <a href='https://cartodb.com/basemaps/' target='_blank'>CartoDB</a>, under <a href='https://creativecommons.org/licenses/by/3.0/' target='_blank'>CC BY 3.0</a>. Data by <a href='http://www.openstreetmap.org/' target='_blank'>OpenStreetMap</a>, under ODbL.",
 		"zMin": 0,
 		"zMax": 18
 	},
 	{
 		"id": "positron",
 		"nom": "Positron",
-		"url": "http://{s}.basemaps.cartocdn.com/positron_all/{z}/{x}/{y}.png",
-		"attrib": "&copy;Map tiles by <a href='http://cartodb.com/attributions#basemaps'>CartoDB</a>, under <a href='https://creativecommons.org/licenses/by/3.0/' target='_blank'>CC BY 3.0</a>. Data by <a href='http://www.openstreetmap.org/' target='_blank'>OpenStreetMap</a>, under ODbL.",
+		"url": "http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+		"attrib": "&copy;Map tiles by <a href='https://cartodb.com/basemaps/' target='_blank'>CartoDB</a>, under <a href='https://creativecommons.org/licenses/by/3.0/' target='_blank'>CC BY 3.0</a>. Data by <a href='http://www.openstreetmap.org/' target='_blank'>OpenStreetMap</a>, under ODbL.",
 		"zMin": 0,
 		"zMax": 18
 	}
