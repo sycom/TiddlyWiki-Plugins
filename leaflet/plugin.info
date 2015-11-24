@@ -1,0 +1,9 @@
+{
+    "title": "$:/plugins/sycom/leaflet",
+    "description": "Leaflet maps in your TiddlyWiki",
+    "author": "Sylvain Comte",
+    "version": "0.1",
+    "core-version": ">=5.0.8",
+    "source": "https://git.framasoft.org/sycom/TiddlyWikiPlugins/tree/master/plugins/sycom/leaflet",
+    "list": "$:/plugins/sycom/leaflet/usage"
+}

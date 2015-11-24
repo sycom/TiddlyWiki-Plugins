@@ -1,0 +1,21 @@
+created: 20151110173416000
+modified: 20151121210000000
+title: $:/plugins/sycom/leaflet/devDiary
+type: text/vnd.tiddlywiki
+
+Some notes about coding this plugin. Might be useful to others...
+
+* 20151124
+** wondering the best way to release plugin code in gitlab (or github). Can't be a fork of TiddlyWiki. Don't want to lose .git history.
+** 
+* 20151123
+** not able to use directly tiddler stored images as css background.
+** decided to use base64 form in css. Not so elegant as I wished, but works.
+* 20151121
+** fighting with parameters : not imported from widget with `this.getAttribute()`
+** solved by adding the parameter computation before : `this.computeAttributes();` 
+* 20151115
+** some problems to declare leaflet.js library : fail during build since there is no window, no document.
+** solved by creating the tiddlywiki.files importer.
+* 20151110
+** starting some tests. Inspiration from d3plugin (also creating widget and importing library)

@@ -1,0 +1,23 @@
+created: 20151119173416239
+modified: 20151120174050584
+title: $:/plugins/sycom/leaflet/usage
+type: text/vnd.tiddlywiki
+
+!! Display a map
+just call the widget using `<$leafmap>`. You may specify some options :
+
+* ''width'' (default:100%) : the width of the map (px or tiddler %)
+* ''height'' : the width of the map (px or window %)
+* leaflet-settings : some settings for the leaflet map
+** ''lat'' : map center latitude
+** ''long'' : map center longitude
+** ''zoom'' : zoom level as defined by leaflet (''between 0 and 20'')
+** ''tile'' : the ''id'' or the ''number'' of the tile layer you want to use. Tile layers are listed in [[$:/plugins/sycom/leaflet/lib/tileLayers.json]].
+** ''tileControl'' :  ''if present'' add a control to select the tile layer you want
+
+!!! example
+
+```
+<$leafmap lat="43" long="0.72" zoom="11" tile="water" tileControl>
+```
+<$leafmap lat="43" long="0.72" zoom="11" tile="water" tileControl>
