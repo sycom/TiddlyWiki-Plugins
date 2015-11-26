@@ -6,5 +6,6 @@
     "core-version": ">=5.0.8",
     "source": "https://git.framasoft.org/sycom/TiddlyWikiPlugins/tree/master/plugins/sycom/leaflet",
     "plugin-type": "plugin",
-    "list": "readme usage"
+    "list": "readme usage",
+    "text": "{{readme}} {{usage}}"
 }
