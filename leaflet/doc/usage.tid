@@ -18,10 +18,10 @@ just call the widget using `<$leafmap>`. You may specify some options :
 !!! example
 
 ```
-<$leafmap lat="43" long="0.72" zoom="11"
+<$leafmap lat="49.5" long="1" zoom="9"
 	tile="water" tileControl
 	places='{"tiddler":"$:/plugins/sycom/leaflet/example/placeTiddler"}'>
 ```
-<$leafmap lat="43" long="0.72" zoom="11"
+<$leafmap lat="49.5" long="1" zoom="9"
 	tile="water" tileControl
 	places='{"tiddler":"$:/plugins/sycom/leaflet/example/placeTiddler"}'>

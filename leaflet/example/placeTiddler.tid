@@ -1,7 +1,12 @@
-coord: 49.5,1
+point: 49.5,1
+points: 49,1 49.5,1.5 49.5,0.5
+polygon: 49.25,1.25 49.45,0.95 49.35,0.65 49.15,1.15
 created: 20151119173416000
 modified: 20151127133153114
 title: $:/plugins/sycom/leaflet/example/placeTiddler
 type: text/vnd.tiddlywiki
 
-This is just a place Tiddler for testing purposes
+This tiddler contains
+* a unique `point` at 49.5,1
+* a `points` list : 49,1 49.5,1.5 49.5,0.5
+* a `polygon` : 49.25,1.25 49.45,0.95 49.35,0.65 49.15,1.15
