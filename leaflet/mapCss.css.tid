@@ -1,0 +1,11 @@
+title: $:/plugins/sycom/leaflet/mapCssTweaks.css.tid
+tags: [[$:/tags/Stylesheet]]
+
+\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline
+
+/* solve conflict between tw and leaflet */
+.leaflet-zoom-animated {max-width: initial !important}
+
+/* default polygon colors */
+.leaflet-clickable {fill:<<colour primary>>;stroke:<<colour primary>>;stroke-width:1px}
+.polyline {fill:none;stroke-width:3px}

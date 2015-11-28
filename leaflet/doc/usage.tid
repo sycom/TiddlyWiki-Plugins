@@ -15,13 +15,13 @@ just call the widget using `<$leafmap>`. You may specify some options :
 ** ''tile'' : the ''id'' or the ''number'' of the tile layer you want to use. Tile layers are listed in [[$:/plugins/sycom/leaflet/lib/tileLayers.json]].
 ** ''tileControl'' :  ''if present'' add a control to select the tile layer you want
 
-!!! example
+!!! example : display [[placeTiddler|$:/plugins/sycom/leaflet/example/placeTiddler]]
 
 ```
-<$leafmap lat="49.5" long="1" zoom="9"
+<$leafmap 
 	tile="water" tileControl
 	places='{"tiddler":"$:/plugins/sycom/leaflet/example/placeTiddler"}'>
 ```
-<$leafmap lat="49.5" long="1" zoom="9"
+<$leafmap
 	tile="water" tileControl
 	places='{"tiddler":"$:/plugins/sycom/leaflet/example/placeTiddler"}'>
