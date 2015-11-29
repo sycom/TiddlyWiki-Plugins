@@ -7,7 +7,7 @@ modified: 20151128133153114
 title: $:/plugins/sycom/leaflet/example/placeTiddler
 type: text/vnd.tiddlywiki
 
-This tiddler contains (go to edit mode to see the data fields)
+This tiddler contains
 
 * a unique `point` at 52.79958,-2.59040
 * a `points` list : 49,1 49.5,1.5 49.5,0.5

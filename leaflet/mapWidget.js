@@ -8,11 +8,9 @@ A widget for displaying leaflet map in TiddlyWiki
 \*/
 
 (function() {
-
 	/*jslint node: true, browser: true */
 	/*global $tw: false */
 	"use strict";
-
 	var Widget = require("$:/core/modules/widgets/widget.js").widget,
 		L = require("$:/plugins/sycom/leaflet/lib/leaflet.js");
 
@@ -99,7 +97,7 @@ Create the map for the widget
 Compute the internal state of the widget
 */
 	mapWidget.prototype.execute = function() {
-		// create icon
+		// create icon !todo only if there are points to display;
 		lfltIcon = L.icon({
 			iconUrl: base64icon,
 			iconRetinaUrl: base64icon,
@@ -118,23 +116,29 @@ Compute the internal state of the widget
 			var plcs = JSON.parse(places);
 			// case 1 : data in a tiddler
 			if (plcs.tiddler) {
-				//console.log(plcs.tiddler);
+				// create the tiddler group
 				var feature = L.featureGroup();
+				// get data fields in the tiddler, let's seek for geo data
 				var flds = this.wiki.getTiddler(plcs.tiddler).fields;
+				// !todo : detect if tiddler is JSON data in order to display them
+				if (flds.type == "application/json") {
+					// have to detect strict geoJSON and other JSON with lat long data
+					// for second case give instruction about required fields and data to be rendered in popup
+				}
+				// if tiddler is not JSON data, display tiddler stored geodata as point(s), polygon, polyline...
+				else
 				// render a unique point for the tiddler (with tiddler text in the popup)
 				if (flds.point) {
 					var location = eval("[" + flds.point + "]");
-
 					var marker = L.marker(location, {
 						icon: lfltIcon
 					}).bindPopup(html).addTo(feature);
 				}
-				// render a space separated list of points for the tiddler
+				// render a space separated list of pointS for the tiddler
 				if (flds.points) {
 					var Points = flds.points.split(" ");
 					for (var p in Points) {
 						var location = eval("[" + Points[p] + "]");
-
 						var marker = L.marker(location, {
 							icon: lfltIcon
 						}).addTo(feature);
@@ -148,7 +152,6 @@ Compute the internal state of the widget
 						var location = eval("[" + Poly[p] + "]");
 						Shape.push(location);
 					}
-
 					var polygon = L.polygon(Shape).addTo(feature);
 				}
 				// render a polyline
@@ -159,13 +162,13 @@ Compute the internal state of the widget
 						var location = eval("[" + Poly[p] + "]");
 						Shape.push(location);
 					}
-
-					var polyline = L.polyline(Shape).setStyle({fill:"none"}).addTo(feature);
+					var polyline = L.polyline(Shape).setStyle({"className":"polyline"}).addTo(feature);
 				}
+				// create popup with tiddler content
 				var html = "<h4><a href=\"#" + encodeURIComponent(flds.title) + "\">" + flds.title + "</a></h4>" + flds.text;
 				feature.addTo(map);
 				feature.bindPopup(html);
-				console.log(feature.getBounds());
+				// get feature bounds for automatic zoom
 				if (bounds) {
 					bounds.extend(feature.getBounds());
 				} else {
@@ -173,16 +176,17 @@ Compute the internal state of the widget
 				}
 			}
 		}
-		console.log(bounds);
+		// set map to objects bounds
 		map.fitBounds(bounds);
 		// if lat long zoom settings, overwrite bounds
 		setting.lat = this.getAttribute("lat");
 		setting.lg = this.getAttribute("long");
 		setting.zoom = this.getAttribute("zoom");
-		// console.log(setting);		
+		// overwrite lat and long center	
 		if (setting.lat && setting.long) {
 			map.setView([setting.lat, setting.lg]);
 		}
+		// overwrite zoom
 		if (setting.zoom) {
 			map.setZoom(setting.zoom);
 		}
@@ -194,6 +198,7 @@ Compute the internal state of the widget
 
 })();
 /*
+MISC NOTES for later
 JSON.parse(tiddler.fields.text);
 var jsonData = this.wiki.getTiddlerAsJson(this.to),
 */

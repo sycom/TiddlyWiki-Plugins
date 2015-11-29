@@ -1,10 +1,10 @@
 created: 20151119173416000
-modified: 20151120174050000
+modified: 20151129123050000
 title: $:/plugins/sycom/leaflet/readme
 type: text/vnd.tiddlywiki
 
-The leaflet plugin is a very early attempt to integrate the leaflet lib in TiddlyWiki in order to display geographical purpose tiddler.
+The leaflet plugin is an attempt to integrate the [[leaflet|http://leafletjs.com/]] library in TiddlyWiki in order to display geographical purpose tiddler.
 
-It is not currently in a state where it can be used for anything useful. But you can have a look at [[usage|$:/plugins/sycom/leaflet/usage]] if you want to test...
+For now, you can display a map with (or without) data stored in a tiddler as point(s), polygon and polyline. Have a look at [[usage|$:/plugins/sycom/leaflet/usage]] if you want to test, and keep in mind that the plugin is very young and might be buggy...
 
 Source code at :[[https://git.framasoft.org/sycom/TiddlyWikiPlugins/tree/master/plugins/sycom/leaflet]] see `leaflet-plugin` branch for latest draft version.
