@@ -19,7 +19,10 @@ A widget for displaying leaflet map in TiddlyWiki
 	};
 
 	// global vars
-	var map, lfltIcon, bounds, setting = {};
+	var Map = [], // map collection
+		map = 0, // map order number
+		lfltDefBounds = [[52.75,-2.55],[52.85,-2.65]], // default bounds when nothing given
+		lfltIcon, bounds, setting = {};
 
 	// base 64 icons
 	var base64icon = "data:image/png;base64,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",
@@ -62,8 +65,9 @@ Render this widget into the DOM
 Create the map for the widget
  */
 	mapWidget.prototype.createMap = function(parent, nextSibling) {
+		map+=1;
 		// create the leaflet and push it to #lfltMap
-		map = L.map('lfltMap')
+		Map[map] = L.map('lfltMap')
 		// Installation du fond par défaut (premier de la liste dans fonds.json)
 		// get tilelayers from JSON
 		var fonds = JSON.parse(this.wiki.getTiddlerText("$:/plugins/sycom/leaflet/lib/tileLayers.json"));
@@ -84,12 +88,12 @@ Create the map for the widget
 			Tiles[fonds[i].id] = couche;
 			tiles[fonds[i].nom] = couche;
 		}
-		Tiles[setting.tile].addTo(map);
+		Tiles[setting.tile].addTo(Map[map]);
 		// install tile layer control if needed
 		setting.tileControl = this.getAttribute("tileControl");
 		if (setting.tileControl) {
 			var tControl = L.control.layers(tiles);
-			tControl.addTo(map);
+			tControl.addTo(Map[map]);
 		}
 	};
 
@@ -116,6 +120,7 @@ Compute the internal state of the widget
 			var plcs = JSON.parse(places);
 			// case 1 : data in a tiddler
 			if (plcs.tiddler) {
+//!todo, if no tiddler is given, try to display this tiddler data
 				// create the tiddler group
 				var feature = L.featureGroup();
 				// get data fields in the tiddler, let's seek for geo data
@@ -166,7 +171,7 @@ Compute the internal state of the widget
 				}
 				// create popup with tiddler content
 				var html = "<h4><a href=\"#" + encodeURIComponent(flds.title) + "\">" + flds.title + "</a></h4>" + flds.text;
-				feature.addTo(map);
+				feature.addTo(Map[map]);
 				feature.bindPopup(html);
 				// get feature bounds for automatic zoom
 				if (bounds) {
@@ -177,18 +182,24 @@ Compute the internal state of the widget
 			}
 		}
 		// set map to objects bounds
-		map.fitBounds(bounds);
+		if (bounds) {
+			Map[map].fitBounds(bounds);
+		}
+		else {
+			bounds = lfltDefBounds;
+			Map[map].fitBounds(bounds);
+		}
 		// if lat long zoom settings, overwrite bounds
 		setting.lat = this.getAttribute("lat");
 		setting.lg = this.getAttribute("long");
 		setting.zoom = this.getAttribute("zoom");
 		// overwrite lat and long center	
 		if (setting.lat && setting.long) {
-			map.setView([setting.lat, setting.lg]);
+			Map[map].setView([setting.lat, setting.lg]);
 		}
 		// overwrite zoom
 		if (setting.zoom) {
-			map.setZoom(setting.zoom);
+			Map[map].setZoom(setting.zoom);
 		}
 
 	};
