@@ -34,9 +34,9 @@ Not yet implemented. You will define a full geoTiddler as a JSON one using geoJS
 
 ```
 <$leafmap 
-	tile="water" tileControl
+	tileControl
 	places='{"tiddler":"$:/plugins/sycom/leaflet/example/placeTiddler"}'>
 ```
 <$leafmap
-	tile="water" tileControl
+	tileControl
 	places='{"tiddler":"$:/plugins/sycom/leaflet/example/placeTiddler"}'>
