@@ -120,11 +120,17 @@ Compute the internal state of the widget
 			var plcs = JSON.parse(places);
 			// case 1 : data in a tiddler
 			if (plcs.tiddler) {
-//!todo, if no tiddler is given, try to display this tiddler data
+				var flds;
+				if (plcs.tiddler=="") {
+					// if no tiddler name is given, try to display this tiddler data	
+					flds = this.wiki.getTiddler(this.getVariable("currentTiddler")).fields;
+				}
+				else {
+					// get data fields in the tiddler, let's seek for geo data
+					flds = this.wiki.getTiddler(plcs.tiddler).fields;
+				}
 				// create the tiddler group
 				var feature = L.featureGroup();
-				// get data fields in the tiddler, let's seek for geo data
-				var flds = this.wiki.getTiddler(plcs.tiddler).fields;
 				// !todo : detect if tiddler is JSON data in order to display them
 				if (flds.type == "application/json") {
 					// have to detect strict geoJSON and other JSON with lat long data
