@@ -46,7 +46,7 @@ Render this widget into the DOM
 			height = this.getAttribute("height", "500px");
 		// creating the div container
 		var div = this.document.createElement("div");
-		div.setAttribute("id", "lfltMap");
+		div.setAttribute("id", "lfltMap-"+map);
 		div.setAttribute("style", "width:" + width + ";height:" + height);
 		// Save the parent dom node
 		this.parentDomNode = parent;
@@ -59,26 +59,29 @@ Render this widget into the DOM
 		this.createMap();
 		// Execute our logic
 		this.execute();
+		// increment map number indicator
+		map += 1;
 	};
 
 	/*
 Create the map for the widget
  */
 	mapWidget.prototype.createMap = function(parent, nextSibling) {
-		map+=1;
 		// create the leaflet and push it to #lfltMap
-		Map[map] = L.map('lfltMap')
+		Map[map] = L.map('lfltMap-'+map);
 		// Installation du fond par défaut (premier de la liste dans fonds.json)
 		// get tilelayers from JSON
 		var fonds = JSON.parse(this.wiki.getTiddlerText("$:/plugins/sycom/leaflet/lib/tileLayers.json"));
 		// create tile layers list object from json list	
-		var Tiles = new Array(); // leaflet tile layers
+		var Tiles = []; // leaflet tile layers
 		var tiles = {}; // tile identifier for control
 		// look for tile parameter
 		setting.tile = this.getAttribute("tile", "osm");
 		// remplissage de la liste
 		for (var i in fonds) {
-			if (i == setting.tile || fonds[i].id == setting.tile) setting.tile = fonds[i].id;
+			if (i == setting.tile || fonds[i].id == setting.tile) {
+				setting.tile = fonds[i].id;
+			}
 			var couche = new L.TileLayer(fonds[i].url, {
 				attribution: fonds[i].attrib,
 				minZoom: fonds[i].zMin,
@@ -121,7 +124,7 @@ Compute the internal state of the widget
 			// case 1 : data in a tiddler
 			if (plcs.tiddler) {
 				var flds;
-				if (plcs.tiddler=="") {
+				if (plcs.tiddler==" ") {
 					// if no tiddler name is given, try to display this tiddler data	
 					flds = this.wiki.getTiddler(this.getVariable("currentTiddler")).fields;
 				}
@@ -131,59 +134,43 @@ Compute the internal state of the widget
 				}
 				// create the tiddler group
 				var feature = L.featureGroup();
-				// !todo : detect if tiddler is JSON data in order to display them
+				// 
+/*	!todo : detect if tiddler is JSON data in order to display them */
 				if (flds.type == "application/json") {
 					// have to detect strict geoJSON and other JSON with lat long data
 					// for second case give instruction about required fields and data to be rendered in popup
 				}
 				// if tiddler is not JSON data, display tiddler stored geodata as point(s), polygon, polyline...
-				else
-				// render a unique point for the tiddler (with tiddler text in the popup)
-				if (flds.point) {
-					var location = eval("[" + flds.point + "]");
-					var marker = L.marker(location, {
-						icon: lfltIcon
-					}).bindPopup(html).addTo(feature);
-				}
-				// render a space separated list of pointS for the tiddler
-				if (flds.points) {
-					var Points = flds.points.split(" ");
-					for (var p in Points) {
-						var location = eval("[" + Points[p] + "]");
-						var marker = L.marker(location, {
-							icon: lfltIcon
-						}).addTo(feature);
+				else {
+					// render a unique point for the tiddler (with tiddler text in the popup)
+					if (flds.point) {
+						mapPoint(flds.point,feature);
 					}
-				}
-				// render a polygon
-				if (flds.polygon) {
-					var Poly = flds.polygon.split(" ");
-					var Shape = [];
-					for (var p in Poly) {
-						var location = eval("[" + Poly[p] + "]");
-						Shape.push(location);
+					// render a space separated list of pointS for the tiddler
+					if (flds.points) {
+						mapPoints(flds.points,feature);
 					}
-					var polygon = L.polygon(Shape).addTo(feature);
-				}
-				// render a polyline
-				if (flds.polyline) {
-					var Poly = flds.polyline.split(" ");
-					var Shape = [];
-					for (var p in Poly) {
-						var location = eval("[" + Poly[p] + "]");
-						Shape.push(location);
+					// render a polygon
+					if (flds.polygon) {
+						mapPolyg(flds.polygon,feature);
 					}
-					var polyline = L.polyline(Shape).setStyle({"className":"polyline"}).addTo(feature);
-				}
-				// create popup with tiddler content
-				var html = "<h4><a href=\"#" + encodeURIComponent(flds.title) + "\">" + flds.title + "</a></h4>" + flds.text;
-				feature.addTo(Map[map]);
-				feature.bindPopup(html);
-				// get feature bounds for automatic zoom
-				if (bounds) {
-					bounds.extend(feature.getBounds());
-				} else {
-					bounds = feature.getBounds();
+					// render a polyline
+					if (flds.polyline) {
+						mapPolyl(flds.polyline,feature);
+					}
+					// create popup with tiddler content
+					var html = "<h4><a href=\"#" + encodeURIComponent(flds.title) + "\">" + flds.title + "</a></h4>" + flds.text;
+					feature.addTo(Map[map]);
+					feature.bindPopup(html);
+					// get feature bounds for automatic zoom
+					if (bounds) {
+						bounds.extend(feature.getBounds());
+					}
+					else {
+						if (feature.getBounds()) {
+							bounds = feature.getBounds();
+						}
+					}
 				}
 			}
 		}
@@ -210,9 +197,46 @@ Compute the internal state of the widget
 
 	};
 
+	// add a marker for a point
+	function mapPoint (coord,feat) {
+		var location = eval("[" + coord + "]");
+		var marker = L.marker(location, {
+			icon: lfltIcon
+		})
+		marker.addTo(feat);
+	}
+	// add a marker serie for a points list
+	function mapPoints (list,feat) {
+		var Points = list.split(" ");
+		for (var pt in Points) {
+			mapPoint(Points[pt],feat);
+		}
+	}
+	// add a polygon
+	function mapPolyg (list,feat) {
+		var Coords = list.split(" ");
+		var Shape = [];
+		for (var nd in Coords) {
+			var location = eval("[" + Coords[nd] + "]");
+			Shape.push(location);
+			}
+		var polygon = L.polygon(Shape);
+		polygon.addTo(feat);
+	}
+	// add a polyline
+	function mapPolyl (list,feat) {
+		var Coords = list.split(" ");
+		var Line = [];
+		for (var nd in Coords) {
+			var location = eval("[" + Coords[nd] + "]");
+			Line.push(location);
+			}
+		var polyline = L.polygon(Line);
+		polyline.setStyle({"className":"polyline"}).addTo(feat);
+	}
+
 	exports.leafmap = mapWidget;
-
-
+		
 })();
 /*
 MISC NOTES for later
