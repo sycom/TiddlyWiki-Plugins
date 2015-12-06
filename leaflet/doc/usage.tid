@@ -14,7 +14,7 @@ just call the widget using `<$leafmap>`. You may specify some options :
 ** ''zoom'' : zoom level as defined by leaflet (''between 0 and 20'')
 ** ''tile'' : the ''id'' or the ''number'' of the tile layer you want to use. Tile layers are listed in [[$:/plugins/sycom/leaflet/lib/tileLayers.json]].
 ** ''tileControl'' :  ''if present'' add a control to select the tile layer you want
-** ''places'' : the geographical data you want to display. For now, they have to be stored in a tiddler (see "geo" Tiddler bellow)
+** ''places'' : a json object with the geographical data you want to display. For now, they have to be stored in a tiddler (see "geo" Tiddler bellow)
 
 !! "geo" Tiddler
 "geo" Tiddler are tiddlers containing geo data

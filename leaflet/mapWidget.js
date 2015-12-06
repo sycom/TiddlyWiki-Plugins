@@ -37,7 +37,7 @@ Inherit from the base widget class
 Render this widget into the DOM
 */
 	mapWidget.prototype.render = function(parent, nextSibling) {
-		bounds = null;
+		bounds = undefined;
 		// Compute our attributes
 		this.computeAttributes();
 		// Get the base settings for rendering : width / height (default : 100% / 500px)
@@ -123,57 +123,18 @@ Compute the internal state of the widget
 			var plcs = JSON.parse(places);
 			// case 1 : data in a tiddler
 			if (plcs.tiddler) {
-				var flds;
+				// if no tiddler is given (single space) map current Tiddler
+// !todo would be much better if so when no attribute at all...				
 				if (plcs.tiddler==" ") {
-					// if no tiddler name is given, try to display this tiddler data	
-					flds = this.wiki.getTiddler(this.getVariable("currentTiddler")).fields;
+					mapTiddler(this,this.getVariable("currentTiddler"));
 				}
+				// else, map the given tiddler
 				else {
 					// get data fields in the tiddler, let's seek for geo data
-					flds = this.wiki.getTiddler(plcs.tiddler).fields;
-				}
-				// create the tiddler group
-				var feature = L.featureGroup();
-				// 
-/*	!todo : detect if tiddler is JSON data in order to display them */
-				if (flds.type == "application/json") {
-					// have to detect strict geoJSON and other JSON with lat long data
-					// for second case give instruction about required fields and data to be rendered in popup
-				}
-				// if tiddler is not JSON data, display tiddler stored geodata as point(s), polygon, polyline...
-				else {
-					// render a unique point for the tiddler (with tiddler text in the popup)
-					if (flds.point) {
-						mapPoint(flds.point,feature);
-					}
-					// render a space separated list of pointS for the tiddler
-					if (flds.points) {
-						mapPoints(flds.points,feature);
-					}
-					// render a polygon
-					if (flds.polygon) {
-						mapPolyg(flds.polygon,feature);
-					}
-					// render a polyline
-					if (flds.polyline) {
-						mapPolyl(flds.polyline,feature);
-					}
-					// create popup with tiddler content
-					var html = "<h4><a href=\"#" + encodeURIComponent(flds.title) + "\">" + flds.title + "</a></h4>" + flds.text;
-					feature.addTo(Map[map]);
-					feature.bindPopup(html);
-					// get feature bounds for automatic zoom
-					if (bounds) {
-						bounds.extend(feature.getBounds());
-					}
-					else {
-						if (feature.getBounds()) {
-							bounds = feature.getBounds();
-						}
-					}
+					mapTiddler(this,plcs.tiddler);
 				}
 			}
-		}
+		}	
 		// set map to objects bounds
 		if (bounds) {
 			Map[map].fitBounds(bounds);
@@ -194,7 +155,6 @@ Compute the internal state of the widget
 		if (setting.zoom) {
 			Map[map].setZoom(setting.zoom);
 		}
-
 	};
 
 	// add a marker for a point
@@ -233,6 +193,51 @@ Compute the internal state of the widget
 			}
 		var polyline = L.polygon(Line);
 		polyline.setStyle({"className":"polyline"}).addTo(feat);
+	}
+
+	function mapTiddler(obj,tid) {
+		// get data fields in the tiddler, let's seek for geo data
+		var flds = obj.wiki.getTiddler(tid).fields;
+		// create the tiddler group
+		var feature = L.featureGroup();
+		// 
+/*	!todo : detect if tiddler is JSON data in order to display them */
+		if (flds.type == "application/json") {
+		// have to detect strict geoJSON and other JSON with lat long data
+		// for second case give instruction about required fields and data to be rendered in popup
+		}
+		// if tiddler is not JSON data, display tiddler stored geodata as point(s), polygon, polyline...
+		else {
+			// render a unique point for the tiddler (with tiddler text in the popup)
+			if (flds.point) {
+			mapPoint(flds.point,feature);
+			}
+			// render a space separated list of pointS for the tiddler
+			if (flds.points) {
+				mapPoints(flds.points,feature);
+			}
+			// render a polygon
+			if (flds.polygon) {
+				mapPolyg(flds.polygon,feature);
+			}
+			// render a polyline
+			if (flds.polyline) {
+				mapPolyl(flds.polyline,feature);
+			}
+			// create popup with tiddler content
+			var html = "<h4><a href=\"#" + encodeURIComponent(flds.title) + "\">" + flds.title + "</a></h4>" + flds.text;
+			feature.addTo(Map[map]);
+			feature.bindPopup(html);
+			// get feature bounds for automatic zoom
+			if (bounds) {
+				bounds.extend(feature.getBounds());
+			}
+			else {
+				if (feature.getBounds()) {
+				bounds = feature.getBounds();
+				}
+			}
+		}
 	}
 
 	exports.leafmap = mapWidget;
