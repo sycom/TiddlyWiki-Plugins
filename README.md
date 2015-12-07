@@ -1,7 +1,7 @@
 # TiddlyWiki Plugins
 this is a playing space for [TiddlyWiki][tiddlywiki] plugins.
 
-## Leaflet plugin - 0.2.2
+## Leaflet plugin - 0.4
 The leaflet plugin is a very early attempt to integrate the [leaflet][leaflet] lib in TiddlyWiki in order to display geographical purpose tiddler.
 
 For now you can display an interactive map, select size, location and zoom, and background. You can also display data from a tiddler : point(s), polygon and/or polyline.
