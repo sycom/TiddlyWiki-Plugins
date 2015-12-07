@@ -3,7 +3,7 @@ modified: 20151128150250584
 title: $:/plugins/sycom/leaflet/usage
 type: text/vnd.tiddlywiki
 
-!! Display a map
+! Display a map
 just call the widget using `<$leafmap>`. You may specify some options :
 
 * ''width'' (default:100%) : the width of the map (px or tiddler %)
@@ -14,29 +14,9 @@ just call the widget using `<$leafmap>`. You may specify some options :
 ** ''zoom'' : zoom level as defined by leaflet (''between 0 and 20'')
 ** ''tile'' : the ''id'' or the ''number'' of the tile layer you want to use. Tile layers are listed in [[$:/plugins/sycom/leaflet/lib/tileLayers.json]].
 ** ''tileControl'' :  ''if present'' add a control to select the tile layer you want
-** ''places'' : a json object with the geographical data you want to display. For now, they have to be stored in a tiddler (see "geo" Tiddler bellow)
+** ''places'' : a json object with the geographical data you want to display. They can be stored in a tiddler (see "geo" Tiddler bellow) or 
 
-!! "geo" Tiddler
-"geo" Tiddler are tiddlers containing geo data
+{{GeoTiddler}}
 
-!!! tiddler with geo metadata
-You can upgrade your tiddler to geoTiddler by putting some geo metadata ([[wgs 84 coordinates|https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84]]) in it :
-
-* ''point'' : a unique point defined by a comma separated latitude,longitude pair,
-* ''points'' : a point collection defined by a space separated of comma separated latitude,longitude pair,
-* ''polygon'' : a closed surfacic place defined like an ''ordered'' points collection just above,
-* ''polyline'' : an open path place defined like the polygon just above.
-
-!!! full JSON or geoJSON  tiddler
-Not yet implemented. You will define a full geoTiddler as a JSON one using geoJSON data or structured JSON.
-
-!! example : display [[placeTiddler|$:/plugins/sycom/leaflet/example/placeTiddler]]
-
-```
-<$leafmap 
-	tileControl
-	places='{"tiddler":"$:/plugins/sycom/leaflet/example/placeTiddler"}'>
-```
-<$leafmap
-	tileControl
-	places='{"tiddler":"$:/plugins/sycom/leaflet/example/placeTiddler"}'>
+! geo data
+You may display single or multiple data without creating a GeoTiddler by adding them in ''places'' parameter : `places='{"type":"coordinates"}'`. Type handled are exactly those listed in GeoTiddler.
