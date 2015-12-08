@@ -98,6 +98,23 @@ Create the map for the widget
             var tControl = L.control.layers(tiles);
             tControl.addTo(Map[map]);
         }
+/* !todo to come next (will have to implement leaflet.draw extension)		
+		// look for draw parameter
+		setting.drawControl = this.getAttribute("drawControl");
+		if (setting.drawControl) {
+			// Initialize the FeatureGroup to store editable layers
+			var drawnItems = new L.FeatureGroup();
+			Map[map].addLayer(drawnItems);
+			// Initialize the draw control and pass it the FeatureGroup of editable layers
+			var drawControl = new L.Control.Draw({
+				edit: {
+					featureGroup: drawnItems
+					}
+				}
+			);
+		Map[map].addControl(drawControl);
+		}
+*/
     };
 
     /*
@@ -116,7 +133,7 @@ Compute the internal state of the widget
             shadowSize: [40, 20],
             shadowAnchor: [0, 20]
         });
-        // Get the declared places from the attributes
+		// Get the declared places from the attributes
         var places = this.getAttribute("places", undefined);
         if (places) {
             //console.log(places);

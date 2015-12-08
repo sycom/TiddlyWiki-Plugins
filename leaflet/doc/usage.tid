@@ -3,7 +3,7 @@ modified: 20151128150250584
 title: $:/plugins/sycom/leaflet/usage
 type: text/vnd.tiddlywiki
 
-! Display a map
+!! Display a map
 just call the widget using `<$leafmap>`. You may specify some options :
 
 * ''width'' (default:100%) : the width of the map (px or tiddler %)
