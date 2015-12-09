@@ -3,16 +3,10 @@ modified: 20151207153450584
 title: GeoTiddler
 type: text/vnd.tiddlywiki
 
-!! GeoTiddler
-[[GeoTiddler]]s are tiddlers containing geographical data.
+[[GeoTiddler]]s are tiddlers containing geographical data. [[geoSyntax|$:/plugins/sycom/leaflet/geoSyntax]] lists the available objects.
 
-!!! tiddler with geo ''metadata''
-You can upgrade your tiddler by putting some geo metadata ([[wgs 84 coordinates|https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84]]) in it :
-
-* ''point'' : a unique point defined by a comma separated latitude,longitude pair : `y,x`,
-* ''points'' : a point collection defined by a space separated of comma separated latitude,longitude pair : `y1,x1 y2,x2 y3,x3 ...`,
-* ''polygon'' : a closed surfacic place defined like an ''ordered'' points collection just above : `y1,x1 y2,x2 y3,x3 ...`,
-* ''polyline'' : an open path place defined like the polygon just above : `y1,x1 y2,x2 y3,x3 ...`.
+!! tiddler with geo ''metadata''
+You can upgrade your tiddler by putting some geo metadata ([[wgs 84 coordinates|https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84]]) in it.
 
 !!! [[JSONTiddlers]] or geoJSON  tiddler
 Not yet implemented. You will define a full geoTiddler as a JSON one using geoJSON data or structured JSON.

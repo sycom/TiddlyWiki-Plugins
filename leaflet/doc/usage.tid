@@ -2,21 +2,20 @@ created: 20151119173416239
 modified: 20151128150250584
 title: $:/plugins/sycom/leaflet/usage
 type: text/vnd.tiddlywiki
+caption: Usage
 
-!! Display a map
-just call the widget using `<$leafmap>`. You may specify some options :
+The widget is called by using `<$leafmap>`. You may specify some options :
 
-* ''width'' (default:100%) : the width of the map (px or tiddler %)
-* ''height'' : the width of the map (px or window %)
-* leaflet-settings : some settings for the leaflet map
-** ''lat'' : map center latitude
-** ''long'' : map center longitude
-** ''zoom'' : zoom level as defined by leaflet (''between 0 and 20'')
-** ''tile'' : the ''id'' or the ''number'' of the tile layer you want to use. Tile layers are listed in [[$:/plugins/sycom/leaflet/lib/tileLayers.json]].
-** ''tileControl'' :  ''if present'' add a control to select the tile layer you want
-** ''places'' : a json object with the geographical data you want to display. They can be stored in a tiddler (see "geo" Tiddler bellow) or 
+!!! widget attributes
+|!Attribute |!Description |!Default |
+|''width'' |the width of the map (px or tiddler %)| `100%`|
+|''height''|the height of the map (px only)| `420px`|
 
-{{GeoTiddler}}
-
-! geo data
-You may display single or multiple data without creating a GeoTiddler by adding them in ''places'' parameter : `places='{"type":"coordinates"}'`. Type handled are exactly those listed in GeoTiddler.
+!!! leaflet map attributes
+|!Attribute |!Description |!Default |
+|''places'' |a json object with the geographical data you want to display. Can be stored in a tiddler as metadata. See [[geoSyntax|$:/plugins/sycom/leaflet/geoSyntax]] for more informations ||
+|''tile'' |the //id// or the //number// of the tile layer you want to use. See [[tileLayers|$:/plugins/sycom/leaflet/tileLayers]] for more informations | `osm`|
+|''tileControl'' |''if present'' add a control to select the tile layer you want ||
+|''lat'' |map center latitude. Will overwrite places auto-centering | `52.8`|
+|''long'' |map center longitude. Will overwrite places auto-centering | `-2.6`|
+|''zoom'' |zoom level as defined by leaflet : int value between `0` (world map) and `20` (ant view) | |

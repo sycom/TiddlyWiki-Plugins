@@ -1,0 +1,20 @@
+created: 20151119173416239
+modified: 20151209150250584
+title: $:/plugins/sycom/leaflet/geoSyntax
+type: text/vnd.tiddlywiki
+caption: geoSyntax
+
+Geographical objects can be stored 
+
+* in a GeoTiddler by creating a ''//name// : // pattern//'' metadata pair in any tiddler. Call it in the widget with ''places'' attribute : `places='{"tiddler":"title of your tiddler"}'`
+* straight in the widget with ''places'' attribute : `places='{"type":"pattern"}'`
+
+!! Geographical objects you can display on your map
+
+| !name | !description | !pattern |
+|''point'' |a unique point defined by a comma separated latitude,longitude pair |`y,x` |
+|''points''|a points collection defined by a space separated ''point'' definition list |`y1,x1 y2,x2 y3,x3 ...` |
+|''polygon''|a closed surfacic place defined like an //ordered// ''points'' collection just above |`y1,x1 y2,x2 y3,x3 ...` |
+|''polygons''|a polygons collection defined by a pipe (`|`) separated list of ''polygon'' definitions |`y1,x1 y2,x2 y3,x3|y4,x4 y5...` |
+|''polyline''|an open path place defined like the ''polygon'' just above |`y1,x1 y2,x2 y3,x3 ...` |
+|''polylines''|a polylines collection defined by a pipe (`|`) separated list of ''polyline'' definitions |`y1,x1 y2,x2 y3,x3|y4,x4 y5...` |

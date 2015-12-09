@@ -43,7 +43,7 @@ Render this widget into the DOM
         // Get the base settings for rendering : width / height (default : 100% / 500px)
         // !todo : make a settings tidller in order to let user set it for the whole wiki (may be inspired from roadtree)
         var width = this.getAttribute("width", "100%"),
-            height = this.getAttribute("height", "500px");
+            height = this.getAttribute("height", "420px");
         // creating the div container
         var div = this.document.createElement("div");
         div.setAttribute("id", "lfltMap-"+map);
