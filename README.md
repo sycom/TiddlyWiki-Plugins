@@ -9,7 +9,7 @@ For now you can display an interactive map, select size, location and zoom, and 
 Source code at [sycom/TiddlyWikiPlugins][repo] on framagit (gitlab instance) see `leaflet` branch for latest draft version.
 
 [repo]: https://git.framasoft.org/sycom/TiddlyWikiPlugins
-[demo] : http://sycom.github.io/TiddlyWiki-Plugins
+[demo]: http://sycom.github.io/TiddlyWiki-Plugins
 
 [leaflet]: http://leafletjs.com/
 [tiddlywiki]: http://tiddlywiki.com
