@@ -1,0 +1,12 @@
+created: 20151209173416000
+modified: 20151209173417000
+title: $:/plugins/sycom/leaflet/roadmap
+type: text/vnd.tiddlywiki
+
+This is just a roadmap to list future development ideas
+
+* map tiddlers with the same tag(s)
+* add a tool to draw shapes, lines and collect coordinates
+* add a clustering functionality (at least for points)
+* add color(s) options
+* try to put other types of pins (svg? icons?)

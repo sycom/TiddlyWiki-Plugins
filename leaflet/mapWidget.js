@@ -152,6 +152,10 @@ console.log("leafmap (" + map + ") : display a tiddler : " + plcs.tiddler);
                     mapTiddler(this,plcs.tiddler);
                 }
             }
+            // case 2 : data in multiple tiddlers
+            if (plcs.tiddlers) {
+				mapTiddlers(this,plcs.tiddlers);
+			}
             // case 3 : data are directly listed in places (point(s) - polygon - polyline)
 			// for each we will
 			// - create a containing feature
@@ -324,6 +328,13 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
         // get feature bounds for automatic zoom
 		extBounds(feature);
     }
+
+    function mapTiddlers(obj,list) {
+		var Tids = list.split(" ");
+		for (var td in Tids) {
+			mapTiddler(obj,Tids[td]);
+		}
+	}
 	
 	// adjust bounds to feature
 	function extBounds(feat) {
