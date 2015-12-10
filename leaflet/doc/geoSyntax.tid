@@ -6,8 +6,11 @@ caption: geoSyntax
 
 Geographical objects can be stored 
 
-* in a GeoTiddler by creating a ''//name// : // pattern//'' metadata pair in any tiddler. Call it in the widget with ''places'' attribute : `places='{"tiddler":"title of your tiddler"}'`
-* straight in the widget with ''places'' attribute : `places='{"type":"pattern"}'`
+* in a GeoTiddler by creating a ''//name// : // pattern//'' metadata field pair in any tiddler. Call it in the widget with ''places'' attribute : `places='{"tiddler":"title of your tiddler"}'`
+* straight in the widget with ''places'' attribute : `places='{"object type":"coordinates pattern"}'`
+
+!! Tool for creating shapes
+As not everyone has a GIS in his head, And the plugin does not implement yet any tool for creating geo shapes, there is (very basic) tool for that : [ext[Draw for TiddlyWiki leaflet plugin|./leafletDraw.html]]
 
 !! Geographical objects you can display on your map
 

@@ -5,7 +5,7 @@
         "url": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
         "attrib": "tiles by &copy;<a href='http://osm.org/copyright' target='_blank'>OSM</a>, licence <a href='http://creativecommons.org/licenses/by-sa/3.0' target='_blank'>CC BY SA</a>.",
         "zMin": 0,
-        "zMax": 20
+        "zMax": 19
     },
 	{
 		"id": "sat",
