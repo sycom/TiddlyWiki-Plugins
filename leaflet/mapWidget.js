@@ -37,7 +37,7 @@ Inherit from the base widget class
 Render this widget into the DOM
 */
     mapWidget.prototype.render = function(parent, nextSibling) {
-        bounds = undefined;
+        bounds = null;
         // Compute our attributes
         this.computeAttributes();
         // Get the base settings for rendering : width / height (default : 100% / 500px)
@@ -69,7 +69,7 @@ Create the map for the widget
     mapWidget.prototype.createMap = function(parent, nextSibling) {
         // create the leaflet and push it to #lfltMap
         Map[map] = L.map('lfltMap-'+map);
-        // Installation du fond par défaut (premier de la liste dans fonds.json)
+        // Install base tile layer (if none provided, default is "osm")
         // get tilelayers from JSON
         var fonds = JSON.parse(this.wiki.getTiddlerText("$:/plugins/sycom/leaflet/lib/tileLayers.json"));
         // create tile layers list object from json list    
@@ -77,7 +77,7 @@ Create the map for the widget
         var tiles = {}; // tile identifier for control
         // look for tile parameter
         setting.tile = this.getAttribute("tile", "osm");
-        // remplissage de la liste
+        // create tile layer list
         for (var i in fonds) {
             if (i == setting.tile || fonds[i].id == setting.tile) {
                 setting.tile = fonds[i].id;
@@ -152,6 +152,10 @@ console.log("leafmap (" + map + ") : display a tiddler : " + plcs.tiddler);
                     mapTiddler(this,plcs.tiddler);
                 }
             }
+            // case 2 : data in multiple tiddlers
+            if (plcs.tiddlers) {
+				mapTiddlers(this,plcs.tiddlers);
+			}
             // case 3 : data are directly listed in places (point(s) - polygon - polyline)
 			// for each we will
 			// - create a containing feature
@@ -229,11 +233,21 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
 
     // add a marker for a point
     function mapPoint (coord,feat) {
-        var location = eval("[" + coord + "]");
-        var marker = L.marker(location, {
-            icon: lfltIcon
-        })
-        marker.addTo(feat);
+        try {
+            var location = eval("[" + coord + "]");
+        }
+        catch(err) {
+            displayError("point",err);    
+        }
+        try{
+            var marker = L.marker(location, {
+                icon: lfltIcon
+                })
+            marker.addTo(feat);
+        }
+        catch(err) {
+            displayError("point",err);
+        } 
     }
     // add a marker serie for a points list
     function mapPoints (list,feat) {
@@ -246,12 +260,22 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
     function mapPolyg (list,feat) {
         var Coords = list.split(" ");
         var Shape = [];
-        for (var nd in Coords) {
-            var location = eval("[" + Coords[nd] + "]");
-            Shape.push(location);
+        try {
+            for (var nd in Coords) {
+                var location = eval("[" + Coords[nd] + "]");
+                Shape.push(location);
             }
-        var polygon = L.polygon(Shape);
-        polygon.addTo(feat);
+        }
+        catch(err) {
+            displayError("polygone",err);
+        }
+        try {
+            var polygon = L.polygon(Shape);
+            polygon.addTo(feat);
+        }
+        catch(err) {
+            displayError("polygone",err);
+        }
     }
 	// add a polygons collection
 	function mapPolygs (collec,feat) {
@@ -264,12 +288,22 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
     function mapPolyl (list,feat) {
         var Coords = list.split(" ");
         var Line = [];
-        for (var nd in Coords) {
-            var location = eval("[" + Coords[nd] + "]");
-            Line.push(location);
+        try {
+            for (var nd in Coords) {
+                var location = eval("[" + Coords[nd] + "]");
+                Line.push(location);
             }
-        var polyline = L.polyline(Line);
-        polyline.setStyle({"className":"polyline"}).addTo(feat);
+        }
+        catch(err) {
+            displayError("polyline",err);
+        }
+        try {
+            var polyline = L.polyline(Line);
+            polyline.setStyle({"className":"polyline"}).addTo(feat);
+        }
+        catch(err) {
+            displayError("polyline",err);
+        }
     }
 	// add a polylines collection
 	function mapPolyls (collec,feat) {
@@ -294,7 +328,7 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
         else {
             // render a unique point for the tiddler (with tiddler text in the popup)
             if (flds.point) {
-            mapPoint(flds.point,feature);
+                mapPoint(flds.point,feature);
             }
             // render a space separated list of pointS for the tiddler
             if (flds.points) {
@@ -324,17 +358,36 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
         // get feature bounds for automatic zoom
 		extBounds(feature);
     }
-	
-	// adjust bounds to feature
-	function extBounds(feat) {
-		if (bounds) {
-            bounds.extend(feat.getBounds());
-        }
-        else {
-            if (feat.getBounds()) {
-				bounds = feat.getBounds();
-			}
+    // map a tiddler colletion
+    function mapTiddlers(obj,list) {
+		var Tids = list.split(" ");
+		for (var td in Tids) {
+			mapTiddler(obj,Tids[td]);
 		}
+	}
+
+	// coordinate error message
+    function displayError(objectType,error) {
+        $tw.utils.error("there is an error in a "+objectType+" : "+error);
+    }
+
+ 	// adjust bounds to feature
+	function extBounds(feat) {
+        try {
+            if (bounds) {
+                bounds.extend(feat.getBounds());
+            }
+            else {
+                if (feat.getBounds()._northEast) {
+                    console.log(feat.getBounds());
+                    bounds = feat.getBounds();
+                }
+            }
+        }
+        catch(err) {
+            $tw.utils.error("there was an error when zooming");
+        }
+        
 	}
 
     exports.leafmap = mapWidget;
