@@ -1,0 +1,13 @@
+created: 20151211173500000
+modified: 20151211173500000
+title: $:/plugins/sycom/leaflet/example/leaflet_with_filter
+
+!! a map of a filter
+this one displays all tiddlers tagged with <<tag example>> (there's a //all shadow// tweak, since they are shadowed)
+
+```
+<$leafmap tile='toner'
+	places='{"filter":"[all[shadows]tag[example]]"}'>
+```
+<$leafmap tile='toner'
+	places='{"filter":"[all[shadows]tag[example]]"}'>

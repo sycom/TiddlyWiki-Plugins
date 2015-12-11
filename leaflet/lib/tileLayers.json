@@ -28,7 +28,7 @@
         "nom": "Stamen Toner",
         "url": "http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png",
         "attrib": "tiles by <a href='http://stamen.com' target='_blank'>Stamen Design</a>, licence <a href='http://creativecommons.org/licenses/by/3.0' target='_blank'>CC BY 3.0</a>. contributors data <a href='http://openstreetmap.org' target='_blank'>OSM</a>, licence <a href='http://creativecommons.org/licenses/by-sa/3.0' target='_blank'>CC BY SA</a>.",
-        "zMin": 4,
+        "zMin": 0,
         "zMax": 16
     },
     {
@@ -36,7 +36,7 @@
         "nom": "Stamen watercolor",
         "url": "http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png",
         "attrib": "tiles by <a href='http://stamen.com' target='_blank'>Stamen Design</a>, licence <a href='http://creativecommons.org/licenses/by/3.0' target='_blank'>CC BY 3.0</a>. contributors data <a href='http://openstreetmap.org' target='_blank'>OSM</a>, licence <a href='http://creativecommons.org/licenses/by-sa/3.0' target='_blank'>CC BY SA</a>.",
-        "zMin": 1,
+        "zMin": 0,
         "zMax": 14
     },
 	{

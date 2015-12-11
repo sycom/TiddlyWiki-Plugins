@@ -156,7 +156,11 @@ console.log("leafmap (" + map + ") : display a tiddler : " + plcs.tiddler);
             if (plcs.tiddlers) {
 				mapTiddlers(this,plcs.tiddlers);
 			}
-            // case 3 : data are directly listed in places (point(s) - polygon - polyline)
+            // case 3 : data in tiddlers following a filter
+            if (plcs.filter) {
+                mapFilter(this,plcs.filter);                
+            }
+            // case 4 : data are directly listed in places (point(s) - polygon - polyline)
 			// for each we will
 			// - create a containing feature
 			// - use dedicated function to populate feature
@@ -365,6 +369,18 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
 			mapTiddler(obj,Tids[td]);
 		}
 	}
+    // map tiddlers with a filter
+    function mapFilter(obj,filter) {
+        try {
+            var Tids = obj.wiki.filterTiddlers(filter);
+            for (var td in Tids) {
+                mapTiddler(obj,Tids[td]);
+            }
+        }
+        catch(err) {
+             $tw.utils.error("sorry your filter is probably wrong");
+        }
+    }
 
 	// coordinate error message
     function displayError(objectType,error) {

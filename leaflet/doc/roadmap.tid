@@ -1,14 +1,17 @@
 created: 20151209173416000
-modified: 20151210173417000
+modified: 20151211173417000
 title: $:/plugins/sycom/leaflet/roadmap
 type: text/vnd.tiddlywiki
 
 Not really a roadmap just a list for future development ideas
 
-* map tiddlers with the same tag(s)
 * add a clustering functionality (at least for points)
 * add a tool to draw shapes, lines and collect coordinates. Until this, You may use [[Draw for TiddlyWiki leaflet plugin|http://sycom.github.io/TiddlyWiki-Plugins/leafletDraw.html]]
+* add geoJSON tiddlers
 * add color(s) and / or categories options
 * add text,title capabilities
 * try to put other types of pins (svg? icons?)
 * ...
+
+
+* ~~map tiddlers with the same tag(s)~~ ''0.5.0'' : added filter places request
