@@ -1,6 +1,7 @@
+point: 6.5,19.72
 created: 20151207090936935
-modified: 20151207092038568
-tags: leaflet example
+modified: 20151211172038568
+tags: example leaflet
 title: $:/plugins/sycom/leaflet/example/leaflet_with_non-tiddler_geo_data
 
 !! a map with data on the go
