@@ -1,10 +1,12 @@
 created: 20151110173416000
-modified: 20151121210000000
+modified: 20160313120000000
 title: $:/plugins/sycom/leaflet/devDiary
 type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20160314
+** corrected caption errors for example and roadmap. Have to write an install process in demo site (gh-page) since writing this in plugin is nonsense.
 * 20151124
 ** wondering the best way to release plugin code in gitlab (or github). Can't be a fork of TiddlyWiki. Don't want to lose .git history.
 ** ok I'm dumb. All is written in the dev TiddlyWiki : http://tiddlywiki.com/dev/#Developing%20p lugins%20using%20Node.js%20and%20GitHub . Lost .git history since cuting tree is bad. But history was still short...
