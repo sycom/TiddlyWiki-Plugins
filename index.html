@@ -119,6 +119,8 @@ Error message and password prompt
 
 <li>$:/config/NewJournal/Title</li>
 
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel</li>
+
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home</li>
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler</li>
@@ -140,6 +142,8 @@ Error message and password prompt
 <li>$:/SiteSubtitle</li>
 
 <li>$:/SiteTitle</li>
+
+<li>$:/state/plugin-info--270617185-$:/themes/tiddlywiki/vanilla</li>
 
 <li>$:/state/plugin-info--896887961-$:/plugins/sycom/leaflet</li>
 
@@ -169,6 +173,8 @@ Error message and password prompt
 
 <li>$:/temp/info-plugin</li>
 
+<li>$:/temp/search</li>
+
 <li>$:/theme</li>
 
 <li>$:/themes/tiddlywiki/vanilla</li>
@@ -186,6 +192,8 @@ Error message and password prompt
 <li>$:/view</li>
 
 <li>A plugin collection</li>
+
+<li>Install</li>
 
 <li>Leaflet plugin</li>
 
@@ -255,6 +263,10 @@ Error message and password prompt
 
 <li>Michel Strogoff II-9</li>
 
+<li>StyleTweak</li>
+
+<li>TiddlyWiki</li>
+
 </ul>
 </p>
 
@@ -267,6 +279,9 @@ Error message and password prompt
 <div id="storeArea" style="display:none;">
 <div created="20151129151105775" creator="Sylvain Comte" modified="20151129151110466" modifier="Sylvain Comte" title="$:/config/NewJournal/Title">
 <pre>YYYY MM DD</pre>
+</div>
+<div created="20160314092401380" creator="Sylvain Comte" modified="20160314092401380" modifier="Sylvain Comte" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel">
+<pre>hide</pre>
 </div>
 <div created="20151209104403396" creator="Sylvain Comte" modified="20151209104403396" modifier="Sylvain Comte" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
@@ -6314,42 +6329,7 @@ Error message and password prompt
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/plugins/sycom/leaflet/lib/tileLayers.json]]
-# [[A plugin collection]]
-# [[Leaflet plugin]]
-# [[Michel Strogoff from the sky]]
-# [[Michel Strogoff I-1]]
-# [[Michel Strogoff I-10]]
-# [[Michel Strogoff I-11]]
-# [[Michel Strogoff I-12]]
-# [[Michel Strogoff I-13]]
-# [[Michel Strogoff I-14]]
-# [[Michel Strogoff I-15]]
-# [[Michel Strogoff I-16]]
-# [[Michel Strogoff I-17]]
-# [[Michel Strogoff I-2]]
-# [[Michel Strogoff I-3]]
-# [[Michel Strogoff I-4]]
-# [[Michel Strogoff I-5]]
-# [[Michel Strogoff I-6]]
-# [[Michel Strogoff I-7]]
-# [[Michel Strogoff I-8]]
-# [[Michel Strogoff I-9]]
-# [[Michel Strogoff II-1]]
-# [[Michel Strogoff II-10]]
-# [[Michel Strogoff II-11]]
-# [[Michel Strogoff II-12]]
-# [[Michel Strogoff II-13]]
-# [[Michel Strogoff II-14]]
-# [[Michel Strogoff II-15]]
-# [[Michel Strogoff II-2]]
-# [[Michel Strogoff II-3]]
-# [[Michel Strogoff II-4]]
-# [[Michel Strogoff II-5]]
-# [[Michel Strogoff II-6]]
-# [[Michel Strogoff II-7]]
-# [[Michel Strogoff II-8]]
-# [[Michel Strogoff II-9]]</pre>
+# [[TiddlyWiki]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -6357,15 +6337,15 @@ Error message and password prompt
 <div created="20151208153531933" creator="Sylvain Comte" modified="20151209104211538" modifier="Sylvain Comte" title="$:/palette">
 <pre>$:/palettes/Vanilla</pre>
 </div>
-<div author="Sylvain Comte" core-version="&gt;=5.0.8" dependents="" description="Leaflet maps" list="readme usage geoSyntax tileLayers example" plugin-type="plugin" source="https://git.framasoft.org/sycom/TiddlyWikiPlugins/tree/master/plugins/sycom/leaflet" title="$:/plugins/sycom/leaflet" type="application/json" version="0.5.0">
+<div author="Sylvain Comte" core-version="&gt;=5.0.8" dependents="" description="Leaflet maps" list="readme usage geoSyntax tileLayers example" plugin-type="plugin" source="https://git.framasoft.org/sycom/TiddlyWikiPlugins/tree/master/plugins/sycom/leaflet" title="$:/plugins/sycom/leaflet" type="application/json" version="0.5.1">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/plugins/sycom/leaflet/devDiary&quot;: {
             &quot;created&quot;: &quot;20151110173416000&quot;,
-            &quot;modified&quot;: &quot;20151121210000000&quot;,
+            &quot;modified&quot;: &quot;20160313120000000&quot;,
             &quot;title&quot;: &quot;$:/plugins/sycom/leaflet/devDiary&quot;,
             &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
-            &quot;text&quot;: &quot;Some notes about coding this plugin. Might be useful to others...\n\n* 20151124\r\n** wondering the best way to release plugin code in gitlab (or github). Can't be a fork of TiddlyWiki. Don't want to lose .git history.\r\n** ok I'm dumb. All is written in the dev TiddlyWiki : http://tiddlywiki.com/dev/#Developing%20p lugins%20using%20Node.js%20and%20GitHub . Lost .git history since cuting tree is bad. But history was still short...\r\n* 20151123\r\n** not able to use directly tiddler stored images as css background.\r\n** decided to use base64 form in css. Not so elegant as I wished, but works.\r\n* 20151121\r\n** fighting with parameters : not imported from widget with `this.getAttribute()`\r\n** solved by adding the parameter computation before : `this.computeAttributes();` \r\n* 20151115\r\n** some problems to declare leaflet.js library : fail during build since there is no window, no document.\r\n** solved by creating the tiddlywiki.files importer.\r\n* 20151110\r\n** starting some tests. Inspiration from d3plugin (also creating widget and importing library)\r\n&quot;
+            &quot;text&quot;: &quot;Some notes about coding this plugin. Might be useful to others...\n\n* 20160314\r\n** corrected caption errors for example and roadmap. Have to write an install process in demo site (gh-page) since writing this in plugin is nonsense.\r\n* 20151124\r\n** wondering the best way to release plugin code in gitlab (or github). Can't be a fork of TiddlyWiki. Don't want to lose .git history.\r\n** ok I'm dumb. All is written in the dev TiddlyWiki : http://tiddlywiki.com/dev/#Developing%20p lugins%20using%20Node.js%20and%20GitHub . Lost .git history since cuting tree is bad. But history was still short...\r\n* 20151123\r\n** not able to use directly tiddler stored images as css background.\r\n** decided to use base64 form in css. Not so elegant as I wished, but works.\r\n* 20151121\r\n** fighting with parameters : not imported from widget with `this.getAttribute()`\r\n** solved by adding the parameter computation before : `this.computeAttributes();` \r\n* 20151115\r\n** some problems to declare leaflet.js library : fail during build since there is no window, no document.\r\n** solved by creating the tiddlywiki.files importer.\r\n* 20151110\r\n** starting some tests. Inspiration from d3plugin (also creating widget and importing library)\r\n&quot;
         },
         &quot;$:/plugins/sycom/leaflet/geoSyntax&quot;: {
             &quot;created&quot;: &quot;20151119173416239&quot;,
@@ -6387,6 +6367,7 @@ Error message and password prompt
             &quot;modified&quot;: &quot;20151211173417000&quot;,
             &quot;title&quot;: &quot;$:/plugins/sycom/leaflet/roadmap&quot;,
             &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;caption&quot;: &quot;roadmap&quot;,
             &quot;text&quot;: &quot;Not really a roadmap just a list for future development ideas\n\n* add a clustering functionality (at least for points)\r\n* add a tool to draw shapes, lines and collect coordinates. Until this, You may use [[Draw for TiddlyWiki leaflet plugin|http://sycom.github.io/TiddlyWiki-Plugins/leafletDraw.html]]\r\n* add geoJSON tiddlers\r\n* add color(s) and / or categories options\r\n* add text,title capabilities\r\n* try to put other types of pins (svg? icons?)\r\n* ...\n\n\r\n* ~~map tiddlers with the same tag(s)~~ ''0.5.0'' : added filter places request\r\n&quot;
         },
         &quot;$:/plugins/sycom/leaflet/tileLayers&quot;: {
@@ -6408,7 +6389,7 @@ Error message and password prompt
         &quot;$:/plugins/sycom/leaflet/example&quot;: {
             &quot;title&quot;: &quot;$:/plugins/sycom/leaflet/example&quot;,
             &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
-            &quot;Caption&quot;: &quot;Example&quot;,
+            &quot;caption&quot;: &quot;Example&quot;,
             &quot;text&quot;: &quot;Different ways to use the [[leaflet plugin|$:/plugins/sycom/leaflet]]\n\n{{$:/plugins/sycom/leaflet/example/leaflet_with_geotiddler}}\n\n{{$:/plugins/sycom/leaflet/example/leaflet_with_non-tiddler_geo_data}}\n\n{{$:/plugins/sycom/leaflet/example/leaflet_with_filter}}\r\n&quot;
         },
         &quot;$:/plugins/sycom/leaflet/example/leaflet_with_filter&quot;: {
@@ -6568,7 +6549,10 @@ Error message and password prompt
 <div created="20151127190300068" creator="Sylvain Comte" modified="20151208150226219" modifier="Sylvain Comte" title="$:/SiteTitle">
 <pre>sycom's TiddlyWiki plugin collection</pre>
 </div>
-<div created="20151128182209997" creator="Sylvain Comte" modified="20151211171643634" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/sycom/leaflet">
+<div created="20160314101727168" creator="Sylvain Comte" modified="20160314101727168" modifier="Sylvain Comte" title="$:/state/plugin-info--270617185-$:/themes/tiddlywiki/vanilla">
+<pre>yes</pre>
+</div>
+<div created="20151128182209997" creator="Sylvain Comte" modified="20160314092323427" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/sycom/leaflet">
 <pre>no</pre>
 </div>
 <div created="20151128182215181" creator="Sylvain Comte" modified="20151209104750651" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/sycom/leaflet---896887961">
@@ -6583,20 +6567,20 @@ Error message and password prompt
 <div created="20151129151134263" creator="Sylvain Comte" modified="20151209104218656" modifier="Sylvain Comte" title="$:/state/tab--1963855381">
 <pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
 </div>
-<div created="20151208145938952" creator="Sylvain Comte" modified="20151209103234593" modifier="Sylvain Comte" title="$:/state/tab--86143343">
-<pre>$:/core/ui/ControlPanel/Plugins/Installed/Plugins</pre>
+<div created="20151208145938952" creator="Sylvain Comte" modified="20160314101725489" modifier="Sylvain Comte" title="$:/state/tab--86143343">
+<pre>$:/core/ui/ControlPanel/Plugins/Installed/Themes</pre>
 </div>
 <div created="20151128182205530" creator="Sylvain Comte" modified="20151209104515766" modifier="Sylvain Comte" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Plugins</pre>
 </div>
-<div created="20151208143405352" creator="Sylvain Comte" modified="20151211171648155" modifier="Sylvain Comte" title="$:/state/tab-696880311">
-<pre>$:/plugins/sycom/leaflet/example</pre>
+<div created="20151208143405352" creator="Sylvain Comte" modified="20160314092439864" modifier="Sylvain Comte" title="$:/state/tab-696880311">
+<pre>$:/plugins/sycom/leaflet/roadmap</pre>
 </div>
 <div created="20151209081121286" creator="Sylvain Comte" modified="20151213092120527" modifier="Sylvain Comte" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/Tags</pre>
 </div>
-<div created="20151208142707494" creator="Sylvain Comte" modified="20151213094021395" modifier="Sylvain Comte" title="$:/state/tab/sidebar--1835078512">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20151208142707494" creator="Sylvain Comte" modified="20160314101716559" modifier="Sylvain Comte" title="$:/state/tab/sidebar--1835078512">
+<pre>$:/core/ui/SideBar/Tools</pre>
 </div>
 <div created="20151208144518215" creator="Sylvain Comte" modified="20151208145403131" modifier="Sylvain Comte" title="$:/state/tab1-696880311">
 <pre>$:/plugins/sycom/leaflet/usage</pre>
@@ -6604,7 +6588,7 @@ Error message and password prompt
 <div created="20151129151027223" creator="S" modified="20151129151036531" modifier="Sylvain Comt" title="$:/status/UserName">
 <pre>Sylvain Comte</pre>
 </div>
-<div list="[[A plugin collection]]" title="$:/StoryList">
+<div list="[[A plugin collection]] Install" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6620,6 +6604,9 @@ Error message and password prompt
         }
     }
 }</pre>
+</div>
+<div created="20160314101702733" creator="Sylvain Comte" modified="20160314101715715" modifier="Sylvain Comte" title="$:/temp/search">
+<pre></pre>
 </div>
 <div created="20151129151125348" creator="Sylvain Comte" modified="20151129151131697" modifier="Sylvain Comte" title="$:/theme">
 <pre>$:/themes/tiddlywiki/vanilla</pre>
@@ -6736,12 +6723,26 @@ Error message and password prompt
 <div created="20151208153521891" creator="Sylvain Comte" modified="20151208153528938" modifier="Sylvain Comte" title="$:/view">
 <pre>classic</pre>
 </div>
-<div created="20151127192625926" creator="Sylvain Comte" modified="20151213093615316" modifier="Sylvain Comte" title="A plugin collection">
-<pre>sycom's TiddlyWiki plugin collection has one item. Feel free to play with the only plugin I'm working on for now :
+<div created="20151127192625926" creator="Sylvain Comte" modified="20160314093821243" modifier="Sylvain Comte" title="A plugin collection">
+<pre>sycom's TiddlyWiki plugin collection has one item. Feel free to play with the only plugin I'm working on for now, just follow [[installation instructions|Install]] :
 
 * [[Leaflet plugin]] will embed leaflet maps in your tiddlywiki. You can see the [[Michel Strogoff from the sky]] example to see what can be done with it.
 
 &lt;$leafmap height='240px' tile='natgeo' places='{&quot;filter&quot;:&quot;[tag[Michel Strogoff from the sky]]&quot;}'&gt;</pre>
+</div>
+<div created="20160314092507285" creator="Sylvain Comte" modified="20160314102115725" modifier="Sylvain Comte" tags="" title="Install">
+<pre>Plugins install is pretty easy and heavily [[described on tiddlywiki official website|http://tiddlywiki.com/#Manually%20installing%20a%20plugin]]. shortly :
+
+* After backing up your wiki (always back up when making experiments)
+* Drag and drop following link from here to your own  wiki
+
+&lt;div style=&quot;text-align:center&quot;&gt;
+&lt;a class=&quot;tc-btn-big-green whiteLink&quot;&gt;
+[[Leaflet|$:/plugins/sycom/leaflet]]&lt;/a&gt;
+&lt;/div&gt;
+
+
+* Save your wiki and refresh...</pre>
 </div>
 <div created="20151129150449587" creator="Sylvain Comte" modified="20151213094210515" modifier="Sylvain Comte" tags="" title="Leaflet plugin">
 <pre>! About
@@ -6861,6 +6862,19 @@ Deux journalistes, Alcide Jolivet et Harry Blount, un Français et un Anglais, a
 </div>
 <div created="20151211213919398" creator="Sylvain Comte" modified="20151213093225164" modifier="Sylvain Comte" polyline="56.19448,96.63574 56.14555,97.13013 56.07204,97.53662 55.9492,97.94312 55.80746,98.28369 55.6528,98.52539 55.47263,98.73413 55.17259,99.00879 54.78802,99.37134 54.35496,99.70093 54.02713,99.94263 53.49458,100.39307 53.21919,100.70068 52.88239,101.05225 52.6364,101.53564 52.26143,102.43652 52.03222,103.0188 51.8222,103.5791 51.74744,103.94165" tags="[[Michel Strogoff from the sky]]" title="Michel Strogoff II-9">
 <pre>Ils avancent à travers la steppe, ''jusqu’au lac Baïkal''.</pre>
+</div>
+<div created="20160314101812576" creator="Sylvain Comte" modified="20160314101908164" modifier="Sylvain Comte" tags="$:/tags/Stylesheet" title="StyleTweak" type="text/css">
+<pre>.whiteLink a {color:white}</pre>
+</div>
+<div created="20130822170700000" modified="20150325222620093" tags="Concepts" title="TiddlyWiki" type="text/vnd.tiddlywiki">
+<pre>~TiddlyWiki is a rich, interactive tool for manipulating complex data with structure that doesn't easily fit into conventional tools like spreadsheets or wordprocessors.
+
+~TiddlyWiki is designed to fit around your brain, helping you deal with the things that won't fit. The [[fundamental idea|Philosophy of Tiddlers]] is that information is more useful and reusable if we cut it up into the smallest semantically meaningful chunks -- [[tiddlers|Tiddlers]] -- and give them titles so that they can be [[structured|Structuring TiddlyWiki]] with [[links|TiddlerLinks]], [[tags|Tagging]], [[lists|ListField]] and [[macros|Macros]].  Tiddlers use a WikiText notation that concisely represents a wide range of text formatting and hypertext features. ~TiddlyWiki aims to provide a fluid interface for working with tiddlers, allowing them to be aggregated and composed into longer narratives.
+
+People love using ~TiddlyWiki. Because it can be used without any complicated server infrastructure, and because it is [[open source|OpenSource]], it has bought unprecedented freedom to everyone to keep their precious information under their own control.
+
+~TiddlyWiki was originally created by JeremyRuston and is now a thriving open source project with a busy [[Community]] of independent developers.
+</pre>
 </div>
 
 </div>
