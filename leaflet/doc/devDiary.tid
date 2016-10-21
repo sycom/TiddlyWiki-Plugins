@@ -6,7 +6,7 @@ type: text/vnd.tiddlywiki
 Some notes about coding this plugin. Might be useful to others...
 
 * 20161021
-** updated leaflet.js to 1.0.1
+** updated leaflet.js to 1.0.1 moved base64 image to mapCss.css in order to avoid problems when updating leaflet. Updated tileLayer list. min/max set to 0/20 since I have to check this manually.
 * 20160314
 ** corrected caption errors for example and roadmap. Have to write an install process in demo site (gh-page) since writing this in plugin is nonsense.
 * 20151124

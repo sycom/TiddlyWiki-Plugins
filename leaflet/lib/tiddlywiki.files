@@ -16,7 +16,7 @@
 			}
 		},
 		{
-			"file": "img/layers.png",
+			"file": "./images/layers.png",
 			"fields": {
 				"type": "image/png",
 				"title": "$:/plugins/sycom/leaflet/lib/images/layers.png",
@@ -24,7 +24,7 @@
 			}
 		},
 		{
-			"file": "img/layers-2x.png",
+			"file": "./images/layers-2x.png",
 			"fields": {
 				"type": "image/png",
 				"title": "$:/plugins/sycom/leaflet/lib/images/layers-2x.png",
