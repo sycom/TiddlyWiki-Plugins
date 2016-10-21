@@ -72,7 +72,7 @@ Create the map for the widget
         // Install base tile layer (if none provided, default is "osm")
         // get tilelayers from JSON
         var fonds = JSON.parse(this.wiki.getTiddlerText("$:/plugins/sycom/leaflet/lib/tileLayers.json"));
-        // create tile layers list object from json list    
+        // create tile layers list object from json list
         var Tiles = []; // leaflet tile layers
         var tiles = {}; // tile identifier for control
         // look for tile parameter
@@ -91,6 +91,11 @@ Create the map for the widget
             Tiles[fonds[i].id] = couche;
             tiles[fonds[i].nom] = couche;
         }
+        // if user entered a wrong tile id
+        if(Tiles[setting.tile] == undefined) {
+            setting.tile = "osm";
+            $tw.utils.error("Seems you entered a wrong tile id, displayed osm instead. Please refer to plugin documentation to avoid this.");
+        }
         Tiles[setting.tile].addTo(Map[map]);
         // install tile layer control if needed
         setting.tileControl = this.getAttribute("tileControl");
@@ -98,7 +103,7 @@ Create the map for the widget
             var tControl = L.control.layers(tiles);
             tControl.addTo(Map[map]);
         }
-/* !todo to come next (will have to implement leaflet.draw extension)		
+/* !todo to come next (will have to implement leaflet.draw extension)
 		// look for draw parameter
 		setting.drawControl = this.getAttribute("drawControl");
 		if (setting.drawControl) {
@@ -142,7 +147,7 @@ Compute the internal state of the widget
             if (plcs.tiddler) {
 console.log("leafmap (" + map + ") : display a tiddler : " + plcs.tiddler);
                 // if no tiddler is given (single space) map current Tiddler
-// !todo would be much better if so when no attribute at all...                
+// !todo would be much better if so when no attribute at all...
                 if (plcs.tiddler==" ") {
                     mapTiddler(this,this.getVariable("currentTiddler"));
                 }
@@ -158,7 +163,7 @@ console.log("leafmap (" + map + ") : display a tiddler : " + plcs.tiddler);
 			}
             // case 3 : data in tiddlers following a filter
             if (plcs.filter) {
-                mapFilter(this,plcs.filter);                
+                mapFilter(this,plcs.filter);
             }
             // case 4 : data are directly listed in places (point(s) - polygon - polyline)
 			// for each we will
@@ -167,7 +172,7 @@ console.log("leafmap (" + map + ") : display a tiddler : " + plcs.tiddler);
 			// - add feature to map
 			// - adjust bounds to new object
             if (plcs.point) {
-console.log("leafmap (" + map + ") : display a point at : " + plcs.point);                
+console.log("leafmap (" + map + ") : display a point at : " + plcs.point);
                 // create a containing feature
                 var pointFeat = L.featureGroup();
                 // add the point to the feature
@@ -178,41 +183,41 @@ console.log("leafmap (" + map + ") : display a point at : " + plcs.point);
 				extBounds(pointFeat);
             }
 			if (plcs.points) {
-console.log("leafmap (" + map + ") : display a points serie at : " + plcs.points);                
+console.log("leafmap (" + map + ") : display a points serie at : " + plcs.points);
                 var pointsFeat = L.featureGroup();
                 mapPoints(plcs.points,pointsFeat);
 				pointsFeat.addTo(Map[map]);
 				extBounds(pointsFeat);
             }
 			if (plcs.polygon) {
-console.log("leafmap (" + map + ") : display a polygon at : " + plcs.polygon);                
+console.log("leafmap (" + map + ") : display a polygon at : " + plcs.polygon);
                 var polygFeat = L.featureGroup();
                 mapPolyg(plcs.polygone,polygFeat);
 				polygFeat.addTo(Map[map]);
 				extBounds(polygFeat);
             }
 			if (plcs.polygons) {
-console.log("leafmap (" + map + ") : display a polygons set at : " + plcs.polygons);                
+console.log("leafmap (" + map + ") : display a polygons set at : " + plcs.polygons);
                 var polygsFeat = L.featureGroup();
                 mapPolygs(plcs.polygons,polygsFeat);
 				polygsFeat.addTo(Map[map]);
 				extBounds(polygsFeat);
             }
 			if (plcs.polyline) {
-console.log("leafmap (" + map + ") : display a polyline at : " + plcs.polyline);                
+console.log("leafmap (" + map + ") : display a polyline at : " + plcs.polyline);
                 var polylFeat = L.featureGroup();
                 mapPolyl(plcs.polyline,polylFeat);
 				polylFeat.addTo(Map[map]);
 				extBounds(polylFeat);
             }
 			if (plcs.polylines) {
-console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polylines);                
+console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polylines);
                 var polylsFeat = L.featureGroup();
                 mapPolyls(plcs.polylines,polylsFeat);
 				polylsFeat.addTo(Map[map]);
 				extBounds(polylsFeat);
             }
-        }    
+        }
         // set map to objects bounds
         if (bounds) {
             Map[map].fitBounds(bounds);
@@ -225,7 +230,7 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
         setting.lat = this.getAttribute("lat");
         setting.lg = this.getAttribute("long");
         setting.zoom = this.getAttribute("zoom");
-        // overwrite lat and long center    
+        // overwrite lat and long center
         if (setting.lat && setting.long) {
             Map[map].setView([setting.lat, setting.lg]);
         }
@@ -241,7 +246,7 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
             var location = eval("[" + coord + "]");
         }
         catch(err) {
-            displayError("point",err);    
+            displayError("point",err);
         }
         try{
             var marker = L.marker(location, {
@@ -251,7 +256,7 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
         }
         catch(err) {
             displayError("point",err);
-        } 
+        }
     }
     // add a marker serie for a points list
     function mapPoints (list,feat) {
@@ -322,7 +327,7 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
         var flds = obj.wiki.getTiddler(tid).fields;
         // create the tiddler group
         var feature = L.featureGroup();
-        // 
+        //
 /*    !todo : detect if tiddler is JSON data in order to display them */
         if (flds.type == "application/json") {
         // have to detect strict geoJSON and other JSON with lat long data
@@ -403,11 +408,11 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
         catch(err) {
             $tw.utils.error("there was an error when zooming");
         }
-        
+
 	}
 
     exports.leafmap = mapWidget;
-        
+
 })();
 /*
 MISC NOTES for later

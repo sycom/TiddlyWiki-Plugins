@@ -1,10 +1,13 @@
 created: 20151110173416000
-modified: 20160313120000000
+modified: 20161021120000000
 title: $:/plugins/sycom/leaflet/devDiary
 type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20161021
+** updated leaflet.js to 1.0.1 moved base64 image to mapCss.css in order to avoid problems when updating leaflet.
+** Updated tileLayer list. min/max checked for this time. Detect if tile id is wrong to alert user and display osm instead.
 * 20160314
 ** corrected caption errors for example and roadmap. Have to write an install process in demo site (gh-page) since writing this in plugin is nonsense.
 * 20151124
@@ -15,7 +18,7 @@ Some notes about coding this plugin. Might be useful to others...
 ** decided to use base64 form in css. Not so elegant as I wished, but works.
 * 20151121
 ** fighting with parameters : not imported from widget with `this.getAttribute()`
-** solved by adding the parameter computation before : `this.computeAttributes();` 
+** solved by adding the parameter computation before : `this.computeAttributes();`
 * 20151115
 ** some problems to declare leaflet.js library : fail during build since there is no window, no document.
 ** solved by creating the tiddlywiki.files importer.
