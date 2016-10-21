@@ -2,8 +2,8 @@
     "title": "$:/plugins/sycom/leaflet",
     "description": "Leaflet maps",
     "author": "Sylvain Comte",
-    "version": "0.5.1",
-    "core-version": ">=5.0.8",
+    "version": "0.5.3",
+    "core-version": ">=5.0.0",
     "source": "https://git.framasoft.org/sycom/TiddlyWikiPlugins/tree/master/plugins/sycom/leaflet",
     "plugin-type": "plugin",
     "list": "readme usage geoSyntax tileLayers example"
