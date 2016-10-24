@@ -138,6 +138,7 @@ Compute the internal state of the widget
             shadowSize: [40, 20],
             shadowAnchor: [0, 20]
         });
+        L.icon.default = lfltIcon;
 		// Get the declared places from the attributes
         var places = this.getAttribute("places", undefined);
         if (places) {
@@ -145,8 +146,8 @@ Compute the internal state of the widget
             var plcs = JSON.parse(places);
             // case 1 : data in a tiddler
             if (plcs.tiddler) {
-console.log("leafmap (" + map + ") : display a tiddler : " + plcs.tiddler);
-                // if no tiddler is given (single space) map current Tiddler
+console.log("leafmap (" + map + ") > displays a tiddler : " + plcs.tiddler);
+            // if no tiddler is given (single space) map current Tiddler
 // !todo would be much better if so when no attribute at all...
                 if (plcs.tiddler==" ") {
                     mapTiddler(this,this.getVariable("currentTiddler"));
@@ -308,6 +309,7 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
         }
         try {
             var polyline = L.polyline(Line);
+            // add polyline class in order to make fill transparent
             polyline.setStyle({"className":"polyline"}).addTo(feat);
         }
         catch(err) {
@@ -321,6 +323,51 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
 			mapPolyl(Lines[ln],feat);
 		}
     }
+    // add a geojson set
+    function mapGeoJson (geojson,feat) {
+        try{
+            var geoJson = L.geoJSON(geojson, {
+                    // adding points
+                    pointToLayer: function(geoJsonPoint, latlng) {
+                        // binding default icon
+                        var jsonPoint = L.marker(latlng, {icon: lfltIcon});
+                        // extracting data to create popup (all non-null data!)
+                        var Prop=geoJsonPoint.properties,
+                            jsontitle="",
+                            jsonhtml="";
+                        // testing if properties title or name exists
+                        if (Prop["name"]) jsontitle += Prop["name"]+" ";
+                        if (Prop["title"]) jsontitle += Prop["title"]+" ";
+                        // populating other data
+                        // if we got a title
+                        if (jsontitle != "") {
+                            jsonhtml += "<h4>" + jsontitle + "</h4><ul>";
+                            for (var p in Prop) {
+                                if(Prop[p] !== null && Prop[p] !== "" && p !="name" && p !="title") jsonhtml += "<li>" + p + " : " + Prop[p] +"</li>";
+                                }
+                            jsonhtml += "</ul>";
+                            }
+                        // if we have no title, giving one with first fields
+                        else {
+                            for (var p in Prop) {
+                                // if title is really to short (as an id), taking next field
+                                if(jsontitle.length < 4) jsontitle += Prop[p]+" ";
+                                else {
+                                    if(Prop[p] !== null && Prop[p] !== "") jsonhtml += "<li>" + p + " : " + Prop[p] +"</li>";
+                                }
+                                jsonhtml = "<h4>" + jsontitle + "</h4><ul>" + jsonhtml + "</ul>";
+                                }
+                            }
+                        jsonPoint.bindPopup(jsonhtml);
+                        return jsonPoint.addTo(Map[map]);
+                }}
+            );
+            geoJson.addTo(feat);
+        }
+        catch(err) {
+            displayError("geoJson",err);
+        }
+    }
 
     function mapTiddler(obj,tid) {
         // get data fields in the tiddler, let's seek for geo data
@@ -328,9 +375,13 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
         // create the tiddler group
         var feature = L.featureGroup();
         //
-/*    !todo : detect if tiddler is JSON data in order to display them */
+/*    !todo : detect if tiddler is JSON data in order to display them
+        for now, assuming any json data is geoJson...
+        */
         if (flds.type == "application/json") {
         // have to detect strict geoJSON and other JSON with lat long data
+            var data = JSON.parse(obj.wiki.getTiddlerText(tid));
+            mapGeoJson(data,feature);
         // for second case give instruction about required fields and data to be rendered in popup
         }
         // if tiddler is not JSON data, display tiddler stored geodata as point(s), polygon, polyline...
@@ -359,11 +410,11 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
 			if (flds.polylines) {
                 mapPolyls(flds.polylines,feature);
             }
+            var html = "<h4><a href=\"#" + encodeURIComponent(flds.title) + "\">" + flds.title + "</a></h4>" + flds.text;
+            feature.bindPopup(html);
 		}
         // create popup with tiddler content
-        var html = "<h4><a href=\"#" + encodeURIComponent(flds.title) + "\">" + flds.title + "</a></h4>" + flds.text;
         feature.addTo(Map[map]);
-        feature.bindPopup(html);
         // get feature bounds for automatic zoom
 		extBounds(feature);
     }
@@ -406,7 +457,7 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
             }
         }
         catch(err) {
-            $tw.utils.error("there was an error when zooming");
+            $tw.utils.error("there was an error when trying to zoom on feature");
         }
 
 	}
