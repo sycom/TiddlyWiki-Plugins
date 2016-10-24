@@ -4,7 +4,7 @@
     "author": "Sylvain Comte",
     "version": "0.6.0",
     "core-version": ">=5.0.0",
-    "source": "https://git.framasoft.org/sycom/TiddlyWikiPlugins/tree/master/plugins/sycom/leaflet",
+    "source": "https://framagit.org/sycom/TiddlyWikiPlugins/tree/master/plugins/sycom/leaflet",
     "plugin-type": "plugin",
     "list": "readme usage geoSyntax tileLayers example"
 }

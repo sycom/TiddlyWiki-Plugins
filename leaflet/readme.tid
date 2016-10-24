@@ -5,6 +5,6 @@ type: text/vnd.tiddlywiki
 
 The [[leaflet plugin|$:/plugins/sycom/leaflet]] is a very early attempt to integrate the [[leaflet|http://leafletjs.com/]] library lib in TiddlyWiki in order to display geographical purpose tiddlers. ''Be careful, entering wrong coordinates may cause unwanted behaviour''.
 
-For now `<$leafmap>` widget displays an interactive map, select size, location and zoom, and background. You can also display data (also stored in tiddler fields) : point(s), polygon and/or polyline. Have a look at [[demo page on the web|http://sycom.github.io/TiddlyWiki-Plugins/#Leaflet%20plugin]] or at local [[usage|$:/plugins/sycom/leaflet/usage]] and [[example|$:/plugins/sycom/leaflet/example]] informations if you want to test. Keep in mind that the plugin is very young and might be buggy...
+For now `<$leafmap>` widget displays an interactive map, select size, location and zoom, and background. You can also display data  : geojson and (also stored in tiddler fields) point(s), polygon and/or polyline. Have a look at [[demo page on the web|http://sycom.github.io/TiddlyWiki-Plugins/#Leaflet%20plugin]] or at local [[usage|$:/plugins/sycom/leaflet/usage]] and [[example|$:/plugins/sycom/leaflet/example]] informations if you want to test. Keep in mind that the plugin is very young and might be buggy...
 
-Source code at [[https://git.framasoft.org/sycom/TiddlyWikiPlugins]] on framagit (gitlab instance) see `leaflet` branch for latest draft version.
+Source code at [[https://framagit.org/sycom/TiddlyWikiPlugins]] on framagit (gitlab instance) see `leaflet` branch for latest draft version.

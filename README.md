@@ -1,4 +1,6 @@
-﻿# TiddlyWiki Plugins
+*[Main repository][repo] is hosted by [Framasoft Gitlab instance][framgit]. You may find replicant, as on github, but they're mirrored... Please, [report bug and comment on framagit][issues]*
+
+# TiddlyWiki Plugins
 is a playing space for [TiddlyWiki][tiddlywiki] plugins. Try the demo on [gitlab.io pages][gl-pages] and [github.io pages][demo]. Feel free to drag drop the last release from those to your TiddlyWiki.
 
 ## Leaflet plugin - 0.6
@@ -20,6 +22,7 @@ See [demo online][demo] to learn more. Source code at [sycom/TiddlyWikiPlugins][
             * *gh-pages* > [github.io][demo]
 
 [repo]: https://framagit.org/sycom/TiddlyWikiPlugins
+[issues]: https://framagit.org/sycom/TiddlyWikiPlugins/issues
 [gitlab]: https://gitlab.com/sycom/TiddlyWikiPlugins
 [gl-pages]: http://sycom.gitlab.io/TiddlyWiki-Plugins/#Leaflet%20plugin
 [github]: https://gitlab.com/sycom/TiddlyWiki-Plugins
