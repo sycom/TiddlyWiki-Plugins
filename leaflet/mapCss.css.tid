@@ -3,6 +3,22 @@ tags: [[$:/tags/Stylesheet]]
 
 \rules only filteredtranscludeinline transcludeinline macrodef macrocallinline
 
+/* add some styling tweaks to leaflet */
+.leaflet-right {
+	max-width:50%
+}
+.leaflet-popup-content h6 {
+	font-size:.7rem;
+	margin:0 0 .2rem 0
+}
+
+.leaflet-control-attribution {
+	height:1.5em;
+}
+.leaflet-control-attribution:hover {
+	height:auto;
+}
+
 /* solve conflict between tw and leaflet */
 .leaflet-zoom-animated {max-width: initial !important}
 
@@ -15,5 +31,5 @@ tags: [[$:/tags/Stylesheet]]
    }
 
 /* default polygon colors */
-.leaflet-clickable {fill:<<colour primary>>;stroke:<<colour primary>>;stroke-width:1px}
+.leaflet-clickable, .leaflet-interactive {fill:<<colour primary>>;stroke:<<colour primary>>;stroke-width:1px}
 .polyline {fill:none;stroke-width:3px}

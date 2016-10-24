@@ -7,7 +7,7 @@ tags: example leaflet
 this one displays the tiddler [[placeTiddler|$:/plugins/sycom/leaflet/example/placeTiddler]]. Note the tileControl attribute that enables map background selection.
 
 ```
-<$leafmap 
+<$leafmap
 	tileControl
 	places='{"tiddler":"$:/plugins/sycom/leaflet/example/placeTiddler"}'>
 ```
