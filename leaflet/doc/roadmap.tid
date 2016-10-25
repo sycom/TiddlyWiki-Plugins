@@ -1,5 +1,5 @@
 created: 20151209173416000
-modified: 20161025160000000
+modified: 20161024160000000
 title: $:/plugins/sycom/leaflet/roadmap
 type: text/vnd.tiddlywiki
 caption: roadmap
@@ -9,7 +9,7 @@ Not really a roadmap just a list for future development ideas
 * add a clustering functionality (at least for points)
 * add a tool to draw shapes, lines and collect coordinates. Until this, You may use [[Draw for TiddlyWiki leaflet plugin|http://sycom.github.io/TiddlyWiki-Plugins/leafletDraw.html]]
 * add color(s) and / or categories options
-* add text,title capabilities
+* add text, title capabilities
 * try to put other types of pins (svg? icons?)
 * ...
 
