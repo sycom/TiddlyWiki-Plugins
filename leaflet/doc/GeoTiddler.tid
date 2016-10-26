@@ -1,12 +1,12 @@
 created: 20151130173416239
-modified: 20151207153450584
+modified: 20161025223450584
 title: GeoTiddler
 type: text/vnd.tiddlywiki
 
-[[GeoTiddler]]s are tiddlers containing geographical data. [[geoSyntax|$:/plugins/sycom/leaflet/geoSyntax]] lists the available objects.
+[[GeoTiddler]]s are tiddlers containing geographical data. [[geoSyntax|$:/plugins/sycom/leaflet/geoSyntax]] lists the available objects. [[geoJson|https://en.wikipedia.org/wiki/GeoJSON]] data are also accepted (but not as fields for now).
 
-!! tiddler with geo ''metadata''
-You can upgrade your tiddler by putting some geo metadata ([[wgs 84 coordinates|https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84]]) in it.
+!! tiddler with geo TiddlerFields
+You can upgrade your tiddler by putting some geo metadata ([[wgs 84 coordinates|https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84]]) in it's TiddlerFields. See [[geoSyntax|$:/plugins/sycom/leaflet/geoSyntax]] for the list of object types you can draw.
 
-!!! [[JSONTiddlers]] or geoJSON  tiddler
-Not yet implemented. You will define a full geoTiddler as a JSON one using geoJSON data or structured JSON.
+!! geoJSON  tiddler
+You can define a geoJson tiddler like [[tiddlyWikiFrCommunity|$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity]] and then display the data by calling it. Just put your geoJson data in the body and declare the tiddler as application/json. Any application/json tiddler called will be considered as geoJson.

@@ -1,5 +1,5 @@
 created: 20151207090936935
-modified: 20151207142038568
+modified: 20161025222038568
 title: $:/plugins/sycom/leaflet/example/leaflet_with_geotiddler
 tags: example leaflet
 
@@ -9,8 +9,20 @@ this one displays the tiddler [[placeTiddler|$:/plugins/sycom/leaflet/example/pl
 ```
 <$leafmap
 	tileControl
-	places='{"tiddler":"$:/plugins/sycom/leaflet/example/placeTiddler"}'>
+	places='{"tiddler":"$:/plugins/sycom/leaflet/example/placeTiddler"}'/>
 ```
 <$leafmap
 	tileControl
-	places='{"tiddler":"$:/plugins/sycom/leaflet/example/placeTiddler"}'>
+	places='{"tiddler":"$:/plugins/sycom/leaflet/example/placeTiddler"}'/>
+
+!! a map of a geoJson tiddler
+And this one displays [[tiddlyWikiFrCommunity|$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity]], which is a direct geojson data extraction from the umap [[Utilisateurs du forum TiddlyWiki FR|https://umap.openstreetmap.fr/fr/map/tiddlywikifr_65983#6/46.995/2.549]]. Notice that the marker cluster extension will now soon be mandatory ;-).
+
+```
+<$leafmap
+	tileControl
+	places='{"tiddler":"$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity"}'/>
+```
+<$leafmap
+	tileControl
+	places='{"tiddler":"$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity"}'/>

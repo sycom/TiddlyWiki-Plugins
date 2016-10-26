@@ -1,4 +1,4 @@
-*[Main repository][repo] is hosted by [Framasoft Gitlab instance][framgit]. You may find replicant, as on github, but they're mirrored... Please, [report bug and comment on framagit][issues]*
+﻿*[Main repository][repo] is hosted by [Framasoft Gitlab instance][framgit]. You may find replicant, as on github, but they're mirrored... Please, [report bug and comment on framagit][issues]*
 
 # TiddlyWiki Plugins
 is a playing space for [TiddlyWiki][tiddlywiki] plugins. Try the demo on [gitlab.io pages][gl-pages] and [github.io pages][demo]. Feel free to drag drop the last release from those to your TiddlyWiki.
@@ -10,16 +10,16 @@ For now you can display an interactive map, select size, location and zoom, and 
 
 See [demo online][demo] to learn more. Source code at [sycom/TiddlyWikiPlugins][repo] on framagit (gitlab instance) see `leaflet` branch for latest draft version.
 
-## Sources utilisées / licences
-* [TiddlyWiki][tiddlywiki] of course
-* [leaflet][leaflet] library
+## Sources / licenses
+* [TiddlyWiki][tiddlywiki] of course - [License][https://github.com/Jermolene/TiddlyWiki5/blob/master/license.md]
+* [leaflet][leaflet] library - License 2-clause BSD
 
 ## parcours
-* [framagit][repo]
+* **[framagit][repo]**
     * [gitlab][gitlab]
         * *gh-pages* > [gitlab.io page][gl-pages]
         * [github][github]
-            * *gh-pages* > [github.io page][demo]
+            * *gh-pages* > **[github.io page][demo]**
 
 [repo]: https://framagit.org/sycom/TiddlyWikiPlugins
 [issues]: https://framagit.org/sycom/TiddlyWikiPlugins/issues

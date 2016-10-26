@@ -7,7 +7,7 @@ this one displays all tiddlers tagged with <<tag example>> (there's a //all shad
 
 ```
 <$leafmap tile='toner'
-	places='{"filter":"[all[shadows]tag[example]]"}'>
+	places='{"filter":"[all[shadows]tag[example]]"}'/>
 ```
 <$leafmap tile='toner'
-	places='{"filter":"[all[shadows]tag[example]]"}'>
+	places='{"filter":"[all[shadows]tag[example]]"}'/>
