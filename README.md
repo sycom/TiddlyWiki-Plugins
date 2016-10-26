@@ -19,13 +19,13 @@ See [demo online][demo] to learn more. Source code at [sycom/TiddlyWikiPlugins][
     * [gitlab][gitlab]
         * *gh-pages* > [gitlab.io page][gl-pages]
         * [github][github]
-            * *gh-pages* > [github.io][demo]
+            * *gh-pages* > [github.io page][demo]
 
 [repo]: https://framagit.org/sycom/TiddlyWikiPlugins
 [issues]: https://framagit.org/sycom/TiddlyWikiPlugins/issues
 [gitlab]: https://gitlab.com/sycom/TiddlyWikiPlugins
 [gl-pages]: http://sycom.gitlab.io/TiddlyWiki-Plugins/#Leaflet%20plugin
-[github]: https://gitlab.com/sycom/TiddlyWiki-Plugins
+[github]: https://github.com/sycom/TiddlyWiki-Plugins
 [demo]: http://sycom.github.io/TiddlyWiki-Plugins/#Leaflet%20plugin
 
 [tiddlywiki]: http://tiddlywiki.com
