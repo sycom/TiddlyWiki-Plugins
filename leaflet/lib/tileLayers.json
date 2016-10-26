@@ -10,7 +10,7 @@
     {
         "id": "osmbw",
         "nom": "OSM N&B",
-        "url": "https://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png",
+        "url": "http://www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png",
         "attrib": "fond hébergé par wikimedia labs, données contributeurs <a href='http://openstreetmap.org'>OSM</a>, licence <a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY 3.0</a>.",
         "zMin": 1,
         "zMax": 20

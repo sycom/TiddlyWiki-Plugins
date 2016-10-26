@@ -12,8 +12,8 @@ very useful for fast mapping. All objects that might be embedded in GeoTiddler c
 
 ```
 <$leafmap tile='sat'
-	places='{"point":"6.5,19.72","polyline":"6.4,19.7 6.6,19.74"}'>
+	places='{"point":"6.5,19.72","polyline":"6.4,19.7 6.6,19.74"}'/>
 ```
 
 <$leafmap tile='sat'
-	places='{"point":"6.5,19.72","polyline":"6.4,19.7 6.6,19.74"}'>
+	places='{"point":"6.5,19.72","polyline":"6.4,19.7 6.6,19.74"}'/>

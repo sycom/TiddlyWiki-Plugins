@@ -1,11 +1,13 @@
 created: 20151110173416000
-modified: 20161025160000000
+modified: 20161025220000000
 title: $:/plugins/sycom/leaflet/devDiary
 type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
 * 20161025
+** after big fight, managed to call images as embeded through css without writing full base64 code. Had to add `html` to the "rules only" list at the beginning of the css code
+* 20161024
 ** geojson implemented. Will need to add cluster soon. Some question about geojson attributes to create the popup...
 * 20161021
 ** updated leaflet.js to 1.0.1 moved base64 image to mapCss.css in order to avoid problems when updating leaflet.
