@@ -10,16 +10,16 @@ For now you can display an interactive map, select size, location and zoom, and 
 
 See [demo online][demo] to learn more. Source code at [sycom/TiddlyWikiPlugins][repo] on framagit (gitlab instance) see `leaflet` branch for latest draft version.
 
-## Sources utilisées / licences
-* [TiddlyWiki][tiddlywiki] of course
-* [leaflet][leaflet] library
+## Sources / licenses
+* [TiddlyWiki][tiddlywiki] of course - [License][https://github.com/Jermolene/TiddlyWiki5/blob/master/license.md]
+* [leaflet][leaflet] library - License 2-clause BSD
 
 ## parcours
-* [framagit][repo]
+* **[framagit][repo]**
     * [gitlab][gitlab]
         * *gh-pages* > [gitlab.io page][gl-pages]
         * [github][github]
-            * *gh-pages* > [github.io][demo]
+            * *gh-pages* > **[github.io page][demo]**
 
 [repo]: https://framagit.org/sycom/TiddlyWikiPlugins
 [issues]: https://framagit.org/sycom/TiddlyWikiPlugins/issues
