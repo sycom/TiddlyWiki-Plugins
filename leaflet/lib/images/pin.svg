@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 744.09448819 1052.3622047"
+   width="80"
+   height="120"
+   viewBox="0 0 80.000003 120"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -25,12 +25,12 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="118.39953"
-     inkscape:cy="1016.908"
+     inkscape:zoom="4.952"
+     inkscape:cx="100.02971"
+     inkscape:cy="58.187984"
      inkscape:document-units="px"
      inkscape:current-layer="svg2"
-     showgrid="false"
+     showgrid="true"
      inkscape:window-width="1440"
      inkscape:window-height="787"
      inkscape:window-x="-8"
@@ -38,7 +38,26 @@
      inkscape:window-maximized="1"
      showguides="false"
      inkscape:snap-perpendicular="true"
-     inkscape:snap-tangential="true" />
+     inkscape:snap-tangential="true"
+     units="px"
+     objecttolerance="10000"
+     gridtolerance="10000"
+     guidetolerance="10000"
+     inkscape:snap-path-clip="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4163"
+       units="px"
+       spacingx="1"
+       spacingy="1"
+       empspacing="1"
+       originx="0"
+       originy="-875" />
+  </sodipodi:namedview>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -54,19 +73,21 @@
   <g
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
-     id="layer1" />
+     id="layer1"
+     transform="translate(0,-5)" />
   <g
-     fill-rule="evenodd"
-     id="g3341">
+     id="g3341"
+     style="fill-rule:evenodd"
+     transform="translate(0,-5)">
     <path
        class="tc-image-download-button-ring"
-       d="M 64.714286,127.28571 C 75.596224,64.071428 107.28571,66.131938 107.28571,39.357143 107.28571,12.582348 93.274795,0 64,0 34.725205,0 21.785714,15.082348 21.785714,39.357143 c 0,24.274795 31.68949,24.357146 42.928572,87.928567 z m 0.357143,-64.928567 c 14.723954,0 26.571428,-8.990332 26.214285,-23 C 90.928571,25.347475 83.188239,16 64,16 44.811761,16 37.785714,24.990332 37.785714,39.357143 c 0,14.366811 12.56176,23 27.285715,23 z"
+       d="M 40,124.99998 C 49.999998,65 80.000003,64.999944 80,39.999972 79.999997,15 64.999998,5 40,5 15.000002,5 0,15 0,39.999972 0,64.999944 29.999999,65 40,124.99998 Z M 40,65 C 54.999998,65 65.000002,49.999944 65,39.999972 64.999998,30 54.999998,20 40,20 25.000002,20 14.999999,30 15,39.999972 15.000001,49.999944 25.000002,65 40,65 Z"
        id="path3343"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="czzzczzzzz" />
   </g>
   <g
      id="g4149"
-     transform="matrix(0.57589286,0,0,0.57589286,27.142857,-1.8229184e-7)"
+     transform="matrix(0.57589286,0,0,0.57589286,27.142857,-57.362215)"
      style="fill-rule:evenodd" />
 </svg>

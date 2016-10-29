@@ -1,6 +1,0 @@
-created: 20161028202401905
-modified: 20161028204011600
-tags: $:/tags/Image
-title: pin.svg
-
-<svg class="tc-image-download-button tc-image-button" width="22pt" height="22pt" viewBox="0 0 128 128"><g fill-rule="evenodd"><path class="tc-image-download-button-ring" d="M 64,128 C 75.6,64 107,66 107,39.4 107.3,12.6 93.3,0 64,0 34.7,0 21.8,15 21.8,39.4 c 0,24.3 31.7,24.4 42.9,87.9 z m 0.4,-64.9 c 14.7,0 26.6,-9 26.2,-23 C 90.9,25.3 83.2,16 64,16 44.8,16 37.8,25 37.8,39.4 c 0,14.4 12.6,23 27.3,23 z"/></g></svg>
