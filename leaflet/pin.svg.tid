@@ -3,4 +3,8 @@ modified: 20161028204011600
 tags: $:/tags/Image
 title: pin.svg
 
-<svg class="" width="30px" height="45px" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g fill-rule="evenodd"><path class="" d="M 40,120 C 50,65 80,65 80,40 80,15 65,5 40,5 15,5 0,15 0,40 0,65 30,65 40,125 Z M 40,65 C 54.999998,65 65.000002,49.999944 65,39.999972 64.999998,30 54.999998,20 40,20 25.000002,20 14.999999,30 15,39.999972 15.000001,49.999944 25.000002,65 40,65 Z"/></g></svg>
+<svg class="" width="71px" height="86px" viewBox="0 0 71 86" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="#000" fill-rule="evenodd">
+    <path d="M35.25 30.25v55" fill="none"/>
+    <path d="M70.25 30.25c-26.01 30.903-43.992 39.73-70 0 0 0 2.014 12.48 2 15 2 16 13.67 30 33 30s31-13 33-30c-.008-2.542 2-15 2-15z" fill="#727272" fill-rule="evenodd" stroke-width=".5"/>
+    <path d="M70.25 30.25a35 30 0 0 1-35 30 35 30 0 0 1-35-30 35 30 0 0 1 35-30 35 30 0 0 1 35 30" fill="#e7e7e7" stroke-width=".5"/>
+</g></svg>

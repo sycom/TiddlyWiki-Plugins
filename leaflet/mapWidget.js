@@ -125,19 +125,19 @@ Compute the internal state of the widget
     mapWidget.prototype.execute = function() {
         var icone = escape(this.wiki.getTiddlerText("pin.svg"));
         var shadow = escape(this.wiki.getTiddlerText("pinshadow.svg"));
-        var base64icon = 'data:image/svg+xml;charset=UTF-8,'+icone;
-        var base64shadow = 'data:image/svg+xml;charset=UTF-8,'+shadow;
+        var iconUrl = 'data:image/svg+xml;charset=UTF-8,'+icone;
+        var shadowUrl = 'data:image/svg+xml;charset=UTF-8,'+shadow;
         // create icon !todo only if there are points to display;
         lfltIcon = L.icon({
-            iconUrl: base64icon,
-            iconRetinaUrl: base64icon,
-            iconSize: [30, 45],
-            iconAnchor: [15, 45],
-            popupAnchor: [0, -45],
-            shadowUrl: base64shadow,
-            shadowRetinaUrl: base64shadow,
-            shadowSize: [60, 45],
-            shadowAnchor: [15, 45]
+            iconUrl: iconUrl,
+            iconRetinaUrl: iconUrl,
+            iconSize: [30.5, 43],
+            iconAnchor: [15.25, 43],
+            popupAnchor: [0, -43],
+            shadowUrl: shadowUrl,
+            shadowRetinaUrl: shadowUrl,
+            shadowSize: [101, 45],
+            shadowAnchor: [15.25, 45]
         });
         L.icon.default = lfltIcon;
 		// Get the declared places from the attributes
