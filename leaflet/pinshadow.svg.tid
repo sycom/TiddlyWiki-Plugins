@@ -1,0 +1,6 @@
+created: 20161028202401905
+modified: 20161028204011600
+tags: $:/tags/Image
+title: pinshadow.svg
+
+<svg class="" width="60px" height="45px" viewBox="0 0 160 125" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><filter id="a" x="-.015" width="1.025" y="-.013" height="1.026" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="3"/></filter></defs><g fill-rule="evenodd" transform="matrix(1,0,-0.75,1,95,-5)" style="opacity:0.3"><path class="" d="M 40,125 C 50,65 80,65 80,40 80,15 65,5 40,5 15,5 0,15 0,40 0,65 30,65 40,125 Z M 40,65 C 55,65 65,50 65,40 65,30 55,20 40,20 25,20 15,30 15,40 15,50 25,65 40,65Z" filter="url(#a)"/></g></svg>
