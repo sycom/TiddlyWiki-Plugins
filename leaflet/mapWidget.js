@@ -123,21 +123,21 @@ Create the map for the widget
 Compute the internal state of the widget
 */
     mapWidget.prototype.execute = function() {
-        var icone = escape(this.wiki.getTiddlerText("pin.svg"));
-        var shadow = escape(this.wiki.getTiddlerText("pinshadow.svg"));
+        var icone = escape(this.wiki.getTiddlerText("$:/plugins/sycom/leaflet/images/marker.svg"));
+        var shadow = escape(this.wiki.getTiddlerText("$:/plugins/sycom/leaflet/images/markershadow.svg"));
         var iconUrl = 'data:image/svg+xml;charset=UTF-8,'+icone;
         var shadowUrl = 'data:image/svg+xml;charset=UTF-8,'+shadow;
         // create icon !todo only if there are points to display;
         lfltIcon = L.icon({
             iconUrl: iconUrl,
             iconRetinaUrl: iconUrl,
-            iconSize: [30.5, 43],
-            iconAnchor: [15.25, 43],
-            popupAnchor: [0, -43],
+            iconSize: [25, 40],
+            iconAnchor: [12.5, 40],
+            popupAnchor: [0, -40],
             shadowUrl: shadowUrl,
             shadowRetinaUrl: shadowUrl,
-            shadowSize: [101, 45],
-            shadowAnchor: [15.25, 45]
+            shadowSize: [50, 40],
+            shadowAnchor: [0, 40]
         });
         L.icon.default = lfltIcon;
 		// Get the declared places from the attributes
