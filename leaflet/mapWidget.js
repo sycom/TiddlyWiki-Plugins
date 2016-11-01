@@ -21,6 +21,7 @@ A widget for displaying leaflet map in TiddlyWiki
     // global vars
     var Map = [], // map collection
         map = 0, // map order number
+        clusterRadius = 40, // default cluster radius
         lfltDefBounds = [[52.75,-2.55],[52.85,-2.65]], // default bounds when nothing given
         lfltIcon, bounds, setting = {};
 
@@ -140,6 +141,28 @@ Compute the internal state of the widget
             shadowAnchor: [0, 40]
         });
         L.icon.default = lfltIcon;
+        // creating cluster
+        var fCluster = L.MarkerClusterGroup({
+            name: "Cluster"+map,
+            maxClusterRadius: function() {
+                return (clusterRadius - 50) / 9 * Map[map].getZoom() +
+                    50 - (clusterRadius - 50) / 9
+            },
+            iconCreateFunction: function(cluster) {
+                var cC = cluster.getChildCount();
+                var cS = Math.sqrt(cC) * Map[map].getZoom() * Map[map].getZoom() / 250 * clusterRadius;
+                if (cS < 25) cS = 25;
+                var cF = cS / 2;
+                if (cF < 12) cF = 12;
+                return new L.DivIcon({
+                    html: '<div style="width:' + cS + "px;height:" + cS + "px;font-size:" + cF + "px;background-color:hsla(270," + 2 * Math.sqrt(cC) * Map[map].getZoom() + '%,40%,0.5)"><div><span style="line-height:' + cS + 'px">' + cC + "</span></div></div>",
+                    className: "marker-cluster marker-cluster-" + cC,
+                    iconSize: new L.Point(cS,
+                        cS)
+                })
+            }
+        });
+        fCluster.name = "Cluster"+map;
 		// Get the declared places from the attributes
         var places = this.getAttribute("places", undefined);
         if (places) {
@@ -226,8 +249,9 @@ console.log("leafmap (" + map + ") : display a geojson data set : " + plcs.geojs
 				geojsonFeat.addTo(Map[map]);
 				extBounds(geojsonFeat);
             }
+        Map[map].addLayer(fCluster);
         }
-        // set map to objects bounds
+            // set map to objects bounds
         if (bounds) {
             Map[map].fitBounds(bounds);
         }
@@ -261,6 +285,7 @@ console.log("leafmap (" + map + ") : display a geojson data set : " + plcs.geojs
             var marker = L.marker(location, {
                 icon: lfltIcon
                 })
+            fCluster.addLayer(marker);
             marker.addTo(feat);
         }
         catch(err) {
