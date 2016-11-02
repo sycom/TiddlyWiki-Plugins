@@ -24,12 +24,9 @@ tags: [[$:/tags/Stylesheet]]
 
 /* solve background image problem for layer control */
 .leaflet-control-layers-toggle {
-	background-image: url('data:image/png;base64,<$text text={{$:/plugins/sycom/leaflet/lib/images/layers.png}}) />') !important;
-   }
-
-.leaflet-retina .leaflet-control-layers-toggle {
-    background-image: url('data:image/png;base64,<$text text={{$:/plugins/sycom/leaflet/lib/images/layers-2x.png}}) />') !important;
+	background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20height%3D%2226%22%20width%3D%2226%22%3E%3Cpath%20d%3D%22M.032%2017.056l13-8%2013%208-13%208-13-8%22%20fill%3D%22%23b9b9b9%22/%3E%3Cpath%20d%3D%22M.032%2017.056l-.032.93%2013%208%2013-8%20.032-.93-13%208z%22%20fill%3D%22%23737373%22/%3E%3Cpath%20d%3D%22M0%2013.076l13-8%2013%208-13%208-13-8%22%20fill%3D%22%23cdcdcd%22/%3E%3Cpath%20d%3D%22M0%2013.076v.91l13%208%2013-8v-.91l-13%208z%22%20fill%3D%22%23737373%22/%3E%3Cpath%20d%3D%22M0%208.986l13-8%2013%208-13%208-13-8%22%20fill-opacity%3D%22.585%22%20stroke%3D%22%23797979%22%20stroke-width%3D%22.1%22%20fill%3D%22%23e9e9e9%22/%3E%3Cpath%20d%3D%22M0%208.986v1l13%208%2013-8v-1l-13%208z%22%20fill%3D%22%23737373%22/%3E%3C/svg%3E') !important
 }
+
 /* default polygon colors */
 .leaflet-clickable, .leaflet-interactive {fill:<<colour primary>>;stroke:<<colour primary>>;stroke-width:1px}
 .polyline {fill:none;stroke-width:3px}

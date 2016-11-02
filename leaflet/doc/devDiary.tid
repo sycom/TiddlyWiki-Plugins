@@ -5,6 +5,8 @@ type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20161029
+** trying to put svg marker instead of png ones. Will be better for changing colors, content... using data:image/svg+xml. Svg has to bring xmlns and xmlns:xlink with it in order to work...
 * 20161025
 ** after big fight, managed to call images as embeded through css without writing full base64 code. Had to add `html` to the "rules only" list at the beginning of the css code
 * 20161024
