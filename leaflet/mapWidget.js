@@ -155,12 +155,12 @@ console.log("radius map : "+map+" / "+Map[map]);
 console.log("this : "+this+" / this.name : "+this.name);
                 var cC = cluster.getChildCount();
                 var m = this.name.split("Cluster")[1];
-                var cS = Math.sqrt(cC) / 25 * clusterRadius;
-                if (cS < 25) cS = 25;
+                var cS = Math.sqrt(cC) * clusterRadius;
+                if (cS < 40) cS = 40;
                 var cF = cS / 2;
                 if (cF < 12) cF = 12;
                 return new L.DivIcon({
-                    html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;background-color:hsla(270,50%,40%,0.5)"><div><span style="line-height:' + cS + 'px">' + cC + "</span></div></div>",
+                    html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;"><div><span style="line-height:' + cS + 'px">' + cC + "</span></div></div>",
                     className: "marker-cluster marker-cluster-" + cC,
                     iconSize: new L.Point(cS,cS)
                 })

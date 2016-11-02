@@ -1,10 +1,12 @@
 created: 20151110173416000
-modified: 20161025220000000
+modified: 20161102224000000
 title: $:/plugins/sycom/leaflet/devDiary
 type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20161102
+** ok, when importing some library, don't forget to use `require()` in order to conclude. Silly guy. Still some polishing needed, but clustering know works...
 * 20161101
 ** fighting with markercluster capabilities. At this point seems I can add the script but the MarkerClusterGroup class is not recognized when called...
 * 20161031
