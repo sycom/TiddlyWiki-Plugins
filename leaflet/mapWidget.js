@@ -218,6 +218,13 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
 				polylsFeat.addTo(Map[map]);
 				extBounds(polylsFeat);
             }
+            if (plcs.geojson) {
+console.log("leafmap (" + map + ") : display a geojson data set : " + plcs.geojson);
+                var geojsonFeat = L.featureGroup();
+                mapGeoJson(plcs.geojson,geojsonFeat);
+				geojsonFeat.addTo(Map[map]);
+				extBounds(geojsonFeat);
+            }
         }
         // set map to objects bounds
         if (bounds) {
@@ -326,7 +333,8 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
     // add a geojson set
     function mapGeoJson (geojson,feat) {
         try{
-            var geoJson = L.geoJSON(geojson, {
+            var data = JSON.parse(geojson);
+            var geoJson = L.geoJSON(data, {
                     // adding points
                     pointToLayer: function(geoJsonPoint, latlng) {
                         // binding default icon
@@ -380,7 +388,7 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
         */
         if (flds.type == "application/json") {
         // have to detect strict geoJSON and other JSON with lat long data
-            var data = JSON.parse(obj.wiki.getTiddlerText(tid));
+            var data = obj.wiki.getTiddlerText(tid);
             mapGeoJson(data,feature);
         // for second case give instruction about required fields and data to be rendered in popup
         }
@@ -410,8 +418,13 @@ console.log("leafmap (" + map + ") : display a polylines set at : " + plcs.polyl
 			if (flds.polylines) {
                 mapPolyls(flds.polylines,feature);
             }
+            if (flds.geojson) {
+console.log("tiddler contains geojson data : "+flds.geojson);
+                mapGeoJson(flds.geojson,feature);
+            }
             var html = "<h4><a href=\"#" + encodeURIComponent(flds.title) + "\">" + flds.title + "</a></h4>" + flds.text;
-            feature.bindPopup(html);
+            // avoid popup for geojson geometry since they could have their own data
+            if(!flds.geojson) feature.bindPopup(html);
 		}
         // create popup with tiddler content
         feature.addTo(Map[map]);
