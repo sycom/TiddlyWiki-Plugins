@@ -12,7 +12,8 @@ A widget for displaying leaflet map in TiddlyWiki
     /*global $tw: false */
     "use strict";
     var Widget = require("$:/core/modules/widgets/widget.js").widget,
-        L = require("$:/plugins/sycom/leaflet/lib/leaflet.js");
+        L = require("$:/plugins/sycom/leaflet/lib/leaflet.js"),
+        markerClusterGroup = require("$:/plugins/sycom/leaflet/lib/leaflet-markercluster.js");
 
     var mapWidget = function(parseTreeNode, options) {
         this.initialise(parseTreeNode, options);
@@ -21,6 +22,8 @@ A widget for displaying leaflet map in TiddlyWiki
     // global vars
     var Map = [], // map collection
         map = 0, // map order number
+        fCluster = [], // the clusters
+        clusterRadius = 40, // default cluster radius
         lfltDefBounds = [[52.75,-2.55],[52.85,-2.65]], // default bounds when nothing given
         lfltIcon, bounds, setting = {};
 
@@ -140,6 +143,30 @@ Compute the internal state of the widget
             shadowAnchor: [0, 40]
         });
         L.icon.default = lfltIcon;
+        // creating cluster
+        fCluster[map] = L.markerClusterGroup({
+            name: "Cluster"+map,
+            maxClusterRadius: function() {
+console.log("radius map : "+map+" / "+Map[map]);
+                return (clusterRadius - 50) / 9 * Map[map].getZoom() +
+                    50 - (clusterRadius - 50) / 9
+            },
+            iconCreateFunction: function(cluster) {
+console.log("this : "+this+" / this.name : "+this.name);
+                var cC = cluster.getChildCount();
+                var m = this.name.split("Cluster")[1];
+                var cS = Math.sqrt(cC) * clusterRadius;
+                if (cS < 40) cS = 40;
+                var cF = cS / 2;
+                if (cF < 12) cF = 12;
+                return new L.DivIcon({
+                    html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;"><div><span style="line-height:' + cS + 'px">' + cC + "</span></div></div>",
+                    className: "marker-cluster marker-cluster-" + cC,
+                    iconSize: new L.Point(cS,cS)
+                })
+            }
+        });
+        fCluster[map].name = "Cluster"+map;
 		// Get the declared places from the attributes
         var places = this.getAttribute("places", undefined);
         if (places) {
@@ -175,21 +202,19 @@ console.log("leafmap (" + map + ") > displays a tiddler : " + plcs.tiddler);
 			// - adjust bounds to new object
             if (plcs.point) {
 console.log("leafmap (" + map + ") : display a point at : " + plcs.point);
-                // create a containing feature
-                var pointFeat = L.featureGroup();
-                // add the point to the feature
-                mapPoint(plcs.point,pointFeat);
-				// add the feature to map
-				pointFeat.addTo(Map[map]);
+                // add the point to the cluster feature
+                mapPoint(plcs.point,fCluster[map]);
+				// add the cluster feature to map
+				Map[map].addLayer(fCluster[map]);
 				// set bounds
-				extBounds(pointFeat);
+				extBounds(fCluster[map]);
             }
 			if (plcs.points) {
 console.log("leafmap (" + map + ") : display a points serie at : " + plcs.points);
-                var pointsFeat = L.featureGroup();
-                mapPoints(plcs.points,pointsFeat);
-				pointsFeat.addTo(Map[map]);
-				extBounds(pointsFeat);
+
+                mapPoints(plcs.points,fCluster[map]);
+				Map[map].addLayer(fCluster[map]);
+				extBounds(fCluster[map]);
             }
 			if (plcs.polygon) {
 console.log("leafmap (" + map + ") : display a polygon at : " + plcs.polygon);
@@ -227,7 +252,7 @@ console.log("leafmap (" + map + ") : display a geojson data set : " + plcs.geojs
 				extBounds(geojsonFeat);
             }
         }
-        // set map to objects bounds
+            // set map to objects bounds
         if (bounds) {
             Map[map].fitBounds(bounds);
         }
@@ -250,7 +275,7 @@ console.log("leafmap (" + map + ") : display a geojson data set : " + plcs.geojs
     };
 
     // add a marker for a point
-    function mapPoint (coord,feat) {
+    function mapPoint (coord,cluster) {
         try {
             var location = eval("[" + coord + "]");
         }
@@ -261,17 +286,17 @@ console.log("leafmap (" + map + ") : display a geojson data set : " + plcs.geojs
             var marker = L.marker(location, {
                 icon: lfltIcon
                 })
-            marker.addTo(feat);
+            cluster.addLayer(marker);
         }
         catch(err) {
             displayError("point",err);
         }
     }
     // add a marker serie for a points list
-    function mapPoints (list,feat) {
+    function mapPoints (list,cluster) {
         var Points = list.split(" ");
         for (var pt in Points) {
-            mapPoint(Points[pt],feat);
+            mapPoint(Points[pt],cluster);
         }
     }
     // add a polygon
@@ -340,6 +365,7 @@ console.log("leafmap (" + map + ") : display a geojson data set : " + plcs.geojs
                     pointToLayer: function(geoJsonPoint, latlng) {
                         // binding default icon
                         var jsonPoint = L.marker(latlng, {icon: lfltIcon});
+                        fCluster[map].addLayer(jsonPoint);
                         // extracting data to create popup (all non-null data!)
                         var Prop=geoJsonPoint.properties,
                             jsontitle="",
@@ -368,9 +394,10 @@ console.log("leafmap (" + map + ") : display a geojson data set : " + plcs.geojs
                                 }
                             }
                         jsonPoint.bindPopup(jsonhtml);
-                        return jsonPoint.addTo(Map[map]);
-                }}
+                     }
+                  }
             );
+            feat.addLayer(fCluster[map]);
             geoJson.addTo(feat);
         }
         catch(err) {
@@ -397,11 +424,13 @@ console.log("leafmap (" + map + ") : display a geojson data set : " + plcs.geojs
         else {
             // render a unique point for the tiddler (with tiddler text in the popup)
             if (flds.point) {
-                mapPoint(flds.point,feature);
+               mapPoint(flds.point,fCluster[map]);
+               feature.addLayer(fCluster[map]);
             }
             // render a space separated list of pointS for the tiddler
             if (flds.points) {
-                mapPoints(flds.points,feature);
+                mapPoints(flds.points,fCluster[map]);
+                feature.addLayer(fCluster[map]);
             }
             // render a polygon
             if (flds.polygon) {

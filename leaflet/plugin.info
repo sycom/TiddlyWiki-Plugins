@@ -2,7 +2,7 @@
     "title": "$:/plugins/sycom/leaflet",
     "description": "Leaflet maps",
     "author": "Sylvain Comte",
-    "version": "0.6.3",
+    "version": "0.7.0",
     "core-version": ">=5.0.0",
     "source": "https://framagit.org/sycom/TiddlyWikiPlugins/tree/master/plugins/sycom/leaflet",
     "plugin-type": "plugin",

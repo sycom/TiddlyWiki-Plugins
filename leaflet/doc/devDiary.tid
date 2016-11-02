@@ -1,12 +1,20 @@
 created: 20151110173416000
-modified: 20161025220000000
+modified: 20161102224000000
 title: $:/plugins/sycom/leaflet/devDiary
 type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20161102
+** ok, when importing some library, don't forget to use `require()` in order to conclude. Silly guy. Still some polishing needed, but clustering know works...
+* 20161101
+** fighting with markercluster capabilities. At this point seems I can add the script but the MarkerClusterGroup class is not recognized when called...
+* 20161031
+** gave up inserting external layers.svg in stylesheet. Issues with `<$text />` and `{{ }}`... Created svg in a separate tiddler for the record but inserting directly an "escaped" version in [[mapCss.css|$:/plugins/sycom/leaflet/mapCssTweaks.css.tid]]
+* 20161030
+** working on different markers. Not so good at designing them though ;-) Putted default leaflet svg marker. Using Inkscape to edit svg easily and SVGO extension in atom to compress them. First attempt to put layers icon as svg. Issues...
 * 20161029
-** trying to put svg marker instead of png ones. Will be better for changing colors, content... using data:image/svg+xml. Svg has to bring xmlns and xmlns:xlink with it in order to work...
+** trying to put svg marker instead of png ones. Will be better for changing colors, content... using data:image/svg+xml. Svg has to bring xmlns ~~and xmlns:xlink~~ with it in order to work...
 * 20161025
 ** after big fight, managed to call images as embeded through css without writing full base64 code. Had to add `html` to the "rules only" list at the beginning of the css code
 * 20161024

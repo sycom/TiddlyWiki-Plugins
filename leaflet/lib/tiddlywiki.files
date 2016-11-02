@@ -15,20 +15,12 @@
                 "tags": "$:/tags/Stylesheet"
 			}
 		},
-		{
-			"file": "./images/layers.png",
+        {
+			"file": "leaflet-markercluster.css",
 			"fields": {
-				"type": "image/png",
-				"title": "$:/plugins/sycom/leaflet/lib/images/layers.png",
-                "tags": "$:/tags/Image"
-			}
-		},
-		{
-			"file": "./images/layers-2x.png",
-			"fields": {
-				"type": "image/png",
-				"title": "$:/plugins/sycom/leaflet/lib/images/layers-2x.png",
-                "tags": "$:/tags/Image"
+				"type": "text/css",
+				"title": "$:/plugins/sycom/leaflet/lib/leaflet-markercluster.css",
+                "tags": "$:/tags/Stylesheet"
 			}
 		},
 		{
@@ -40,6 +32,16 @@
 			},
 			"prefix": "var L;if($tw.browser){\n",
 			"suffix": "}\nexports.L = L;\n"
+		},
+        {
+			"file": "leaflet-markercluster.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/sycom/leaflet/lib/leaflet-markercluster.js",
+				"module-type": "library"
+			},
+			"prefix": "if($tw.browser){\n",
+			"suffix": "}\n"
 		}
 	]
 }
