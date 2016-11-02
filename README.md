@@ -3,16 +3,17 @@
 # TiddlyWiki Plugins
 is a playing space for [TiddlyWiki][tiddlywiki] plugins. Try the demo on [gitlab.io pages][gl-pages] and [github.io pages][demo]. Feel free to drag drop the last release from those to your TiddlyWiki.
 
-## Leaflet plugin - 0.6
-The leaflet plugin is a very early attempt to integrate the [leaflet][leaflet] lib in TiddlyWiki in order to display geographical purpose tiddler.
+## Leaflet plugin - 0.7
+The leaflet plugin is an attempt to integrate the [leaflet][leaflet] lib in TiddlyWiki in order to display geographical purpose tiddler.
 
-For now you can display an interactive map, select size, location and zoom, and background. You can also display simple geographical data, stored as json or even stored in metadata fields from tiddler(s) : point(s), polygon(s) and/or polyline(s).
+For now you can display an interactive map, select size, location and zoom, and background. You can also display simple geographical data, stored as json or even stored in metadata fields from tiddler(s) : point(s), polygon(s) and/or polyline(s). Points are clustered when needed.
 
 See [demo online][demo] to learn more. Source code at [sycom/TiddlyWikiPlugins][repo] on framagit (gitlab instance) see `leaflet` branch for latest draft version.
 
 ## Sources / licenses
 * [TiddlyWiki][tiddlywiki] of course - [License][https://github.com/Jermolene/TiddlyWiki5/blob/master/license.md]
 * [leaflet][leaflet] library - License 2-clause BSD
+    * leaflet-[markerCluster][markerCluster] extension - Licence MIT
 
 ## parcours
 * **[framagit][repo]**
