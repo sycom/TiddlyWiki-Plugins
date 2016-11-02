@@ -39,7 +39,9 @@
 				"type": "application/javascript",
 				"title": "$:/plugins/sycom/leaflet/lib/leaflet-markercluster.js",
 				"module-type": "library"
-			}
+			},
+			"prefix": "if($tw.browser){\n",
+			"suffix": "}\n"
 		}
 	]
 }
