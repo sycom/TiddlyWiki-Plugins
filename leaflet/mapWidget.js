@@ -23,7 +23,7 @@ A widget for displaying leaflet map in TiddlyWiki
     var Map = [], // map collection
         map = 0, // map order number
         fCluster = [], // the clusters
-        clusterRadius = 40, // default cluster radius
+        clusterRadius = 50, // default cluster radius
         lfltDefBounds = [[52.75,-2.55],[52.85,-2.65]], // default bounds when nothing given
         lfltIcon, bounds, setting = {};
 
@@ -147,15 +147,15 @@ Compute the internal state of the widget
         fCluster[map] = L.markerClusterGroup({
             name: "Cluster"+map,
             maxClusterRadius: function() {
-console.log("radius map : "+map+" / "+Map[map]);
                 return (clusterRadius - 50) / 9 * Map[map].getZoom() +
                     50 - (clusterRadius - 50) / 9
             },
             iconCreateFunction: function(cluster) {
-console.log("this : "+this+" / this.name : "+this.name);
+                // cluster icon size will be based on item number and zoom
                 var cC = cluster.getChildCount();
                 var m = this.name.split("Cluster")[1];
-                var cS = Math.sqrt(cC) * clusterRadius;
+                var cS = Math.sqrt(cC * Map[m].getZoom() * clusterRadius) * 1.5;
+                console.log("cS : "+cS)
                 if (cS < 40) cS = 40;
                 var cF = cS / 2;
                 if (cF < 12) cF = 12;

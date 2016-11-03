@@ -37,3 +37,5 @@ tags: [[$:/tags/Stylesheet]]
 .marker-cluster div div{margin:1.5px auto;border:.5px dotted <<colour secondary>>;background-color:<<colour primary>>;opacity:0.5}
 .marker-cluster div div span{vertical-align:top;margin:1.5px 0 0 -.5px}
 path.leaflet-clickable{fill:<<colour primary>>;fill-opacity: 0.5;stroke:<<colour primary>>;stroke-width:0.2}
+
+.leaflet-marker-colored {fill:<<colour primary>>}
