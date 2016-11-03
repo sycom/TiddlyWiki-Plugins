@@ -30,6 +30,7 @@ tags: [[$:/tags/Stylesheet]]
 /* default polygon colors */
 .leaflet-clickable, .leaflet-interactive {fill:<<colour primary>>;stroke:<<colour primary>>;stroke-width:1px}
 .polyline {fill:none;stroke-width:3px}
+.leaflet-popup-content ul {padding:0 1em}
 
 /* some styling for clusters */
 .marker-cluster div{border-radius:50%;border:none;vertical-align:middle;text-align:center;font-weight: bold;min-width:16px;min-height:16px}
