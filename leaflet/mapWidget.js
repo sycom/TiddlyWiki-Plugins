@@ -107,21 +107,21 @@ Create the map for the widget
             tControl.addTo(Map[map]);
         }
         /* !todo to come next (will have to implement leaflet.draw extension)
-        		// look for draw parameter
-        		setting.drawControl = this.getAttribute("drawControl");
-        		if (setting.drawControl) {
-        			// Initialize the FeatureGroup to store editable layers
-        			var drawnItems = new L.FeatureGroup();
-        			Map[map].addLayer(drawnItems);
-        			// Initialize the draw control and pass it the FeatureGroup of editable layers
-        			var drawControl = new L.Control.Draw({
-        				edit: {
-        					featureGroup: drawnItems
-        					}
-        				}
-        			);
-        		Map[map].addControl(drawControl);
-        		}
+              // look for draw parameter
+              setting.drawControl = this.getAttribute("drawControl");
+              if (setting.drawControl) {
+                 // Initialize the FeatureGroup to store editable layers
+                 var drawnItems = new L.FeatureGroup();
+                 Map[map].addLayer(drawnItems);
+                 // Initialize the draw control and pass it the FeatureGroup of editable layers
+                 var drawControl = new L.Control.Draw({
+                    edit: {
+                       featureGroup: drawnItems
+                       }
+                    }
+                 );
+              Map[map].addControl(drawControl);
+              }
         */
     };
 
@@ -129,7 +129,10 @@ Create the map for the widget
 Compute the internal state of the widget
 */
     mapWidget.prototype.execute = function() {
-        var icone = escape(this.wiki.getTiddlerText("$:/plugins/sycom/leaflet/images/marker.svg"));
+   var colourPalette=this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette"));
+   console.log(colourPalette);
+   //console.log(colour.primary);
+        var icone = escape(this.wiki.getTiddlerText("$:/plugins/sycom/leaflet/images/marker.svg").replace("<<colour ",""));
         var shadow = escape(this.wiki.getTiddlerText("$:/plugins/sycom/leaflet/images/markershadow.svg"));
         var iconUrl = 'data:image/svg+xml;charset=UTF-8,' + icone;
         var shadowUrl = 'data:image/svg+xml;charset=UTF-8,' + shadow;
@@ -157,7 +160,6 @@ Compute the internal state of the widget
                 var cC = cluster.getChildCount();
                 var m = this.name.split("Cluster")[1];
                 var cS = Math.sqrt(cC * Map[m].getZoom() * clusterRadius) * 1.15;
-console.log("cS : " + cS)
                 if (cS < 38) cS = 38;
                 var cF = cS / 2;
                 if (cF < 14) cF = 14;
@@ -203,58 +205,45 @@ console.log("cS : " + cS)
             // - use dedicated function to populate layer
             // - add layer to map
             // - adjust bounds to new object
+            var feature = L.featureGroup();
             if (plcs.point) {
-                var feature = L.featureGroup();
                 // add the point to the cluster layer
                 mapPoint(plcs.point, fCluster[map]);
                 // add the cluster layer to map
                 feature.addLayer(fCluster[map]);
                 // set bounds
-
             }
             if (plcs.points) {
-                var feature = L.featureGroup();
                 mapPoints(plcs.points, fCluster[map]);
                 feature.addLayer(fCluster[map]);
-
             }
             if (plcs.polygon) {
-                var feature = L.featureGroup();
-                var polygFeat = L.layerGroup();
+                var polygFeat = L.featureGroup();
                 mapPolyg(plcs.polygone, polygFeat);
                 polygFeat.addTo(feature);
-
             }
             if (plcs.polygons) {
-                var feature = L.featureGroup();
-                var polygsFeat = L.layerGroup();
+                var polygsFeat = L.featureGroup();
                 mapPolygs(plcs.polygons, polygsFeat);
                 polygsFeat.addTo(feature);
-
             }
             if (plcs.polyline) {
-                var feature = L.featureGroup();
-                var polylFeat = L.layerGroup();
+                var polylFeat = L.featureGroup();
                 mapPolyl(plcs.polyline, polylFeat);
                 polylFeat.addTo(feature);
-
             }
             if (plcs.polylines) {
-                var feature = L.featureGroup();
-                var polylsFeat = L.layerGroup();
+                var polylsFeat = L.featureGroup();
                 mapPolyls(plcs.polylines, polylsFeat);
                 polylsFeat.addTo(feature);
-
             }
             if (plcs.geojson) {
-                var feature = L.featureGroup();
-                var geojsonFeat = L.layerGroup();
+                var geojsonFeat = L.featureGroup();
                 mapGeoJson(plcs.geojson, geojsonFeat);
-                geojsonFeat.addTo(feature);
-
+                geojsonFeat.addTo(Map[map]);
             }
         // add feature to map
-        Map[map].addLayer(feature);
+        feature.addTo(Map[map]);
         extBounds(feature);
         }
         // set map to objects bounds
@@ -279,7 +268,7 @@ console.log("cS : " + cS)
     };
 
     // add a marker for a point
-    function mapPoint(coord, cluster) {
+    function mapPoint(coord, cluster, pop) {
         try {
             var location = eval("[" + coord + "]");
         } catch (err) {
@@ -289,20 +278,21 @@ console.log("cS : " + cS)
             var marker = L.marker(location, {
                 icon: lfltIcon
             })
-            cluster.addLayer(marker);
+            if(pop) marker.bindPopup(pop);
+            cluster.addLayer(marker)
         } catch (err) {
             displayError("point", err);
         }
     }
     // add a marker serie for a points list
-    function mapPoints(list, cluster) {
+    function mapPoints(list, cluster, pop) {
         var Points = list.split(" ");
         for (var pt in Points) {
-            mapPoint(Points[pt], cluster);
+            mapPoint(Points[pt], cluster, pop)
         }
     }
     // add a polygon
-    function mapPolyg(list, feat) {
+    function mapPolyg(list, feat, pop) {
         var Coords = list.split(" ");
         var Shape = [];
         try {
@@ -315,20 +305,21 @@ console.log("cS : " + cS)
         }
         try {
             var polygon = L.polygon(Shape);
+            if(pop) polygon.bindPopup(pop);
             polygon.addTo(feat);
         } catch (err) {
             displayError("polygone", err);
         }
     }
     // add a polygons collection
-    function mapPolygs(collec, feat) {
+    function mapPolygs(collec, feat, pop) {
         var Polys = collec.split("|");
         for (var pg in Polys) {
-            mapPolyg(Polys[pg], feat);
+            mapPolyg(Polys[pg], feat, pop);
         }
     }
     // add a polyline
-    function mapPolyl(list, feat) {
+    function mapPolyl(list, feat, pop) {
         var Coords = list.split(" ");
         var Line = [];
         try {
@@ -341,6 +332,7 @@ console.log("cS : " + cS)
         }
         try {
             var polyline = L.polyline(Line);
+            if(pop) polyline.bindPopup(pop);
             // add polyline class in order to make fill transparent
             polyline.setStyle({
                 "className": "polyline"
@@ -350,10 +342,10 @@ console.log("cS : " + cS)
         }
     }
     // add a polylines collection
-    function mapPolyls(collec, feat) {
+    function mapPolyls(collec, feat, pop) {
         var Lines = collec.split("|");
         for (var ln in Lines) {
-            mapPolyl(Lines[ln], feat);
+            mapPolyl(Lines[ln], feat, pop);
         }
     }
     // add a geojson set
@@ -405,96 +397,89 @@ console.log("cS : " + cS)
         }
     }
 
+
     function mapTiddler(obj, tid) {
-console.log("mapping "+tid);
         // get data fields in the tiddler, let's seek for geo data
-        var flds = obj.wiki.getTiddler(tid).fields;
-        // create the tiddler feature
-        var feature = L.featureGroup();
-        //
+        var flds = obj.wiki.getTiddler(tid).fields,
+         feature = L.featureGroup(), // create the tiddler feature
+         popup = ""; // create the popup text
 /*    !todo : detect if tiddler is JSON data in order to display them
               for now, assuming any json data is geoJson...
 */
+      // case 1 : the tiddler is a json tiddler
         if (flds.type == "application/json") {
+           var jsonFeat = L.featureGroup();
             // have to detect strict geoJSON and other JSON with lat long data
             var data = obj.wiki.getTiddlerText(tid);
-            mapGeoJson(data, feature);
+            mapGeoJson(data, jsonFeat);
+            jsonFeat.addTo(Map[map]);
             // for second case give instruction about required fields and data to be rendered in popup
         }
-        // if tiddler is not JSON data, display tiddler stored geodata as point(s), polygon, polyline...
+        // case 2 : if tiddler is not JSON data, display tiddler stored geodata as point(s), polygon, polyline...
         else {
+           // create popup with tiddler content for all non-geojson data (subFeat)
+           popup = "<h4><a href=\"#" + encodeURIComponent(flds.title) + "\">" + flds.title + "</a></h4>";                    var content = "";
+           if (flds.text != "") {
+             // if tiddler contains a widget, avoid html rendering
+             if (flds.text.match(/<\$leafmap/)) {
+                 content += "<pre>" + flds.text + "</pre>";
+                 }
+             // else render
+             else {
+                 content += obj.wiki.renderTiddler("text/html", tid).substring(0, 420);
+                 }
+             }
+           // adding a link to the tiddler
+           content += "<br/>(<a href=\"#" + encodeURIComponent(flds.title) + "\" title=\"read more...\">...</a>)";                    popup += content;
             // create the layer group
-            var subFeat = L.featureGroup();
+            var subFeat = L.featureGroup(); // subFeat will contain all non geojson data for the tiddler
             var wasRendered = 0;
             // render a unique point for the tiddler (with tiddler text in the popup)
             if (flds.point) {
-                mapPoint(flds.point, fCluster[map]);
+                mapPoint(flds.point, fCluster[map], popup);
                 subFeat.addLayer(fCluster[map]);
                 wasRendered++;
             }
             // render a space separated list of pointS for the tiddler
             if (flds.points) {
-                mapPoints(flds.points, fCluster[map]);
+                mapPoints(flds.points, fCluster[map], popup);
                 subFeat.addLayer(fCluster[map]);
                 wasRendered++;
             }
             // render a polygon
             if (flds.polygon) {
-                mapPolyg(flds.polygon, subFeat);
+                mapPolyg(flds.polygon, subFeat, popup);
                 wasRendered++;
             }
             // render a polygons collection
             if (flds.polygons) {
-                mapPolygs(flds.polygons, subFeat);
+                mapPolygs(flds.polygons, subFeat, popup);
                 wasRendered++;
             }
             // render a polyline
             if (flds.polyline) {
-                mapPolyl(flds.polyline, subFeat);
+                mapPolyl(flds.polyline, subFeat, popup);
                 wasRendered++;
             }
             // render a polylines collection
             if (flds.polylines) {
-                mapPolyls(flds.polylines, subFeat);
+                mapPolyls(flds.polylines, subFeat, popup);
                 wasRendered++;
             }
             // render a geojson directly in feature
             if (flds.geojson) {
-                mapGeoJson(flds.geojson, feature);
+               var jsonFeat = L.featureGroup();
+                mapGeoJson(flds.geojson, jsonFeat);
+                jsonFeat.addTo(Map[map]);
                 wasRendered++;
             }
             // check if anything was rendered before binding popup
-            if (wasRendered != 0) {
-                // avoid popup for geojson geometry since they could have their own data
-                if (!flds.geojson) {
-                   var popup = "<h4><a href=\"#" + encodeURIComponent(flds.title) + "\">" + flds.title + "</a></h4>";
-                    var content = "";
-                    if (flds.text != "") {
-                       // if tiddler contains a widget, avoid html rendering?
-                        if (flds.text.match(/<\$/)) {
-console.log("text contains a widget - plain text");
-                           content += "<pre>" + flds.text + "</pre>";
-                       }
-                        // else render
-                        else {
-console.log("text does not contains a widget - html text");
-                           content += obj.wiki.renderTiddler("text/html", tid).substring(0, 420);
-                        }
-                    }
-                    // adding a link to the tiddler
-                    content += "<br/>(<a href=\"#" + encodeURIComponent(flds.title) + "\" title=\"read more...\">...</a>)";
-                    popup += content;
-console.log("content : " + content);
-                    subFeat.bindPopup(popup);
-                }
-            } else console.log("non geotiddler was listed and not rendered : " + flds.title);
+            if (wasRendered == 0) console.log("non geotiddler was listed and not rendered : " + flds.title);
         // add the layer to the feature
         feature.addLayer(subFeat);
+        feature.addTo(Map[map]);// layer.addTo(Map[map]);
         }
-        // create popup with tiddler content
-        Map[map].addLayer(feature);// layer.addTo(Map[map]);
         // get layer bounds for automatic zoom
-        console.log("tid "+tid+"was mapped");
         extBounds(feature);
     }
     // map a tiddler colletion
@@ -509,7 +494,6 @@ console.log("content : " + content);
         try {
             var Tids = obj.wiki.filterTiddlers(filter);
             for (var td in Tids) {
-console.log(Tids[td] + " > go");
                 mapTiddler(obj, Tids[td]);
             }
         } catch (error) {
