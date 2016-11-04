@@ -5,6 +5,9 @@ type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20161104
+** after many attemps, managed to include tiddler excerpt in popups for mapping geoTiddler. Had to include an escape rule for tiddler containing a leafmap widget. No larsen, but a big bug (map number probably).
+** also managed to give the marker the color of the primary color. Note for later there is probably a bug if primary color is defined with `<<colour>>` macro.
 * 20161102
 ** ok, when importing some library, don't forget to use `require()` in order to conclude. Silly guy. Still some polishing needed, but clustering know works...
 * 20161101

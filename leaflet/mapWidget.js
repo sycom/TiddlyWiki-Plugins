@@ -1,4 +1,6 @@
 /*\
+created: 20151028202401905
+modified: 20161104234011605
 title: $:/plugins/sycom/leaflet/mapWidget.tid
 type: application/javascript
 module-type: widget
@@ -129,10 +131,11 @@ Create the map for the widget
 Compute the internal state of the widget
 */
     mapWidget.prototype.execute = function() {
-   var colourPalette=this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette"));
-   console.log(colourPalette);
-   //console.log(colour.primary);
-        var icone = escape(this.wiki.getTiddlerText("$:/plugins/sycom/leaflet/images/marker.svg").replace("<<colour ",""));
+        // getting primary color for the marker
+        var primaire=this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette")).primary;
+        // if primaire is <<colour xxxx>> set to default gray
+        // if primaire.match("<<") primaire="#555";
+        var icone = escape(this.wiki.renderTiddler("text/html","$:/plugins/sycom/leaflet/images/marker.svg").replace("$primary$",primaire).replace("</p>","").replace("<p>",""));
         var shadow = escape(this.wiki.getTiddlerText("$:/plugins/sycom/leaflet/images/markershadow.svg"));
         var iconUrl = 'data:image/svg+xml;charset=UTF-8,' + icone;
         var shadowUrl = 'data:image/svg+xml;charset=UTF-8,' + shadow;
@@ -241,6 +244,7 @@ Compute the internal state of the widget
                 var geojsonFeat = L.featureGroup();
                 mapGeoJson(plcs.geojson, geojsonFeat);
                 geojsonFeat.addTo(Map[map]);
+                extBounds(geojsonFeat);
             }
         // add feature to map
         feature.addTo(Map[map]);
@@ -413,6 +417,7 @@ Compute the internal state of the widget
             var data = obj.wiki.getTiddlerText(tid);
             mapGeoJson(data, jsonFeat);
             jsonFeat.addTo(Map[map]);
+            extBounds(jsonFeat);
             // for second case give instruction about required fields and data to be rendered in popup
         }
         // case 2 : if tiddler is not JSON data, display tiddler stored geodata as point(s), polygon, polyline...
