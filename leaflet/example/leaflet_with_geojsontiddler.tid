@@ -1,16 +1,18 @@
 created: 20161025150936935
-modified: 20161025150936935
+modified: 20161105150936935
 title: $:/plugins/sycom/leaflet/example/leaflet_with_geojsontiddler
 tags: example leaflet
 
 !! a map of a geoJson tiddler
-This one displays [[tiddlyWikiFrCommunity|$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity]], which is a direct geojson data extraction from the umap [[Utilisateurs du forum TiddlyWiki FR|https://umap.openstreetmap.fr/fr/map/tiddlywikifr_65983#6/46.995/2.549]]. Notice that the marker cluster extension will now soon be mandatory ;-).
+This one displays [[tiddlyWikiFrCommunity|$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity]], which is an almost direct geojson data extraction from the umap [[Utilisateurs du forum TiddlyWiki FR|https://umap.openstreetmap.fr/fr/map/tiddlywikifr_65983#6/46.995/2.549]]. color is set to orange.
 
 ```
 <$leafmap
 	tileControl
-	places='{"tiddler":"$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity"}'>
+	places='{"tiddler":"$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity"}'
+    color='orange'/>
 ```
 <$leafmap
 	tileControl
-	places='{"tiddler":"$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity"}'>
+	places='{"tiddler":"$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity"}'
+    color='orange'/>

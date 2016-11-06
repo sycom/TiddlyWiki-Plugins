@@ -7,11 +7,12 @@ caption: roadmap
 Not really a roadmap just a list for future development ideas
 
 * add a tool to draw shapes, lines and collect coordinates. Until this, You may use [[Draw for TiddlyWiki leaflet plugin|http://sycom.github.io/TiddlyWiki-Plugins/leafletDraw.html]]
-* add color(s) and / or categories options
+* add categories options
 * add text, title capabilities
 * try to put other types of pins (svg? icons?)
 * ...
 
+* ~~add color(s) options~~ ''0.7.2'' : color can be set via color tiddler metadata or forced through color option
 * ~~add a clustering functionality (at least for points)~~ ''0.7.0'' : each data group is know clustering points
 * ~~add geoJSON tiddlers~~ ''0.6.0'' : added geojsontiddler rendering
 * ~~map tiddlers with the same tag(s)~~ ''0.5.0'' : added filter places request

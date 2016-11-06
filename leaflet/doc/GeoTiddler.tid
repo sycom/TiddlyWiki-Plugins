@@ -6,7 +6,7 @@ type: text/vnd.tiddlywiki
 [[GeoTiddler]]s are tiddlers containing geographical data. [[geoSyntax|$:/plugins/sycom/leaflet/geoSyntax]] lists the available objects. [[geoJson|https://en.wikipedia.org/wiki/GeoJSON]] data are also accepted.
 
 !! tiddler with geo TiddlerFields
-You can upgrade your tiddler by putting some geo metadata ([[wgs 84 coordinates|https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84]]) in it's TiddlerFields. See [[geoSyntax|$:/plugins/sycom/leaflet/geoSyntax]] for the list of object types you can draw. Popup will show the first part of the tiddler. If the tiddler contains a leafmap widget, it will be rendered as `text/plain`
+You can upgrade your tiddler by putting some geo metadata ([[wgs 84 coordinates|https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84]]) in it's TiddlerFields. See [[geoSyntax|$:/plugins/sycom/leaflet/geoSyntax]] for the list of object types you can draw. Popup will show the first part of the tiddler. If the tiddler contains a leafmap widget, it will be rendered as `text/plain` in order to avoid crash...
 
 !! geoJSON  tiddler
 You can define a geoJson tiddler like [[tiddlyWikiFrCommunity|$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity]] and then display the data by calling it. Just put your geoJson data in the body and declare the tiddler as application/json. Any application/json tiddler called will be considered as geoJson. The popups will show data stored in each feature as a bulleted list.
