@@ -24,3 +24,4 @@ As not everyone has a GIS in his head, And the plugin does not implement yet any
 |''polygons''|a polygons collection defined by a pipe (`|`) separated list of ''polygon'' definitions |`y1,x1 y2,x2 y3,x3|y4,x4 y5...` |
 |''polyline''|an open path place defined like the ''polygon'' just above |`y1,x1 y2,x2 y3,x3 ...` |
 |''polylines''|a polylines collection defined by a pipe (`|`) separated list of ''polyline'' definitions |`y1,x1 y2,x2 y3,x3|y4,x4 y5...` |
+|''geojson''|a [[geojson|http://geojson.org/]] object. If set through a tiddler field, please crunch it to one single line|see [[rfc7946|https://tools.ietf.org/html/rfc7946]]|

@@ -10,6 +10,8 @@ very useful for fast mapping. All objects that might be embedded in GeoTiddler c
 * a ''point'' at `6.5,19.72`
 * a ''polyline'' at `6.4,19.7 6.6,19.74`
 
+note this tiddler is also a geoTiddler with one point at `6.5,19.72`
+
 ```
 <$leafmap tile='sat'
 	places='{"point":"6.5,19.72","polyline":"6.4,19.7 6.6,19.74"}'/>

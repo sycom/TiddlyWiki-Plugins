@@ -1,6 +1,6 @@
 /*\
 created: 20151028202401905
-modified: 20161104234011605
+modified: 20161106174011605
 title: $:/plugins/sycom/leaflet/mapWidget.tid
 type: application/javascript
 module-type: widget
@@ -24,13 +24,15 @@ A widget for displaying leaflet map in TiddlyWiki
     // global vars
     var Map = [], // map collection
         map = 0, // map order number
+        tn = 0, // tiddler number
         fCluster = [], // the clusters
+        Colour = [], // the colors
         clusterRadius = 80, // default cluster radius
         lfltDefBounds = [
             [52.75, -2.55],
             [52.85, -2.65]
         ], // default bounds when nothing given
-        lfltIcon, bounds, setting = {};
+        bounds, setting = {};
 
 
     /*
@@ -99,7 +101,7 @@ Create the map for the widget
         // if user entered a wrong tile id
         if (Tiles[setting.tile] == undefined) {
             setting.tile = "osm";
-            $tw.utils.error("Seems you entered a wrong tile id, displayed osm instead. Please refer to plugin documentation to avoid this - error : "+ error);
+            $tw.utils.error("Seems you entered a wrong tile id, displayed osm instead. Please refer to plugin documentation to avoid this - error : " + error);
         }
         Tiles[setting.tile].addTo(Map[map]);
         // install tile layer control if needed
@@ -131,27 +133,17 @@ Create the map for the widget
 Compute the internal state of the widget
 */
     mapWidget.prototype.execute = function() {
-        // getting primary color for the marker
-        var primaire=this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette")).primary;
+        // checking if user defined a color if no color take the primary from palette
+        Colour["wiki"] = this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette")).primary;
+        // switch back to basic tiddlywiki blue if primary is defined from another color
+        if (Colour["wiki"].match(/</g)) Colour["wiki"]="#5778d8";
+        Colour[map] = this.getAttribute("color", Colour["wiki"]);
+        // else, take the user defined color for the drawings
         // if primaire is <<colour xxxx>> set to default gray
         // if primaire.match("<<") primaire="#555";
-        var icone = escape(this.wiki.renderTiddler("text/html","$:/plugins/sycom/leaflet/images/marker.svg").replace("$primary$",primaire).replace("</p>","").replace("<p>",""));
-        var shadow = escape(this.wiki.getTiddlerText("$:/plugins/sycom/leaflet/images/markershadow.svg"));
-        var iconUrl = 'data:image/svg+xml;charset=UTF-8,' + icone;
-        var shadowUrl = 'data:image/svg+xml;charset=UTF-8,' + shadow;
+
         // create icon !todo only if there are points to display;
-        lfltIcon = L.icon({
-            iconUrl: iconUrl,
-            iconRetinaUrl: iconUrl,
-            iconSize: [25, 40],
-            iconAnchor: [12.5, 40],
-            popupAnchor: [0, -40],
-            shadowUrl: shadowUrl,
-            shadowRetinaUrl: shadowUrl,
-            shadowSize: [50, 40],
-            shadowAnchor: [0, 40]
-        });
-        L.icon.default = lfltIcon;
+        L.icon.default = lfltIcon(setColor());
         // creating cluster
         fCluster[map] = L.markerClusterGroup({
             name: "Cluster" + map,
@@ -167,13 +159,13 @@ Compute the internal state of the widget
                 var cF = cS / 2;
                 if (cF < 14) cF = 14;
                 return new L.DivIcon({
-                    html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;"><div><span style="line-height:' + cS + 'px">' + cC + "</span></div></div>",
+                    html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;background-color:' + setColor(Colour["wiki"]) + ';border-color:' + setColor(Colour["wiki"]) + ';opacity:.85"><div><span style="line-height:' + cS + 'px;opacity:1">' + cC + "</span></div></div>",
                     className: "marker-cluster marker-cluster-" + cC,
                     iconSize: new L.Point(cS, cS)
                 })
             }
         });
-        fCluster[map].name = "Cluster" + map;
+        //fCluster[map].name = "Cluster" + map;
         // Get the declared places from the attributes
         var places = this.getAttribute("places", undefined);
         if (places) {
@@ -184,18 +176,18 @@ Compute the internal state of the widget
                 // if no tiddler is given (single space) map current Tiddler
                 // !todo would be much better if so when no attribute at all...
                 if (plcs.tiddler == " ") {
-                    mapTiddler(this, this.getVariable("currentTiddler"));
+                    mapTiddler(this, this.getVariable("currentTiddler"), Colour[map]);
                 }
                 // else, map the given tiddler
                 else {
                     // get data fields in the tiddler, let's seek for geo data
-                    mapTiddler(this, plcs.tiddler);
+                    mapTiddler(this, plcs.tiddler, Colour[map]);
                 }
             }
             // case 2 : data in multiple tiddlers
             if (plcs.tiddlers) {
                 var feature = L.featureGroup();
-                mapTiddlers(this, plcs.tiddlers);
+                mapTiddlers(this, plcs.tiddlers, Colour[map]);
             }
             // case 3 : data in tiddlers following a filter
             if (plcs.filter) {
@@ -211,44 +203,44 @@ Compute the internal state of the widget
             var feature = L.featureGroup();
             if (plcs.point) {
                 // add the point to the cluster layer
-                mapPoint(plcs.point, fCluster[map]);
+                mapPoint(plcs.point, fCluster[map], undefined, Colour[map]);
                 // add the cluster layer to map
                 feature.addLayer(fCluster[map]);
                 // set bounds
             }
             if (plcs.points) {
-                mapPoints(plcs.points, fCluster[map]);
+                mapPoints(plcs.points, fCluster[map], undefined, Colour[map]);
                 feature.addLayer(fCluster[map]);
             }
             if (plcs.polygon) {
                 var polygFeat = L.featureGroup();
-                mapPolyg(plcs.polygone, polygFeat);
+                mapPolyg(plcs.polygone, polygFeat, undefined, Colour[map]);
                 polygFeat.addTo(feature);
             }
             if (plcs.polygons) {
                 var polygsFeat = L.featureGroup();
-                mapPolygs(plcs.polygons, polygsFeat);
+                mapPolygs(plcs.polygons, polygsFeat, undefined, Colour[map]);
                 polygsFeat.addTo(feature);
             }
             if (plcs.polyline) {
                 var polylFeat = L.featureGroup();
-                mapPolyl(plcs.polyline, polylFeat);
+                mapPolyl(plcs.polyline, polylFeat, undefined, Colour[map]);
                 polylFeat.addTo(feature);
             }
             if (plcs.polylines) {
                 var polylsFeat = L.featureGroup();
-                mapPolyls(plcs.polylines, polylsFeat);
+                mapPolyls(plcs.polylines, polylsFeat, undefined, Colour[map]);
                 polylsFeat.addTo(feature);
             }
             if (plcs.geojson) {
                 var geojsonFeat = L.featureGroup();
-                mapGeoJson(plcs.geojson, geojsonFeat);
+                mapGeoJson(plcs.geojson, geojsonFeat, Colour[map]);
                 geojsonFeat.addTo(Map[map]);
                 extBounds(geojsonFeat);
             }
-        // add feature to map
-        feature.addTo(Map[map]);
-        extBounds(feature);
+            // add feature to map
+            feature.addTo(Map[map]);
+            extBounds(feature);
         }
         // set map to objects bounds
         if (bounds) {
@@ -272,7 +264,7 @@ Compute the internal state of the widget
     };
 
     // add a marker for a point
-    function mapPoint(coord, cluster, pop) {
+    function mapPoint(coord, cluster, pop, col) {
         try {
             var location = eval("[" + coord + "]");
         } catch (err) {
@@ -280,23 +272,23 @@ Compute the internal state of the widget
         }
         try {
             var marker = L.marker(location, {
-                icon: lfltIcon
+                icon: lfltIcon(col)
             })
-            if(pop) marker.bindPopup(pop);
+            if (pop) marker.bindPopup(pop);
             cluster.addLayer(marker)
         } catch (err) {
             displayError("point", err);
         }
     }
     // add a marker serie for a points list
-    function mapPoints(list, cluster, pop) {
+    function mapPoints(list, cluster, pop, col) {
         var Points = list.split(" ");
         for (var pt in Points) {
-            mapPoint(Points[pt], cluster, pop)
+            mapPoint(Points[pt], cluster, pop, col)
         }
     }
     // add a polygon
-    function mapPolyg(list, feat, pop) {
+    function mapPolyg(list, feat, pop, col) {
         var Coords = list.split(" ");
         var Shape = [];
         try {
@@ -308,22 +300,24 @@ Compute the internal state of the widget
             displayError("polygone", err);
         }
         try {
-            var polygon = L.polygon(Shape);
-            if(pop) polygon.bindPopup(pop);
+            var polygon = L.polygon(Shape, {
+                color: col
+            });
+            if (pop) polygon.bindPopup(pop);
             polygon.addTo(feat);
         } catch (err) {
             displayError("polygone", err);
         }
     }
     // add a polygons collection
-    function mapPolygs(collec, feat, pop) {
+    function mapPolygs(collec, feat, pop, col) {
         var Polys = collec.split("|");
         for (var pg in Polys) {
-            mapPolyg(Polys[pg], feat, pop);
+            mapPolyg(Polys[pg], feat, pop, col);
         }
     }
     // add a polyline
-    function mapPolyl(list, feat, pop) {
+    function mapPolyl(list, feat, pop, col) {
         var Coords = list.split(" ");
         var Line = [];
         try {
@@ -335,8 +329,10 @@ Compute the internal state of the widget
             displayError("polyline", err);
         }
         try {
-            var polyline = L.polyline(Line);
-            if(pop) polyline.bindPopup(pop);
+            var polyline = L.polyline(Line, {
+                color: col
+            });
+            if (pop) polyline.bindPopup(pop);
             // add polyline class in order to make fill transparent
             polyline.setStyle({
                 "className": "polyline"
@@ -346,14 +342,14 @@ Compute the internal state of the widget
         }
     }
     // add a polylines collection
-    function mapPolyls(collec, feat, pop) {
+    function mapPolyls(collec, feat, pop, col) {
         var Lines = collec.split("|");
         for (var ln in Lines) {
-            mapPolyl(Lines[ln], feat, pop);
+            mapPolyl(Lines[ln], feat, pop, col);
         }
     }
     // add a geojson set
-    function mapGeoJson(geojson, feat) {
+    function mapGeoJson(geojson, feat, col) {
         try {
             var data = JSON.parse(geojson);
             var geoJson = L.geoJSON(data, {
@@ -361,7 +357,7 @@ Compute the internal state of the widget
                 pointToLayer: function(geoJsonPoint, latlng) {
                     // binding default icon
                     var jsonPoint = L.marker(latlng, {
-                        icon: lfltIcon
+                        icon: lfltIcon(col)
                     });
                     fCluster[map].addLayer(jsonPoint);
                     // extracting data to create popup (all non-null data!)
@@ -397,96 +393,102 @@ Compute the internal state of the widget
             feat.addLayer(fCluster[map]);
             geoJson.addTo(feat);
         } catch (error) {
-            displayError("geoJson", error);
+            displayError("there was an error when displaying geoJson. error : ", error);
         }
     }
-
 
     function mapTiddler(obj, tid) {
         // get data fields in the tiddler, let's seek for geo data
         var flds = obj.wiki.getTiddler(tid).fields,
-         feature = L.featureGroup(), // create the tiddler feature
-         popup = ""; // create the popup text
-/*    !todo : detect if tiddler is JSON data in order to display them
-              for now, assuming any json data is geoJson...
-*/
-      // case 1 : the tiddler is a json tiddler
+            feature = L.featureGroup(), // create the tiddler feature
+            popup = ""; // create the popup text
+        // if tiddler has its own color, will overwrite color for now
+        if (flds.color) Colour["t" + tn] = flds.color;
+        else Colour["t" + tn] = Colour[map];
+        /*    !todo : detect if tiddler is JSON data in order to display them
+                      for now, assuming any json data is geoJson...
+        */
+        // case 1 : the tiddler is a json tiddler
         if (flds.type == "application/json") {
-           var jsonFeat = L.featureGroup();
+            var jsonFeat = L.featureGroup();
             // have to detect strict geoJSON and other JSON with lat long data
             var data = obj.wiki.getTiddlerText(tid);
-            mapGeoJson(data, jsonFeat);
+            mapGeoJson(data, jsonFeat, Colour["t" + tn]);
             jsonFeat.addTo(Map[map]);
             extBounds(jsonFeat);
             // for second case give instruction about required fields and data to be rendered in popup
         }
         // case 2 : if tiddler is not JSON data, display tiddler stored geodata as point(s), polygon, polyline...
         else {
-           // create popup with tiddler content for all non-geojson data (subFeat)
-           popup = "<h4><a href=\"#" + encodeURIComponent(flds.title) + "\">" + flds.title + "</a></h4>";                    var content = "";
-           if (flds.text != "") {
-             // if tiddler contains a widget, avoid html rendering
-             if (flds.text.match(/<\$leafmap/)) {
-                 content += "<pre>" + flds.text + "</pre>";
-                 }
-             // else render
-             else {
-                 content += obj.wiki.renderTiddler("text/html", tid).substring(0, 420);
-                 }
-             }
-           // adding a link to the tiddler
-           content += "<br/>(<a href=\"#" + encodeURIComponent(flds.title) + "\" title=\"read more...\">...</a>)";                    popup += content;
+            // create popup with tiddler content for all non-geojson data (subFeat)
+            popup = "<h4><a href=\"#" + encodeURIComponent(flds.title) + "\">" + flds.title + "</a></h4>";
+            var content = "";
+            if (flds.text != "") {
+                // if tiddler contains a widget, avoid html rendering
+                if (flds.text.match(/<\$leafmap/)) {
+                    content += "<pre>" + flds.text + "</pre>";
+                }
+                // else render
+                else {
+                    content += obj.wiki.renderTiddler("text/html", tid).substring(0, 420);
+                }
+            }
+            // adding a link to the tiddler
+            content += "<br/>(<a href=\"#" + encodeURIComponent(flds.title) + "\" title=\"read more...\">...</a>)";
+            popup += content;
             // create the layer group
             var subFeat = L.featureGroup(); // subFeat will contain all non geojson data for the tiddler
             var wasRendered = 0;
             // render a unique point for the tiddler (with tiddler text in the popup)
             if (flds.point) {
-                mapPoint(flds.point, fCluster[map], popup);
+                mapPoint(flds.point, fCluster[map], popup, Colour["t" + tn]);
                 subFeat.addLayer(fCluster[map]);
                 wasRendered++;
             }
             // render a space separated list of pointS for the tiddler
             if (flds.points) {
-                mapPoints(flds.points, fCluster[map], popup);
+                mapPoints(flds.points, fCluster[map], popup, Colour["t" + tn]);
                 subFeat.addLayer(fCluster[map]);
                 wasRendered++;
             }
             // render a polygon
             if (flds.polygon) {
-                mapPolyg(flds.polygon, subFeat, popup);
+                mapPolyg(flds.polygon, subFeat, popup, Colour["t" + tn]);
                 wasRendered++;
             }
             // render a polygons collection
             if (flds.polygons) {
-                mapPolygs(flds.polygons, subFeat, popup);
+                mapPolygs(flds.polygons, subFeat, popup, Colour["t" + tn]);
                 wasRendered++;
             }
             // render a polyline
             if (flds.polyline) {
-                mapPolyl(flds.polyline, subFeat, popup);
+                mapPolyl(flds.polyline, subFeat, popup, Colour["t" + tn]);
                 wasRendered++;
             }
             // render a polylines collection
             if (flds.polylines) {
-                mapPolyls(flds.polylines, subFeat, popup);
+                mapPolyls(flds.polylines, subFeat, popup, Colour["t" + tn]);
                 wasRendered++;
             }
             // render a geojson directly in feature
             if (flds.geojson) {
-               var jsonFeat = L.featureGroup();
-                mapGeoJson(flds.geojson, jsonFeat);
+                var jsonFeat = L.featureGroup();
+                mapGeoJson(flds.geojson, jsonFeat, Colour["t" + tn]);
                 jsonFeat.addTo(Map[map]);
                 wasRendered++;
             }
             // check if anything was rendered before binding popup
-            if (wasRendered == 0) console.log("non geotiddler was listed and not rendered : " + flds.title);
-        // add the layer to the feature
-        feature.addLayer(subFeat);
-        feature.addTo(Map[map]);// layer.addTo(Map[map]);
+            if (wasRendered == 0) console.log("tw-leaflet-map-plugin > non geotiddler was listed and not rendered : " + flds.title);
+            // add the layer to the feature
+            feature.addLayer(subFeat);
+            feature.addTo(Map[map]); // layer.addTo(Map[map]);
         }
         // get layer bounds for automatic zoom
         extBounds(feature);
+        tn++;
     }
+
     // map a tiddler colletion
     function mapTiddlers(obj, list) {
         var Tids = list.split(" ");
@@ -494,6 +496,7 @@ Compute the internal state of the widget
             mapTiddler(obj, Tids[td]);
         }
     }
+
     // map tiddlers with a filter
     function mapFilter(obj, filter) {
         try {
@@ -504,6 +507,37 @@ Compute the internal state of the widget
         } catch (error) {
             $tw.utils.error("sorry there was something wrong when trying to map your filter. error : " + error);
         }
+    }
+
+    // icon creator
+    function iconUrl(col) {
+        var icone = escape($tw.wiki.renderTiddler("text/html", "$:/plugins/sycom/leaflet/images/marker.svg").replace("$primary$", setColor(col)).replace("</p>", "").replace("<p>", ""));
+        return ('data:image/svg+xml;charset=UTF-8,' + icone);
+    }
+
+    // create icon !todo only if there are points to display;
+    function lfltIcon(col) {
+        var theIcon = L.icon({
+            iconUrl: iconUrl,
+            iconRetinaUrl: iconUrl(col),
+            iconSize: [25, 40],
+            iconAnchor: [12.5, 40],
+            popupAnchor: [0, -40],
+            shadowUrl: shadowUrl,
+            shadowRetinaUrl: shadowUrl,
+            shadowSize: [50, 40],
+            shadowAnchor: [0, 40]
+        });
+        return theIcon;
+    }
+    var shadow = escape($tw.wiki.getTiddlerText("$:/plugins/sycom/leaflet/images/markershadow.svg"));
+    var shadowUrl = 'data:image/svg+xml;charset=UTF-8,' + shadow;
+
+    // set color for tiddler if exists
+    function setColor(col) {
+        if (col == undefined) col = Colour[map];
+        else Colour[map] = col;
+        return col;
     }
 
     // coordinate error message
@@ -522,9 +556,8 @@ Compute the internal state of the widget
                 }
             }
         } catch (error) {
-            $tw.utils.error("there was an error when trying to zoom on bounds. error : "+ error);
+            $tw.utils.error("there was an error when trying to zoom on bounds. error : " + error);
         }
-
     }
 
     exports.leafmap = mapWidget;
