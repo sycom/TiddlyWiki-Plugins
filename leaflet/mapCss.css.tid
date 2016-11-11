@@ -1,5 +1,5 @@
 created: 20161028202401905
-modified: 20161105231011600
+modified: 20161111151011600
 title: $:/plugins/sycom/leaflet/mapCssTweaks.css.tid
 tags: [[$:/tags/Stylesheet]]
 
@@ -19,6 +19,10 @@ tags: [[$:/tags/Stylesheet]]
 }
 .leaflet-control-attribution:hover {
 	height:auto;
+}
+
+.leaflet-top, .leaflet-bottom {
+    z-index:999;
 }
 
 /* solve conflict between tw and leaflet */

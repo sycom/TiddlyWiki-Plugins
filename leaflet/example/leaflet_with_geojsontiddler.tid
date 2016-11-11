@@ -4,15 +4,17 @@ title: $:/plugins/sycom/leaflet/example/leaflet_with_geojsontiddler
 tags: example leaflet
 
 !! a map of a geoJson tiddler
-This one displays [[tiddlyWikiFrCommunity|$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity]], which is an almost direct geojson data extraction from the umap [[Utilisateurs du forum TiddlyWiki FR|https://umap.openstreetmap.fr/fr/map/tiddlywikifr_65983#6/46.995/2.549]]. color is set to orange.
+This one displays [[tiddlyWikiFrCommunity|$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity]], which is an almost direct geojson data extraction from the umap [[Utilisateurs du forum TiddlyWiki FR|https://umap.openstreetmap.fr/fr/map/tiddlywikifr_65983#6/46.995/2.549]]. color is set to orange and cluster distance to 40.
 
 ```
 <$leafmap
 	tileControl
+    cluster="40"
 	places='{"tiddler":"$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity"}'
     color='orange'/>
 ```
 <$leafmap
 	tileControl
+    cluster="40"
 	places='{"tiddler":"$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity"}'
     color='orange'/>
