@@ -27,7 +27,7 @@ A widget for displaying leaflet map in TiddlyWiki
         tn = 0, // tiddler number
         fCluster = [], // the clusters
         Colour = [], // the colors
-        clusterRadius = 80, // default cluster radius
+        clusterRadius = [], // cluster radii
         lfltDefBounds = [
             [52.75, -2.55],
             [52.85, -2.65]
@@ -143,28 +143,37 @@ Compute the internal state of the widget
         // if primaire.match("<<") primaire="#555";
 
         // create icon !todo only if there are points to display;
+
         L.icon.default = lfltIcon(setColor());
         // creating cluster
-        fCluster[map] = L.markerClusterGroup({
-            name: "Cluster" + map,
-            maxClusterRadius: clusterRadius,
-            /* for the record. may be a function
-            function() {return (clusterRadius - 50) / 9 * Map[map].getZoom() + 50 - (clusterRadius - 50) / 9 },*/
-            iconCreateFunction: function(cluster) {
-                // cluster icon size will be based on item number and zoom
-                var cC = cluster.getChildCount();
-                var m = this.name.split("Cluster")[1];
-                var cS = Math.sqrt(cC * Map[m].getZoom() * clusterRadius) * 1.15;
-                if (cS < 38) cS = 38;
-                var cF = cS / 2;
-                if (cF < 14) cF = 14;
-                return new L.DivIcon({
-                    html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;background-color:' + setColor(Colour["wiki"]) + ';border-color:' + setColor(Colour["wiki"]) + ';opacity:.85"><div><span style="line-height:' + cS + 'px;opacity:1">' + cC + "</span></div></div>",
-                    className: "marker-cluster marker-cluster-" + cC,
-                    iconSize: new L.Point(cS, cS)
-                })
-            }
-        });
+        // getting cluster size parameter, if exists
+        clusterRadius[map]=this.getAttribute("cluster", 80);
+        if (clusterRadius[map]==0) {
+            // if clusterRadius nul, no clustering
+            fCluster[map] = L.featureGroup();
+        }
+        else {
+            fCluster[map] = L.markerClusterGroup({
+                name: "Cluster" + map,
+                maxClusterRadius: clusterRadius[map],
+                /* for the record. may be a function
+                function() {return (clusterRadius - 50) / 9 * Map[map].getZoom() + 50 - (clusterRadius - 50) / 9 },*/
+                iconCreateFunction: function(cluster) {
+                    // cluster icon size will be based on item number and zoom
+                    var cC = cluster.getChildCount();
+                    var m = this.name.split("Cluster")[1];
+                    var cS = Math.sqrt(cC * Map[m].getZoom() * clusterRadius[m]) * 1.15;
+                    if (cS < 38) cS = 38;
+                    var cF = cS / 2;
+                    if (cF < 14) cF = 14;
+                    return new L.DivIcon({
+                        html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;background-color:' + setColor(Colour["wiki"]) + ';border-color:' + setColor(Colour["wiki"]) + ';opacity:.85"><div><span style="line-height:' + cS + 'px;opacity:1">' + cC + "</span></div></div>",
+                        className: "marker-cluster marker-cluster-" + cC,
+                        iconSize: new L.Point(cS, cS)
+                    })
+                }
+            });
+        }
         //fCluster[map].name = "Cluster" + map;
         // Get the declared places from the attributes
         var places = this.getAttribute("places", undefined);
