@@ -1,10 +1,12 @@
 created: 20151110173416000
-modified: 20161106174000000
+modified: 20161111174000000
 title: $:/plugins/sycom/leaflet/devDiary
 type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20161111
+** armistice edit! can now disable clustering or set clustering distance. Bug #9 fixed. may be cluster size will be too big for big databases
 * 20161106
 ** color parameter is partially implemented. Note that direct styling like `fill` in svg element wont take on class styling through css...
 * 20161104
