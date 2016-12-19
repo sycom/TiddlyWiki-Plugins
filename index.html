@@ -127,6 +127,8 @@ Error message and password prompt
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler</li>
 
+<li>$:/config/Plugins/Disabled/$:/plugins/tiddlywiki/googleanalytics</li>
+
 <li>$:/core</li>
 
 <li>$:/DefaultTiddlers</li>
@@ -161,6 +163,8 @@ Error message and password prompt
 
 <li>$:/state/sidebar</li>
 
+<li>$:/state/tab--86143343</li>
+
 <li>$:/state/tab-1749438307</li>
 
 <li>$:/state/tab-696880311</li>
@@ -194,6 +198,8 @@ Error message and password prompt
 <li>$:/view</li>
 
 <li>A plugin collection</li>
+
+<li>Google analytics updated</li>
 
 <li>Install</li>
 
@@ -290,6 +296,9 @@ Error message and password prompt
 </div>
 <div created="20151209104407996" creator="Sylvain Comte" modified="20151209104407996" modifier="Sylvain Comte" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler">
 <pre>hide</pre>
+</div>
+<div created="20161219081219566" creator="Sylvain Comte" modified="20161219081431087" modifier="Sylvain Comte" title="$:/config/Plugins/Disabled/$:/plugins/tiddlywiki/googleanalytics">
+<pre>no</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.13">
 <pre>{
@@ -8138,22 +8147,26 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div author="JeremyRuston" contributor="Sylvain Comte" core-version="&gt;=5.0.0" created="20161114161707213" dependents="" description="Google Analytics: website statistics" list="readme usage" modified="20161114161707213" plugin-type="plugin" title="$:/plugins/tiddlywiki/googleanalytics" type="application/json" version="5.1.100">
+<div author="JeremyRuston" contributor="Sylvain Comte" core-version="&gt;=5.0.0" dependents="" description="Google Analytics: website statistics" list="settings readme usage" plugin-type="plugin" title="$:/plugins/tiddlywiki/googleanalytics" type="application/json" version="5.1.14">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/plugins/tiddlywiki/googleanalytics/googleanalytics.js&quot;: {
-            &quot;text&quot;: &quot;/*\\\r\ntitle: $:/plugins/tiddlywiki/googleanalytics/googleanalytics.js\r\ntype: application/javascript\r\nmodule-type: startup\r\n\r\nRuns new \&quot;i s o g r a m\&quot; Google Analytics with the account number in the tiddler `$:/GoogleAnalyticsAccount` and the domain name in `$:/GoogleAnalyticsDomain`\r\n\r\n\\*/\r\n(function(){\r\n\r\n/*jslint node: true, browser: true */\r\n/*global $tw: false */\r\n\&quot;use strict\&quot;;\r\n\r\n// Export name and synchronous status\r\nexports.name = \&quot;google-analytics\&quot;;\r\nexports.platforms = [\&quot;browser\&quot;];\r\nexports.synchronous = true;\r\n\r\nvar GA_ACCOUNT,GA_DOMAIN;\r\n\r\nexports.startup = function() {\r\n\t// getting parameters\r\n\tGA_ACCOUNT = $tw.wiki.getTiddlerText(\&quot;$:/GoogleAnalyticsAccount\&quot;),\r\n\t\tGA_DOMAIN = $tw.wiki.getTiddlerText(\&quot;$:/GoogleAnalyticsDomain\&quot;);\r\n\tif (GA_DOMAIN == \&quot;\&quot; || GA_DOMAIN == undefined) GA_DOMAIN = \&quot;auto\&quot;;\r\n\tconsole.log(\&quot;tiddlywiki analytics working with \&quot;+GA_ACCOUNT+\&quot; - \&quot;+GA_DOMAIN);\r\n\t// using ga \&quot;isogram\&quot; function\r\n  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\r\n\r\n  ga('create', 'UA-109815-12', 'auto');   console.log(\&quot;analytics created\&quot;);\r\n  ga('send', 'pageview');    console.log('analytics sent');\r\n};\r\n\r\n})();\r\n&quot;,
+            &quot;text&quot;: &quot;/*\\\r\ntitle: $:/plugins/tiddlywiki/googleanalytics/googleanalytics.js\r\ntype: application/javascript\r\nmodule-type: startup\r\n\r\nRuns new \&quot;i s o g r a m\&quot; Google Analytics with the account number in the tiddler `$:/GoogleAnalyticsAccount` and the domain name in `$:/GoogleAnalyticsDomain`\r\n\r\n\\*/\r\n(function(){\r\n\r\n/*jslint node: true, browser: true */\r\n/*global $tw: false */\r\n\&quot;use strict\&quot;;\r\n\r\n// Export name and synchronous status\r\nexports.name = \&quot;google-analytics\&quot;;\r\nexports.platforms = [\&quot;browser\&quot;];\r\nexports.synchronous = true;\r\n\r\nvar GA_ACCOUNT,GA_DOMAIN;\r\n\r\nexports.startup = function() {\r\n\t// getting parameters\r\n\tGA_ACCOUNT = $tw.wiki.getTiddlerText(\&quot;$:/GoogleAnalyticsAccount\&quot;),\r\n\t\tGA_DOMAIN = $tw.wiki.getTiddlerText(\&quot;$:/GoogleAnalyticsDomain\&quot;);\r\n\tif (GA_DOMAIN == \&quot;\&quot; || GA_DOMAIN == undefined) GA_DOMAIN = \&quot;auto\&quot;;\r\n\tconsole.log(\&quot;tiddlywiki analytics working with account : \&quot;+GA_ACCOUNT+\&quot; and domain : \&quot;+GA_DOMAIN);\r\n\t// using ga \&quot;isogram\&quot; function\r\n  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\r\n\r\n  ga('create', GA_ACCOUNT, GA_DOMAIN);\r\n  ga('send', 'pageview');\r\n};\r\n\r\n})();\r\n&quot;,
             &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/googleanalytics.js&quot;,
             &quot;type&quot;: &quot;application/javascript&quot;,
             &quot;module-type&quot;: &quot;startup&quot;
         },
         &quot;$:/plugins/tiddlywiki/googleanalytics/readme&quot;: {
             &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/readme&quot;,
-            &quot;text&quot;: &quot;This plugin enables you to use Google Analytics to track access to your online TiddlyWiki document.\n\n[[Source code|https://github.com/Jermolene/TiddlyWiki5/blob/master/plugins/tiddlywiki/googleanalytics]]\r\n&quot;
+            &quot;text&quot;: &quot;This plugin enables you to use Google Analytics to track access to your online TiddlyWiki document.\n\n* [[Current plugin source|https://framagit.org/sycom/TiddlyWiki5/tree/plugin-googleanalytics]]\r\n* [[Original source code|https://github.com/Jermolene/TiddlyWiki5/blob/master/plugins/tiddlywiki/googleanalytics]]\r\n&quot;
+        },
+        &quot;$:/plugins/tiddlywiki/googleanalytics/settings&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/settings&quot;,
+            &quot;text&quot;: &quot;You have only two value to set, only first is mandatory :\n\n# ''[[Google Analytics Account|$:/GoogleAnalyticsAccount]]'', usually a `UA-XXXXXX-XX` code where X are digits (yours is best ;-). ''This one is mandatory'', plugin will not work without it...&lt;br/&gt;&lt;$edit-text tiddler=\&quot;$:/GoogleAnalyticsAccount\&quot; default=\&quot;\&quot; tag=\&quot;input\&quot;/&gt;\n\n# ''[[Google Analytics Domain|$:/GoogleAnalyticsDomain]]''. Usually the website URL where your tiddlywiki is published. will fallback to `auto` if not set.&lt;br/&gt;&lt;$edit-text tiddler=\&quot;$:/GoogleAnalyticsDomain\&quot; default=\&quot;\&quot; tag=\&quot;input\&quot;/&gt;\r\n&quot;
         },
         &quot;$:/plugins/tiddlywiki/googleanalytics/usage&quot;: {
             &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/usage&quot;,
-            &quot;text&quot;: &quot;These instructions assume you are using TiddlySpot to publish your wiki.\n\n# Go to the Google Analytics website: http://www.google.com/analytics/\r\n# Click the ''Access Google Analytics'' button and follow instructions to set up your account\r\n# Enter the name of your TiddlySpot domain, for example \&quot;mysite.tiddlyspot.com\&quot; \r\n# You will be given your own Tracking ID for this domain\r\n# Go to http://tiddlywiki.com -- open the More/System tab and drag the links to these three tiddlers across to a local copy of your site:\r\n#* [[$:/GoogleAnalyticsDomain]]\r\n#* [[$:/GoogleAnalyticsAccount]]\r\n#* [[$:/plugins/tiddlywiki/googleanalytics]]\r\n# Edit the first two of these tiddlers to reflect your Domain and Tracking ID\r\n# Upload the new version to TiddlySpot or other web host\r\n# Return to your Google Analytics page to check that your site is being tracked\n\n&quot;
+            &quot;text&quot;: &quot;!! Create a google analytics account\r\nIf you already got one, go to next step, else\n\n# Go to the Google Analytics website: http://www.google.com/analytics/\r\n# Click the ''Access Google Analytics'' button and follow instructions to set up your account\r\n# Enter the URL of your hosting domain, might be a TiddlySpot one for example \&quot;mysite.tiddlyspot.com\&quot; or even a github.io or gitlab.io url\r\n# You will be given your own Tracking ID for this domain `UA-XXXXXX-XX`\n\n!! Install the plugin on your local copy of the tiddlywiki\n\n# ''BACKUP your tiddlywiki''. Just in case.\r\n# grab a copy of the plugin [[$:/plugins/tiddlywiki/googleanalytics]] from a wiki containing it like http://tiddlywiki.com to yours\r\n# save the tiddlywiki, refresh the page to load the plugin\r\n# in your tiddlywiki, go to [[$:/ControlPanel]] &gt; Plugins tab. Unfold the Google Analytics box.\r\n# go to //settings// tabs and edit parameters : Google Analytics Account and Google Analytics Domain\r\n# save the tiddlywiki\n\n!! Upload the new version of your tiddlywiki\n\n# Upload the saved tiddlywiki to TiddlySpot, github, gitlab or other web host\r\n# Return to your Google Analytics page to check that your site is being tracked\r\n&quot;
         }
     }
 }</pre>
@@ -8164,17 +8177,17 @@ Error message and password prompt
 <div created="20151127190300068" creator="Sylvain Comte" modified="20151208150226219" modifier="Sylvain Comte" title="$:/SiteTitle">
 <pre>sycom's TiddlyWiki plugin collection</pre>
 </div>
-<div created="20161021214942406" creator="Sylvain Comte" modified="20161026073226689" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/sycom/leaflet">
-<pre>no</pre>
+<div created="20161021214942406" creator="Sylvain Comte" modified="20161219081917434" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/sycom/leaflet">
+<pre>yes</pre>
 </div>
 <div created="20161021214945342" creator="Sylvain Comte" modified="20161021214945342" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/sycom/leaflet---896887961">
 <pre>geoSyntax</pre>
 </div>
-<div created="20161119182218277" creator="Sylvain Comte" modified="20161119182225323" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/googleanalytics">
-<pre>no</pre>
+<div created="20161119182218277" creator="Sylvain Comte" modified="20161219081429951" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/googleanalytics">
+<pre>yes</pre>
 </div>
-<div created="20161119182222219" creator="Sylvain Comte" modified="20161119182222219" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/googleanalytics---896887961">
-<pre>usage</pre>
+<div created="20161119182222219" creator="Sylvain Comte" modified="20161219081955526" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/googleanalytics---896887961">
+<pre>readme</pre>
 </div>
 <div created="20161111201307834" creator="Sylvain Comte" modified="20161111201307834" modifier="Sylvain Comte" title="$:/state/showeditpreview">
 <pre>yes</pre>
@@ -8182,14 +8195,17 @@ Error message and password prompt
 <div created="20161104230428688" creator="Sylvain Comte" modified="20161104230443065" modifier="Sylvain Comte" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
+<div created="20161219081232189" creator="Sylvain Comte" modified="20161219081233317" modifier="Sylvain Comte" title="$:/state/tab--86143343">
+<pre>$:/core/ui/ControlPanel/Plugins/Installed/Plugins</pre>
+</div>
 <div created="20161021214405658" creator="Sylvain Comte" modified="20161021214405658" modifier="Sylvain Comte" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Plugins</pre>
 </div>
 <div created="20161021214306437" creator="Sylvain Comte" modified="20161111202128327" modifier="Sylvain Comte" title="$:/state/tab-696880311">
 <pre>$:/plugins/sycom/leaflet/usage</pre>
 </div>
-<div created="20161021214050838" creator="Sylvain Comte" modified="20161119182813050" modifier="Sylvain Comte" title="$:/state/tab/sidebar--1835078512">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20161021214050838" creator="Sylvain Comte" modified="20161219082245660" modifier="Sylvain Comte" title="$:/state/tab/sidebar--1835078512">
+<pre>$:/core/ui/SideBar/Open</pre>
 </div>
 <div created="20151129151027223" creator="S" modified="20151129151036531" modifier="Sylvain Comt" title="$:/status/UserName">
 <pre>Sylvain Comte</pre>
@@ -8344,15 +8360,24 @@ Error message and password prompt
 <div created="20151208153521891" creator="Sylvain Comte" modified="20151208153528938" modifier="Sylvain Comte" title="$:/view">
 <pre>classic</pre>
 </div>
-<div created="20151127192625926" creator="Sylvain Comte" modified="20161119182548879" modifier="Sylvain Comte" title="A plugin collection">
+<div created="20151127192625926" creator="Sylvain Comte" modified="20161219081739204" modifier="Sylvain Comte" title="A plugin collection">
 <pre>sycom's TiddlyWiki plugin collection has two items. Feel free to play with them, just follow [[installation instructions|Install]] :
 
 * [[Leaflet plugin]] will embed leaflet maps in your tiddlywiki. You can see the [[Michel Strogoff from the sky]] example to see what can be done with it. see also plugin embedded [[example|$:/plugins/sycom/leaflet/example]]
 
 &lt;$leafmap tileControl height='259px' tile='natgeo' places='{&quot;filter&quot;:&quot;[tag[Michel Strogoff from the sky]]&quot;}' cluster='5' /&gt;
 
-* Google analytics updated, is an adaptation of the tiddlywiki's one using the new &quot;isogram&quot; tracker code.
+* [[Google analytics updated]], is an adaptation of the tiddlywiki's one using the new &quot;isogram&quot; tracker code. Source code can be found on [[my fork of Jermolene's tiddlywiki5 repo|https://github.com/sycom/TiddlyWiki5]]
 </pre>
+</div>
+<div created="20161219081816419" creator="Sylvain Comte" modified="20161219082202066" modifier="Sylvain Comte" title="Google analytics updated">
+<pre>! About
+
+{{$:/plugins/tiddlywiki/googleanalytics/readme}}
+
+! Usage
+
+{{$:/plugins/tiddlywiki/googleanalytics/usage}}</pre>
 </div>
 <div created="20160314092507285" creator="Sylvain Comte" modified="20161119182728437" modifier="Sylvain Comte" tags="" title="Install">
 <pre>Plugins install is pretty easy and heavily [[described on tiddlywiki official website|http://tiddlywiki.com/#Manually%20installing%20a%20plugin]]. shortly :
