@@ -28,6 +28,7 @@ A widget for displaying leaflet map in TiddlyWiki
         fCluster = [], // the clusters
         Colour = [], // the colors
         clusterRadius = [], // cluster radii
+        clusterType = [], // clustering for whole map or for each tiddler
         lfltDefBounds = [
             [52.75, -2.55],
             [52.85, -2.65]
@@ -148,11 +149,13 @@ Compute the internal state of the widget
         // creating cluster
         // getting cluster size parameter, if exists
         clusterRadius[map]=this.getAttribute("cluster", 80);
-        if (clusterRadius[map]==0) {
-            // if clusterRadius nul, no clustering
+        clusterType[map]=this.getAttribute("clusterType", "map");
+        if (clusterRadius[map] == 0 || clusterType[map] == "tiddler") {
+            // if clusterRadius nul, no whole clustering
             fCluster[map] = L.featureGroup();
         }
         else {
+            // creating a cluter group for whole map
             fCluster[map] = L.markerClusterGroup({
                 name: "Cluster" + map,
                 maxClusterRadius: clusterRadius[map],
@@ -174,7 +177,6 @@ Compute the internal state of the widget
                 }
             });
         }
-        //fCluster[map].name = "Cluster" + map;
         // Get the declared places from the attributes
         var places = this.getAttribute("places", undefined);
         if (places) {
@@ -527,7 +529,7 @@ Compute the internal state of the widget
     // create icon !todo only if there are points to display;
     function lfltIcon(col) {
         var theIcon = L.icon({
-            iconUrl: iconUrl,
+            iconUrl: iconUrl(col),
             iconRetinaUrl: iconUrl(col),
             iconSize: [25, 40],
             iconAnchor: [12.5, 40],
