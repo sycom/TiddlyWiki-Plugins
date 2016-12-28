@@ -529,7 +529,7 @@ Compute the internal state of the widget
     // create icon !todo only if there are points to display;
     function lfltIcon(col) {
         var theIcon = L.icon({
-            iconUrl: iconUrl,
+            iconUrl: iconUrl(col),
             iconRetinaUrl: iconUrl(col),
             iconSize: [25, 40],
             iconAnchor: [12.5, 40],
