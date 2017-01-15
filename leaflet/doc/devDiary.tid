@@ -1,10 +1,12 @@
 created: 20151110173416000
-modified: 20161111174000000
+modified: 20170115300000000
 title: $:/plugins/sycom/leaflet/devDiary
 type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20170115
+** darling birthday edit. Clustering by tiddler is on track. Will have to look for clustering direct passing object through widget.
 * 20161111
 ** armistice edit! can now disable clustering or set clustering distance. Bug #9 fixed. may be cluster size will be too big for big databases
 * 20161106

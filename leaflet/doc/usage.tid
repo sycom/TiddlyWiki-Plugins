@@ -1,5 +1,5 @@
 created: 20151119173416239
-modified: 20161111210250584
+modified: 20170115153650584
 title: $:/plugins/sycom/leaflet/usage
 type: text/vnd.tiddlywiki
 caption: Usage
@@ -17,6 +17,7 @@ The widget is called by using `<$leafmap />`. You may specify some options :
 |''color'' |a color for drawing that will apply to all objects in the map. Will also overwrite GeoTiddler color attributes| `<<colour primary>>`|
 |''tile'' |the //id// or the //number// of the tile layer you want to use. See [[tileLayers|$:/plugins/sycom/leaflet/tileLayers]] for more informations | `osm`|
 |''cluster''|set the clustering distance between points. also can disable clustering with no value or `0` or `""`| `80`|
+|''clusterType''|set if points are clustered for whole map (`map`) or for each tiddler (`tiddler`) displayed.| `map`|
 |''tileControl'' |''if present'' add a control to select the tile layer you want ||
 |''lat'' |map center latitude. Will overwrite places auto-centering | `52.8`|
 |''long'' |map center longitude. Will overwrite places auto-centering | `-2.6`|

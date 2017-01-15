@@ -1,9 +1,9 @@
 created: 20151130173416239
-modified: 20161104223450584
+modified: 20170115153450584
 title: GeoTiddler
 type: text/vnd.tiddlywiki
 
-[[GeoTiddler]]s are tiddlers containing geographical data. [[geoSyntax|$:/plugins/sycom/leaflet/geoSyntax]] lists the available objects. [[geoJson|https://en.wikipedia.org/wiki/GeoJSON]] data are also accepted.
+[[GeoTiddler]]s are tiddlers containing geographical data. [[geoSyntax|$:/plugins/sycom/leaflet/geoSyntax]] lists the available objects. [[geoJson|https://en.wikipedia.org/wiki/GeoJSON]] data are also accepted. You may specify a color for all objects displayed through `color` field.
 
 !! tiddler with geo TiddlerFields
 You can upgrade your tiddler by putting some geo metadata ([[wgs 84 coordinates|https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84]]) in it's TiddlerFields. See [[geoSyntax|$:/plugins/sycom/leaflet/geoSyntax]] for the list of object types you can draw. Popup will show the first part of the tiddler. If the tiddler contains a leafmap widget, it will be rendered as `text/plain` in order to avoid crash...

@@ -1,4 +1,4 @@
-*[Main repository][repo] is hosted by [Framasoft][framasoft] Gitlab instance. You may find replicant, as on github, but they're mirrored... Please, [report bug and comment on framagit][issues]*
+*[Main repository][repo] is hosted by [Framasoft][framasoft] Gitlab instance. You may find replicant, as on github or gitlab, but they're mirrored... Please, [report bug and comment on framagit][issues]*
 
 # TiddlyWiki Plugins
 is a playing space for [TiddlyWiki][tiddlywiki] plugins. Try the demo on [gitlab.io pages][gl-pages] and [github.io pages][demo]. Feel free to drag drop the last release from those to your TiddlyWiki.
@@ -10,12 +10,15 @@ For now you can display an interactive map, select size, location and zoom, and 
 
 See [demo online][demo] to learn more. Source code at [sycom/TiddlyWikiPlugins][repo] on framagit (gitlab instance) see `leaflet` branch for latest draft version.
 
+## Google Analytics plugin - i s o g r a m variation - 5.1.14
+The legacy plugin used in tiddlywiki.com version is using the old urchin tracker code. This one uses the new //i s o g r a m// version. Note that this plugin is not developed on this repo but on the [tiddlywiki5 fork of jermolene's][tw5github]
+
 ## Sources / licenses
 * [TiddlyWiki][tiddlywiki] of course - [License][https://github.com/Jermolene/TiddlyWiki5/blob/master/license.md]
 * [leaflet][leaflet] library - License 2-clause BSD
     * leaflet-[markerCluster][markercluster] extension - Licence MIT
 
-## parcours
+## parcours for my plugins
 * **[framagit][repo]**
     * [gitlab][gitlab]
         * *gh-pages* > [gitlab.io page][gl-pages]
@@ -26,8 +29,9 @@ See [demo online][demo] to learn more. Source code at [sycom/TiddlyWikiPlugins][
 [issues]: https://framagit.org/sycom/TiddlyWikiPlugins/issues
 [gitlab]: https://gitlab.com/sycom/TiddlyWikiPlugins
 [gl-pages]: http://sycom.gitlab.io/TiddlyWiki-Plugins/#Leaflet%20plugin
-[github]: https://gitlab.com/sycom/TiddlyWiki-Plugins
+[github]: https://github.com/sycom/TiddlyWiki-Plugins
 [demo]: http://sycom.github.io/TiddlyWiki-Plugins/#Leaflet%20plugin
+[tw5github]: https://github.com/sycom/TiddlyWiki5
 
 [framasoft]: http://framasoft.org
 [tiddlywiki]: http://tiddlywiki.com
