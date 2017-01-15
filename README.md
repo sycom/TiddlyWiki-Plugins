@@ -11,7 +11,7 @@ For now you can display an interactive map, select size, location and zoom, and 
 See [demo online][demo] to learn more. Source code at [sycom/TiddlyWikiPlugins][repo] on framagit (gitlab instance) see `leaflet` branch for latest draft version.
 
 ## Google Analytics plugin - i s o g r a m variation - 5.1.14
-The legacy plugin used in tiddlywiki.com version is using the old urchin tracker code. This one uses the new //i s o g r a m// version. Note that this plugin is not developed on this repo but on the [tiddlywiki5 fork of jermelene's][tw5github]
+The legacy plugin used in tiddlywiki.com version is using the old urchin tracker code. This one uses the new //i s o g r a m// version. Note that this plugin is not developed on this repo but on the [tiddlywiki5 fork of jermolene's][tw5github]
 
 ## Sources / licenses
 * [TiddlyWiki][tiddlywiki] of course - [License][https://github.com/Jermolene/TiddlyWiki5/blob/master/license.md]

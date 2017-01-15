@@ -137,24 +137,22 @@ Compute the internal state of the widget
         // checking if user defined a color if no color take the primary from palette
         Colour["wiki"] = this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette")).primary;
         // switch back to basic tiddlywiki blue if primary is defined from another color
-        if (Colour["wiki"].match(/</g)) Colour["wiki"]="#5778d8";
+        if (Colour["wiki"].match(/</g)) Colour["wiki"] = "#5778d8";
         Colour[map] = this.getAttribute("color", Colour["wiki"]);
         // else, take the user defined color for the drawings
         // if primaire is <<colour xxxx>> set to default gray
         // if primaire.match("<<") primaire="#555";
 
         // create icon !todo only if there are points to display;
-
         L.icon.default = lfltIcon(setColor());
         // creating cluster
         // getting cluster size parameter, if exists
-        clusterRadius[map]=this.getAttribute("cluster", 80);
-        clusterType[map]=this.getAttribute("clusterType", "map");
+        clusterRadius[map] = this.getAttribute("cluster", 80);
+        clusterType[map] = this.getAttribute("clusterType", "map");
         if (clusterRadius[map] == 0 || clusterType[map] == "tiddler") {
-            // if clusterRadius nul, no whole clustering
+            // if clusterRadius null or clustering by tiddler, no whole clustering
             fCluster[map] = L.featureGroup();
-        }
-        else {
+        } else {
             // creating a cluter group for whole map
             fCluster[map] = L.markerClusterGroup({
                 name: "Cluster" + map,
@@ -170,7 +168,7 @@ Compute the internal state of the widget
                     var cF = cS / 2;
                     if (cF < 14) cF = 14;
                     return new L.DivIcon({
-                        html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;background-color:' + setColor(Colour["wiki"]) + ';border-color:' + setColor(Colour["wiki"]) + ';opacity:.85"><div><span style="line-height:' + cS + 'px;opacity:1">' + cC + "</span></div></div>",
+                        html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;background-color:' + setColor(Colour[m]) + ';border-color:' + setColor(Colour[m]) + ';opacity:.85"><div><span style="line-height:' + cS + 'px;opacity:1">' + cC + "</span></div></div>",
                         className: "marker-cluster marker-cluster-" + cC,
                         iconSize: new L.Point(cS, cS)
                     })
@@ -187,18 +185,18 @@ Compute the internal state of the widget
                 // if no tiddler is given (single space) map current Tiddler
                 // !todo would be much better if so when no attribute at all...
                 if (plcs.tiddler == " ") {
-                    mapTiddler(this, this.getVariable("currentTiddler"), Colour[map]);
+                    mapTiddler(this, this.getVariable("currentTiddler"));
                 }
                 // else, map the given tiddler
                 else {
                     // get data fields in the tiddler, let's seek for geo data
-                    mapTiddler(this, plcs.tiddler, Colour[map]);
+                    mapTiddler(this, plcs.tiddler);
                 }
             }
             // case 2 : data in multiple tiddlers
             if (plcs.tiddlers) {
                 var feature = L.featureGroup();
-                mapTiddlers(this, plcs.tiddlers, Colour[map]);
+                mapTiddlers(this, plcs.tiddlers);
             }
             // case 3 : data in tiddlers following a filter
             if (plcs.filter) {
@@ -220,6 +218,7 @@ Compute the internal state of the widget
                 // set bounds
             }
             if (plcs.points) {
+                // !todo : create a cluster for those points if clusterType == "tiddler"
                 mapPoints(plcs.points, fCluster[map], undefined, Colour[map]);
                 feature.addLayer(fCluster[map]);
             }
@@ -244,8 +243,9 @@ Compute the internal state of the widget
                 polylsFeat.addTo(feature);
             }
             if (plcs.geojson) {
+                // !todo : create a cluster for those points if clusterType == "tiddler"
                 var geojsonFeat = L.featureGroup();
-                mapGeoJson(plcs.geojson, geojsonFeat, Colour[map]);
+                mapGeoJson(plcs.geojson, fCluster[map], geojsonFeat, Colour[map]);
                 geojsonFeat.addTo(Map[map]);
                 extBounds(geojsonFeat);
             }
@@ -360,7 +360,7 @@ Compute the internal state of the widget
         }
     }
     // add a geojson set
-    function mapGeoJson(geojson, feat, col) {
+    function mapGeoJson(geojson, cluster, feat, col) {
         try {
             var data = JSON.parse(geojson);
             var geoJson = L.geoJSON(data, {
@@ -370,7 +370,7 @@ Compute the internal state of the widget
                     var jsonPoint = L.marker(latlng, {
                         icon: lfltIcon(col)
                     });
-                    fCluster[map].addLayer(jsonPoint);
+                    cluster.addLayer(jsonPoint);
                     // extracting data to create popup (all non-null data!)
                     var Prop = geoJsonPoint.properties,
                         jsontitle = "",
@@ -401,30 +401,67 @@ Compute the internal state of the widget
                     jsonPoint.bindPopup(jsonhtml);
                 }
             });
-            feat.addLayer(fCluster[map]);
+            feat.addLayer(cluster);
             geoJson.addTo(feat);
         } catch (error) {
             displayError("there was an error when displaying geoJson. error : ", error);
         }
     }
 
-    function mapTiddler(obj, tid) {
+    function mapTiddler(obj, tid, col) {
         // get data fields in the tiddler, let's seek for geo data
         var flds = obj.wiki.getTiddler(tid).fields,
             feature = L.featureGroup(), // create the tiddler feature
             popup = ""; // create the popup text
-        // if tiddler has its own color, will overwrite color for now
-        if (flds.color) Colour["t" + tn] = flds.color;
-        else Colour["t" + tn] = Colour[map];
-        /*    !todo : detect if tiddler is JSON data in order to display them
-                      for now, assuming any json data is geoJson...
-        */
+        // setting colors
+        // if color sent by function, lets get it
+        if(col != undefined) Colour["t" + tn] = col;
+        else {
+            // if tiddler has its own color, will overwrite color for now
+            if (flds.color) Colour["t" + tn] = flds.color;
+            else Colour["t" + tn] = Colour[map];
+        }
+        console.log(Colour["t" + tn]+ "-" + tn);
+        // if clusterType is tiddler, creating a cluster group for tiddler
+        if (clusterType[map] == "tiddler") {
+            fCluster[tid] = L.markerClusterGroup({
+                name: "Cluster" + map + "Cluster" + tn,
+                maxClusterRadius: clusterRadius[map],
+                /* for the record. may be a function
+                function() {return (clusterRadius - 50) / 9 * Map[map].getZoom() + 50 - (clusterRadius - 50) / 9 },*/
+                iconCreateFunction: function(cluster) {
+                    // cluster icon size will be based on item number and zoom
+                    // !!todo get cluster color from tiddler if exists
+                    var cC = cluster.getChildCount(),
+                        m = this.name.split("Cluster")[1],
+                        t = this.name.split("Cluster")[2],
+                        cS = Math.sqrt(cC * Map[m].getZoom() * clusterRadius[m]) * 1.15;
+                    if (cS < 38) cS = 38;
+                    var cF = cS / 2;
+                    if (cF < 14) cF = 14;
+                    return new L.DivIcon({
+                        // less opacity for tiddler clustering
+                        html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;background-color:' + setColor(Colour["t" + t]) + ';border:1.5px solid #555;opacity:.65"><div><span style="line-height:' + cS + 'px;opacity:.85">' + cC + "</span></div></div>",
+                        className: "marker-cluster marker-cluster-" + cC,
+                        iconSize: new L.Point(cS, cS)
+                    })
+                }
+            });
+        } else {
+            fCluster[tid] = fCluster[map];
+        }
         // case 1 : the tiddler is a json tiddler
+        /* !todo : detect if tiddler is JSON data in order to display them
+           for now, assuming any json data is geoJson...
+        */
         if (flds.type == "application/json") {
             var jsonFeat = L.featureGroup();
             // have to detect strict geoJSON and other JSON with lat long data
             var data = obj.wiki.getTiddlerText(tid);
-            mapGeoJson(data, jsonFeat, Colour["t" + tn]);
+            console.log(tid);
+            console.log(fCluster[tid]);
+            console.log(fCluster[map]);
+            mapGeoJson(data, fCluster[tid], jsonFeat, Colour["t" + tn]);
             jsonFeat.addTo(Map[map]);
             extBounds(jsonFeat);
             // for second case give instruction about required fields and data to be rendered in popup
@@ -452,14 +489,14 @@ Compute the internal state of the widget
             var wasRendered = 0;
             // render a unique point for the tiddler (with tiddler text in the popup)
             if (flds.point) {
-                mapPoint(flds.point, fCluster[map], popup, Colour["t" + tn]);
-                subFeat.addLayer(fCluster[map]);
+                mapPoint(flds.point, fCluster[tid], popup, Colour["t" + tn]);
+                subFeat.addLayer(fCluster[tid]);
                 wasRendered++;
             }
             // render a space separated list of pointS for the tiddler
             if (flds.points) {
-                mapPoints(flds.points, fCluster[map], popup, Colour["t" + tn]);
-                subFeat.addLayer(fCluster[map]);
+                mapPoints(flds.points, fCluster[tid], popup, Colour["t" + tn]);
+                subFeat.addLayer(fCluster[tid]);
                 wasRendered++;
             }
             // render a polygon
@@ -485,7 +522,7 @@ Compute the internal state of the widget
             // render a geojson directly in feature
             if (flds.geojson) {
                 var jsonFeat = L.featureGroup();
-                mapGeoJson(flds.geojson, jsonFeat, Colour["t" + tn]);
+                mapGeoJson(flds.geojson, fCluster[tid], jsonFeat, Colour["t" + tn]);
                 jsonFeat.addTo(Map[map]);
                 wasRendered++;
             }
@@ -501,10 +538,10 @@ Compute the internal state of the widget
     }
 
     // map a tiddler colletion
-    function mapTiddlers(obj, list) {
+    function mapTiddlers(obj, list, col) {
         var Tids = list.split(" ");
         for (var td in Tids) {
-            mapTiddler(obj, Tids[td]);
+            mapTiddler(obj, Tids[td], col);
         }
     }
 
@@ -547,7 +584,7 @@ Compute the internal state of the widget
     // set color for tiddler if exists
     function setColor(col) {
         if (col == undefined) col = Colour[map];
-        else Colour[map] = col;
+        //else Colour[map] = col;
         return col;
     }
 
