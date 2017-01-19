@@ -177,6 +177,10 @@ Error message and password prompt
 
 <li>$:/StoryList</li>
 
+<li>$:/temp/advancedsearch</li>
+
+<li>$:/temp/HideAnalyticsWarning</li>
+
 <li>$:/temp/info-plugin</li>
 
 <li>$:/temp/search</li>
@@ -201,7 +205,7 @@ Error message and password prompt
 
 <li>A plugin collection</li>
 
-<li>Google analytics updated</li>
+<li>Google analytics reloaded</li>
 
 <li>Install</li>
 
@@ -274,6 +278,8 @@ Error message and password prompt
 <li>Michel Strogoff II-9</li>
 
 <li>StyleTweak</li>
+
+<li>this wiki uses Google analytics</li>
 
 <li>TiddlyWiki</li>
 
@@ -7962,13 +7968,13 @@ Error message and password prompt
 <div created="20161021214853987" creator="Sylvain Comte" modified="20161219143850583" modifier="Sylvain Comte" title="$:/GoogleAnalyticsDomain">
 <pre></pre>
 </div>
-<div created="20170111105021603" creator="Sylvain Comte" modified="20170111105021603" modifier="Sylvain Comte" title="$:/GoogleAnalyticsTrackAll">
+<div created="20170119131704715" creator="Sylvain Comte" modified="20170119133136517" modifier="Sylvain Comte" title="$:/GoogleAnalyticsTrackAll">
 <pre>yes</pre>
 </div>
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/plugins/sycom/leaflet]]</pre>
+# [[$:/plugins/tiddlywiki/googleanalytics]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -8157,11 +8163,36 @@ Error message and password prompt
 <div author="JeremyRuston" contributor="Sylvain Comte" core-version="&gt;=5.0.0" dependents="" description="Google Analytics: website statistics" list="readme settings usage" plugin-type="plugin" title="$:/plugins/tiddlywiki/googleanalytics" type="application/json" version="5.1.14">
 <pre>{
     &quot;tiddlers&quot;: {
+        &quot;$:/plugins/tiddlywiki/googleanalytics/disclaimer_base&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/disclaimer_base&quot;,
+            &quot;tags&quot;: &quot;privacy analytics alert&quot;,
+            &quot;text&quot;: &quot;As many website do, this wiki uses [[Google Analytics|https://analytics.google.com]] (via the [[Google Analytics plugin|$:/plugins/tiddlywiki/googleanalytics]]) to help analyse how much visitors use this site and where they come from. Google uses “cookies”, which are small text files placed on your computer, to collect standard internet log information in an anonymous form.\n\nYour anonymity is safe here but you may wish to disable all tracking since data are sent to Google who may use them for marketing purpose. The plugin is compliant with [[Do Not Track|http://donottrack.us/]]. So,\n\n* if you enable ''do not track'' option ''in your browser'' and reload the page the wiki will not collect and send any more data. You may also use privacy extensions to control which site can track you like. [[All About Do Not Track|https://allaboutdnt.com/]] website provide usefull informations about all this.\r\n* some browsers enable do not track when using \&quot;private mode\&quot; ([[Firefox|http://firefox.com]] does). If you visit the wiki from those browsers in \&quot;private mode\&quot; no data will be sent either.\r\n&quot;
+        },
+        &quot;$:/plugins/tiddlywiki/googleanalytics/disclaimer_dnt&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/disclaimer_dnt&quot;,
+            &quot;tags&quot;: &quot;privacy analytics alert&quot;,
+            &quot;text&quot;: &quot;As many website do, this wiki uses [[Google Analytics|https://analytics.google.com]] (via the [[Google Analytics plugins|$:/plugins/tiddlywiki/googleanalytics]]) to help analyse how much visitors use this site and where they come from. Google uses “cookies”, which are small text files placed on your computer, to collect standard internet log information in an anonymous form.\n\nHowever, as you are visiting the browser in private mode or have activated [[Do Not Track|http://donottrack.us/]], the plugin is deactivated. So no information will be collected nor sent anywhere.\r\n&quot;
+        },
+        &quot;$:/plugins/tiddlywiki/googleanalytics/disclaimer_full&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/disclaimer_full&quot;,
+            &quot;tags&quot;: &quot;privacy analytics alert&quot;,
+            &quot;text&quot;: &quot;As many website do, this wiki uses [[Google Analytics|https://analytics.google.com]] (via the [[Google Analytics plugin|$:/plugins/tiddlywiki/googleanalytics]]) to help analyse how much visitors use this site and where they come from. Google uses “cookies”, which are small text files placed on your computer, to collect standard internet log information and visitor behaviour information in an anonymous form.\n\nAs ''internal link tracker is activated'' on this wiki, the tracker will send the title of each tiddler you're visiting (still anonymously though).\n\nYour anonymity is safe here but you may wish to disable all tracking since data are sent to Google who may use them for marketing purpose. The plugin is compliant with [[Do Not Track|http://donottrack.us/]]. So,\n\n* if you enable ''do not track'' option ''in your browser'' and reload the page the wiki will not collect and send any more data. You may also use privacy extensions to control which site can track you like. [[All About Do Not Track|https://allaboutdnt.com/]] website provide usefull informations about all this.\r\n* some browsers enable do not track when using \&quot;private mode\&quot; ([[Firefox|http://firefox.com]] does). If you visit the wiki from those browsers in \&quot;private mode\&quot; no data will be sent either.\r\n&quot;
+        },
         &quot;$:/plugins/tiddlywiki/googleanalytics/googleanalytics.js&quot;: {
-            &quot;text&quot;: &quot;/*\\\r\ntitle: $:/plugins/tiddlywiki/googleanalytics/googleanalytics.js\r\ntype: application/javascript\r\nmodule-type: startup\r\n\r\nRuns Google Analytics with the account number in the tiddler `$:/GoogleAnalyticsAccount` and the domain name in `$:/GoogleAnalyticsDomain`\r\n\r\n\\*/\r\n(function(){\r\n\r\n/*jslint node: true, browser: true */\r\n/*global $tw: false */\r\n\&quot;use strict\&quot;;\r\n\r\n// Export name and synchronous status\r\nexports.name = \&quot;google-analytics\&quot;;\r\nexports.platforms = [\&quot;browser\&quot;];\r\nexports.synchronous = true;\r\n\r\nexports.startup = function() {\r\n\t// getting parameters\r\n\tvar GA_ACCOUNT = $tw.wiki.getTiddlerText(\&quot;$:/GoogleAnalyticsAccount\&quot;).replace(/\\n/g,\&quot;\&quot;),\r\n\t\tGA_DOMAIN = $tw.wiki.getTiddlerText(\&quot;$:/GoogleAnalyticsDomain\&quot;).replace(/\\n/g,\&quot;\&quot;);\r\n\tif (GA_DOMAIN == \&quot;\&quot; || GA_DOMAIN == undefined) GA_DOMAIN = \&quot;auto\&quot;;\r\n\r\n\t// using ga \&quot;isogram\&quot; function\r\n  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\r\n\r\n\t// adding (optional) tracking internal navigation\r\n\tvar GA_TRACKALL = $tw.wiki.getTiddlerText(\&quot;$:/GoogleAnalyticsTrackAll\&quot;).replace(/\\n/g,\&quot;\&quot;) || \&quot;no\&quot;;\r\n\tif (GA_TRACKALL == \&quot;yes\&quot;) {\r\n\t\t// create a hook on navigation to send data via tracker\r\n\t\t$tw.wiki.addEventListener(\&quot;change\&quot;,function(changes) {\r\n\t\t\t// dealing with user settings !todo check if options is associated with wiki or $tw\r\n\t\t\tvar options = $tw.wiki.options || {},\r\n\t\t\t\tstoryTitle = options.storyTitle || \&quot;$:/StoryList\&quot;,\r\n\t\t\t\thistoryTitle = options.historyTitle || \&quot;$:/HistoryList\&quot;;\r\n\t\t\t// getting storyList (displayed) historyList (last displayed) and last item\r\n\t\t\tvar storyList=$tw.wiki.getTiddler(storyTitle).fields.list;\r\n\t\t\tvar historyList = JSON.parse($tw.wiki.getTiddlerText(historyTitle));\r\n\t\t\tvar GA_CURRENT = historyList[historyList.length-1].title;\r\n\t\t\t// if last item has not been closed, prepare data and send to tracker\r\n\t\t\tif(storyList.includes(GA_CURRENT)) {\r\n\t\t\t\t// if history modified is true send tracker (else user may just closed another tiddler)\r\n\t\t\t\t// note that clicking on a tiddlerlink from already opened tiddler will count\r\n\t\t\t\tif(changes[historyTitle])  {\r\n\t\t\t\t\tga('set', 'page', window.location.pathname+'#'+GA_CURRENT);\r\n\t\t\t\t\tga('set', 'title', GA_CURRENT);\r\n\t\t\t\t\tga('send', 'pageview');\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t});\r\n\t// ?at first connection, should send all default pages to tracker?\r\n\t}\r\n  ga('create', GA_ACCOUNT, GA_DOMAIN);\r\n  ga('send', 'pageview');\r\n};\r\n\r\n})();\r\n&quot;,
+            &quot;text&quot;: &quot;/*\\\r\ntitle: $:/plugins/tiddlywiki/googleanalytics/googleanalytics.js\r\ntype: application/javascript\r\nmodule-type: startup\r\n\r\nRuns Google Analytics with the account number in the tiddler `$:/GoogleAnalyticsAccount` and the domain name in `$:/GoogleAnalyticsDomain`. You may also track internal navigation.\r\n\r\n\\*/\r\n(function(){\r\n\r\n/*jslint node: true, browser: true */\r\n/*global $tw: false */\r\n\&quot;use strict\&quot;;\r\n\r\n// Export name and synchronous status\r\nexports.name = \&quot;google-analytics\&quot;;\r\nexports.platforms = [\&quot;browser\&quot;];\r\nexports.synchronous = true;\r\n\r\nexports.startup = function() {\r\n    // testing do not track\r\n    if(navigator.doNotTrack != 1) {\r\n    \t// getting parameters\r\n    \tvar GA_ACCOUNT = $tw.wiki.getTiddlerText(\&quot;$:/GoogleAnalyticsAccount\&quot;).replace(/\\n/g,\&quot;\&quot;),\r\n    \t\tGA_DOMAIN = $tw.wiki.getTiddlerText(\&quot;$:/GoogleAnalyticsDomain\&quot;).replace(/\\n/g,\&quot;\&quot;);\r\n    \tif (GA_DOMAIN == \&quot;\&quot; || GA_DOMAIN == undefined) GA_DOMAIN = \&quot;auto\&quot;;\r\n\r\n    \t// using ga \&quot;isogram\&quot; function\r\n        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\r\n        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\r\n        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\r\n        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\r\n\r\n    \t// adding (optional) tracking internal navigation if activated\r\n    \tvar GA_TRACKALL;\r\n    \tif($tw.wiki.getTiddler(\&quot;$:/GoogleAnalyticsTrackAll\&quot;)) GA_TRACKALL = $tw.wiki.getTiddlerText(\&quot;$:/GoogleAnalyticsTrackAll\&quot;).replace(/\\n/g,\&quot;\&quot;);\r\n    \telse GA_TRACKALL = \&quot;\&quot;;\r\n    \tif (GA_TRACKALL == \&quot;yes\&quot;) {\r\n            // change informations about tracking - full tracking\r\n            $tw.wiki.setText(\&quot;this wiki uses Google analytics\&quot;,\&quot;text\&quot;,null,$tw.wiki.getTiddlerText(\&quot;$:/plugins/tiddlywiki/googleanalytics/disclaimer_full\&quot;));\r\n    \t\t// create a \&quot;hook\&quot; on navigation to send data via tracker\r\n    \t\t$tw.wiki.addEventListener(\&quot;change\&quot;,function(changes) {\r\n    \t\t\t// dealing with user settings !todo check if options is associated with wiki or $tw\r\n    \t\t\tvar options = $tw.wiki.options || {},\r\n    \t\t\t\tstoryTitle = options.storyTitle || \&quot;$:/StoryList\&quot;,\r\n    \t\t\t\thistoryTitle = options.historyTitle || \&quot;$:/HistoryList\&quot;;\r\n    \t\t\t// getting storyList (displayed) historyList (last displayed) and last item\r\n    \t\t\tvar storyList=$tw.wiki.getTiddler(storyTitle).fields.list;\r\n    \t\t\tvar historyList = JSON.parse($tw.wiki.getTiddlerText(historyTitle));\r\n    \t\t\tvar GA_CURRENT = historyList[historyList.length-1].title;\r\n    \t\t\t// if last item has not been closed, prepare data and send to tracker\r\n    \t\t\tif(storyList.includes(GA_CURRENT)) {\r\n    \t\t\t\t// if history modified is true send tracker (else user may just closed another tiddler)\r\n    \t\t\t\t// note that clicking on a tiddlerlink from already opened tiddler will count\r\n    \t\t\t\tif(changes[historyTitle])  {\r\n    \t\t\t\t\tga('set', 'page', window.location.pathname+'#'+GA_CURRENT);\r\n    \t\t\t\t\tga('set', 'title', GA_CURRENT);\r\n    \t\t\t\t\tga('send', 'pageview');\r\n    \t\t\t\t}\r\n    \t\t\t}\r\n    \t\t});\r\n    \t// ?at first connection, should send all default pages to tracker?\r\n    \t}\r\n        else {\r\n            // change informations about tracking - base mode\r\n            $tw.wiki.setText(\&quot;this wiki uses Google analytics\&quot;,\&quot;text\&quot;,null,$tw.wiki.getTiddlerText(\&quot;$:/plugins/tiddlywiki/googleanalytics/disclaimer_base\&quot;));\r\n            // send data for whole page once only\r\n            ga('create', GA_ACCOUNT, GA_DOMAIN);\r\n            ga('send', 'pageview');\r\n        }\r\n    }\r\n    else {\r\n        // tells user tracker is installed but ineficient since DNT activated\r\n        // change informations about tracking - dnt mode\r\n        $tw.wiki.setText(\&quot;this wiki uses Google analytics\&quot;,\&quot;text\&quot;,null,$tw.wiki.getTiddlerText(\&quot;$:/plugins/tiddlywiki/googleanalytics/disclaimer_dnt\&quot;));\r\n    }\r\n}\r\n})();\r\n&quot;,
             &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/googleanalytics.js&quot;,
             &quot;type&quot;: &quot;application/javascript&quot;,
             &quot;module-type&quot;: &quot;startup&quot;
+        },
+        &quot;$:/plugins/tiddlywiki/googleanalytics/notification&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/notification&quot;,
+            &quot;tags&quot;: &quot;$:/tags/PageTemplate&quot;,
+            &quot;text&quot;: &quot;&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;$:/temp/HideAnalyticsWarning\&quot; text=\&quot;yes\&quot;&gt;\r\n    &lt;div class=\&quot;tc-plugin-reload-warning\&quot;&gt;\r\n        &lt;$set name=\&quot;tv-config-toolbar-class\&quot; value=\&quot;\&quot;&gt;\n\n[[this wiki uses Google analytics tracker]] (that means also cookies) via a [[plugin|$:/plugins/tiddlywiki/googleanalytics]] to get informations about your navigation. [[more informations|this wiki uses Google analytics tracker]].&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;$button set=\&quot;$:/temp/HideAnalyticsWarning\&quot; setTo=\&quot;yes\&quot; class=\&quot;tc-btn-invisible\&quot;&gt;{{$:/core/images/close-button}}&lt;/$button&gt;\r\n        &lt;/$set&gt;\r\n    &lt;/div&gt;\r\n&lt;/$reveal&gt;\r\n&quot;
+        },
+        &quot;this wiki uses Google analytics tracker&quot;: {
+            &quot;title&quot;: &quot;this wiki uses Google analytics tracker&quot;,
+            &quot;tags&quot;: &quot;privacy analytics alert&quot;,
+            &quot;text&quot;: &quot;As many website do, this wiki uses [[Google Analytics|https://analytics.google.com]] (via the [[Google Analytics plugin|$:/plugins/tiddlywiki/googleanalytics]]) to help analyse how much visitors use this site and where they come from. Google uses “cookies”, which are small text files placed on your computer, to collect standard internet log information in an anonymous form.\n\nYour anonymity is safe here but you may wish to disable all tracking since data are sent to Google who may use them for marketing purpose. The plugin is compliant with [[Do Not Track|http://donottrack.us/]]. So,\n\n* if you enable ''do not track'' option ''in your browser'' and reload the page the wiki will not collect and send any more data. You may also use privacy extensions to control which site can track you like. [[All About Do Not Track|https://allaboutdnt.com/]] website provide usefull informations about all this.\r\n* some browsers enable do not track when using \&quot;private mode\&quot; ([[Firefox|http://firefox.com]] does). If you visit the wiki from those browsers in \&quot;private mode\&quot; no data will be sent either.\r\n&quot;
         },
         &quot;$:/plugins/tiddlywiki/googleanalytics/readme&quot;: {
             &quot;title&quot;: &quot;$:/plugins/tiddlywiki/googleanalytics/readme&quot;,
@@ -8190,7 +8221,7 @@ Error message and password prompt
 <div created="20161021214945342" creator="Sylvain Comte" modified="20161220132941916" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/sycom/leaflet---896887961">
 <pre>readme</pre>
 </div>
-<div created="20161119182218277" creator="Sylvain Comte" modified="20170111105019991" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/googleanalytics">
+<div created="20161119182218277" creator="Sylvain Comte" modified="20170119131354933" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/googleanalytics">
 <pre>yes</pre>
 </div>
 <div created="20161119182222219" creator="Sylvain Comte" modified="20161219143824450" modifier="Sylvain Comte" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/googleanalytics---896887961">
@@ -8211,7 +8242,7 @@ Error message and password prompt
 <div created="20161021214306437" creator="Sylvain Comte" modified="20161111202128327" modifier="Sylvain Comte" title="$:/state/tab-696880311">
 <pre>$:/plugins/sycom/leaflet/usage</pre>
 </div>
-<div created="20161021214050838" creator="Sylvain Comte" modified="20170115151736139" modifier="Sylvain Comte" title="$:/state/tab/sidebar--1835078512">
+<div created="20161021214050838" creator="Sylvain Comte" modified="20170119133024463" modifier="Sylvain Comte" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20151129151027223" creator="S" modified="20151129151036531" modifier="Sylvain Comt" title="$:/status/UserName">
@@ -8219,6 +8250,12 @@ Error message and password prompt
 </div>
 <div list="[[A plugin collection]]" title="$:/StoryList">
 <pre></pre>
+</div>
+<div created="20170119131549494" creator="Sylvain Comte" modified="20170119131815052" modifier="Sylvain Comte" title="$:/temp/advancedsearch">
+<pre>trackall</pre>
+</div>
+<div created="20170119131728433" creator="Sylvain Comte" modified="20170119131728433" modifier="Sylvain Comte" title="$:/temp/HideAnalyticsWarning">
+<pre>yes</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -8234,7 +8271,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20161021214352792" creator="Sylvain Comte" modified="20161021214354731" modifier="Sylvain Comte" title="$:/temp/search">
+<div created="20161021214352792" creator="Sylvain Comte" modified="20170119131815053" modifier="Sylvain Comte" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20151129151125348" creator="Sylvain Comte" modified="20151129151131697" modifier="Sylvain Comte" title="$:/theme">
@@ -8367,17 +8404,17 @@ Error message and password prompt
 <div created="20151208153521891" creator="Sylvain Comte" modified="20151208153528938" modifier="Sylvain Comte" title="$:/view">
 <pre>classic</pre>
 </div>
-<div created="20151127192625926" creator="Sylvain Comte" modified="20161219081739204" modifier="Sylvain Comte" title="A plugin collection">
+<div created="20151127192625926" creator="Sylvain Comte" modified="20170119131023599" modifier="Sylvain Comte" title="A plugin collection">
 <pre>sycom's TiddlyWiki plugin collection has two items. Feel free to play with them, just follow [[installation instructions|Install]] :
 
 * [[Leaflet plugin]] will embed leaflet maps in your tiddlywiki. You can see the [[Michel Strogoff from the sky]] example to see what can be done with it. see also plugin embedded [[example|$:/plugins/sycom/leaflet/example]]
 
 &lt;$leafmap tileControl height='259px' tile='natgeo' places='{&quot;filter&quot;:&quot;[tag[Michel Strogoff from the sky]]&quot;}' cluster='5' /&gt;
 
-* [[Google analytics updated]], is an adaptation of the tiddlywiki's one using the new &quot;isogram&quot; tracker code. Source code can be found on [[my fork of Jermolene's tiddlywiki5 repo|https://github.com/sycom/TiddlyWiki5]]
+* [[Google analytics reloaded]], is an adaptation of the tiddlywiki's one using the new &quot;isogram&quot; tracker code. It also enables a way to have informations about internal traffic. Source code can be found on [[my fork of Jermolene's tiddlywiki5 repo|https://github.com/sycom/TiddlyWiki5]]
 </pre>
 </div>
-<div created="20161219081816419" creator="Sylvain Comte" modified="20161219082202066" modifier="Sylvain Comte" title="Google analytics updated">
+<div created="20161219081816419" creator="Sylvain Comte" modified="20170119130920011" modifier="Sylvain Comte" title="Google analytics reloaded">
 <pre>! About
 
 {{$:/plugins/tiddlywiki/googleanalytics/readme}}
@@ -8522,6 +8559,17 @@ Deux journalistes, Alcide Jolivet et Harry Blount, un Français et un Anglais, a
 </div>
 <div created="20160314101812576" creator="Sylvain Comte" modified="20160314101908164" modifier="Sylvain Comte" tags="$:/tags/Stylesheet" title="StyleTweak" type="text/css">
 <pre>.whiteLink a {color:white}</pre>
+</div>
+<div created="20170119131323343" creator="Sylvain Comte" modified="20170119134259834" modifier="Sylvain Comte" title="this wiki uses Google analytics">
+<pre>As many website do, this wiki uses [[Google Analytics|https://analytics.google.com]] (via the [[Google Analytics plugin|$:/plugins/tiddlywiki/googleanalytics]]) to help analyse how much visitors use this site and where they come from. Google uses “cookies”, which are small text files placed on your computer, to collect standard internet log information and visitor behaviour information in an anonymous form.
+
+As ''internal link tracker is activated'' on this wiki, the tracker will send the title of each tiddler you're visiting (still anonymously though).
+
+Your anonymity is safe here but you may wish to disable all tracking since data are sent to Google who may use them for marketing purpose. The plugin is compliant with [[Do Not Track|http://donottrack.us/]]. So,
+
+* if you enable ''do not track'' option ''in your browser'' and reload the page the wiki will not collect and send any more data. You may also use privacy extensions to control which site can track you like. [[All About Do Not Track|https://allaboutdnt.com/]] website provide usefull informations about all this.
+* some browsers enable do not track when using &quot;private mode&quot; ([[Firefox|http://firefox.com]] does). If you visit the wiki from those browsers in &quot;private mode&quot; no data will be sent either.
+</pre>
 </div>
 <div created="20130822170700000" creator="Jeremy Ruston" modified="20161026073532291" modifier="Jeremy Ruston" source="http://tiddlywiki.com/#TiddlyWiki" tags="Concepts" title="TiddlyWiki" type="text/vnd.tiddlywiki">
 <pre>[[TiddlyWiki|http://tiddlywiki.com]] is a rich, interactive tool for manipulating complex data with structure that doesn't easily fit into conventional tools like spreadsheets or wordprocessors.
