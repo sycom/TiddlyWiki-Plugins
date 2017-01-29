@@ -1,0 +1,11 @@
+created: 20170129162401905
+modified: 20170129162401905
+tags: $:/tags/Image
+title: $:/plugins/sycom/leaflet/images/point.svg
+marker_dim: 15 15 7.5 7.5
+caption: point
+
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill-rule="evenodd">
+    <ellipse cx="7.5" cy="7.5" rx="7.5" ry="7.5" fill="none" stroke="#fff" stroke-width="1" stroke-opacity=".8" />
+    <ellipse class="leaflet-marker-colored" cx="7.5" cy="7.5" rx="7" ry="7" fill-opacity=".8" fill="$primary$" stroke="black" stroke-width=".5" stroke-opacity=".8" />
+</svg>

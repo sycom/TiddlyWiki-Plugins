@@ -85,6 +85,7 @@ Create the map for the widget
         var tiles = {}; // tile identifier for control
         // look for tile parameter
         setting.tile = this.getAttribute("tile", "osm");
+        setting.marker = this.getAttribute("marker", null);
         // create tile layer list
         for (var i in fonds) {
             if (i == setting.tile || fonds[i].id == setting.tile) {
@@ -144,7 +145,7 @@ Compute the internal state of the widget
         // if primaire.match("<<") primaire="#555";
 
         // create icon !todo only if there are points to display;
-        L.icon.default = lfltIcon(setColor());
+        L.icon.default = lfltIcon(setColor(),setting.marker);
         // creating cluster
         // getting cluster size parameter, if exists
         clusterRadius[map] = this.getAttribute("cluster", 80);
@@ -283,7 +284,7 @@ Compute the internal state of the widget
         }
         try {
             var marker = L.marker(location, {
-                icon: lfltIcon(col)
+                icon: lfltIcon(col,setting.marker)
             })
             if (pop) marker.bindPopup(pop);
             cluster.addLayer(marker)
@@ -368,7 +369,7 @@ Compute the internal state of the widget
                 pointToLayer: function(geoJsonPoint, latlng) {
                     // binding default icon
                     var jsonPoint = L.marker(latlng, {
-                        icon: lfltIcon(col)
+                        icon: lfltIcon(col,setting.marker)
                     });
                     cluster.addLayer(jsonPoint);
                     // extracting data to create popup (all non-null data!)
@@ -421,7 +422,6 @@ Compute the internal state of the widget
             if (flds.color) Colour["t" + tn] = flds.color;
             else Colour["t" + tn] = Colour[map];
         }
-        console.log(Colour["t" + tn]+ "-" + tn);
         // if clusterType is tiddler, creating a cluster group for tiddler
         if (clusterType[map] == "tiddler") {
             fCluster[tid] = L.markerClusterGroup({
@@ -458,9 +458,9 @@ Compute the internal state of the widget
             var jsonFeat = L.featureGroup();
             // have to detect strict geoJSON and other JSON with lat long data
             var data = obj.wiki.getTiddlerText(tid);
-            console.log(tid);
-            console.log(fCluster[tid]);
-            console.log(fCluster[map]);
+//            console.log(tid);
+//            console.log(fCluster[tid]);
+//            console.log(fCluster[map]);
             mapGeoJson(data, fCluster[tid], jsonFeat, Colour["t" + tn]);
             jsonFeat.addTo(Map[map]);
             extBounds(jsonFeat);
@@ -558,28 +558,37 @@ Compute the internal state of the widget
     }
 
     // icon creator
-    function iconUrl(col) {
-        var icone = escape($tw.wiki.renderTiddler("text/html", "$:/plugins/sycom/leaflet/images/marker.svg").replace("$primary$", setColor(col)).replace("</p>", "").replace("<p>", ""));
+    function iconUrl(col,tid) {
+        // !suppr? if(tid === undefined || tid === null) tid = "$:/plugins/sycom/leaflet/images/marker.svg";
+        var icone = escape($tw.wiki.renderTiddler("text/html", tid).replace("$primary$", setColor(col)).replace("</p>", "").replace("<p>", ""));
         return ('data:image/svg+xml;charset=UTF-8,' + icone);
     }
 
     // create icon !todo only if there are points to display;
-    function lfltIcon(col) {
+    function lfltIcon(col,tid) {
+        if(tid === undefined || tid === null) tid = "$:/plugins/sycom/leaflet/images/marker.svg";
+        else tid = "$:/plugins/sycom/leaflet/images/" + tid + ".svg";
+        if($tw.wiki.getTiddler(tid) === undefined) tid = "$:/plugins/sycom/leaflet/images/marker.svg";
+        // !todo  create shadow from icon by transform matrix?
+        var shad = tid.split(".svg")[0] + "shadow.svg",
+            shadowUrl = 'data:image/svg+xml;charset=UTF-8,' + escape($tw.wiki.getTiddlerText(shad));
+        // get dimensions in tiddler
+        var MarkDim = $tw.wiki.getTiddler(tid).fields.marker_dim.split(" ");
+        var ShadDim = $tw.wiki.getTiddler(shad).fields.marker_dim.split(" ");
+        console.log(ShadDim);
         var theIcon = L.icon({
-            iconUrl: iconUrl(col),
-            iconRetinaUrl: iconUrl(col),
-            iconSize: [25, 40],
-            iconAnchor: [12.5, 40],
-            popupAnchor: [0, -40],
+            iconUrl: iconUrl(col,tid),
+            iconRetinaUrl: iconUrl(col,tid),
+            iconSize: [MarkDim[0], MarkDim[1]],
+            iconAnchor: [MarkDim[2], MarkDim[3]],
+            popupAnchor: [0, -MarkDim[3]],
             shadowUrl: shadowUrl,
             shadowRetinaUrl: shadowUrl,
-            shadowSize: [50, 40],
-            shadowAnchor: [0, 40]
+            shadowSize: [ShadDim[0], ShadDim[1]],
+            shadowAnchor: [ShadDim[2], ShadDim[3]]
         });
         return theIcon;
     }
-    var shadow = escape($tw.wiki.getTiddlerText("$:/plugins/sycom/leaflet/images/markershadow.svg"));
-    var shadowUrl = 'data:image/svg+xml;charset=UTF-8,' + shadow;
 
     // set color for tiddler if exists
     function setColor(col) {
