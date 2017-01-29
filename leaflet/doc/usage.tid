@@ -1,5 +1,5 @@
 created: 20151119173416239
-modified: 20170115153650584
+modified: 20170129153650584
 title: $:/plugins/sycom/leaflet/usage
 type: text/vnd.tiddlywiki
 caption: Usage
@@ -15,6 +15,7 @@ The widget is called by using `<$leafmap />`. You may specify some options :
 |!Attribute |!Description |!Default |
 |''places'' |a json object with the geographical data you want to display. Can be stored in tiddlers as metadata fields. See [[geoSyntax|$:/plugins/sycom/leaflet/geoSyntax]] for more informations ||
 |''color'' |a color for drawing that will apply to all objects in the map. Will also overwrite GeoTiddler color attributes| `<<colour primary>>`|
+|''marker''|the name of the marker you want for points. See [[markers|$:/plugins/sycom/leaflet/markers]] for more informations| `marker`|
 |''tile'' |the //id// or the //number// of the tile layer you want to use. See [[tileLayers|$:/plugins/sycom/leaflet/tileLayers]] for more informations | `osm`|
 |''cluster''|set the clustering distance between points. also can disable clustering with no value or `0` or `""`| `80`|
 |''clusterType''|set if points are clustered for whole map (`map`) or for each tiddler (`tiddler`) displayed.| `map`|
