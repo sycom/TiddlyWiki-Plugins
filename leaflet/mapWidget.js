@@ -575,7 +575,6 @@ Compute the internal state of the widget
         // get dimensions in tiddler
         var MarkDim = $tw.wiki.getTiddler(tid).fields.marker_dim.split(" ");
         var ShadDim = $tw.wiki.getTiddler(shad).fields.marker_dim.split(" ");
-        console.log(ShadDim);
         var theIcon = L.icon({
             iconUrl: iconUrl(col,tid),
             iconRetinaUrl: iconUrl(col,tid),
