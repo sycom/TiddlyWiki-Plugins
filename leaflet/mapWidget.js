@@ -365,30 +365,56 @@ Compute the internal state of the widget
         try {
             var data = JSON.parse(geojson);
             var geoJson = L.geoJSON(data, {
+                // adding style
+                style: function (feature) {
+                    // will have to deal with more styles
+                    if(feature.properties.style != undefined) return feature.properties.style;
+                    if(feature.properties.color != undefined) return {color: feature.properties.color};
+                    else return {color: col};
+                },
                 // adding points
                 pointToLayer: function(geoJsonPoint, latlng) {
                     // binding default icon
                     var jsonPoint = L.marker(latlng, {
                         icon: lfltIcon(col,setting.marker)
                     });
-                    cluster.addLayer(jsonPoint);
-                    // extracting data to create popup (all non-null data!)
-                    var Prop = geoJsonPoint.properties,
-                        jsontitle = "",
-                        jsonhtml = "";
-                    // testing if properties title or name exists
-                    if (Prop["name"]) jsontitle += Prop["name"] + " ";
-                    if (Prop["title"]) jsontitle += Prop["title"] + " ";
-                    // populating other data
-                    // if we got a title
-                    if (jsontitle != "") {
-                        jsonhtml += "<h4>" + jsontitle + "</h4><ul>";
+                    cluster.addLayer(jsonPoint)
+                }
+            }).bindPopup(function(layer) {
+                // extracting data to create popup (all non-null data!)
+                var Prop = layer.feature.properties,
+                    jsontitle = "",
+                    jsondesc = "",
+                    jsonhtml = "";
+                // testing if properties title or name exists
+                if (Prop.name) jsontitle += Prop.name + " ";
+                if (Prop.title) jsontitle += Prop.title + " ";
+                if (Prop.description) jsondesc +=  Prop.description + "";
+                // populating other data
+                // if we got a title
+                if (jsontitle != "") {
+                    jsonhtml += "<h4>" + jsontitle + "</h4>";
+                    // if we got a description let's give it
+                    if (jsondesc != "") jsonhtml += jsondesc;
+                    else {
+                        jsonhtml+= "<ul>";
                         for (var p in Prop) {
                             if (Prop[p] !== null && Prop[p] !== "" && p != "name" && p != "title") jsonhtml += "<li>" + p + " : " + Prop[p] + "</li>";
                         }
                         jsonhtml += "</ul>";
                     }
-                    // if we have no title, giving one with first fields
+                }
+                // if we have no title, giving one with first fields
+                else {
+                    // in case we've got a description. Stop after title
+                    if (jsondesc != "") {
+                        for (var p in Prop) {
+                            // if title is really to short (as an id), taking next field
+                            if (jsontitle.length < 4) jsontitle += Prop[p] + " ";
+                            else break;
+                        }
+                        jsonhtml = "<h4>" + jsontitle + "</h4>" + jsonhtml;
+                    }
                     else {
                         for (var p in Prop) {
                             // if title is really to short (as an id), taking next field
@@ -396,11 +422,11 @@ Compute the internal state of the widget
                             else {
                                 if (Prop[p] !== null && Prop[p] !== "") jsonhtml += "<li>" + p + " : " + Prop[p] + "</li>";
                             }
-                            jsonhtml = "<h4>" + jsontitle + "</h4><ul>" + jsonhtml + "</ul>";
                         }
+                        jsonhtml = "<h4>" + jsontitle + "</h4><ul>" + jsonhtml + "</ul>";
                     }
-                    jsonPoint.bindPopup(jsonhtml);
                 }
+                return jsonhtml;
             });
             feat.addLayer(cluster);
             geoJson.addTo(feat);
