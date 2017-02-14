@@ -34,9 +34,9 @@ var Map = [],           // map collection
       [52.75, -2.55],
       [52.85, -2.65]
    ],                   // default bounds when nothing given
-   bounds,
-   count = 0,
-   setting = {};
+   bounds,              // global bounds for map ?todo one per map?
+   iter = [],           // iteration indicator to avoid infinite loops
+   setting = {};        // the map's settings
 
 /* Inherit from the base widget class */
  mapWidget.prototype = new Widget();
@@ -279,8 +279,6 @@ function mapPlaces(obj, plcs, feat, clust, pop, col, mark, style) {
    // add feature to map
    feature.addTo(feat);
    extBounds(feature);
-   count++;
-   console.log(count);
 }
 
 // add a marker for a point
@@ -417,6 +415,9 @@ function mapGeoJson(geojson, feat, clust, col, mark, style) {
 
 // map a tiddler
  function mapTiddler(obj, tid, feat, clust, pop, col, mark, style) {
+    if(iter.map.tid === undefined) iter.map.tid = 1;
+    else iter.map.tid +=1;
+    if(iter.map.tid < 42) {
      // get data fields in the tiddler, let's seek for geo data
      var flds = obj.wiki.getTiddler(tid).fields,
          feature = L.featureGroup(),               // create the tiddler feature
@@ -520,6 +521,9 @@ function mapGeoJson(geojson, feat, clust, col, mark, style) {
      // get layer bounds for automatic zoom
      extBounds(feature);
      tn++;
+     }
+     // it tiddler rendered two many times for same map. Stoping and error launch
+     else $tw.utils.error("tiddler [[" + tid + "]] was rendered more than 42 times in this map. Please double check circular dependencies");
  }
 
  // map a tiddler collection
