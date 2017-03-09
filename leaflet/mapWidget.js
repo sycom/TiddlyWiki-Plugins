@@ -130,8 +130,14 @@ mapWidget.prototype.createMap = function(parent, nextSibling) {
 
 /* Compute the internal state of the widget */
 mapWidget.prototype.execute = function() {
+	console.log(this.wiki.getTiddlerText("$:/palette"));
+	console.log(this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette")));
    // getting wiki primary color
-   Colour["wiki"] = this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette")).primary;
+   // check if you defined a tiddler name for palette but no tiddler with that
+   if(this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette")) Colour["wiki"] = this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette")).primary;
+   // switch back to basic blue
+   else Colour["wiki"] = "#5778d8";
+   
    // switch back to basic tiddlywiki blue if primary is defined from another color
    /* notes to upgrade this process
       if primaire is <<colour xxxx>> set to default gray
