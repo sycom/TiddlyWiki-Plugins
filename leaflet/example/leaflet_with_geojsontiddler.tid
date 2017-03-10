@@ -11,12 +11,12 @@ This one displays [[tiddlyWikiFrCommunity|$:/plugins/sycom/leaflet/example/tiddl
     tileControl
     cluster="40"
     places='{"tiddler":"$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity"}'
-    color='orange'
+    style='{"color":"orange"}'
     marker='pin'/>
 ```
 <$leafmap
     tileControl
     cluster="40"
     places='{"tiddler":"$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity"}'
-    color='orange'
+    style='{"color":"orange"}'
     marker='pin'/>

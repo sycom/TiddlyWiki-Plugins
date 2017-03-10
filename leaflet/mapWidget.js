@@ -130,11 +130,11 @@ mapWidget.prototype.createMap = function(parent, nextSibling) {
 
 /* Compute the internal state of the widget */
 mapWidget.prototype.execute = function() {
-	console.log(this.wiki.getTiddlerText("$:/palette"));
-	console.log(this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette")));
+	//console.log(this.wiki.getTiddlerText("$:/palette"));
+	//console.log(this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette")));
    // getting wiki primary color
    // check if you defined a tiddler name for palette but no tiddler with that
-   if(this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette")) Colour["wiki"] = this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette")).primary;
+   if(this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette"))) Colour["wiki"] = this.wiki.getTiddlerData(this.wiki.getTiddlerText("$:/palette")).primary;
    // switch back to basic blue
    else Colour["wiki"] = "#5778d8";
    
@@ -182,6 +182,12 @@ mapWidget.prototype.execute = function() {
    }
    // Get the declared places from the attributes
    var places = this.getAttribute("places", undefined);
+   var style = this.getAttribute("style", undefined);
+   var st;
+   if(style !== undefined) st = JSON.parse(style);
+   else st = null;
+console.log("st when widget starts");
+console.log(st);
    var feature = L.featureGroup();
    // Render the map
    if (places) mapPlaces(this,
@@ -191,7 +197,7 @@ mapWidget.prototype.execute = function() {
       null,
       this.getAttribute("color"),
       this.getAttribute("marker"),
-      this.getAttribute("style")
+      st
    );
 
    // set map to objects bounds
@@ -217,6 +223,8 @@ mapWidget.prototype.execute = function() {
 
 // mapping a places json object (parent object, places json object, destination feature, destination cluster, popup for base objects, ands style parameters : color, marker, json style)
 function mapPlaces(obj, plcs, feat, clust, pop, col, mark, style) {
+console.log("st at mapPlaces start");
+console.log(style);
    // create feature for this mapping turn
    var feature = L.featureGroup();
    // case 1 : data in a tiddler
@@ -309,7 +317,7 @@ function mapPoints(list, clust, pop, col, mark) {
 }
 
  // add a polygon
- function mapPolyg(list, feat, pop, col, style) {
+ function mapPolyg(list, feat, pop, col, st) {
      var Coords = list.split(" ");
      var Shape = [];
      try {
@@ -322,6 +330,7 @@ function mapPoints(list, clust, pop, col, mark) {
      }
      try {
          var polygon = L.polygon(Shape, {
+			 style: st,
              color: col
          });
          if (pop) polygon.bindPopup(pop);
@@ -331,14 +340,14 @@ function mapPoints(list, clust, pop, col, mark) {
      }
  }
  // add a polygons collection
- function mapPolygs(collec, feat, pop, col, style) {
+ function mapPolygs(collec, feat, pop, col, st) {
      var Polys = collec.split("|");
      for (var pg in Polys) {
-         mapPolyg(Polys[pg], feat, pop, col);
+         mapPolyg(Polys[pg], feat, pop, col, st);
      }
  }
  // add a polyline
- function mapPolyl(list, feat, pop, col, style) {
+ function mapPolyl(list, feat, pop, col, st) {
      var Coords = list.split(" ");
      var Line = [];
      try {
@@ -351,6 +360,7 @@ function mapPoints(list, clust, pop, col, mark) {
      }
      try {
          var polyline = L.polyline(Line, {
+			 style: st,
              color: col
          });
          if (pop) polyline.bindPopup(pop);
@@ -363,44 +373,51 @@ function mapPoints(list, clust, pop, col, mark) {
      }
  }
  // add a polylines collection
- function mapPolyls(collec, feat, pop, col, style) {
+ function mapPolyls(collec, feat, pop, col, st) {
      var Lines = collec.split("|");
      for (var ln in Lines) {
-         mapPolyl(Lines[ln], feat, pop, col);
+         mapPolyl(Lines[ln], feat, pop, col, st);
      }
  }
 
 // add a geojson set
-function mapGeoJson(geojson, feat, clust, col, mark, style) {
+function mapGeoJson(geojson, feat, clust, col, mark, st) {
+console.log("st at mapGeoJson start");
+console.log(st);
    try {
       var data = JSON.parse(geojson);
       var geoJson = L.geoJSON(data, {
          // adding style
          style: function (feature) {
             // get feature style only if style is not injected
-            if (style === undefined || style === null) {
-               style = {};
-               if(feature.properties.style != undefined) style = feature.properties.style;
+            if (st === undefined || st === null) {
+               st = {};
+               if(feature.properties.style !== undefined) st = feature.properties.style;
             }
             // color parameter overwrite style color if exists
             if (col !== undefined && col !== null) {
-                style.color = col;
+                st.color = col;
             }
             // or get feature properties if exists
             else {
                if(feature.properties.color !== undefined) {
-                  style.color = feature.properties.color;
+                  st.color = feature.properties.color;
                   // let's also inject in whole json (for markers)
-                  col = style.color;
+                  col = st.color;
                }
             }
             // if no color is defined at the end, fallback
-            if (style.color === undefined) {
+            if (st.color === undefined) {
                col = setColor(col, map);
-               style.color = col;
+               st.color = col;
             }
-            return style;
+console.log("st in mapGeoJson after parsing");
+console.log(st);			
+            return st;
          },
+		 onEachFeature: function (feature, layer) {
+			layer.bindPopup(jsonPop(feature));
+			},
           // adding points
           pointToLayer: function(geoJsonPoint, latlng) {
              // !todo check if we can get color and marker form geoJsonPoint.properties
@@ -411,7 +428,7 @@ function mapGeoJson(geojson, feat, clust, col, mark, style) {
               jsonPoint.bindPopup(jsonPop(geoJsonPoint));
               clust.addLayer(jsonPoint);//.bindPopup(function(layer) {jsonPop(layer);});
           }
-      }).bindPopup(function(layer) {jsonPop(layer.feature)});
+      });
 
       // ?todo : should we add clust to feat or to geoJson? should we add clust even if it's already here?
       feat.addLayer(clust);
@@ -421,32 +438,40 @@ function mapGeoJson(geojson, feat, clust, col, mark, style) {
 
 // map a tiddler
  function mapTiddler(obj, tid, feat, clust, pop, col, mark, style) {
+console.log("style at mapTiddler start");
+console.log(style);
     if(iter.map.tid === undefined) iter.map.tid = 1;
     else iter.map.tid +=1;
-    if(iter.map.tid < 42) {
+    if(iter.map.tid < 4242) {
      // get data fields in the tiddler, let's seek for geo data
      var flds = obj.wiki.getTiddler(tid).fields,
          feature = L.featureGroup(),               // create the tiddler feature
          popup = "";                               // create the popup text
      // setting colors, marker, style
-     var cl,st;
+     var cl, st = {};
      // style
      if(flds.style) st = flds.style;
-     else st = {};
      // overwrite with injected values
-     if (style !== undefined && style !==null) {
-        for (var v in st) {
+     if (style !== undefined && style !== null) {
+		 st = style;
+        /* ?todo : should we overwrite only injected?
+		for (var v in st) {
            if(style.v !== undefined) st.v = style.v;
         }
+		for (var v in style) {
+			
+		}*/
      }
      // color
      if (flds.color) cl = flds.color;
      // overwrite with injected color also in style
      if (col !== undefined && col !== null) {
         cl = col;
+		st.color = cl;
      }
-      Colour["t" + tn] = cl;
-      st.color = cl;
+      Colour["t" + tn] = st.color;
+console.log("st in mapTiddler after treatment");
+console.log(st);
 
      // if clusterType is tiddler, creating a cluster group for tiddler
      // also will have to deal withe filter / tiddler distinction
@@ -542,7 +567,6 @@ function mapGeoJson(geojson, feat, clust, col, mark, style) {
 
  // map tiddlers with a filter
  function mapFilter(obj, filter, feat, clust, pop, col, mark, style) {
-    console.log(filter);
      try {
          var Tids = obj.wiki.filterTiddlers(filter);
          for (var td in Tids) {
