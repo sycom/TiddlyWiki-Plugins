@@ -5,6 +5,8 @@ type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20170311
+** added styling options and also the grouping tiddler capabilities. Discovered that direct styling in SVG ''does not always'' [[overwrite css styling|http://stackoverflow.com/questions/24293880/svg-why-does-external-css-override-inline-style-for-text]].
 * 20170129
 ** adding some markers. And it's possible to create yours.
 * 20170115
