@@ -9,4 +9,14 @@ type: text/vnd.tiddlywiki
 You can upgrade your tiddler by putting some geo metadata ([[wgs 84 coordinates|https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84]]) in it's TiddlerFields. See [[geoSyntax|$:/plugins/sycom/leaflet/geoSyntax]] for the list of object types you can draw. Popup will show the first part of the tiddler. If the tiddler contains a leafmap widget, it will be rendered as `text/plain` in order to avoid crash...
 
 !! geoJSON  tiddler
-You can define a geoJson tiddler like [[tiddlyWikiFrCommunity|$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity]] and then display the data by calling it. Just put your geoJson data in the body and declare the tiddler as application/json. Any application/json tiddler called will be considered as geoJson. The popups will show data stored in each feature as a bulleted list.
+You can define a geoJson tiddler like [[tiddlyWikiFrCommunity|$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity]] and then display the data by calling it. Just put your geoJson data in the body and declare the tiddler as application/json. Any `application/json` tiddler called will be considered as geoJson. The popups will show
+
+* a title
+** the `name` or the `title` attribute in properties if exists,
+** if not, the firsts attributes of properties until they are 8 characters long
+* a description
+** the `description` attribute in properties if exists,
+** if not, the data stored in each feature as a bulleted list.
+
+!! tiddler grouping [[GeoTiddler]]s
+You can use `tiddlers` or `filter` as TiddlerFields to make a group of tiddlers. You can apply some styling options to all the group using `style`, `color` or `marker` TiddlerFields and then call the tiddler in your map to render all those tiddler at the same time. This will be a good way to make thematic maps indeed...

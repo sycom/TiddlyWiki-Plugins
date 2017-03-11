@@ -2,9 +2,9 @@ created: 20151209173416000
 modified: 20170129153450000
 title: $:/plugins/sycom/leaflet/roadmap
 type: text/vnd.tiddlywiki
-caption: roadmap
+caption: Roadmap
 
-Not really a roadmap just a list for future development ideas. You'd better take a look at [[issues|https://framagit.org/sycom/TiddlyWikiPlugins/boards]] on the repo.
+Not really a roadmap just a list for future development ideas. You'd better take a look at [[issues|https://framagit.org/sycom/TiddlyWikiPlugins/boards]] on the repo. And add yours if you dare ;-)
 
 * add a tool to draw shapes, lines and collect coordinates. Until this, You may use [[Draw for TiddlyWiki leaflet plugin|http://sycom.github.io/TiddlyWiki-Plugins/leafletDraw.html]]
 * add categories options

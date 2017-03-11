@@ -2,7 +2,7 @@ created: 20170129172401910
 modified: 20170129172401910
 title: $:/plugins/sycom/leaflet/markers
 type: text/vnd.tiddlywiki
-caption: markers
+caption: Markers
 
 markers are used to display point(s) related informations. Default marker is [[marker|$:/plugins/sycom/leaflet/images/marker.svg]].
 
