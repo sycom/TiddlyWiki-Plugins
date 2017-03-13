@@ -180,10 +180,15 @@ A widget for displaying leaflet map in TiddlyWiki
                     // cluster icon size will be based on item number and zoom
 					var cC = cluster.getChildCount();
                     var m = this.name.split("Cluster")[1];
-					// checking total clusters object number for the map
+					// checking object density mean for the map
 					if (fCluster[m].count === undefined) fCluster[m].count = 1;
-                    var cS = Map[m].getZoom() / fCluster[m].count * Math.sqrt(cC * clusterRadius[m]);
-					console.log("cC: "+cC+"-zoom: "+Map[m].getZoom()+"-radius: "+clusterRadius[m]+"-total: "+fCluster[m].count+"-> "+cS);
+                    if (fCluster[m].density === undefined) {
+                        var boun = fCluster[m].getBounds();
+                        fCluster[m].density = Math.abs(fCluster[m].count / (boun._southWest.lat-boun._northEast.lat) / (boun._southWest.lng-boun._northEast.lng));
+                        if (fCluster[m].density < 1) fCluster[m].density = 1;
+                    }
+                    var cS = clusterRadius[m] / 5 * Math.sqrt(cC / fCluster[m].density * (Map[m].getZoom()+1));
+					console.log("cC: "+cC+"-zoom: "+Map[m].getZoom()+"-radius: "+clusterRadius[m]+"-density: "+fCluster[m].density+"-total: "+fCluster[m].count+"-> "+cS);
                     if (cS < 38) cS = 38;
 					console.log(cS);
                     var cF = cS / 2;
@@ -201,14 +206,14 @@ A widget for displaying leaflet map in TiddlyWiki
         var feature = L.featureGroup();
         // Render the map
         if (places) mapPlaces(this,
-                              JSON.parse(places),
-                              Map[map],
-                              fCluster[map],
-                              null,
-                              this.getAttribute("color"),
-                              this.getAttribute("marker"),
-                              st
-                             );
+            JSON.parse(places),
+            Map[map],
+            fCluster[map],
+            null,
+            this.getAttribute("color"),
+            this.getAttribute("marker"),
+            st
+            );
 
         // set map to objects bounds
         if (bounds) {
