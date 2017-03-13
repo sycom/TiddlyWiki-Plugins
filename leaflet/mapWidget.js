@@ -178,10 +178,14 @@ A widget for displaying leaflet map in TiddlyWiki
       function() {return (clusterRadius - 50) / 9 * Map[map].getZoom() + 50 - (clusterRadius - 50) / 9 },*/
                 iconCreateFunction: function(cluster) {
                     // cluster icon size will be based on item number and zoom
-                    var cC = cluster.getChildCount();
+					var cC = cluster.getChildCount();
                     var m = this.name.split("Cluster")[1];
-                    var cS = Math.sqrt(cC * Map[m].getZoom() * clusterRadius[m]) * 1.15;
+					// checking total clusters object number for the map
+					if (fCluster[m].count === undefined) fCluster[m].count = 1;
+                    var cS = Map[m].getZoom() / fCluster[m].count * Math.sqrt(cC * clusterRadius[m]);
+					console.log("cC: "+cC+"-zoom: "+Map[m].getZoom()+"-radius: "+clusterRadius[m]+"-total: "+fCluster[m].count+"-> "+cS);
                     if (cS < 38) cS = 38;
+					console.log(cS);
                     var cF = cS / 2;
                     if (cF < 14) cF = 14;
                     return new L.DivIcon({
@@ -309,6 +313,8 @@ A widget for displaying leaflet map in TiddlyWiki
                 icon: lfltIcon(col, mark, map)
             });
             if (pop) marker.bindPopup(pop);
+			if (clust.count) clust.count +=1;
+			else clust.count = 1;
             clust.addLayer(marker);
         } catch (err) {displayError("point marker error", err);}
     }
@@ -429,6 +435,8 @@ A widget for displaying leaflet map in TiddlyWiki
                         icon: lfltIcon(col, mark, map)
                     });
                     jsonPoint.bindPopup(jsonPop(geoJsonPoint));
+					if (clust.count) clust.count +=1;
+					else clust.count = 1;
                     clust.addLayer(jsonPoint);//.bindPopup(function(layer) {jsonPop(layer);});
                 }
             });
@@ -476,9 +484,8 @@ A widget for displaying leaflet map in TiddlyWiki
                 st.color = cl; st.fillColor = cl;
             }
             Colour["t" + tn] = st.color;
-
             // if clusterType is tiddler, creating a cluster group for tiddler
-            // also will have to deal withe filter / tiddler distinction
+            // also will have to deal with the filter / tiddler distinction
             if (clusterType[map] == "tiddler") {
                 // ?todo : automate cluster creation?
                 fCluster[tid] = L.markerClusterGroup({
@@ -489,11 +496,13 @@ A widget for displaying leaflet map in TiddlyWiki
          function() {return (clusterRadius - 50) / 9 * Map[map].getZoom() + 50 - (clusterRadius - 50) / 9 },*/
                     iconCreateFunction: function(cluster) {
                         // cluster icon size will be based on item number and zoom
+						// checking total cluster number
+						if (cluster.count === undefined) cluster.count = 1;
                         // !!todo get cluster color from tiddler if exists
                         var cC = cluster.getChildCount(),
                             m = this.name.split("Cluster")[1],
                             t = this.name.split("Cluster")[2],
-                            cS = Math.sqrt(cC * Map[m].getZoom() * clusterRadius[m]) * 1.15;
+                            cS = Math.sqrt(cC * Map[m].getZoom() * clusterRadius[m]) * 10 / cluster.count;
                         if (cS < 38) cS = 38;
                         var cF = cS / 2;
                         if (cF < 14) cF = 14;
