@@ -177,22 +177,26 @@ A widget for displaying leaflet map in TiddlyWiki
                 /* for the record. may be a function
       function() {return (clusterRadius - 50) / 9 * Map[map].getZoom() + 50 - (clusterRadius - 50) / 9 },*/
                 iconCreateFunction: function(cluster) {
-                    // cluster icon size will be based on item number and zoom
-					var cC = cluster.getChildCount();
+					// getting back map number			
                     var m = this.name.split("Cluster")[1];
 					// checking object density mean for the map
 					if (fCluster[m].count === undefined) fCluster[m].count = 1;
-                    if (fCluster[m].density === undefined) {
+                    // cluster icon size will be based on item number and zoom
+					// !todo: use density to get a more "local" percentage before calculating size
+					var cC = cluster.getChildCount(),
+						pC = cC / fCluster[m].count * 5;		
+                    /*if (fCluster[m].density === undefined) {
                         var boun = fCluster[m].getBounds();
                         fCluster[m].density = Math.abs(fCluster[m].count / (boun._southWest.lat-boun._northEast.lat) / (boun._southWest.lng-boun._northEast.lng));
                         if (fCluster[m].density < 1) fCluster[m].density = 1;
-                    }
-                    var cS = clusterRadius[m] / 5 * Math.sqrt(cC / fCluster[m].density * (Map[m].getZoom()+1));
-					console.log("cC: "+cC+"-zoom: "+Map[m].getZoom()+"-radius: "+clusterRadius[m]+"-density: "+fCluster[m].density+"-total: "+fCluster[m].count+"-> "+cS);
-                    if (cS < 38) cS = 38;
-					console.log(cS);
-                    var cF = cS / 2;
-                    if (cF < 14) cF = 14;
+                    }*/
+                    var cS = clusterRadius[m] * Math.sqrt(pC) / 2 * (2.25 + Math.log((Map[m].getZoom()+1)/20));
+					console.log("cC: "+cC+"-pC: "+pC+"-zoom: "+Map[m].getZoom()+"-radius: "+clusterRadius[m]+"-density: "+fCluster[m].density+"-total: "+fCluster[m].count+"-> "+cS);
+                    if (cS < 32) cS = 32;
+					var cF; // font size of cluster text
+					if (cC > 999) cF = cS / 3;
+					else cF = cS / 2;
+                    if (cF < 12) cF = 12;
                     return new L.DivIcon({
                         html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;background-color:' + setColor(Colour[m], m) + ';border-color:' + setColor(Colour[m], m) + ';opacity:.85"><div><span style="line-height:' + cS + 'px;opacity:1">' + cC + "</span></div></div>",
                         className: "marker-cluster marker-cluster-" + cC,
