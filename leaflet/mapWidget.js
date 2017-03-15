@@ -177,21 +177,23 @@ A widget for displaying leaflet map in TiddlyWiki
                 /* for the record. may be a function
       function() {return (clusterRadius - 50) / 9 * Map[map].getZoom() + 50 - (clusterRadius - 50) / 9 },*/
                 iconCreateFunction: function(cluster) {
-					// getting back map number			
+					// getting back map number
                     var m = this.name.split("Cluster")[1];
 					// checking object density mean for the map
 					if (fCluster[m].count === undefined) fCluster[m].count = 1;
                     // cluster icon size will be based on item number and zoom
 					// !todo: use density to get a more "local" percentage before calculating size
 					var cC = cluster.getChildCount(),
-						pC = cC / fCluster[m].count * 5;		
+                        zC = Map[m].getZoom(),
+						pC = cC / fCluster[m].count;
                     /*if (fCluster[m].density === undefined) {
                         var boun = fCluster[m].getBounds();
                         fCluster[m].density = Math.abs(fCluster[m].count / (boun._southWest.lat-boun._northEast.lat) / (boun._southWest.lng-boun._northEast.lng));
                         if (fCluster[m].density < 1) fCluster[m].density = 1;
                     }*/
-                    var cS = clusterRadius[m] * Math.sqrt(pC) / 2 * (2.25 + Math.log((Map[m].getZoom()+1)/20));
-					console.log("cC: "+cC+"-pC: "+pC+"-zoom: "+Map[m].getZoom()+"-radius: "+clusterRadius[m]+"-density: "+fCluster[m].density+"-total: "+fCluster[m].count+"-> "+cS);
+                    // cluster icon size based upon item number percentage, radius, zoom avoiding 0
+                    var cS = clusterRadius[m] * Math.log(pC * 6 + 1)  * Math.log((2+zC)/2);
+					console.log("cC: "+cC+"-pC: "+pC+"-zoom: "+zC+"("+Math.pow(1.25,zC-1)+")-radius: "+clusterRadius[m]+"-total: "+fCluster[m].count+"-> "+cS);
                     if (cS < 32) cS = 32;
 					var cF; // font size of cluster text
 					if (cC > 999) cF = cS / 3;
