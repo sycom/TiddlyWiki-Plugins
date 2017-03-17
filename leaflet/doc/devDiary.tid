@@ -1,10 +1,12 @@
 created: 20151110173416000
-modified: 20170129180000000
+modified: 20170317163000000
 title: $:/plugins/sycom/leaflet/devDiary
 type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20170317
+** lot of work around cluster size, cluster color when using filter. Cluster size depends on point % for the cluster, clusterRadius and zoom.
 * 20170311
 ** added styling options and also the grouping tiddler capabilities. Discovered that direct styling in SVG ''does not always'' [[overwrite css styling|http://stackoverflow.com/questions/24293880/svg-why-does-external-css-override-inline-style-for-text]].
 * 20170129

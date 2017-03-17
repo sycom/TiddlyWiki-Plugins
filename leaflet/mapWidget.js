@@ -176,35 +176,7 @@ A widget for displaying leaflet map in TiddlyWiki
                 maxClusterRadius: clusterRadius[map],
                 /* for the record. may be a function
       function() {return (clusterRadius - 50) / 9 * Map[map].getZoom() + 50 - (clusterRadius - 50) / 9 },*/
-                iconCreateFunction: function(cluster) {
-					// getting back map number
-                    var m = this.name.split("Cluster")[1];
-					// checking object density mean for the map
-					if (fCluster[m].count === undefined) fCluster[m].count = 1;
-                    // cluster icon size will be based on item number and zoom
-					// !todo: use density to get a more "local" percentage before calculating size
-					var cC = cluster.getChildCount(),
-                        zC = Map[m].getZoom(),
-						pC = cC / fCluster[m].count;
-                    /*if (fCluster[m].density === undefined) {
-                        var boun = fCluster[m].getBounds();
-                        fCluster[m].density = Math.abs(fCluster[m].count / (boun._southWest.lat-boun._northEast.lat) / (boun._southWest.lng-boun._northEast.lng));
-                        if (fCluster[m].density < 1) fCluster[m].density = 1;
-                    }*/
-                    // cluster icon size based upon item number percentage, radius, zoom avoiding 0
-                    var cS = clusterRadius[m] * Math.log(pC * 6 + 1)  * Math.log((2+zC)/2);
-					console.log("cC: "+cC+"-pC: "+pC+"-zoom: "+zC+"("+Math.pow(1.25,zC-1)+")-radius: "+clusterRadius[m]+"-total: "+fCluster[m].count+"-> "+cS);
-                    if (cS < 32) cS = 32;
-					var cF; // font size of cluster text
-					if (cC > 999) cF = cS / 3;
-					else cF = cS / 2;
-                    if (cF < 12) cF = 12;
-                    return new L.DivIcon({
-                        html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;background-color:' + setColor(Colour[m], m) + ';border-color:' + setColor(Colour[m], m) + ';opacity:.85"><div><span style="line-height:' + cS + 'px;opacity:1">' + cC + "</span></div></div>",
-                        className: "marker-cluster marker-cluster-" + cC,
-                        iconSize: new L.Point(cS, cS)
-                    });
-                }
+                iconCreateFunction: createCluster
             });
         }
         // Get the declared places from the attributes
@@ -273,40 +245,40 @@ A widget for displaying leaflet map in TiddlyWiki
         // - add layer to map
         if (plcs.point) {
             // add the point to the cluster layer
-            mapPoint(plcs.point, clust, pop, col, mark); // Colour[map]
+            mapPoint(plcs.point, clust, pop, col, mark);
             // add the cluster layer to map
             feature.addLayer(clust);
             // set bounds
         }
         if (plcs.points) {
             // ?todo : create a cluster for those points if clusterType == "tiddler"
-            mapPoints(plcs.points, clust, pop, col, mark); // Colour[map]
+            mapPoints(plcs.points, clust, pop, col, mark);
             feature.addLayer(clust);
         }
         if (plcs.polygon) {
             var polygFeat = L.featureGroup();
-            mapPolyg(plcs.polygon, polygFeat, pop, col, style); // Colour[map]);
+            mapPolyg(plcs.polygon, polygFeat, pop, col, style);
             polygFeat.addTo(feature);
         }
         if (plcs.polygons) {
             var polygsFeat = L.featureGroup();
-            mapPolygs(plcs.polygons, polygsFeat, pop, col, style); //Colour[map]);
+            mapPolygs(plcs.polygons, polygsFeat, pop, col, style);
             polygsFeat.addTo(feature);
         }
         if (plcs.polyline) {
             var polylFeat = L.featureGroup();
-            mapPolyl(plcs.polyline, polylFeat, pop, col, style); //Colour[map]);
+            mapPolyl(plcs.polyline, polylFeat, pop, col, style);
             polylFeat.addTo(feature);
         }
         if (plcs.polylines) {
             var polylsFeat = L.featureGroup();
-            mapPolyls(plcs.polylines, polylsFeat, pop, col, style); //Colour[map]);
+            mapPolyls(plcs.polylines, polylsFeat, pop, col, style);
             polylsFeat.addTo(feature);
         }
         if (plcs.geojson) {
             // !todo : create a cluster for those points if clusterType == "tiddler"
             var geojsonFeat = L.featureGroup();
-            mapGeoJson(plcs.geojson, geojsonFeat, clust, col, mark, style); //Colour[map]);
+            mapGeoJson(plcs.geojson, geojsonFeat, clust, col, mark, style);
             geojsonFeat.addTo(feat);
         }
         // add feature to map
@@ -381,7 +353,7 @@ A widget for displaying leaflet map in TiddlyWiki
         }
         try {
             var polyline = L.polyline(Line, {
-                color: col
+                color: setColor(col,map)
             });
             if (st) polyline.setStyle(checkStyle(st, col));
             if (pop) polyline.bindPopup(pop);
@@ -448,7 +420,7 @@ A widget for displaying leaflet map in TiddlyWiki
                     jsonPoint.bindPopup(jsonPop(geoJsonPoint));
 					if (clust.count) clust.count +=1;
 					else clust.count = 1;
-                    clust.addLayer(jsonPoint);//.bindPopup(function(layer) {jsonPop(layer);});
+                    clust.addLayer(jsonPoint);
                 }
             });
 
@@ -494,46 +466,28 @@ A widget for displaying leaflet map in TiddlyWiki
                 cl = col;
                 st.color = cl; st.fillColor = cl;
             }
-            Colour["t" + tn] = st.color;
+            Colour["t" + tn] = cl;
             // if clusterType is tiddler, creating a cluster group for tiddler
             // also will have to deal with the filter / tiddler distinction
             if (clusterType[map] == "tiddler") {
                 // ?todo : automate cluster creation?
-                fCluster[tid] = L.markerClusterGroup({
+                fCluster["t" + tn] = L.markerClusterGroup({
                     name: "Cluster" + map + "Cluster" + tn,
                     polygonOptions: {"weight":"0.5"},
                     maxClusterRadius: clusterRadius[map],
                     /* for the record. may be a function
          function() {return (clusterRadius - 50) / 9 * Map[map].getZoom() + 50 - (clusterRadius - 50) / 9 },*/
-                    iconCreateFunction: function(cluster) {
-                        // cluster icon size will be based on item number and zoom
-						// checking total cluster number
-						if (cluster.count === undefined) cluster.count = 1;
-                        // !!todo get cluster color from tiddler if exists
-                        var cC = cluster.getChildCount(),
-                            m = this.name.split("Cluster")[1],
-                            t = this.name.split("Cluster")[2],
-                            cS = Math.sqrt(cC * Map[m].getZoom() * clusterRadius[m]) * 10 / cluster.count;
-                        if (cS < 38) cS = 38;
-                        var cF = cS / 2;
-                        if (cF < 14) cF = 14;
-                        return new L.DivIcon({
-                            // less opacity for tiddler clustering
-                            html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;background-color:' + setColor(Colour["t" + t], m) + ';border:1.5px solid #555;opacity:.65"><div><span style="line-height:' + cS + 'px;opacity:.85">' + cC + "</span></div></div>",
-                            className: "marker-cluster marker-cluster-" + cC,
-                            iconSize: new L.Point(cS, cS)
-                        });
-                    }
+                    iconCreateFunction: createCluster
                 });
             } else {
-                fCluster[tid] = fCluster[map];
+                fCluster["t" + tn] = fCluster[map];
             }
 
             // case 1 : data stored in a json tiddler
             if (flds.type == "application/json") {
                 // for now, assuming any json stored data is geoJson...
                 var data = obj.wiki.getTiddlerText(tid);
-                mapGeoJson(data, feature, fCluster[tid], Colour["t" + tn], mark, st);
+                mapGeoJson(data, feature, fCluster["t" + tn], Colour["t" + tn], mark, st);
                 feat.addLayer(feature);
             }
             // case 2 if tiddler is not JSON data, display tiddler stored geodata as point(s), polygon, polyline...
@@ -559,7 +513,7 @@ A widget for displaying leaflet map in TiddlyWiki
                 mapPlaces(obj,
                           flds,
                           feature,
-                          fCluster[tid],
+                          fCluster["t" + tn],
                           popup,
                           cl,
                           mark,
@@ -674,6 +628,48 @@ A widget for displaying leaflet map in TiddlyWiki
         } catch (error) {
             $tw.utils.error("there was an error when trying to zoom on bounds. error : " + error);
         }
+    }
+    // cluster icon creation
+    function createCluster(clust) {
+        // getting back map number
+        var m = this.name.split("Cluster")[1],
+            t = this.name.split("Cluster")[2],
+            zC = Map[m].getZoom(),
+            cZ0,cTot,cCol,cOpa;
+        // checking object density mean for the map
+        if (t === undefined) {
+            if (fCluster[m].z0 === undefined) fCluster[m].z0 = zC;
+            cZ0 = fCluster[m].z0;
+            if (fCluster[m].count === undefined) fCluster[m].count = 1;
+            cTot = fCluster[m].count;
+            cCol = Colour[m];
+            cOpa = 0.85
+        }
+        else {
+            if (fCluster["t" + t].z0 === undefined) fCluster["t" + t].z0 = zC;
+            cZ0 = fCluster["t" + t].z0;
+            if (fCluster["t" + t].count === undefined) fCluster["t" + t].count = 1;
+            cTot = fCluster["t" + t].count;
+            cCol = setColor(Colour["t" + t],m);
+            cOpa = 0.65
+        }
+        // cluster icon size will be based on item number and zoom
+        // !todo: use density to get a more "local" percentage before calculating size
+        var cC = clust.getChildCount(),
+            pC = cC / cTot,
+            cS = clusterRadius[m] * Math.min(Math.log(pC + 1) * Math.pow(2,zC-cZ0),1.5);
+console.log("cCol: "+cCol);
+        if (cS < 38) cS = 38;
+        var cF; // font size of cluster text
+        if (cC > 999) cF = cS / 3;
+        else cF = cS / 2;
+        if (cF < 14) cF = 14;
+        // creating icon. Checking tiddler or whole clustering before
+        return new L.DivIcon({
+            html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;background-color:' + cCol + ';border-color:' + cCol + ';opacity:'+cOpa+'"><div><span style="line-height:' + cS + 'px;opacity:'+(cOpa+0.12)+'">' + cC + "</span></div></div>",
+            className: "marker-cluster marker-cluster-" + cC,
+            iconSize: new L.Point(cS, cS)
+        });
     }
 
     // popup function for Json

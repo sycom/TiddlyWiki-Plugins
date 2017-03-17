@@ -1,5 +1,5 @@
 created: 20161025150936935
-modified: 20170129180936935
+modified: 20170317155936935
 title: $:/plugins/sycom/leaflet/example/leaflet_with_geojsontiddler
 tags: example leaflet
 
@@ -19,12 +19,4 @@ This one displays [[tiddlyWikiFrCommunity|$:/plugins/sycom/leaflet/example/tiddl
     cluster="40"
     places='{"tiddler":"$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity"}'
     style='{"color":"orange"}'
-    marker='pin'/>
-	
-	
-<$leafmap
-    tileControl
-    cluster="80"
-    places='{"tiddler":"test de GROS fichier geojson"}'
-    style='{"color":"green"}'
     marker='pin'/>
