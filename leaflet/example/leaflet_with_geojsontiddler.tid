@@ -18,5 +18,19 @@ This one displays [[tiddlyWikiFrCommunity|$:/plugins/sycom/leaflet/example/tiddl
     tileControl
     cluster="40"
     places='{"tiddler":"$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity"}'
-    style='{"color":"orange"}'
     marker='pin'/>
+-----
+<$leafmap
+    tileControl
+    cluster="40"
+    places='{"tiddler":"$:/plugins/sycom/leaflet/example/tiddlyWikiFrCommunity"}'
+    style='{"color":"orange"}'    
+    marker='pin'/>
+
+```
+<$leafmap
+    tileControl
+        places='{"tiddler":"test de GROS fichier geojson"}'
+        color='purple'
+        marker='pin'/>
+```

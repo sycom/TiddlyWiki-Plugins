@@ -149,6 +149,7 @@ A widget for displaying leaflet map in TiddlyWiki
         if(style !== undefined) {
             st = JSON.parse(style);
             // color parameter will overwrite style color parameter
+            // ?should this be fillColor?
             Colour[map] = this.getAttribute("color", st.color);
         }
         // case style undefined
@@ -289,7 +290,7 @@ A widget for displaying leaflet map in TiddlyWiki
     // add a marker for a point
     function mapPoint(coord, clust, pop, col, mark) {
         try {
-            var location = eval("[" + coord + "]");
+            var location = coord.split(",");
         } catch (err) {displayError("point coord error", err);}
         try {
             var marker = L.marker(location, {
@@ -315,7 +316,7 @@ A widget for displaying leaflet map in TiddlyWiki
         var Shape = [];
         try {
             for (var nd in Coords) {
-                var location = eval("[" + Coords[nd] + "]");
+                var location = Coords[nd].split(",");
                 Shape.push(location);
             }
         } catch (err) {
@@ -345,7 +346,7 @@ A widget for displaying leaflet map in TiddlyWiki
         var Line = [];
         try {
             for (var nd in Coords) {
-                var location = eval("[" + Coords[nd] + "]");
+                var location = Coords[nd].split(",");
                 Line.push(location);
             }
         } catch (err) {
@@ -381,23 +382,20 @@ A widget for displaying leaflet map in TiddlyWiki
                 // adding style
                 style: function (feature) {
                     // get feature style only if style is not injected
+                    // ?todo : only overwrite injected values?
                     if (st === undefined || st === null) {
                         st = {};
                         if(feature.properties.style !== undefined) st = feature.properties.style;
+                    }
+                    // get feature properties style if exists
+                    if(feature.properties.color !== undefined) {
+                        st.color = feature.properties.color;
+                        st.fillColor = st.color;
                     }
                     // color parameter overwrite style color if exists
                     if (col !== undefined && col !== null) {
                         st.color = col;
                         st.fillColor = col;
-                    }
-                    // or get feature properties if exists
-                    else {
-                        if(feature.properties.color !== undefined) {
-                            st.color = feature.properties.color;
-                            st.fillColor = st.color;
-                            // let's also inject in whole json (for markers)
-                            col = st.color;
-                        }
                     }
                     // if no color is defined at the end, fallback
                     if (st.color === undefined) {
@@ -411,11 +409,17 @@ A widget for displaying leaflet map in TiddlyWiki
                     layer.bindPopup(jsonPop(feature));
                 },
                 // adding points
-                pointToLayer: function(geoJsonPoint, latlng) {
-                    // !todo check if we can get color and marker form geoJsonPoint.properties
+                pointToLayer: function(geoJsonPoint, latlng, col) {
+                    // working to get color (from properties)
+                    var cl;
+                    if(geoJsonPoint.properties.color !== undefined) cl = geoJsonPoint.properties.color;
+                    if(geoJsonPoint.properties.fillColor !== undefined) cl = geoJsonPoint.properties.fillColor;
+                    if(col !== undefined && col !== null) cl = col;
+        console.log(clust);
+        console.log(cl);
                     // binding default icon
                     var jsonPoint = L.marker(latlng, {
-                        icon: lfltIcon(col, mark, map)
+                        icon: lfltIcon(cl, mark, map)
                     });
                     jsonPoint.bindPopup(jsonPop(geoJsonPoint));
 					if (clust.count) clust.count +=1;
@@ -452,15 +456,18 @@ A widget for displaying leaflet map in TiddlyWiki
             if (style !== undefined && style !== null) {
                 st = style;
                 /* ?todo : should we overwrite only injected?
-	for (var v in st) {
-       if(style.v !== undefined) st.v = style.v;
-    }
-	for (var v in style) {
-
-	}*/
+            	for (var v in st) {
+                   if(style.v !== undefined) st.v = style.v;
+                }
+            	for (var v in style) {
+            	}*/
             }
             // color
             if (flds.color) cl = flds.color;
+            // overwrite with injected color style if exists
+            if (style !== undefined && style !== null) {
+                if (st.fillColor !== undefined) cl = st.fillColor
+            }
             // overwrite with injected color also in style
             if (col !== undefined && col !== null) {
                 cl = col;
@@ -629,25 +636,26 @@ A widget for displaying leaflet map in TiddlyWiki
             $tw.utils.error("there was an error when trying to zoom on bounds. error : " + error);
         }
     }
+
     // cluster icon creation
     function createCluster(clust) {
         // getting back map number
         var m = this.name.split("Cluster")[1],
             t = this.name.split("Cluster")[2],
             zC = Map[m].getZoom(),
-            cZ0,cTot,cCol,cOpa;
+            z0,cTot,cCol,cOpa;
         // checking object density mean for the map
         if (t === undefined) {
             if (fCluster[m].z0 === undefined) fCluster[m].z0 = zC;
-            cZ0 = fCluster[m].z0;
+            z0 = fCluster[m].z0;
             if (fCluster[m].count === undefined) fCluster[m].count = 1;
             cTot = fCluster[m].count;
-            cCol = Colour[m];
+            cCol = setColor(Colour[m],m);
             cOpa = 0.85
         }
         else {
             if (fCluster["t" + t].z0 === undefined) fCluster["t" + t].z0 = zC;
-            cZ0 = fCluster["t" + t].z0;
+            z0 = fCluster["t" + t].z0;
             if (fCluster["t" + t].count === undefined) fCluster["t" + t].count = 1;
             cTot = fCluster["t" + t].count;
             cCol = setColor(Colour["t" + t],m);
@@ -656,14 +664,13 @@ A widget for displaying leaflet map in TiddlyWiki
         // cluster icon size will be based on item number and zoom
         // !todo: use density to get a more "local" percentage before calculating size
         var cC = clust.getChildCount(),
-            pC = cC / cTot,
-            cS = clusterRadius[m] * Math.min(Math.log(pC + 1) * Math.pow(2,zC-cZ0),1.5);
-console.log("cCol: "+cCol);
-        if (cS < 38) cS = 38;
+            cS = clusterRadius[m] * (1 + Math.log(40)/Math.log(Math.max(cTot,40))) * (1 - 1 / (Math.sqrt(Math.log(cTot) / cTot) * Math.pow(2,zC-z0) * cC + 1));
+        if (cS < 34) cS = 34;
         var cF; // font size of cluster text
-        if (cC > 999) cF = cS / 3;
-        else cF = cS / 2;
-        if (cF < 14) cF = 14;
+        if (cC > 9999) cF = cS / 3;
+        else {if (cC > 999) cF = cS / 3.5;
+        else cF = cS / 2}
+        if (cF < 12) cF = 12;
         // creating icon. Checking tiddler or whole clustering before
         return new L.DivIcon({
             html: '<div style="width:' + cS + 'px;height:' + cS + 'px;font-size:' + cF + 'px;background-color:' + cCol + ';border-color:' + cCol + ';opacity:'+cOpa+'"><div><span style="line-height:' + cS + 'px;opacity:'+(cOpa+0.12)+'">' + cC + "</span></div></div>",
