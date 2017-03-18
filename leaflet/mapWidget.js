@@ -1,6 +1,6 @@
 /*\
 created: 20151028202401905
-modified: 20161106174011605
+modified: 20170318234011605
 title: $:/plugins/sycom/leaflet/mapWidget.tid
 type: application/javascript
 module-type: widget
@@ -58,7 +58,7 @@ A widget for displaying leaflet map in TiddlyWiki
         // Save the parent dom node
         this.parentDomNode = parent;
         // Compute our attributes
-        this.computeAttributes();
+        // this.computeAttributes();
         // create the container
         parent.insertBefore(div, nextSibling);
         this.domNodes.push(div);
@@ -148,9 +148,9 @@ A widget for displaying leaflet map in TiddlyWiki
         // case style defined
         if(style !== undefined) {
             st = JSON.parse(style);
-            // color parameter will overwrite style color parameter
-            // ?should this be fillColor?
-            Colour[map] = this.getAttribute("color", st.color);
+            // color parameter will overwrite style color and style fillColor parameter
+            if(st.fillColor) Colour[map] = this.getAttribute("color", st.fillColor);
+            else Colour[map] = this.getAttribute("color", st.color);
         }
         // case style undefined
         else {
@@ -159,7 +159,7 @@ A widget for displaying leaflet map in TiddlyWiki
             Colour[map] = this.getAttribute("color", undefined);
         }
         // create default icon
-        // ?todo: only if there are points to display;
+        // ?todo: only if there are points to display?
         L.icon.default = lfltIcon(setColor(null, map), setting.marker, map);
 
         // create whole map cluster
@@ -189,7 +189,7 @@ A widget for displaying leaflet map in TiddlyWiki
             Map[map],
             fCluster[map],
             null,
-            this.getAttribute("color"),
+            Colour[map],
             this.getAttribute("marker"),
             st
             );
@@ -409,14 +409,12 @@ A widget for displaying leaflet map in TiddlyWiki
                     layer.bindPopup(jsonPop(feature));
                 },
                 // adding points
-                pointToLayer: function(geoJsonPoint, latlng, col) {
+                pointToLayer: function(geoJsonPoint, latlng) {
                     // working to get color (from properties)
                     var cl;
                     if(geoJsonPoint.properties.color !== undefined) cl = geoJsonPoint.properties.color;
                     if(geoJsonPoint.properties.fillColor !== undefined) cl = geoJsonPoint.properties.fillColor;
                     if(col !== undefined && col !== null) cl = col;
-        console.log(clust);
-        console.log(cl);
                     // binding default icon
                     var jsonPoint = L.marker(latlng, {
                         icon: lfltIcon(cl, mark, map)
@@ -540,7 +538,7 @@ A widget for displaying leaflet map in TiddlyWiki
             tn++;
         }
         // it tiddler rendered two many times for same map. Stoping and error launch
-        else $tw.utils.error("tiddler [[" + tid + "]] was rendered more than 42 times in this map. Please double check circular dependencies");
+        else $tw.utils.error("tiddler [[" + tid + "]] was rendered more than 4242 times in this map. Please double check circular dependencies...");
     }
 
     // map a tiddler collection
@@ -664,7 +662,7 @@ A widget for displaying leaflet map in TiddlyWiki
         // cluster icon size will be based on item number and zoom
         // !todo: use density to get a more "local" percentage before calculating size
         var cC = clust.getChildCount(),
-            cS = clusterRadius[m] * (1 + Math.log(40)/Math.log(Math.max(cTot,40))) * (1 - 1 / (Math.sqrt(Math.log(cTot) / cTot) * Math.pow(2,zC-z0) * cC + 1));
+            cS = 20 * Math.log(clusterRadius[m]) * (1 + Math.log(cTot)/Math.max(cTot * Math.pow(2,zC-z0),Math.log(cTot))) * (1 - 1 / ((Math.log(cTot) / cTot) * Math.pow(2,zC-z0) * cC + 1));
         if (cS < 34) cS = 34;
         var cF; // font size of cluster text
         if (cC > 9999) cF = cS / 3;
