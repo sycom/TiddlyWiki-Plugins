@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Draw for TiddlyWiki Leaflet plugin</title>
+
+    <link rel="stylesheet" href="./lib/leaflet.css" />
+    <link rel="stylesheet" href="./lib/leaflet.pm.css" />
+
+    <script src="./lib/leaflet.js"></script>
+    <script src="./lib/leaflet.pm.min.js"></script>
+    <script src="./data/fonds.js"></script>
+
+</head>
+
+<body>
+    <div class="info">
+        All informations about this page and usage : credits, reference to leaflet plugin...
+    </div>
+
+    <div id="map" style="width: 100%; height: 400px"></div>
+
+    <div id="geom" class="geom">
+        The geometries that have been drawn
+    </div>
+
+    <script>
+    // some vars
+    var lst,                                     // last clicked point
+        Obj = [],                                // objects id
+        geom = document.getElementById("geom");  // place to get geometries
+    // create the map
+    var map = L.map('map').setView([49.5, 0.5], 5);
+    // create tile layer list for the map
+    var Couches = new Array(); // couches de tiles leaflet
+    var tiles = {}; // désignation des tiles pour le control
+    for (i in fonds) {
+        var couche = new L.TileLayer(fonds[i].url, {
+            attribution: fonds[i].attrib,
+            minZoom: fonds[i].zMin,
+            maxZoom: fonds[i].zMax,
+            unloadInvisibleTiles: true
+        });
+        Couches[fonds[i].id] = couche;
+        tiles[fonds[i].nom] = couche;
+    }
+    // Install default tile layer in map (first of the list)
+    var defaultTile = fonds[0].id;
+    Couches[defaultTile].addTo(map);
+    // Install tile selector
+    var tileSelect = L.control.layers(tiles);
+    tileSelect.addTo(map);
+
+    // define toolbar options
+    /*var options = {
+        position: 'topleft', // toolbar position, options are 'topleft', 'topright', 'bottomleft', 'bottomright'
+        drawMarker: true,  // adds button to draw markers
+        drawPolygon: true,  // adds button to draw a polygon
+        drawPolyline: true,  // adds button to draw a polyline
+        editPolygon: true,  // adds button to toggle global edit mode
+        deleteLayer: true   // adds a button to delete layers
+    };*/
+
+    // add leaflet.pm controls to the map
+    map.pm.addControls();
+
+    // create draw layer
+    var drawLayer = new L.FeatureGroup();
+    drawLayer.addTo(map);
+    // optional options
+    var options = {
+        // makes the layer draggable
+        draggable: true,
+        // makes the vertices snappable to other layers
+        // temporarily disable snapping during drag by pressing ALT
+        snappable: true,
+        // distance in pixels that needs to be undercut to trigger snapping
+        // default: 30
+        snapDistance: 15
+    };
+    drawLayer.pm.enable(options);
+    drawLayer.pm.toggleEdit(options);
+
+    // spy clicked points
+    /*
+    map.on('click', function(e) {
+        lst = e.getLatLngs();
+        console.log(lst);
+    });*/
+
+    // getting drawn shape
+    map.on('pm:create', function(e) {
+        if(e.layer) {
+            var eid = e.layer._leaflet_id,
+                etype = e.shape,
+                coord = "";
+            // if the point is a marker
+            if(e.layer._latlng) {
+                coord = e.layer._latlng.lat+","+e.layer._latlng.lng;
+            }
+
+            // if the point is a polygon or a polyline
+            if(e.shape == "Poly") {
+                var Coords = e.layer._latlngs[0];
+                for(var i in Coords) {
+                    coord += Coords[i].lat+","+Coords[i].lng+" ";
+                }
+            }
+
+            // if the point is a polygon or a polyline
+            if(e.shape == "Line") {
+                var Coords = e.layer._latlngs;
+                for(var i in Coords) {
+                    coord += Coords[i].lat+","+Coords[i].lng+" ";
+                }
+            }
+            Obj[eid] = {"type": etype, "coord": coord};
+            listObjects();
+            console.log(drawLayer.pm.enabled());
+        }
+    });
+
+    drawLayer.on('pm:edit', function(e) {
+        console.log(e);
+        if(e.layer) {
+            console.log(e.layer);
+            var eid = e.layer._leaflet_id,
+                etype = e.shape,
+                coord = "";
+            // if the point is a marker
+            if(e.layer._latlng) {
+                coord = e.layer._latlng.lat+","+e.layer._latlng.lng;
+            }
+
+            // if the point is a polygon or a polyline
+            if(e.shape == "Poly") {
+                var Coords = e.layer._latlngs[0];
+                for(var i in Coords) {
+                    coord += Coords[i].lat+","+Coords[i].lng+" ";
+                }
+            }
+
+            // if the point is a polygon or a polyline
+            if(e.shape == "Line") {
+                var Coords = e.layer._latlngs;
+                for(var i in Coords) {
+                    coord += Coords[i].lat+","+Coords[i].lng+" ";
+                }
+            }
+
+            //console.log(coord);
+            Obj[eid] = {"type": etype, "coord": coord};
+            listObjects();
+
+        }
+    });
+
+    drawLayer.on('pm:edit', function(e) {console.log(e)});
+    drawLayer.on('pm:dragstart', function(e) {console.log(e)});
+    drawLayer.on('pm:drag', function(e) {console.log(e)});
+    drawLayer.on('pm:dragend', function(e) {console.log(e)});
+
+    map.on('pm:edit', function(e) {console.log(e)});
+    map.on('pm:dragstart', function(e) {console.log(e)});
+    map.on('pm:drag', function(e) {console.log(e)});
+    map.on('pm:dragend', function(e) {console.log(e)});
+
+    function listObjects() {
+        var text = "";
+        for(var obj in Obj) {
+            text += "<p>" + Obj[obj].type + "(" + obj + ") : " + Obj[obj].coord + "</p>";
+        }
+        geom.innerHTML = text;
+    }
+
+    </script>
+</body>
+
+</html>
