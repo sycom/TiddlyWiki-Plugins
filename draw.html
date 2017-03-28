@@ -91,6 +91,7 @@
 
     // getting drawn shape
     map.on('pm:create', function(e) {
+        console.log(e);
         if(e.layer) {
             var eid = e.layer._leaflet_id,
                 etype = e.shape,
@@ -117,13 +118,26 @@
             }
             Obj[eid] = {"type": etype, "coord": coord};
             listObjects();
-            console.log(drawLayer.pm.enabled());
+            e.layer.addTo(drawLayer);
         }
     });
 
     drawLayer.on('pm:edit', function(e) {
-        console.log(e);
-        if(e.layer) {
+        var eLayers = e.target._layers;
+        for (var l in eLayers) {
+            var ltype = Obj[l].type,
+                coord = "";
+            // case polygon
+            if(ltype == "Poly") {
+                var Coords = eLayers[l]._latlngs[0];
+                for(var i in Coords) {
+                    coord += Coords[i].lat+","+Coords[i].lng+" ";
+                }
+            }
+            Obj[l].coord = coord;
+            listObjects();
+        }
+        /*if(e.layer) {
             console.log(e.layer);
             var eid = e.layer._leaflet_id,
                 etype = e.shape,
@@ -134,12 +148,7 @@
             }
 
             // if the point is a polygon or a polyline
-            if(e.shape == "Poly") {
-                var Coords = e.layer._latlngs[0];
-                for(var i in Coords) {
-                    coord += Coords[i].lat+","+Coords[i].lng+" ";
-                }
-            }
+
 
             // if the point is a polygon or a polyline
             if(e.shape == "Line") {
@@ -153,18 +162,8 @@
             Obj[eid] = {"type": etype, "coord": coord};
             listObjects();
 
-        }
+        }*/
     });
-
-    drawLayer.on('pm:edit', function(e) {console.log(e)});
-    drawLayer.on('pm:dragstart', function(e) {console.log(e)});
-    drawLayer.on('pm:drag', function(e) {console.log(e)});
-    drawLayer.on('pm:dragend', function(e) {console.log(e)});
-
-    map.on('pm:edit', function(e) {console.log(e)});
-    map.on('pm:dragstart', function(e) {console.log(e)});
-    map.on('pm:drag', function(e) {console.log(e)});
-    map.on('pm:dragend', function(e) {console.log(e)});
 
     function listObjects() {
         var text = "";
