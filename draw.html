@@ -10,26 +10,73 @@
 
     <script src="./lib/leaflet.js"></script>
     <script src="./lib/leaflet.pm.min.js"></script>
+    <script src="./lib/jquery.min.js"></script>
     <script src="./data/fonds.js"></script>
+
+    <style>
+    body {margin:0;padding:7px;}
+    .tabs {height:5vh}
+    #panels, #panels > div, #map {height: calc(95vh - 14px)}
+
+    .tabs ul {margin:0 0 1px;padding:0}
+    .tabs ul li {display:inline-block;border-radius:5px 5px 0 0  ;padding:.25em;border:1px solid; border-bottom: 0}
+    .tabs ul li {opacity:0.5;background:#eee}
+    .tabs ul li:hover {opacity:0.75;background:#fff}
+    .tabs ul li.active {opacity:1;background:#eef}
+
+    .pane {display:none}
+    .pane.active {display:block}
+
+    .tiddler, .geo, .info {padding:5px}
+    </style>
 
 </head>
 
 <body>
-    <div class="info">
-        All informations about this page and usage : credits, reference to leaflet plugin...
+    <div id="tabs" class="tabs">
+        <ul>
+            <li target="drawer" class="active" onclick="activate(this);">Map</li>
+            <li target="tiddler" onclick="activate(this);">Export</li>
+            <li target="geom" onclick="activate(this);">Objects</li>
+            <li target="info" onclick="activate(this);">About</li>
+        </ul>
+    </div>
+    <div id="panels" class="panels">
+        <div id="drawer" class="drawer pane active">
+            <div id="map"></div>
+        </div>
+
+        <div id="tiddler" class="tiddler pane">
+            The geometries, ready to copy / paste in tiddlers
+        </div>
+
+        <div id="geom" class="geom pane">
+            All geometries that have been drawn, with their leaflet_id
+        </div>
+
+        <div id="info" class="info pane">
+            All informations about this page and usage : credits, reference to leaflet plugin...
+        </div>
     </div>
 
-    <div id="map" style="width: 100%; height: 400px"></div>
-
-    <div id="geom" class="geom">
-        The geometries that have been drawn
-    </div>
 
     <script>
+    // pane navigation
+    function activate(e) {
+        $('.tabs ul li').removeClass('active');
+        $(e).addClass('active');
+        $('#panels .pane').removeClass('active');
+        $('#'+e.getAttribute('target')).addClass('active');
+    }
+
+
     // some vars
-    var lst,                                     // last clicked point
-        Obj = [],                                // objects id
-        geom = document.getElementById("geom");  // place to get geometries
+    var lst,                                            // last clicked point
+        Obj = [],                                       // objects id
+        Pnt = [], Pol = [], Lin = [],                   // categorized objects
+        tiddat = document.getElementById("tiddler"),    // place to get tiddler data
+        geom = document.getElementById("geom");         // place to get geometries
+
     // create the map
     var map = L.map('map').setView([49.5, 0.5], 5);
     // create tile layer list for the map
@@ -99,14 +146,7 @@
             // if the point is a marker
             if(e.layer._latlng) {
                 coord = e.layer._latlng.lat+","+e.layer._latlng.lng;
-            }
-
-            // if the point is a polygon or a polyline
-            if(e.shape == "Poly") {
-                var Coords = e.layer._latlngs[0];
-                for(var i in Coords) {
-                    coord += Coords[i].lat+","+Coords[i].lng+" ";
-                }
+                Pnt.push(eid);
             }
 
             // if the point is a polygon or a polyline
@@ -115,7 +155,18 @@
                 for(var i in Coords) {
                     coord += Coords[i].lat+","+Coords[i].lng+" ";
                 }
+                Lin.push(eid);
             }
+
+            // if the point is a polygon or a polyline
+            if(e.shape == "Poly") {
+                var Coords = e.layer._latlngs[0];
+                for(var i in Coords) {
+                    coord += Coords[i].lat+","+Coords[i].lng+" ";
+                }
+                Pol.push(eid);
+            }
+
             Obj[eid] = {"type": etype, "coord": coord};
             listObjects();
             e.layer.addTo(drawLayer);
@@ -127,6 +178,17 @@
         for (var l in eLayers) {
             var ltype = Obj[l].type,
                 coord = "";
+            // case point
+            if(ltype == "Marker") {
+                coord = eLayers[l]._latlng.lat+","+eLayers[l]._latlng.lng;
+            }
+            // case polyline
+            if(ltype == "Line") {
+                var Coords = eLayers[l]._latlngs;
+                for(var i in Coords) {
+                    coord += Coords[i].lat+","+Coords[i].lng+" ";
+                }
+            }
             // case polygon
             if(ltype == "Poly") {
                 var Coords = eLayers[l]._latlngs[0];
@@ -166,11 +228,33 @@
     });
 
     function listObjects() {
-        var text = "";
+        var allObj = "", tid = {"point":"","points":"","polygon":"","polygons":"","polyline":"","polylines":""};
         for(var obj in Obj) {
-            text += "<p>" + Obj[obj].type + "(" + obj + ") : " + Obj[obj].coord + "</p>";
+            allObj += "<p>" + Obj[obj].type + "(<i>" + obj + "</i>) : " + Obj[obj].coord + "</p>";
         }
-        geom.innerHTML = text;
+        if(Pnt.length > 1) {
+            for(var pnt in Pnt) {
+                tid.points += Obj[Pnt[pnt]].coord+" ";
+                tid.point = "";
+            }
+        }
+        else {if (Pnt.length == 1) tid.point = Obj[Pnt[0]].coord}
+        if(Pol.length > 1) {
+            for(var pol in Pol) {
+                tid.polygons += Obj[Pol[pol]].coord+"|";
+                tid.polygon = "";
+            }
+        }
+        else {if (Pnt.length == 1) tid.polygon = Obj[Pol[0]].coord}
+        geom.innerHTML = allObj;
+        var tidText = "<table>";
+            tidText += "<tr><td>point</td><td>"+tid.point+"</td></tr>";
+            tidText += "<tr><td>points</td><td>"+tid.points+"</td></tr>";
+            tidText += "<tr><td>polygon</td><td>"+tid.polygon+"</td></tr>";
+            tidText += "<tr><td>polygons</td><td>"+tid.polygons+"</td></tr>";
+            tidText += "<tr><td>polyline</td><td>"+tid.polyline+"</td></tr>";
+            tidText += "<tr><td>polylines</td><td>"+tid.polylines+"</td></tr></table>";
+        tiddat.innerHTML = tidText;
     }
 
     </script>
