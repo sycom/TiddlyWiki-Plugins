@@ -14,20 +14,28 @@
     <script src="./data/fonds.js"></script>
 
     <style>
-    body {margin:0;padding:7px;}
-    .tabs {height:5vh}
-    #panels, #panels > div, #map {height: calc(95vh - 14px)}
+body {margin:0;padding:7px;}
+.tabs {height:5vh}
+#panels, #panels > div, #map {height: calc(95vh - 14px)}
 
-    .tabs ul {margin:0 0 1px;padding:0}
-    .tabs ul li {display:inline-block;border-radius:5px 5px 0 0  ;padding:.25em;border:1px solid; border-bottom: 0}
-    .tabs ul li {opacity:0.5;background:#eee}
-    .tabs ul li:hover {opacity:0.75;background:#fff}
-    .tabs ul li.active {opacity:1;background:#eef}
+.tabs ul {margin:0 0 1px;padding:0}
+.tabs ul li {display:inline-block;border-radius:5px 5px 0 0  ;padding:.25em;border:1px solid; border-bottom: 0}
+.tabs ul li {opacity:0.5;background:#eee}
+.tabs ul li:hover {opacity:0.75;background:#fff}
+.tabs ul li.active {opacity:1;background:#eef}
 
-    .pane {display:none}
-    .pane.active {display:block}
+.pane {display:none}
+.pane.active {display:block}
 
-    .tiddler, .geo, .info {padding:5px}
+.tiddler, .geom {padding:5px}
+.info {width:100%;max-width:800px;margin:auto}
+
+table {border-collapse: collapse}
+td {border:.05px solid #ddd}
+
+td, .geom p {font-family:monospace;padding:.25em}
+.geom {-moz-column-count:3}
+.geom p {padding-left:5em;text-indent:-5em}
     </style>
 
 </head>
@@ -35,10 +43,10 @@
 <body>
     <div id="tabs" class="tabs">
         <ul>
-            <li target="drawer" class="active" onclick="activate(this);">Map</li>
-            <li target="tiddler" onclick="activate(this);">Export</li>
-            <li target="geom" onclick="activate(this);">Objects</li>
-            <li target="info" onclick="activate(this);">About</li>
+            <li navto="drawer" class="active" onclick="activate(this);">Map</li>
+            <li navto="tiddler" onclick="activate(this);">Export</li>
+            <li navto="geom" onclick="activate(this);">Objects</li>
+            <li navto="info" onclick="activate(this);">About</li>
         </ul>
     </div>
     <div id="panels" class="panels">
@@ -55,7 +63,13 @@
         </div>
 
         <div id="info" class="info pane">
-            All informations about this page and usage : credits, reference to leaflet plugin...
+            <h1>Draw for TiddlyWiki Leaflet plugin</h1>
+            <p>Since the TiddlyWiki <a href="https://sycom.github.io/Leaflet-Plugin/#Leaflet%20Plugin" target="_blank">leaflet plugin</a> doesn't implement a draw mechanism for now, this page uses <a href="http://leafletjs.com" target="_blank">leaflet</a> and leaflet <a href="https://github.com/codeofsumit/leaflet.pm" target="_blank">PM plugin</a> to design shapes for your tiddlywiki leaflet maps.</p>
+            <ul>
+                <li>Draw or edit shapes on the "<a href="#" navto="drawer" onclick="activate(this);">Map</a>" tab. For now you can make polygons, polylines or points,</li>
+                <li>Once finished, go to "<a href="#" navto="tiddler" onclick="activate(this);">Export</a>" tab to get fields values for your geotiddler,</li>
+                <li>You may like to see individual coordinates for each object in "<a href="#" navto="geom" onclick="activate(this);">Objects</a>" tab.</li>
+            </ul>
         </div>
     </div>
 
@@ -66,7 +80,7 @@
         $('.tabs ul li').removeClass('active');
         $(e).addClass('active');
         $('#panels .pane').removeClass('active');
-        $('#'+e.getAttribute('target')).addClass('active');
+        $('#'+e.getAttribute('navto')).addClass('active');
     }
 
 
@@ -155,6 +169,7 @@
                 for(var i in Coords) {
                     coord += Coords[i].lat+","+Coords[i].lng+" ";
                 }
+                coord = coord.slice(0, -1);
                 Lin.push(eid);
             }
 
@@ -164,6 +179,7 @@
                 for(var i in Coords) {
                     coord += Coords[i].lat+","+Coords[i].lng+" ";
                 }
+                coord = coord.slice(0, -1);
                 Pol.push(eid);
             }
 
@@ -188,6 +204,7 @@
                 for(var i in Coords) {
                     coord += Coords[i].lat+","+Coords[i].lng+" ";
                 }
+                coord = coord.slice(0, -1);
             }
             // case polygon
             if(ltype == "Poly") {
@@ -195,6 +212,7 @@
                 for(var i in Coords) {
                     coord += Coords[i].lat+","+Coords[i].lng+" ";
                 }
+                coord = coord.slice(0, -1);
             }
             Obj[l].coord = coord;
             listObjects();
@@ -244,16 +262,23 @@
                 tid.polygons += Obj[Pol[pol]].coord+"|";
                 tid.polygon = "";
             }
+            tid.polygons = tid.polygons.slice(0, -1);
         }
-        else {if (Pnt.length == 1) tid.polygon = Obj[Pol[0]].coord}
+        else {if (Pol.length == 1) tid.polygon = Obj[Pol[0]].coord}
+        if(Lin.length > 1) {
+            for(var lin in Lin) {
+                tid.polylines += Obj[Lin[lin]].coord+"|";
+                tid.polyline = "";
+            }
+            tid.polylines = tid.polylines.slice(0, -1);
+        }
+        else {if (Pol.length == 1) tid.polygon = Obj[Pol[0]].coord}
         geom.innerHTML = allObj;
         var tidText = "<table>";
-            tidText += "<tr><td>point</td><td>"+tid.point+"</td></tr>";
-            tidText += "<tr><td>points</td><td>"+tid.points+"</td></tr>";
-            tidText += "<tr><td>polygon</td><td>"+tid.polygon+"</td></tr>";
-            tidText += "<tr><td>polygons</td><td>"+tid.polygons+"</td></tr>";
-            tidText += "<tr><td>polyline</td><td>"+tid.polyline+"</td></tr>";
-            tidText += "<tr><td>polylines</td><td>"+tid.polylines+"</td></tr></table>";
+        for(var feat in tid) {
+            tidText += "<tr><td>"+ feat +"</td><td>"+ tid[feat] +"</td></tr>";
+        }
+        tidText +="</table>";
         tiddat.innerHTML = tidText;
     }
 
