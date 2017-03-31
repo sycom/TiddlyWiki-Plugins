@@ -33,9 +33,10 @@ body {margin:0;padding:7px;font-family:'Open Sans',sans-serif}
 .info, .settings {width:100%;max-width:800px;margin:auto}
 
 table {border-collapse: collapse;margin:0}
-.settings table {width:100%}
+.inject table, .inject textarea, .settings table {width:100%}
+.inject td:first-child {width:8em}
 .settings td {width:5%}
-td, #accu {border:.05px solid #ddd;margin:0}
+th, td, #accu {border:.05px solid #ddd;margin:0}
 .settings td {text-align:center}
 .settings td:first-of-type {text-align:left}
 .settings td:last-of-type {text-align:right}
@@ -51,13 +52,15 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
 </head>
 
 <body>
+    <noscript>Hello, either you've deactivated javascript or your browser doesn't handle it (really?) this page will not work. However, this is not a big deal since it's of no use without javascript</noscript>
     <div id="tabs" class="tabs">
         <ul>
-            <li navto="drawer" class="active" onclick="activate(this);">Map</li>
-            <li navto="tiddler" onclick="activate(this);">Export</li>
-            <li navto="geom" onclick="activate(this);">Objects</li>
-            <li navto="info" onclick="activate(this);">About</li>
-            <li navto="settings" onclick="activate(this);">Settings</li>
+            <li navto="drawer" class="active">Map</li>
+            <li navto="tiddler">Export</li>
+            <li navto="inject">Inject</li>
+            <li navto="geom">Objects</li>
+            <li navto="info">About</li>
+            <li navto="settings">Settings</li>
         </ul>
     </div>
     <div id="panels" class="panels">
@@ -69,8 +72,24 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
             <p>The geometries, ready to copy / paste in tiddlers, will appear here</p>
         </div>
 
+        <div id="inject" class="inject pane">
+            <h2>Inject your own geometries</h2>
+            <p>type in or paste your dataset in fields just above and send. Please remind that re-sending coordinates will create duplicates objects...</p>
+            <p class="button"><button id="injector">Inject!</button></p>
+        <table>
+            <tr><th>type</th><th>data</th></tr>
+            <tr><td>point</td><td><input class="inject" id="iPoint" type="text"></input></td></tr>
+            <tr><td>points</td><td><textarea class="inject" id="iPoints" type="textarea"></textarea></td></tr>
+            <tr><td>polygon</td><td><textarea class="inject" id="iPolygone" type="textarea"></textarea></td></tr>
+            <tr><td>polygons</td><td><textarea class="inject" id="iPolygones" type="textarea"></textarea></td></tr>
+            <tr><td>polyline</td><td><textarea class="inject" id="iPolyline" type="textarea"></textarea></td></tr>
+            <tr><td>polylines</td><td><textarea class="inject" id="iPolylines" type="textarea"></textarea></td></tr>
+            <tr><td>geoJSON</td><td><textarea class="inject" id="igeoJSON" type="textarea"></textarea></td></tr>
+        </table>
+        </div>
+
         <div id="geom" class="geom pane">
-            <p>All geometries that have been drawn, with their leaflet_id and coordinates will appear here</p>
+            All geometries that have been drawn, with their leaflet_id and coordinates will appear here.
         </div>
 
         <div id="info" class="info pane">
@@ -102,13 +121,12 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
 
     <script>
     // pane navigation
-    function activate(e) {
-        $('.tabs ul li').removeClass('active');
-        $(e).addClass('active');
+    $("#tabs li").on("click", function(event) {
+        $('#tabs li').removeClass('active');
+        $(this).addClass('active');
         $('#panels .pane').removeClass('active');
-        $('#'+e.getAttribute('navto')).addClass('active');
-    }
-
+        $('#'+$(this).attr('navto')).addClass('active');
+    });
 
     // some vars
     var lst,                                            // last clicked point
@@ -289,6 +307,13 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
         tidText +="</table>";
         tiddat.innerHTML = tidText;
     }
+
+    // Injection
+    $("#injector").on("click", function(){
+        $(".inject").each(function(e) {
+            console.log($(this).attr("id") + " : " + $(this).val());
+        });
+    });
 
     // Accuracy settings
     $("#accu").on("change", function(){
