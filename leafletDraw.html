@@ -30,7 +30,7 @@ body {margin:0;padding:7px;font-family:'Open Sans',sans-serif}
 .pane.active {display:block}
 
 .tiddler, .geom {padding:5px}
-.info, .settings {width:100%;max-width:800px;margin:auto}
+.inject p, .inject h2, .info, .settings {width:100%;max-width:800px;margin:auto}
 
 table {border-collapse: collapse;margin:0}
 .inject table, .inject textarea, .settings table {width:100%}
@@ -130,8 +130,7 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
 
     // some vars
     var lst,                                            // last clicked point
-        Obj = [],                                       // objects id
-        Pnt = [], Pol = [], Lin = [],                   // categorized objects
+        Obj = [], Pnt = [], Lin = [], Pol = [],         // objects and objects id by type
         accu = 6,                                       // accuracy
         tiddat = document.getElementById("tiddler"),    // place to get tiddler data
         geom = document.getElementById("geom");         // place to get geometries
@@ -197,15 +196,12 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
 
     // getting drawn shape
     map.on('pm:create', function(e) {
-        console.log(e);
         if(e.layer) {
             var eid = e.layer._leaflet_id,
-                etype = e.shape,
-                coord = "";
-            // if the point is a marker
+                etype = e.shape;
+        /*    // if the point is a marker
             if(e.layer._latlng) {
                 coord = e.layer._latlng.lat.toFixed(accu)+","+e.layer._latlng.lng.toFixed(accu);
-                Pnt.push(eid);
             }
 
             // if the point is a polygon or a polyline
@@ -226,9 +222,8 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
                 }
                 coord = coord.slice(0, -1);
                 Pol.push(eid);
-            }
-
-            Obj[eid] = {"type": etype, "coord": coord};
+            }*/
+            Obj[eid] = {"type": etype, "coord": undefined};
             e.layer.addTo(drawLayer);
             listObjects();
         }
@@ -265,11 +260,51 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
     });
 
     function listObjects() {
-        var allObj = "", tid = {"point":"","points":"","polygon":"","polygons":"","polyline":"","polylines":""};
+        // will list objects (and redraw with rounded values?)
+        var allObj = "",
+            tid = {"point":"","points":"","polygon":"","polygons":"","polyline":"","polylines":""};
+        Pnt = []; Pol = []; Lin = [];  // reinit categorized objects
         // get coordinates by type group
+        for(var obj in drawLayer["_layers"]) {
+            if(Obj[obj]) {
+                console.log(obj);
+                if(Obj[obj].type == "Marker") {
+                    if(Obj[obj].coord == undefined) {
+                        var ltlg = drawLayer["_layers"][obj]._latlng.lat.toFixed(accu)+","+drawLayer["_layers"][obj]._latlng.lng.toFixed(accu);
+                        Obj[obj].coord = ltlg;
+                    }
+                    Pnt.push(obj);
+                }
+                if(Obj[obj].type == "Line") {
+                    if(Obj[obj].coord == undefined) {
+                        var Coords = drawLayer["_layers"][obj]._latlngs, ltlg = "";
+                        for(var i in Coords) {
+                            ltlg += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
+                        }
+                        ltlg = ltlg.slice(0, -1);
+                        Obj[obj].coord = ltlg;
+                    }
+                    Lin.push(obj);
+                }
+                if(Obj[obj].type == "Poly") {
+                    if(Obj[obj].coord == undefined) {
+                        var Coords = drawLayer["_layers"][obj]._latlngs[0], ltlg = "";
+                        for(var i in Coords) {
+                            ltlg += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
+                        }
+                        ltlg = ltlg.slice(0, -1);
+                        Obj[obj].coord = ltlg;
+                    }
+                    Pol.push(obj);
+                }
+            }
+        }
+        // writing object list
         for(var obj in Obj) {
             allObj += "<p>" + Obj[obj].type + "(<i>" + obj + "</i>) : " + Obj[obj].coord + "</p>";
         }
+
+        // writing tiddler data
         if(Pnt.length > 1) {
             for(var pnt in Pnt) {
                 tid.points += Obj[Pnt[pnt]].coord+" ";
@@ -311,8 +346,30 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
     // Injection
     $("#injector").on("click", function(){
         $(".inject").each(function(e) {
-            console.log($(this).attr("id") + " : " + $(this).val());
+            var type = $(this).attr("id").substring(1);
+            var coord = $(this).val();
+            if (type === "Point" && coord != "") {
+                var loc = coord.split(",");
+                console.log(loc);
+                for(var i in loc) loc[i] = (loc[i]*1).toFixed(accu);
+                var marker = L.marker(loc);
+                drawLayer.addLayer(marker);
+                Obj[marker._leaflet_id] = {"type": "Marker", "coord": coord};
+            }
+            if (type === "Points"  && coord != "") {
+                var listloc = coord.split(" ");
+                for(var j in listloc) {
+                    var loc = listloc[j].split(",");
+                    console.log(listloc[j]);
+                    for(var i in loc) loc[i] = (loc[i]*1).toFixed(accu);
+                    var marker = L.marker(loc);
+                    drawLayer.addLayer(marker);
+                    console.log(marker._leaflet_id);
+                    Obj[marker._leaflet_id] = {"type": "Marker", "coord": listloc[j]};
+                }
+            }
         });
+        listObjects();
     });
 
     // Accuracy settings
