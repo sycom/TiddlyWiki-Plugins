@@ -80,8 +80,8 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
             <tr><th>type</th><th>data</th></tr>
             <tr><td>point</td><td><input class="inject" id="iPoint" type="text"></input></td></tr>
             <tr><td>points</td><td><textarea class="inject" id="iPoints" type="textarea"></textarea></td></tr>
-            <tr><td>polygon</td><td><textarea class="inject" id="iPolygone" type="textarea"></textarea></td></tr>
-            <tr><td>polygons</td><td><textarea class="inject" id="iPolygones" type="textarea"></textarea></td></tr>
+            <tr><td>polygon</td><td><textarea class="inject" id="iPolygon" type="textarea"></textarea></td></tr>
+            <tr><td>polygons</td><td><textarea class="inject" id="iPolygons" type="textarea"></textarea></td></tr>
             <tr><td>polyline</td><td><textarea class="inject" id="iPolyline" type="textarea"></textarea></td></tr>
             <tr><td>polylines</td><td><textarea class="inject" id="iPolylines" type="textarea"></textarea></td></tr>
             <tr><td>geoJSON</td><td><textarea class="inject" id="igeoJSON" type="textarea"></textarea></td></tr>
@@ -266,16 +266,20 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
         Pnt = []; Pol = []; Lin = [];  // reinit categorized objects
         // get coordinates by type group
         for(var obj in drawLayer["_layers"]) {
+            if(drawLayer["_layers"][obj].geometryType != undefined) {
+                Obj[obj] = {"type":drawLayer["_layers"][obj].geometryType}
+                drawLayer["_layers"][obj].geometryType = undefined;
+            }
             if(Obj[obj]) {
                 console.log(obj);
-                if(Obj[obj].type == "Marker") {
+                if(Obj[obj].type == "Marker" || Obj[obj].type == "Point") {
                     if(Obj[obj].coord == undefined) {
                         var ltlg = drawLayer["_layers"][obj]._latlng.lat.toFixed(accu)+","+drawLayer["_layers"][obj]._latlng.lng.toFixed(accu);
                         Obj[obj].coord = ltlg;
                     }
                     Pnt.push(obj);
                 }
-                if(Obj[obj].type == "Line") {
+                if(Obj[obj].type == "Line" || Obj[obj].type == "LineString") {
                     if(Obj[obj].coord == undefined) {
                         var Coords = drawLayer["_layers"][obj]._latlngs, ltlg = "";
                         for(var i in Coords) {
@@ -283,10 +287,11 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
                         }
                         ltlg = ltlg.slice(0, -1);
                         Obj[obj].coord = ltlg;
+
                     }
                     Lin.push(obj);
                 }
-                if(Obj[obj].type == "Poly") {
+                if(Obj[obj].type == "Poly" || Obj[obj].type == "Polygon") {
                     if(Obj[obj].coord == undefined) {
                         var Coords = drawLayer["_layers"][obj]._latlngs[0], ltlg = "";
                         for(var i in Coords) {
@@ -348,29 +353,83 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
         $(".inject").each(function(e) {
             var type = $(this).attr("id").substring(1);
             var coord = $(this).val();
-            if (type === "Point" && coord != "") {
-                var loc = coord.split(",");
-                console.log(loc);
-                for(var i in loc) loc[i] = (loc[i]*1).toFixed(accu);
-                var marker = L.marker(loc);
-                drawLayer.addLayer(marker);
-                Obj[marker._leaflet_id] = {"type": "Marker", "coord": coord};
-            }
+            if (type === "Point" && coord != "") mapPoint(coord);
             if (type === "Points"  && coord != "") {
                 var listloc = coord.split(" ");
-                for(var j in listloc) {
-                    var loc = listloc[j].split(",");
-                    console.log(listloc[j]);
-                    for(var i in loc) loc[i] = (loc[i]*1).toFixed(accu);
-                    var marker = L.marker(loc);
-                    drawLayer.addLayer(marker);
-                    console.log(marker._leaflet_id);
-                    Obj[marker._leaflet_id] = {"type": "Marker", "coord": listloc[j]};
-                }
+                for(var j in listloc) mapPoint(listloc[j])
             }
+            if (type === "Polyline" && coord != "") mapLine(coord,"line");
+            if (type === "Polylines"  && coord != "") {
+                var listloc = coord.split("|");
+                for(var j in listloc) mapLine(listloc[j],"line")
+            }
+            if (type === "Polygon" && coord != "") mapLine(coord,"poly");
+            if (type === "Polygons"  && coord != "") {
+                var listloc = coord.split("|");
+                for(var j in listloc) mapLine(listloc[j],"poly")
+            }
+            if (type === "geoJSON" && coord != "") mapGeoJSON(coord);
         });
         listObjects();
     });
+
+    // Mapping function (derivated from leaflet plugin ;-)
+    function mapPoint(co) {
+        var loc = co.split(",");
+        for(var i in loc) loc[i] = (loc[i]*1).toFixed(accu);
+        co = loc.join(",");
+        var marker = L.marker(loc);
+        drawLayer.addLayer(marker);
+        Obj[marker._leaflet_id] = {"type": "Marker", "coord": co};
+    }
+    function mapLine(co,lg) {
+        var lPnt = co.split(" "),
+            Line = [];
+        for (var pt in lPnt) {
+            var loc = lPnt[pt].split(",");
+            for(var i in loc) loc[i] = (loc[i]*1).toFixed(accu);
+            lPnt[pt] = loc.join(",")
+            Line.push(loc);
+            }
+        co = lPnt.join(" ");
+        if(lg === "line") {
+            var polyline = L.polyline(Line);
+            drawLayer.addLayer(polyline);
+            Obj[polyline._leaflet_id] = {"type": "Line", "coord": co};
+        }
+        if(lg === "poly" || lg === undefined) {
+            var polygon = L.polygon(Line);
+            drawLayer.addLayer(polygon);
+            Obj[polygon._leaflet_id] = {"type": "Poly", "coord": co};
+        }
+    }
+    function mapGeoJSON(co) {
+        var data = JSON.parse(co);
+        var geoJson = L.geoJSON(data, {
+            // adding style
+            onEachFeature: function (feature, layer) {
+                layer.geometryType = feature.geometry.type;
+            }
+            /*,
+            // adding points
+            pointToLayer: function(geoJsonPoint, latlng) {
+                // working to get color (from properties)
+                var cl;
+                if(geoJsonPoint.properties.color !== undefined) cl = geoJsonPoint.properties.color;
+                if(geoJsonPoint.properties.fillColor !== undefined) cl = geoJsonPoint.properties.fillColor;
+                if(col !== undefined && col !== null) cl = col;
+                // binding default icon
+                var jsonPoint = L.marker(latlng, {
+                    icon: lfltIcon(cl, mark, map)
+                });
+                jsonPoint.bindPopup(jsonPop(geoJsonPoint));
+                if (clust.count) clust.count +=1;
+                else clust.count = 1;
+                clust.addLayer(jsonPoint);
+            }*/
+        });
+        drawLayer.addLayer(geoJson);
+    }
 
     // Accuracy settings
     $("#accu").on("change", function(){
