@@ -3,6 +3,9 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Draw for TiddlyWiki Leaflet plugin</title>
 
     <link rel="stylesheet" href="./lib/leaflet.css" />
@@ -15,39 +18,44 @@
     <script src="./data/fonds.js"></script>
 
     <style>
+    body {margin:0;padding:7px;font-family:'Open Sans',sans-serif}
+    div, p, ul {box-sizing: border-box}
 
-body {margin:0;padding:7px;font-family:'Open Sans',sans-serif}
-.tabs {height:5vh}
-#panels, #panels > div, #map {height: calc(95vh - 14px)}
+    .tabs {height:2.5em}
 
-.tabs ul {margin:0 0 1px;padding:0}
-.tabs ul li {display:inline-block;border-radius:5px 5px 0 0  ;padding:.25em;border:1px solid; border-bottom: 0}
-.tabs ul li {opacity:0.5;background:#eee}
-.tabs ul li:hover {opacity:0.75;background:#fed}
-.tabs ul li.active {opacity:1;background:#fff}
+    #panels, #panels > div, #map {height: calc(100vh - 4em - 14px)}
 
-.pane {display:none}
-.pane.active {display:block}
+    .tabs ul {margin:0 0 1px;padding:0}
+    .tabs ul li {display:inline-block;border-radius:5px 5px 0 0  ;padding:.25em;border:1px solid; border-bottom: 0}
+    .tabs ul li {opacity:0.5;background:#eee}
+    .tabs ul li:hover {opacity:0.75;background:#fed}
+    .tabs ul li.active {opacity:1;background:#fff}
 
-.tiddler, .geom {padding:5px}
-.inject p, .inject h2, .info, .settings {width:100%;max-width:800px;margin:auto}
+    .pane {display:none}
+    .pane.active {display:block}
 
-table {border-collapse: collapse;margin:0}
-.inject table, .inject textarea, .settings table {width:100%}
-.inject td:first-child {width:8em}
-.settings td {width:5%}
-th, td, #accu {border:.05px solid #ddd;margin:0}
-.settings td {text-align:center}
-.settings td:first-of-type {text-align:left}
-.settings td:last-of-type {text-align:right}
+    #tiddler, #geom {padding:5px}
+    #inject p, #inject h2, #info, #settings {width:100%;max-width:800px;margin:auto}
 
-td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
-.geom {-moz-column-count:3}
-.geom p {padding-left:5em;text-indent:-5em}
 
-#accu {width:100%}
+    table {border-collapse: collapse;margin:0}
+    #inject table, #inject textarea, #settings table {width:100%}
+    #inject td:first-child {width:8em}
+    button {margin:1em;padding:.5em 1em;font-size:107%;border:none;background:orange;border-radius: 3px;box-shadow: .5px 3px 4px gray}
+    .button {text-align: center}
+    button.clicked {box-shadow:0 0 0 white;background: #afa}
+    #settings td {width:5%}
+    th, td, #accu {border:.05px solid #ddd;margin:0}
+    #settings td {text-align:center}
+    #settings td:first-of-type {text-align:left}
+    #settings td:last-of-type {text-align:right}
 
-    </style>
+    td, #geom p {font-family:'Overpass Mono', monospace;padding:.25em}
+    #geom {-moz-column-count:3}
+    #geom p {padding-left:5em;text-indent:-5em}
+
+    #accu {width:100%}
+</style>
 
 </head>
 
@@ -55,12 +63,12 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
     <noscript>Hello, either you've deactivated javascript or your browser doesn't handle it (really?) this page will not work. However, this is not a big deal since it's of no use without javascript</noscript>
     <div id="tabs" class="tabs">
         <ul>
-            <li navto="drawer" class="active">Map</li>
-            <li navto="tiddler">Export</li>
-            <li navto="inject">Inject</li>
-            <li navto="geom">Objects</li>
-            <li navto="info">About</li>
-            <li navto="settings">Settings</li>
+            <li navto="drawer" class="drawer active">Map</li>
+            <li navto="tiddler" class="tiddler">Export</li>
+            <li navto="inject" class="inject">Inject</li>
+            <li navto="geom" class="geom">Objects</li>
+            <li navto="info" class="info">About</li>
+            <li navto="settings" class="settings">Settings</li>
         </ul>
     </div>
     <div id="panels" class="panels">
@@ -74,8 +82,8 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
 
         <div id="inject" class="inject pane">
             <h2>Inject your own geometries</h2>
-            <p>type in or paste your dataset in fields just above and send. Please remind that re-sending coordinates will create duplicates objects...</p>
-            <p class="button"><button id="injector">Inject!</button></p>
+            <p>type in or paste your dataset in fields just above and send. Please remind and beware : re-sending coordinates will create duplicates objects and wrong data may break the page until reload...</p>
+            <p class="button"><button id="injector">Inject...</button></p>
         <table>
             <tr><th>type</th><th>data</th></tr>
             <tr><td>point</td><td><input class="inject" id="iPoint" type="text"></input></td></tr>
@@ -96,9 +104,11 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
             <h1>Draw for TiddlyWiki Leaflet plugin</h1>
             <p>Since the TiddlyWiki <a href="https://sycom.github.io/Leaflet-Plugin/#Leaflet%20Plugin" target="_blank">leaflet plugin</a> doesn't implement a draw mechanism for now, this page helps you designing shapes for your geoTiddlers and tiddlywiki leaflet maps.</p>
             <ul>
-                <li>Draw or edit shapes on the "<a href="#" navto="drawer" onclick="activate(this);">Map</a>" tab. For now you can make polygons, polylines or points,</li>
-                <li>Once finished, go to "<a href="#" navto="tiddler" onclick="activate(this);">Export</a>" tab to get fields values for your geotiddler,</li>
-                <li>You may like to see individual coordinates for each object in "<a href="#" navto="geom" onclick="activate(this);">Objects</a>" tab.</li>
+                <li>Draw or edit shapes on the "<a href="#" navto="drawer">Map</a>" tab. For now you can make polygons, polylines or points,</li>
+                <li>You may also "<a href="#" navto="inject">Inject</a>" data from a geoJSON or a tiddler. Just copy paste values in corresponding fields of the tab,</li>
+                <li>Once finished, go to "<a href="#" navto="tiddler">Export</a>" tab to get fields values for your geotiddler,</li>
+                <li>You may set accuracy of your data using "<a href="#" navto="settings">Settings</a>" tab. You don't need millimetric accuracy for any data,</li>
+                <li>You may like to see individual coordinates for each object in "<a href="#" navto="geom">Objects</a>" tab.</li>
             </ul>
             <h2>Sources</h2>
             Draw for TiddlyWiki Leaflet Plugin uses <a href="https://leafletjs.com" target="_blank">leaflet</a>, <a href="https://github.com/codeofsumit/leaflet.pm" target="_blank">PM leaflet plugin</a> and some <a href="https://jquery.com" target="_blank">jQuery</a>.
@@ -121,10 +131,10 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
 
     <script>
     // pane navigation
-    $("#tabs li").on("click", function(event) {
+    $("#tabs li, a[navto]").on("click", function(event) {
         $('#tabs li').removeClass('active');
-        $(this).addClass('active');
         $('#panels .pane').removeClass('active');
+        $('.'+$(this).attr('navto')).addClass('active');
         $('#'+$(this).attr('navto')).addClass('active');
     });
 
@@ -186,13 +196,6 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
     };
     drawLayer.pm.enable(options);
     drawLayer.pm.toggleEdit(options);
-
-    // spy clicked points
-    /*
-    map.on('click', function(e) {
-        lst = e.getLatLngs();
-        console.log(lst);
-    });*/
 
     // getting drawn shape
     map.on('pm:create', function(e) {
@@ -264,27 +267,31 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
         var allObj = "",
             tid = {"point":"","points":"","polygon":"","polygons":"","polyline":"","polylines":""};
         Pnt = []; Pol = []; Lin = [];  // reinit categorized objects
-        // get coordinates by type group
+        // extract objects from geoJSON : if exists Obj[obj] should be undefined
         for(var obj in drawLayer["_layers"]) {
             if(Obj[obj] == undefined) {
                 for (var k in drawLayer["_layers"][obj]._layers) {
-                    Obj[k] = {"type":drawLayer["_layers"][obj]["_layers"][k].type,"coord":undefined}
+                    Obj[k] = {"type":drawLayer["_layers"][obj]["_layers"][k].geometryType,"coord":undefined,"latlng":drawLayer["_layers"][obj]["_layers"][k]._latlng,"latlngs":drawLayer["_layers"][obj]["_layers"][k]._latlngs}
                 }
             }
         }
-
+        // get coordinates by type group and fix missing coord
         for(var obj in Obj) {
-            console.log(obj);
             if(Obj[obj].type == "Marker" || Obj[obj].type == "Point") {
                 if(Obj[obj].coord == undefined) {
-                    var ltlg = drawLayer["_layers"][obj]._latlng.lat.toFixed(accu)+","+drawLayer["_layers"][obj]._latlng.lng.toFixed(accu);
+                    if(Obj[obj].latlng) {
+                        var ltlg = Obj[obj].latlng.lat.toFixed(accu)+","+Obj[obj].latlng.lng.toFixed(accu);
+                    }
+                    else var ltlg = drawLayer["_layers"][obj]._latlng.lat.toFixed(accu)+","+drawLayer["_layers"][obj]._latlng.lng.toFixed(accu);
                     Obj[obj].coord = ltlg;
                 }
                 Pnt.push(obj);
             }
             if(Obj[obj].type == "Line" || Obj[obj].type == "LineString") {
                 if(Obj[obj].coord == undefined) {
-                    var Coords = drawLayer["_layers"][obj]._latlngs, ltlg = "";
+                    ltlg = "";
+                    if(Obj[obj].latlngs) var Coords = Obj[obj].latlngs;
+                    else var Coords = drawLayer["_layers"][obj]._latlngs;
                     for(var i in Coords) {
                         ltlg += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
                     }
@@ -296,7 +303,9 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
             }
             if(Obj[obj].type == "Poly" || Obj[obj].type == "Polygon") {
                 if(Obj[obj].coord == undefined) {
-                    var Coords = drawLayer["_layers"][obj]._latlngs[0], ltlg = "";
+                    ltlg = "";
+                    if(Obj[obj].latlngs) var Coords = Obj[obj].latlngs[0];
+                    else var Coords = drawLayer["_layers"][obj]._latlngs[0];
                     for(var i in Coords) {
                         ltlg += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
                     }
@@ -352,7 +361,15 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
 
     // Injection
     $("#injector").on("click", function(){
-        $(".inject").each(function(e) {
+        // let user know he did click
+        $("#injector").toggleClass("clicked");
+        window.setTimeout(function() {
+            $("#injector").toggleClass("clicked")
+        },800);
+        // inject data
+        try {
+        $("#inject .inject").each(function(e) {
+            console.log($(this));
             var type = $(this).attr("id").substring(1);
             var coord = $(this).val();
             if (type === "Point" && coord != "") mapPoint(coord);
@@ -373,6 +390,7 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
             if (type === "geoJSON" && coord != "") mapGeoJSON(coord);
         });
         listObjects();
+    } catch(error) {alert("there was something wrong with this injection. Error : "+error)}
     });
 
     // Mapping function (derivated from leaflet plugin ;-)
