@@ -266,86 +266,88 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
         Pnt = []; Pol = []; Lin = [];  // reinit categorized objects
         // get coordinates by type group
         for(var obj in drawLayer["_layers"]) {
-            if(drawLayer["_layers"][obj].geometryType != undefined) {
-                Obj[obj] = {"type":drawLayer["_layers"][obj].geometryType}
-                drawLayer["_layers"][obj].geometryType = undefined;
+            if(Obj[obj] == undefined) {
+                for (var k in drawLayer["_layers"][obj]._layers) {
+                    Obj[k] = {"type":drawLayer["_layers"][obj]["_layers"][k].type,"coord":undefined}
+                }
             }
-            if(Obj[obj]) {
-                console.log(obj);
-                if(Obj[obj].type == "Marker" || Obj[obj].type == "Point") {
-                    if(Obj[obj].coord == undefined) {
-                        var ltlg = drawLayer["_layers"][obj]._latlng.lat.toFixed(accu)+","+drawLayer["_layers"][obj]._latlng.lng.toFixed(accu);
-                        Obj[obj].coord = ltlg;
-                    }
-                    Pnt.push(obj);
-                }
-                if(Obj[obj].type == "Line" || Obj[obj].type == "LineString") {
-                    if(Obj[obj].coord == undefined) {
-                        var Coords = drawLayer["_layers"][obj]._latlngs, ltlg = "";
-                        for(var i in Coords) {
-                            ltlg += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
-                        }
-                        ltlg = ltlg.slice(0, -1);
-                        Obj[obj].coord = ltlg;
+        }
 
-                    }
-                    Lin.push(obj);
+        for(var obj in Obj) {
+            console.log(obj);
+            if(Obj[obj].type == "Marker" || Obj[obj].type == "Point") {
+                if(Obj[obj].coord == undefined) {
+                    var ltlg = drawLayer["_layers"][obj]._latlng.lat.toFixed(accu)+","+drawLayer["_layers"][obj]._latlng.lng.toFixed(accu);
+                    Obj[obj].coord = ltlg;
                 }
-                if(Obj[obj].type == "Poly" || Obj[obj].type == "Polygon") {
-                    if(Obj[obj].coord == undefined) {
-                        var Coords = drawLayer["_layers"][obj]._latlngs[0], ltlg = "";
-                        for(var i in Coords) {
-                            ltlg += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
-                        }
-                        ltlg = ltlg.slice(0, -1);
-                        Obj[obj].coord = ltlg;
+                Pnt.push(obj);
+            }
+            if(Obj[obj].type == "Line" || Obj[obj].type == "LineString") {
+                if(Obj[obj].coord == undefined) {
+                    var Coords = drawLayer["_layers"][obj]._latlngs, ltlg = "";
+                    for(var i in Coords) {
+                        ltlg += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
                     }
-                    Pol.push(obj);
+                    ltlg = ltlg.slice(0, -1);
+                    Obj[obj].coord = ltlg;
+
                 }
+                Lin.push(obj);
+            }
+            if(Obj[obj].type == "Poly" || Obj[obj].type == "Polygon") {
+                if(Obj[obj].coord == undefined) {
+                    var Coords = drawLayer["_layers"][obj]._latlngs[0], ltlg = "";
+                    for(var i in Coords) {
+                        ltlg += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
+                    }
+                    ltlg = ltlg.slice(0, -1);
+                    Obj[obj].coord = ltlg;
+                }
+                Pol.push(obj);
             }
         }
         // writing object list
         for(var obj in Obj) {
             allObj += "<p>" + Obj[obj].type + "(<i>" + obj + "</i>) : " + Obj[obj].coord + "</p>";
-        }
 
-        // writing tiddler data
-        if(Pnt.length > 1) {
-            for(var pnt in Pnt) {
-                tid.points += Obj[Pnt[pnt]].coord+" ";
-                tid.point = "";
+            // writing tiddler data
+            if(Pnt.length > 1) {
+                for(var pnt in Pnt) {
+                    tid.points += Obj[Pnt[pnt]].coord+" ";
+                    tid.point = "";
+                }
             }
-        }
-        else {if (Pnt.length == 1) tid.point = Obj[Pnt[0]].coord}
-        if(Pol.length > 1) {
-            for(var pol in Pol) {
-                tid.polygons += Obj[Pol[pol]].coord+"|";
-                tid.polygon = "";
+            else {if (Pnt.length == 1) tid.point = Obj[Pnt[0]].coord}
+            if(Pol.length > 1) {
+                for(var pol in Pol) {
+                    tid.polygons += Obj[Pol[pol]].coord+"|";
+                    tid.polygon = "";
+                }
+                tid.polygons = tid.polygons.slice(0, -1);
             }
-            tid.polygons = tid.polygons.slice(0, -1);
-        }
-        else {if (Pol.length == 1) tid.polygon = Obj[Pol[0]].coord}
-        if(Lin.length > 1) {
-            for(var lin in Lin) {
-                tid.polylines += Obj[Lin[lin]].coord+"|";
-                tid.polyline = "";
+            else {if (Pol.length == 1) tid.polygon = Obj[Pol[0]].coord}
+            if(Lin.length > 1) {
+                for(var lin in Lin) {
+                    tid.polylines += Obj[Lin[lin]].coord+"|";
+                    tid.polyline = "";
+                }
+                tid.polylines = tid.polylines.slice(0, -1);
             }
-            tid.polylines = tid.polylines.slice(0, -1);
+            else {if (Lin.length == 1) tid.polyline = Obj[Lin[0]].coord}
+            geom.innerHTML = allObj;
+            var tidText = "<table>";
+            for(var feat in tid) {
+                tidText += "<tr><td class='" + feat + "'>" + feat + "</td><td>" + tid[feat] + "</td></tr>";
+            }
+            tidText +="</table>";
+            // convert to geojson and get it
+            var geojson = JSON.stringify(drawLayer.toGeoJSON());
+            tidText +="<p>You may also like to have all them in a single geojson. For now accuracy won't apply here</p>";
+            tidText += "<table>";
+            tidText += "<tr><td class='geojson'> geoJSON </td><td>" + geojson + "</td></tr>";
+            tidText +="</table>";
+            tiddat.innerHTML = tidText;
         }
-        else {if (Lin.length == 1) tid.polyline = Obj[Lin[0]].coord}
-        geom.innerHTML = allObj;
-        var tidText = "<table>";
-        for(var feat in tid) {
-            tidText += "<tr><td class='" + feat + "'>" + feat + "</td><td>" + tid[feat] + "</td></tr>";
-        }
-        tidText +="</table>";
-        // convert to geojson and get it
-        var geojson = JSON.stringify(drawLayer.toGeoJSON());
-        tidText +="<p>You may also like to have all them in a single geojson. For now accuracy won't apply here</p>";
-        tidText += "<table>";
-        tidText += "<tr><td class='geojson'> geoJSON </td><td>" + geojson + "</td></tr>";
-        tidText +="</table>";
-        tiddat.innerHTML = tidText;
     }
 
     // Injection
@@ -385,6 +387,7 @@ td, .geom p {font-family:'Overpass Mono', monospace;padding:.25em}
     function mapLine(co,lg) {
         var lPnt = co.split(" "),
             Line = [];
+
         for (var pt in lPnt) {
             var loc = lPnt[pt].split(",");
             for(var i in loc) loc[i] = (loc[i]*1).toFixed(accu);
