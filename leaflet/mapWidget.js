@@ -206,7 +206,7 @@ A widget for displaying leaflet map in TiddlyWiki
         setting.lg = this.getAttribute("long");
         setting.zoom = this.getAttribute("zoom");
         // overwrite lat and long center
-        if (setting.lat && setting.long) {
+        if (setting.lat && setting.lg) {
             Map[map].setView([setting.lat, setting.lg]);
         }
         // overwrite zoom
