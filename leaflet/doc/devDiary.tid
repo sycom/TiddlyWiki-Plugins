@@ -1,10 +1,13 @@
 created: 20151110173416000
-modified: 20170317163000000
+modified: 20180531171500000
 title: $:/plugins/sycom/leaflet/devDiary
 type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20180531
+** converting all `.svg.tid` files to `.svg` + `.svg.meta` pairs. Will allow git client to make svg viewable in web interface. Also compressed SVG as much as possible with great https://jakearchibald.github.io/svgomg/ tool.
+** tweak : for svg embedding local TiddlyWiki colors (eg `$primary$`), forced type to `text/vnd.tiddlywiki` to preserve them.
 * 20170317
 ** lot of work around cluster size, cluster color when using filter. Cluster size depends on point % for the cluster, clusterRadius and zoom.
 * 20170311
