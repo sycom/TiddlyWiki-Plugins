@@ -5,6 +5,9 @@ type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20180602
+** added a template that will display a map of embeded object for tiddlers containing one of the geoTiddlers fiels.
+** updtated leaflet and marker-cluster to 1.3.1 - the easy way. Just replaced with new version and no deprecation at all \o/ !
 * 20180531
 ** converting all `.svg.tid` files to `.svg` + `.svg.meta` pairs. Will allow git client to make svg viewable in web interface. Also compressed SVG as much as possible with great https://jakearchibald.github.io/svgomg/ tool.
 ** tweak : for svg embedding local TiddlyWiki colors (eg `$primary$`), forced type to `text/vnd.tiddlywiki` to preserve them.
