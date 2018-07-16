@@ -21,33 +21,58 @@ module-type: macro
     
     exports.run = function(text, tiddler, icon, accuracy, type) {
         if (!tiddler) {
-            var tiddler = this.getVariable("currentTiddler")
+            var tiddler = this.getVariable("currentTiddler");
         }
+		/* create the button */
         var buttonContent;
+		// if text parameter, will use it for the button
         if (text) {
             buttonContent = text;
         } else {
-            buttonContent = this.wiki.getTiddler(icon).fields.text;
+		// if not, looking for an icon
+            buttonContent = $tw.wiki.getTiddler(icon).fields.text;
         }
         var geoButton = document.createElement("button");
         geoButton.innerHTML = buttonContent;
-        geoButton.addEventListener("click",getLocation);
+		geoButton.param = {"tiddler": tiddler};
+        geoButton.addEventListener("click", function() {
+			getLocation(tiddler, accuracy, type) 				
+			}, false);
         this.parentDomNode.append(geoButton);
     }
     
-    function getLocation() {
+    function getLocation(tiddler, accuracy, type) {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(setPosition);
+                navigator.geolocation.getCurrentPosition(function(position) {
+					setPosition(position, tiddler, accuracy, type);
+				});
             } else { 
-                /* replace by "modal" alert?
-    x.innerHTML = "Geolocation is not supported by this browser.";*/
-                console.log("geolocation access denied or not supported by browser");        
+                /* !todo: ?question: replace by "modal" alert? */
+				$tw.utils.error("geolocation access denied or not supported by browser :" + error);     
         }
     }
     
-    function setPosition(position) {
+    function setPosition(position, tiddler, accuracy, type) {
     /* to replace by field populating (point(s) polyline(s) or polygon(s)) */
-           console.log( "Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude);
-    }
+	/* default : if tiddler has point field, will create a points field to store new data;
+		if tiddler has points field, will add a new point to the tiddler field;	*/
+console.log( "Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude);
+		var newPoint = position.coords.latitude + "," + position.coords.longitude;
+	/* check if tiddler has a geofield */
+		var track = "";
+		var flds = $tw.wiki.getTiddler(tiddler).fields
+console.log(flds);
+		if(flds.points) {
+			track = flds.points;
+			$tw.wiki.setText(tiddler,"points",null,track + " " + newPoint,null);
+		}
+		else {
+			if(flds.point && flds.point!== null) {
+				track = flds.point;
+				$tw.wiki.setText(tiddler,"points",null,track + " " + newPoint,null);
+				$tw.wiki.setText(tiddler,"point",null,null,null);
+			} else $tw.wiki.setText(tiddler,"point",null,newPoint,null);	
+		}
+	}
     
     })();
