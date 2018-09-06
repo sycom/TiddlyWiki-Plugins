@@ -1,13 +1,17 @@
 {
-	"tiddlers": [
-		{
-			"file": "../../../../ext/modules/widgets/geolocation-widget.js",
-			"fields": {
-				"title": "$:/ext/modules/wigets/geolocation-widget.js",
-                "type": "application/javascript",
-                "module-type": "widget"
-			},
-			"isTiddlerFile": true
-		}
-	]
+	"tiddlers": [{
+		"file": "../../../../ext/modules/widgets/geolocation/geolocation-widget.js",
+		"fields": {
+			"title": "$:/ext/modules/widgets/geolocation-widget.js",
+			"type": "application/javascript",
+			"module-type": "widget"
+		},
+		"isTiddlerFile": true
+	}, {
+		"file": "../../../../ext/modules/widgets/geolocation/geoLocationWidget.tid",
+		"fields": {
+			"title": "geoLocationWidget"
+		},
+		"isTiddlerFile": true
+	}]
 }
