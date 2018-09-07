@@ -18,7 +18,9 @@ The [[geolocation widget|$:/ext/modules/widgets/geolocation-widget.js]] will cre
 | !Attribute | !Description | !Default |
 |target |The tiddler (title) in which data will be stored |//current tiddler// |
 |icon |The title of the icon used to dress up the button|$:/core/images/globe |
-|text |The text displayed in the button (will overwrite the icon)|`null` |
+|text |The text displayed in the button (will overwrite the icon)|`undefined` |
+
+More options will come later (//accuracy//, //object type//...).
 
 ! Examples
 

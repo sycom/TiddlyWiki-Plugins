@@ -15,8 +15,22 @@ Geolocation widget
         this.initialise(parseTreeNode, options);
     };
 
+
+
     /* Inherit from the base widget class */
     GeolocationWidget.prototype = new Widget();
+
+    /* Compute the internal state of the widget  */
+    GeolocationWidget.prototype.execute = function () {
+        // Get attributes
+        this.target = this.getAttribute("target") || this.getVariable("currentTiddler");
+        this.icon = this.getAttribute("icon") || "$:/core/images/globe";
+        this.text = this.getAttribute("text") || undefined;
+        this.accuracy = this.getAttribute("accuracy");
+        this.type = this.getAttribute("type") || "point";
+        // Make child widgets
+        this.makeChildWidgets();
+    };
 
     /* Render this widget into the DOM */
     GeolocationWidget.prototype.render = function (parent, nextSibling) {
@@ -80,7 +94,7 @@ Geolocation widget
         var buttonContent;
         // if text parameter, will use it for the button
         if (self.text) {
-            buttonContent = text;
+            buttonContent = self.text;
         } else {
             // if not, looking for an icon
             /* !todo: ?question: should the icon depend on "type" parameter? */
@@ -112,21 +126,6 @@ Geolocation widget
     */
     GeolocationWidget.prototype.allowActionPropagation = function () {
         return false;
-    };
-
-    /*
-    Compute the internal state of the widget
-    */
-    GeolocationWidget.prototype.execute = function () {
-        // Get attributes
-        this.target = this.getAttribute("target") || this.getVariable("currentTiddler");
-        this.icon = this.getAttribute("icon") || "$:/core/images/globe";
-        this.text = this.getAttribute("text") || null;
-        this.accuracy = this.getAttribute("accuracy");
-        this.type = this.getAttribute("type") || "point";
-
-        // Make child widgets
-        this.makeChildWidgets();
     };
 
     exports.geoloc = GeolocationWidget;

@@ -11,3 +11,7 @@ For now `<$leafmap />` widget displays an interactive map, select size, location
 Have a look at [[demo page on the web|http://sycom.github.io/TiddlyWiki-Plugins/#A%20plugin%20collection:%5B%5BA%20plugin%20collection%5D%5D%20%5B%5BLeaflet%20plugin%5D%5D]] or at local [[usage|$:/plugins/sycom/leaflet/usage]] and [[example|$:/plugins/sycom/leaflet/example]] informations if you want to test.
 
 Keep in mind that the plugin might be buggy or imperfect. Please [[report any comment or issue|https://framagit.org/sycom/TiddlyWikiPlugins/issues]] on main repo. Source code at [[https://framagit.org/sycom/TiddlyWikiPlugins]] on framagit ([[framasoft|https://framasoft.org/]] gitlab instance) see `leaflet` branch for latest draft version.
+
+!! Side projects
+
+Apart from the Leaflet Plugin you can get the [[geoLocationWidget]]. It doesn't need to have the Leaflet plugin installed in order to work.
