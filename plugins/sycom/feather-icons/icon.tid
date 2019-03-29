@@ -1,0 +1,9 @@
+title: $:/plugins/sycom/feather-icons/icon
+tags: $:/tags/Image
+
+<svg class="tc-image-feather-icons tc-image-button" viewBox="0 0 128 128" width="22pt" height="22pt">
+<g>
+  <path d="M88 66a16 16 0 0 0-23-23L47 61v23h23zM76 55L39 92m41-19H58"/>
+  <path d="M118 96l-53 30-52-30V35L65 5l53 30z"/>
+</g>
+</svg>

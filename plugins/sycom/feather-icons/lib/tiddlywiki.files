@@ -1,0 +1,14 @@
+{
+	"tiddlers": [
+		{
+			"file": "feather-sprite.svg",
+			"fields": {
+				"title": "$:/plugins/sycom/leaflet/lib/feather-sprite.svg",
+				"module-type": "library",
+				"tags": "$:/tags/RawMarkup",
+				"source": "https://github.com/feathericons/feather",
+				"version": "4.19.0"
+			}
+		}
+	]
+}

@@ -1,0 +1,16 @@
+created: 20190328151740800
+modified: 20190328152930200
+tags: $:/tags/Macro
+title: $:/plugins/sycom/feather-icons/macros.tid
+
+\define f-i(icon class)
+<svg class="feather $class$"><use href="#$icon$" /></svg>
+\end
+
+List of macro defined for the feather icons plugin
+
+* `f-i (icon class)` will display the `icon` with the `class`. If class are multiple, put them into single or double quotes `'` , `"`
+
+!! examples
+
+{{$:/plugins/sycom/feather-icons/usage}}

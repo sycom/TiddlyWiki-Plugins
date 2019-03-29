@@ -1,0 +1,59 @@
+created: 20190321120000000
+modified: 20190328140000000
+title: $:/plugins/sycom/feather-icons/feather.css
+tags: [[$:/tags/Stylesheet]]
+
+/* Styles for the plugin (icon) */
+.tc-plugin-info-chunk > svg.tc-image-feather-icons {
+  fill: none;
+  stroke: <<colour foreground>>;
+  stroke-width: 4;
+}
+
+/* Styles for feathers sprites svg icons */
+svg.feather, ul.feather svg {
+  width: 1.1em;
+  height: 1.1em;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  vertical-align: sub;
+}
+svg.feather.x2 {
+  width: 2em;
+  height: 2em;
+  stroke-width: 1.35;
+}
+svg.feather.x3 {
+  width: 3em;
+  height: 3em;
+  stroke-width: 1.25;
+}
+svg.feather.x5 {
+  width: 5em;
+  height: 5em;
+  stroke-width: 1.15;
+}
+svg.feather.x11 {
+  width: 11em;
+  height: 11em;
+  stroke-width: 0.9;
+}
+svg.feather.thin {
+  stroke-width: 1px;
+}
+svg.feather.block {
+  display:block;
+}
+
+ul.feather {
+  margin:.5em;
+}
+ul.feather li {
+  list-style: none;
+}
+ul.feather li svg {
+  margin: 0 0.1em;
+}

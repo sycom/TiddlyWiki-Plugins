@@ -1,0 +1,10 @@
+{
+    "title": "$:/plugins/sycom/feather-icons",
+    "description": "Feather icons",
+    "author": "Sylvain Comte",
+    "version": "0.0.0",
+    "core-version": ">=5.0.0",
+    "source": "https://framagit.org/sycom/TiddlyWikiPlugins",
+    "plugin-type": "plugin",
+    "list": "readme usage icons"
+}
