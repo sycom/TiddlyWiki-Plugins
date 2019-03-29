@@ -4,7 +4,7 @@
 is a playing space for [TiddlyWiki][tiddlywiki] plugins. Try the demo on [gitlab.io pages][gl-pages] and [github.io pages][demo]. Feel free to drag drop the last release from those to your TiddlyWiki.
 
 ## Feather icons - 0.0
-The feather icons plugin aims to integrate [feather][feather] icons library in TiddlyWiki. It's a very open alternative to classic Font Awesome library, using svg sprites instead of classical font implementation. Pretty lightweight.
+The [feather icons plugin](plugins/sycom/feather-icons) aims to integrate [feather][feather] icons library in TiddlyWiki. Feather is a very open alternative to classic Font Awesome library, using svg sprites instead of classical font implementation. Pretty lightweight and elegant.
 
 ## Leaflet plugin - 0.8
 The leaflet plugin is an attempt to integrate the [leaflet][leaflet] lib in TiddlyWiki in order to display geographical purpose tiddler.

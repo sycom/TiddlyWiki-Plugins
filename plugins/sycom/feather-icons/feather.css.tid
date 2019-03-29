@@ -10,6 +10,10 @@ tags: [[$:/tags/Stylesheet]]
   stroke-width: 4;
 }
 
+svg.feather .nofill {
+  fill: <<colour background>>;
+}
+
 /* Styles for feathers sprites svg icons */
 svg.feather, ul.feather svg {
   width: 1.1em;
