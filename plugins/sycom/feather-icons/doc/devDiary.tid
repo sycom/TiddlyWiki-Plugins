@@ -1,10 +1,12 @@
 created: 20190328141500000
-modified: 20190328141500000
+modified: 20190330231500000
 title: $:/plugins/sycom/feather-icons/doc/devDiary
 type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20190330
+** Adding the full list of icons via a macro directly picking in the svg. Had to add an id to the svg. Will have to remember this when updating library...
 * 20190329
 ** Creating an icon for the plugin, based upon <<f-i feather>>. Had to hack style `.tc-plugin-info-chunk` to remove //fill// and color //stroke// the right way. In $:/plugins/sycom/feather-icons/feather.css
 ** Beginning to ad some usage : more sizes (x5, x11), block.

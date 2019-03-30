@@ -1,3 +1,5 @@
+# BSD 3-Clause License
+
 TiddlyWiki plugins, widgets and macro
 * _leaflet map plugin_ and _geolocation widget_
 * _feather icons plugin_

@@ -4,7 +4,7 @@ title: $:/plugins/sycom/feather-icons/usage
 type: text/vnd.tiddlywiki
 caption: Usage
 
-Once plugin is installed, you can call any icon of the [[library|$:/plugins/sycom/feather-icons/doc/icons]]. Some classes are ready to go :
+Once plugin is installed, you can call any icon of the library using its name. See //Icons// for the full list. Some classes are ready to go :
 
 * `x2`, `x3`, `x5`, `x11` will increase the icon size
 * `thin` will force the stroke line to be... ...thin

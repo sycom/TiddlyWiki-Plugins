@@ -1,5 +1,5 @@
 {
-	"description": "Empty edition for plugins test",
+	"description": "feather icons edition for plugin test",
 	"plugins": [
 			"tiddlywiki/tiddlyweb",
 			"tiddlywiki/filesystem",
