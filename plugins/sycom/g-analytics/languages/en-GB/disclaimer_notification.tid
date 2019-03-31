@@ -1,0 +1,3 @@
+title: $:/plugins/sycom/g-analytics/disclaimer_notification
+
+This wiki uses Google analytics tracker (that means also //cookies//) via a [[plugin|$:/plugins/sycom/g-analytics]] to get informations about your navigation. <$link to={{$:/plugins/sycom/g-analytics/disclaimer_title!!text}} >read more</$link>.

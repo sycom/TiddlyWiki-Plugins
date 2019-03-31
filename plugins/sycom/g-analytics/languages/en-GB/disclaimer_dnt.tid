@@ -1,0 +1,6 @@
+title: $:/plugins/sycom/g-analytics/disclaimer_dnt
+tags: privacy analytics alert
+
+As many website do, this wiki uses [[Google Analytics|https://analytics.google.com]] (via the [[Google Analytics plugins|$:/plugins/sycom/g-analytics]]) to help analyse how much visitors use this site and where they come from. Google uses “[[cookies|https://en.wikipedia.org/wiki/HTTP_cookie]]”, which are small text files placed on your computer, to collect standard internet log information in an anonymous form.
+
+However, as you are visiting, with your browser in private mode or have activated [[Do Not Track|http://donottrack.us/]], the plugin is deactivated. So no information will be collected nor sent anywhere.
