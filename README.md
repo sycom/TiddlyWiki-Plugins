@@ -11,12 +11,12 @@ The leaflet plugin is an attempt to integrate the leaflet js library in TiddlyWi
 
 For now you can display an interactive map, select size, location and zoom, marker and background. You can also display simple geographical data, stored as json or even stored in metadata fields from tiddler(s) : point(s), polygon(s) and/or polyline(s). Points are clustered when needed (but you can disable clustering) and you have some ways to choose colors.
 
-## Google Analytics plugin - i s o g r a m variation - 5.1.14
-The legacy plugin used in tiddlywiki.com version is using the old urchin tracker code. This one uses the new //i s o g r a m// version. Note that this plugin is not developed on this repo but on the [tiddlywiki5 fork of jermolene's][tw5github]
+## [G-Analytics plugin](./plugins/sycom/g-analytics) - 1.0
+A tool for having stats of wikis visitors. Forked from the [official one][tw-ga-official] you can find in TiddlyWiki's plugin library. It implements Do Not Track and enables individual tiddlers tracking.
 
 ## Sources / licenses
-* [TiddlyWiki][tiddlywiki] uses a BSD 3-Clause [License](https://github.com/Jermolene/TiddlyWiki5/blob/master/license.md)
-* All my projects for TiddlyWiki have [a similar one](LICENSE.md). Please refer to each plugin directory for more inforations.
+* [TiddlyWiki][tiddlywiki] uses a BSD 3-Clause [License][tw-license]
+* All my projects for TiddlyWiki have [a similar one](LICENSE.md). Please refer to each plugin directory for more informations.
 
 ## parcours for my plugins
 * **[framagit][repo]**
@@ -30,8 +30,8 @@ The legacy plugin used in tiddlywiki.com version is using the old urchin tracker
 [gitlab]: https://gitlab.com/sycom/TiddlyWikiPlugins
 [gl-pages]: http://sycom.gitlab.io/TiddlyWiki-Plugins/#Leaflet%20plugin
 [github]: https://github.com/sycom/TiddlyWiki-Plugins
-[tw5github]: https://github.com/sycom/TiddlyWiki5
+[tw-ga-official]: https://github.com/sycom/TiddlyWiki5/plugins/tiddlywiki/googleanalytics
+[tw-license]: https://github.com/Jermolene/TiddlyWiki5/blob/master/license
 
 [framasoft]: http://framasoft.org
 [tiddlywiki]: http://tiddlywiki.com
-[feather]: https://feathericons.com/
