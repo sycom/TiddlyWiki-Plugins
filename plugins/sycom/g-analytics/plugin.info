@@ -1,7 +1,8 @@
 {
 	"title": "$:/plugins/sycom/g-analytics",
-	"description": "Google Analytics: website statistics",
+	"description": "G-Analytics: website statistics",
 	"author": "JeremyRuston",
+	"version": 1.0.0
 	"contributor": "Sylvain Comte",
 	"core-version": ">=5.0.0",
 	"list": "readme settings usage"
