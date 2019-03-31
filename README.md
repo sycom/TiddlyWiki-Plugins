@@ -3,11 +3,11 @@
 # TiddlyWiki Plugins
 is a playing space for [TiddlyWiki][tiddlywiki] plugins. Try the demos on [gitlab.io pages][gl-pages] and [github.io pages][demo]. Drag drop the last release from those to your TiddlyWiki to enhance it.
 
-## Feather icons - 0.1
-The [feather icons plugin](plugins/sycom/feather-icons) aims to integrate [feather][feather] icons library in TiddlyWiki. Feather is a very open alternative to classic Font Awesome library, using svg sprites instead of classical font implementation. Pretty lightweight and elegant.
+## [Feather icons](./plugins/sycom/feather-icons) - 0.1
+The feather icons plugin aims to integrate feather icons library in TiddlyWiki. Feather is a very open alternative to classic Font Awesome library, using svg sprites instead of classical font implementation. Pretty lightweight and elegant.
 
-## [Leaflet plugin](./plugins/sycom/feather-icons) - 0.8
-The leaflet plugin is an attempt to integrate the [leaflet][leaflet] lib in TiddlyWiki in order to display geographical purpose tiddlers.
+## [Leaflet plugin](./plugins/sycom/leaflet) - 0.8
+The leaflet plugin is an attempt to integrate the leaflet js library in TiddlyWiki in order to display geographical purpose tiddlers.
 
 For now you can display an interactive map, select size, location and zoom, marker and background. You can also display simple geographical data, stored as json or even stored in metadata fields from tiddler(s) : point(s), polygon(s) and/or polyline(s). Points are clustered when needed (but you can disable clustering) and you have some ways to choose colors.
 
@@ -15,7 +15,8 @@ For now you can display an interactive map, select size, location and zoom, mark
 The legacy plugin used in tiddlywiki.com version is using the old urchin tracker code. This one uses the new //i s o g r a m// version. Note that this plugin is not developed on this repo but on the [tiddlywiki5 fork of jermolene's][tw5github]
 
 ## Sources / licenses
-* [TiddlyWiki][tiddlywiki] of course - [License][https://github.com/Jermolene/TiddlyWiki5/blob/master/license.md]
+* [TiddlyWiki][tiddlywiki] uses a BSD 3-Clause [License](https://github.com/Jermolene/TiddlyWiki5/blob/master/license.md)
+* All my projects for TiddlyWiki have [a similar one](LICENSE.md). Please refer to each plugin directory for more inforations.
 
 ## parcours for my plugins
 * **[framagit][repo]**
