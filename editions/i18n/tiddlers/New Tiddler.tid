@@ -1,9 +1,0 @@
-created: 20190402172124000
-modified: 20190402181526262
-tags: 
-title: New Tiddler
-type: text/vnd.tiddlywiki
-
-test of $:/ext/modules/macros/i18n-macro.js
-
-<<i18n testing 'pilou'>>

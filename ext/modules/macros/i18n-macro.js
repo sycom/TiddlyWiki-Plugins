@@ -36,9 +36,6 @@ exports.run = function(title,domain,orig_lang) {
 		language = this.wiki.getTiddler("$:/language").fields.text || "$:/languages/en-GB",
     lang = this.wiki.getTiddler(language).fields.name,
     translation = this.wiki.getTiddler(dom+"/i18n/"+lang+"/"+title);
-  console.log(dom); console.log(base);console.log(lang);
-  console.log(tiddler);
-  console.log(translation);
   // checks if there is a translation for the tiddlers
   if(!translation) {
   // if not checks if there is an original
@@ -48,10 +45,12 @@ exports.run = function(title,domain,orig_lang) {
     }
   // if yes, displays original
     else {
-      return "{{" + tiddler +"}}";
+      var alert = "<div class='info'>this text has not been translated in [[" + dom+"/i18n/"+lang+"/"+title + "]]. Displaying original (" + base + ") instead.</div>";
+        alert += this.wiki.renderText("text/html",tiddler.parseType,tiddler.fields.text);
+      return alert;
     }
 	}
-	else return "{{" + translation +"}}";
+	else return this.wiki.renderText("text/html",translation.parseType,translation.fields.text)
 };
 
 })();
