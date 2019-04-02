@@ -1,0 +1,22 @@
+{
+	"description": "i18n edition for testing",
+	"plugins": [
+			"tiddlywiki/tiddlyweb",
+			"tiddlywiki/filesystem",
+			"tiddlywiki/markdown"
+	],
+	"themes": [
+		"tiddlywiki/vanilla",
+		"tiddlywiki/snowwhite"
+	],
+	"build": {
+		"index": [
+			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","index.html","text/plain"],
+		"favicon": [
+			"--savetiddler","$:/favicon.ico","favicon.ico",
+			"--savetiddler","$:/green_favicon.ico","static/favicon.ico"]
+	},
+	"config": {
+		"retain-original-tiddler-path": true
+	}
+}
