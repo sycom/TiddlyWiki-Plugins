@@ -1,11 +1,11 @@
 created: 20190328141500000
-modified: 20190330231500000
+modified: 20190403141500000
 title: $:/plugins/sycom/f-awesome/doc/devDiary
 type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
 * 20190403
-** 
+** Made some test about library compression. Unable to go under 450 ko for the plugin. Which is is at least 100 ko more than the dive O solution. Will not release this one... But sources are open for who dares.
 * 20190402
 ** Cloned feather-icons plugin to start off. Will have to update styles.
