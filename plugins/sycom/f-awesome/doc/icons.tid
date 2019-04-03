@@ -1,0 +1,13 @@
+created: 20190328141500000
+modified: 20190331000000000
+title: $:/plugins/sycom/f-awesome/icons
+type: text/vnd.tiddlywiki
+caption: Icons
+
+Here is the Font-Awesome icons list (//solid// library). Find yours...
+
+<div style="text-align:center">
+<$edit-text tag="input" tiddler="$:/temp/searchF-AwesomeIcons" placeholder="search your icon" />
+</div>
+
+<$macrocall $name=list-f-awesome filter={{$:/temp/searchF-AwesomeIcons}}>>

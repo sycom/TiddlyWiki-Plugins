@@ -1,0 +1,18 @@
+created: 20190328151740800
+modified: 20190331212003864
+tags: $:/tags/Macro
+title: $:/plugins/sycom/f-awesome/macros.tid
+type: text/vnd.tiddlywiki
+
+\define f-a(icon class)
+<svg class="fa $class$"><use href="#$icon$" /></svg>
+\end
+
+List of macro defined for the Font Awesome icons plugin
+
+* `<<f-a>> (icon class)` will display the `icon` with the `class`. If class are multiple, put them into single or double quotes `'` , `"`
+* `<<list-f-awesome>> (filter)` will display a list of icons corresponding to the `filter` string (not a tiddler filter)
+
+!! examples
+
+{{$:/plugins/sycom/f-awesome/usage}}

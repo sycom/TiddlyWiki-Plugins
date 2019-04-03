@@ -1,0 +1,29 @@
+created: 20190328141500000
+modified: 20190328141500000
+title: $:/plugins/sycom/f-awesome/usage
+type: text/vnd.tiddlywiki
+caption: Usage
+
+Once plugin is installed, you can call any icon of the library using its name. See //Icons// for the full list. Some classes are ready to go :
+
+* `x2`, `x3`, `x5`, `x11` will increase the icon size
+* `thin` will force the stroke line to be... ...thin
+* `block` will treat your icon as a block and have its own paragraph (defaultly icons are inline block)
+
+!!! hard coding your svg sprites call
+```
+<svg class="fa class" style="your_styles"><use href="#name_of_your_icon" /></svg>
+```
+
+!!! using integrated [[macros|$:/plugins/sycom/f-awesome/macros.tid]]
+
+!!!! `<<f-a>>` (//icon_name// //classes//)
+```
+<<f-a font-awesome>>
+```
+<<f-a font-awesome>> icons are pretty nice and easy to use
+
+```
+<<f-a box 'x3 block'>>
+```
+they may also be displayed <<f-a box 'x3 block'>> on its own line
