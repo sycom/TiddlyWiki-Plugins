@@ -1,0 +1,26 @@
+created: 20151127192625926
+creator: Sylvain Comte
+modified: 20190403150930232
+modifier: Sylvain Comte
+title: A plugin collection
+type: text/vnd.tiddlywiki
+
+sycom's TiddlyWiki plugin collection is a work in progress. I ''do'' use them for my needs and don't have (much) problems. Feel free to do the same, but remember TiddlyWiki's n°1 rule : ''Alway backup before any experiment''...
+
+! <<f-i map>> [[Leaflet maps plugin]]
+{{$:/plugins/sycom/leaflet/readme}}
+
+* [[Leaflet maps plugin]] will embed leaflet maps in your tiddlywiki with the `<$leafmap />` widget. You can see
+
+<$leafmap tileControl height='259px' tile='natgeo' places='{"filter":"[tag[Michel Strogoff from the sky]]"}' cluster='5' />
+//the [[Michel Strogoff from the sky]] example to see what can be done with it. see also plugin embedded [[example|$:/plugins/sycom/leaflet/example]]//
+
+The [[geoLocationWidget]] will create a button to collect the current geolocation of your browser. It's included in the Leaflet Plugin. It's also possible to install it independently.
+
+! <<f-i eye>> [[Google analytics plugin|G-Analytics plugin]]
+
+{{$:/plugins/sycom/g-analytics/readme}}
+
+! <<f-i feather>> [[Feather icons plugin]]
+
+{{$:/plugins/sycom/feather-icons/readme}}

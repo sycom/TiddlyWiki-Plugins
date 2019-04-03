@@ -1,0 +1,8 @@
+{
+  "directories": [
+    "../../../plugins-feather-icons",
+    "../../../plugins-g-analytics",
+    "../../../plugins-leaflet",
+    "../../../i18n"    
+    ]
+  }
