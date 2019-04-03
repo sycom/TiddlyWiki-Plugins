@@ -1,0 +1,14 @@
+{
+	"tiddlers": [
+		{
+			"file": "solid.svg",
+			"fields": {
+				"title": "$:/plugins/sycom/f-awesome/lib/solid.svg",
+				"module-type": "library",
+				"tags": "$:/tags/RawMarkup",
+				"source": "https://fontawesome.com",
+				"version": "5.8.1"
+			}
+		}
+	]
+}

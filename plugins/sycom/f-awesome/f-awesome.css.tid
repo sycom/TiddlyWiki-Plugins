@@ -1,0 +1,85 @@
+created: 20190321120000000
+modified: 20190328140000000
+title: $:/plugins/sycom/f-awesome/f-awesome.css
+tags: [[$:/tags/Stylesheet]]
+
+/* Styles for the plugin (icon) */
+.tc-plugin-info-chunk > svg.tc-image-f-awesome {
+  fill: <<colour foreground>>;
+  stroke-width: 0;
+}
+
+svg.fa .nofill {
+  fill: <<colour foreground>>;
+}
+
+/* Styles for font-awesome sprites svg icons */
+svg.fa, ul.fa svg {
+  width: 1.1em;
+  height: 1.1em;
+  stroke: currentColor;
+  stroke-width: 0;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: currentColor;
+  vertical-align: sub;
+}
+svg.fa.x2 {
+  width: 2em;
+  height: 2em;
+}
+svg.fa.x3 {
+  width: 3em;
+  height: 3em;
+}
+svg.fa.x5 {
+  width: 5em;
+  height: 5em;
+}
+svg.fa.x11 {
+  width: 11em;
+  height: 11em;
+  stroke-width: 0.9;
+}
+svg.fa.thin {
+  stroke-width: 1px;
+}
+svg.fa.block {
+  display:block;
+}
+
+ul.fa {
+  margin:.5em;
+}
+ul.fa li {
+  list-style: none;
+}
+ul.fa li svg {
+  margin: 0 0.1em;
+}
+
+/* styles pour la liste */
+.presentation {
+  display: flex;
+  flex-wrap: wrap;
+}
+.presentation .block {
+	display: inline-block;
+  padding: .5em;
+  width: 33%;
+}
+.presentation div div {
+  background: <<colour page-background>>;
+  padding: .5em;
+}
+
+.presentation .fa, .presentation span {
+
+}
+
+.presentation span {
+  margin-left: .2em;
+  font-size: .9em;
+  vertical-align: top;
+  padding-left: .5em;
+}

@@ -1,0 +1,18 @@
+created: 20190329151107000
+modified: 20190329155023178
+tags: plugins icons
+title: Font Awesome icons plugin
+type: text/vnd.tiddlywiki
+
+The [[Font Awesome icons plugin|$:/plugins/sycom/f-awesome]] provide an elegant and lightweight solution for displaying icons in your TiddlyWiki.
+
+<ul class="fa">
+  <li><<f-a plus>> xxx icons and counting</li>
+  <li><<f-a box-open>> ready to use</li>
+  <li><<f-a code-branch>> pretty much hackable</li>
+  <li><<f-a lightbulb>> invent your own usages...</li>
+</ul>
+
+<div style="text-align:center;vertical-align:top;margin: 2.4em auto"><<f-a star x3>><<f-a sun x11>><<f-a smile x5>><<f-a heart x11>><<f-a star x3>></div>
+
+<$list filter="[[$:/plugins/sycom/f-awesome]]" emptyMessage=<<lingo "Empty/Hint">> template="$:/core/ui/Components/plugin-info"/>
