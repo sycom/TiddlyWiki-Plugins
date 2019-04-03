@@ -8,4 +8,4 @@ It uses svg sprites library instead of classical font library which is **not as 
 
 [f-a]: https://fontawesome.com
 [license]: https://framagit.org/sycom/TiddlyWikiPlugins/LICENSE.md
-[diveOplugin]:
+[diveOplugin]: http://thediveo.github.io/TW5FontAwesome/
