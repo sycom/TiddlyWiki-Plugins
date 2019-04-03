@@ -1,5 +1,5 @@
 created: 20170201105200000
-modified: 20190331155150919
+modified: 20190403140620483
 tags: plugins maps
 title: Leaflet maps plugin
 type: text/vnd.tiddlywiki
@@ -10,6 +10,16 @@ The [[Leaflet maps plugin|$:/plugins/sycom/leaflet]] will transform your TiddlyW
 
 For now `<$leafmap />` widget displays an interactive map, select size, location and zoom, clustering distance, and background. You can display data  : geojson, point(s), polygon(s) and/or polyline(s) directly or calling [[GeoTiddler]](s). Tiddler can be called individually, by list or with a filter.
 
-Apart from the Leaflet Plugin you can get the [[geoLocationWidget|$:/ext/modules/widgets/geolocation-widget.js]]. It doesn't need to have the Leaflet plugin installed in order to work.
+Apart from the Leaflet Plugin you can get the [[geoLocationWidget]]. It doesn't need to have the Leaflet plugin installed in order to work.
+
+See [[plugin's integrated examples|$:/plugins/sycom/leaflet/example]], or the [[Michel Strogoff from the sky]] attempt to see it in action. And install it in your wiki if you like it : drag and drop one of the following. Before proceeding, be sure you're up to date with number one TiddlyWiki rule : ''back up your wiki before any experiment!''
+
+<div style="text-align:center">
+<a class="tc-btn-big-green whiteLink">
+[[Leaflet|$:/plugins/sycom/leaflet]]</a> <a class="tc-btn-big-green whiteLink">
+[[geoloc w.*|$:/ext/modules/widgets/geolocation-widget.js]]</a>
+</div>
+
+''*'' //the geolocation widget is not bundled so, if you want the doc, don't forget to grab it alongside the widget : [[geoLocationWidget]]//
 
 <$list filter="[[$:/plugins/sycom/leaflet]]" emptyMessage=<<lingo "Empty/Hint">> template="$:/core/ui/Components/plugin-info"/>
