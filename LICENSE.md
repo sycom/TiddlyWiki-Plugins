@@ -4,7 +4,7 @@ TiddlyWiki plugins, widgets and macro
 * _leaflet map plugin_ and _geolocation widget_
 * _feather icons plugin_
 
-where created by Sylvain Comte, (sylvain [dot] comte [at] free [dot] fr)
+were created by Sylvain Comte, (sylvain [dot] comte [at] free [dot] fr)
 
 Copyright (c) 2015-2019, Sylvain Comte
 All rights reserved.
