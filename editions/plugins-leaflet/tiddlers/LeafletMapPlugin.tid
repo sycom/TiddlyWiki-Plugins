@@ -1,0 +1,15 @@
+created: 20170201105200000
+modified: 20190331155150919
+tags: plugins maps
+title: Leaflet maps plugin
+type: text/vnd.tiddlywiki
+
+The [[Leaflet maps plugin|$:/plugins/sycom/leaflet]] will transform your TiddlyWiki into a GIS database.
+
+''Be careful, entering wrong coordinates may cause unwanted behaviour''. Please conform to the first rule of TiddlyWiki : backup before any experiment.
+
+For now `<$leafmap />` widget displays an interactive map, select size, location and zoom, clustering distance, and background. You can display data  : geojson, point(s), polygon(s) and/or polyline(s) directly or calling [[GeoTiddler]](s). Tiddler can be called individually, by list or with a filter.
+
+Apart from the Leaflet Plugin you can get the [[geoLocationWidget|$:/ext/modules/widgets/geolocation-widget.js]]. It doesn't need to have the Leaflet plugin installed in order to work.
+
+<$list filter="[[$:/plugins/sycom/leaflet]]" emptyMessage=<<lingo "Empty/Hint">> template="$:/core/ui/Components/plugin-info"/>

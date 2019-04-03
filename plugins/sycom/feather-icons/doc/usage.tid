@@ -4,15 +4,15 @@ title: $:/plugins/sycom/feather-icons/usage
 type: text/vnd.tiddlywiki
 caption: Usage
 
-Once plugin is installed, you can call any icon of the [[library|$:/plugins/sycom/feather-icons/doc/icons]]. Some classes are ready to go :
+Once plugin is installed, you can call any icon of the library using its name. See //Icons// for the full list. Some classes are ready to go :
 
-* `x2`, `x3` will increase the icon size
+* `x2`, `x3`, `x5`, `x11` will increase the icon size
 * `thin` will force the stroke line to be... ...thin
 * `block` will treat your icon as a block and have its own paragraph (defaultly icons are inline block)
 
 !!! hard coding your svg sprites call
 ```
-<svg class="class" style="your_styles"><use href="#name_of_your_icon" /></svg>
+<svg class="feather class" style="your_styles"><use href="#name_of_your_icon" /></svg>
 ```
 
 !!! using integrated [[macros|$:/plugins/sycom/feather-icons/macros.tid]]
@@ -26,4 +26,4 @@ Once plugin is installed, you can call any icon of the [[library|$:/plugins/syco
 ```
 <<f-i box 'x3 block'>>
 ```
-they may also be displayed as own <<f-i box 'x3 block'>> 
+they may also be displayed <<f-i box 'x3 block'>> on its own line

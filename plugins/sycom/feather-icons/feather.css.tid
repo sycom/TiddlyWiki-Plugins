@@ -10,6 +10,10 @@ tags: [[$:/tags/Stylesheet]]
   stroke-width: 4;
 }
 
+svg.feather .nofill {
+  fill: <<colour background>>;
+}
+
 /* Styles for feathers sprites svg icons */
 svg.feather, ul.feather svg {
   width: 1.1em;
@@ -56,4 +60,30 @@ ul.feather li {
 }
 ul.feather li svg {
   margin: 0 0.1em;
+}
+
+/* styles pour la liste */
+.presentation {
+  display: flex;
+  flex-wrap: wrap;
+}
+.presentation .block {
+	display: inline-block;
+  padding: .5em;
+  width: 33%;
+}
+.presentation div div {
+  background: <<colour page-background>>;
+  padding: .5em;
+}
+
+.presentation .feather, .presentation span {
+
+}
+
+.presentation span {
+  margin-left: .2em;
+  font-size: .9em;
+  vertical-align: top;
+  padding-left: .5em;
 }

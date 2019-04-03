@@ -1,7 +1,13 @@
 created: 20190328141500000
-modified: 20190328141500000
+modified: 20190331000000000
 title: $:/plugins/sycom/feather-icons/icons
 type: text/vnd.tiddlywiki
 caption: Icons
 
-todo : make (searchable) list of icons here. Add version info
+Here is the feather icons list. Find yours...
+
+<div style="text-align:center">
+<$edit-text tag="input" tiddler="$:/temp/searchFeatherIcons" placeholder="search your icon" />
+</div>
+
+<$macrocall $name=list-feather-icons filter={{$:/temp/searchFeatherIcons}}>>

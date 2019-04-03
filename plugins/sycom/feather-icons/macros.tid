@@ -1,7 +1,8 @@
 created: 20190328151740800
-modified: 20190328152930200
+modified: 20190331212003864
 tags: $:/tags/Macro
 title: $:/plugins/sycom/feather-icons/macros.tid
+type: text/vnd.tiddlywiki
 
 \define f-i(icon class)
 <svg class="feather $class$"><use href="#$icon$" /></svg>
@@ -9,7 +10,8 @@ title: $:/plugins/sycom/feather-icons/macros.tid
 
 List of macro defined for the feather icons plugin
 
-* `f-i (icon class)` will display the `icon` with the `class`. If class are multiple, put them into single or double quotes `'` , `"`
+* `<<f-i>> (icon class)` will display the `icon` with the `class`. If class are multiple, put them into single or double quotes `'` , `"`
+* `<<list-feather-icons>> (filter)` will display a list of icons corresponding to the `filter` string (not a tiddler filter)
 
 !! examples
 

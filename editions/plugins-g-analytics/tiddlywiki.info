@@ -1,10 +1,10 @@
 {
-	"description": "feather icons edition for plugin test",
+	"description": "g-analytics edition for plugin test",
 	"plugins": [
 			"tiddlywiki/tiddlyweb",
 			"tiddlywiki/filesystem",
 			"tiddlywiki/markdown",
-      "../../TW5dev/plugins/sycom/feather-icons"
+      "../../TW5dev/plugins/sycom/g-analytics"
 	],
 	"themes": [
 		"tiddlywiki/vanilla",
