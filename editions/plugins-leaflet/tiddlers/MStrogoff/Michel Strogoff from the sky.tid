@@ -1,0 +1,17 @@
+created: 20151211131032070
+creator: Sylvain Comte
+modified: 20190403134326289
+modifier: Sylvain Comte
+tags: 
+title: Michel Strogoff from the sky
+type: text/vnd.tiddlywiki
+
+This map is build with all tiddlers tagged with <<tag [[Michel Strogoff from the sky]]>> using  the `filter` object. Tiddler are set to colors matching transportation medium, when known.
+
+Each tiddler is an abstract from the chapter in the book (in french) that was picked on [[michelstrogoff.fr|http://michelstrogoff.fr/resume-detaille-de-michel-strogoff/]]. You can find full [[Michel Strogoff|https://fr.wikisource.org/wiki/Michel_Strogoff]] book on wikisource.
+
+```
+<$leafmap tile='natgeo' places='{"filter":"[tag[Michel Strogoff from the sky]]"}' cluster='25'>
+```
+
+<$leafmap  tile='natgeo' places='{"filter":"[tag[Michel Strogoff from the sky]]"}' cluster='25'>

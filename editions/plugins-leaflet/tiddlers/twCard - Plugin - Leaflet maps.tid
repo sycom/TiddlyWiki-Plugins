@@ -1,0 +1,23 @@
+audience: 
+category: Data Presentation
+created: 20151015075959708
+creator: Sylvain Comte
+date: 20-12-2016
+homepage: http://sycom.github.io/TiddlyWiki-Plugins
+install_link: 
+language: English
+license: BSD 3-Clause
+maintainer: sycom
+modified: 20190403134733120
+modifier: Sylvain Comte
+name: Leaflet maps plugin
+plugin_tiddler: $:/plugins/sycom/leaflet
+release: 0.8.6
+repository: https://framagit.org/sycom/TiddlyWikiPlugins
+short_description: A plugin to make geographical maps from and within your tiddlers
+tags: [[Plugin twCard]] widget- widget-<$leafmap>
+title: twCard - Plugin - Leaflet maps
+type: text/vnd.tiddlywiki
+wiki: http://sycom.github.io/TiddlyWiki-Plugins
+
+The [[Leaflet maps|$:/plugins/sycom/leaflet]] plugin is an attempt to integrate the [[leaflet|http://leafletjs.com/]] library in TiddlyWiki in order to display geographical purpose tiddlers. An internet connection is needed to work properly since it loads the map backgrounds from the web.
