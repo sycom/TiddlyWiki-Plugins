@@ -1,11 +1,12 @@
+image: node
+
 pages:
-  stage: deploy
   script:
-  - mkdir .public
-  - cp -r * .public
-  - mv .public public
+  - npm install -g tiddlywiki
+  - tiddlywiki ./editions/collection --build
+  - mv ./editions/collection/output public
   artifacts:
     paths:
     - public
   only:
-  - gh-pages
+  - master
