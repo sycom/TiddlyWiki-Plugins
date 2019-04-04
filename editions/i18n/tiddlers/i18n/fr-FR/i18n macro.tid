@@ -11,7 +11,7 @@ Les paramètres de `<<i18n>>` sont
 * `domain` : le //domaine// du tiddler (par défaut `$:`)
 * `orig_lang` : la langue originale du tiddler (par défaut `en-GB`)
 
-Ainsi, par exemple 
+Ainsi, par exemple
 
 ```
 <<i18n "i18n macro" "$:/ext/modules/macros" "fr-FR">>
@@ -20,3 +20,4 @@ appelera
 
 * le tiddler [[$:/ext/modules/macros/i18n/lg-LG/i18n macro]] où lg-LG est la langue courante définie par $:/language
 * à défaut, le tiddler dans la langue originale : [[$:/ext/modules/macros/i18n/fr-FR/i18n macro]]
+* à défaut, un message d'alerte indiquant que le tiddler original n'existe pas
