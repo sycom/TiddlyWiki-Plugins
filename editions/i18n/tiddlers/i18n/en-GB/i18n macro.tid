@@ -1,10 +1,10 @@
 created: 20190402212356600
 modified: 20190402213929902
-tags: 
+tags:
 title: $:/ext/modules/macros/i18n/en-GB/i18n macro
 type: text/vnd.tiddlywiki
 
-the [[i18n|$:/ext/modules/macros/i18n-macro.js]] macro aims to make it easier to translate some parts of TiddlyWiki beside $:/languages mechanism. It might be usefull to translate extensions or tiddlers.
+the [[i18n|$:/ext/modules/macros/i18n-macro.js]] macro aims to make it easier to translate some parts of TiddlyWiki beside $:/languages mechanism. It might be useful to translate extensions or tiddlers.
 
  `<<i18n>>`  parameters are
 
@@ -21,3 +21,4 @@ will call
 
 * the [[$:/ext/modules/macros/i18n/lg-LG/i18n macro]] tiddler where lg-LG is the current TiddlyWiki $:/language
 * if missing, the original language tiddler : [[$:/ext/modules/macros/i18n/fr-FR/i18n macro]]
+* if missing an alert telling that original tiddler doesn't exist
