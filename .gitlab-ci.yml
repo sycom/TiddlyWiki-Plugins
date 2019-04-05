@@ -3,6 +3,7 @@ image: node
 pages:
   script:
   - npm install -g tiddlywiki
+  - mv ./plugins/sycom /usr/local/lib/node_modules/tiddlywiki/plugins
   - tiddlywiki ./editions/collection --build
   - mv ./editions/collection/output public
   artifacts:
