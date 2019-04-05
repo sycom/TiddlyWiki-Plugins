@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Draw for TiddlyWiki Leaflet plugin</title>
+
+    <link rel="stylesheet" href="./lib/leaflet.css" />
+    <link rel="stylesheet" href="./lib/leaflet.pm.css" />
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono|Open+Sans" rel="stylesheet">
+
+    <script src="./lib/leaflet.js"></script>
+    <script src="./lib/leaflet.pm.min.js"></script>
+    <script src="./lib/jquery.min.js"></script>
+    <script src="./data/fonds.js"></script>
+
+    <style>
+    body {margin:0;padding:7px;font-family:'Open Sans',sans-serif}
+    div, p, ul {box-sizing: border-box}
+
+    .tabs {height:2.5em}
+
+    #panels, #panels > div, #map {height: calc(100vh - 4em - 14px)}
+
+    .tabs ul {margin:0 0 1px;padding:0}
+    .tabs ul li {display:inline-block;border-radius:5px 5px 0 0  ;padding:.25em;border:1px solid; border-bottom: 0}
+    .tabs ul li {opacity:0.5;background:#eee}
+    .tabs ul li:hover {opacity:0.75;background:#fed}
+    .tabs ul li.active {opacity:1;background:#fff}
+
+    .pane {display:none}
+    .pane.active {display:block}
+
+    #tiddler, #geom {padding:5px}
+    #inject p, #inject h2, #info, #settings {width:100%;max-width:800px;margin:auto}
+
+
+    table {border-collapse: collapse;margin:0}
+    #inject table, #inject textarea, #settings table {width:100%}
+    #inject td:first-child {width:8em}
+    button {margin:1em;padding:.5em 1em;font-size:107%;border:none;background:orange;border-radius: 3px;box-shadow: .5px 3px 4px gray}
+    .button {text-align: center}
+    button.clicked {box-shadow:0 0 0 white;background: #afa}
+    #settings td {width:5%}
+    th, td, #accu {border:.05px solid #ddd;margin:0}
+    #settings td {text-align:center}
+    #settings td:first-of-type {text-align:left}
+    #settings td:last-of-type {text-align:right}
+
+    td, #geom p {font-family:'Overpass Mono', monospace;padding:.25em}
+    #geom {-moz-column-count:3}
+    #geom p {padding-left:5em;text-indent:-5em}
+
+    #accu {width:100%}
+</style>
+
+</head>
+
+<body>
+    <noscript>Hello, either you've deactivated javascript or your browser doesn't handle it (really?) this page will not work. However, this is not a big deal since it's of no use without javascript</noscript>
+    <div id="tabs" class="tabs">
+        <ul>
+            <li navto="drawer" class="drawer active">Map</li>
+            <li navto="tiddler" class="tiddler">Export</li>
+            <li navto="inject" class="inject">Inject</li>
+            <li navto="geom" class="geom">Objects</li>
+            <li navto="info" class="info">About</li>
+            <li navto="settings" class="settings">Settings</li>
+        </ul>
+    </div>
+    <div id="panels" class="panels">
+        <div id="drawer" class="drawer pane active">
+            <div id="map"></div>
+        </div>
+
+        <div id="tiddler" class="tiddler pane">
+            <p>The geometries, ready to copy / paste in tiddlers, will appear here</p>
+        </div>
+
+        <div id="inject" class="inject pane">
+            <h2>Inject your own geometries</h2>
+            <p>type in or paste your dataset in fields just above and send. Please remind and beware : re-sending coordinates will create duplicates objects and wrong data may break the page until reload...</p>
+            <p class="button"><button id="injector">Inject...</button></p>
+        <table>
+            <tr><th>type</th><th>data</th></tr>
+            <tr><td>point</td><td><input class="inject" id="iPoint" type="text"></input></td></tr>
+            <tr><td>points</td><td><textarea class="inject" id="iPoints" type="textarea"></textarea></td></tr>
+            <tr><td>polygon</td><td><textarea class="inject" id="iPolygon" type="textarea"></textarea></td></tr>
+            <tr><td>polygons</td><td><textarea class="inject" id="iPolygons" type="textarea"></textarea></td></tr>
+            <tr><td>polyline</td><td><textarea class="inject" id="iPolyline" type="textarea"></textarea></td></tr>
+            <tr><td>polylines</td><td><textarea class="inject" id="iPolylines" type="textarea"></textarea></td></tr>
+            <tr><td>geoJSON</td><td><textarea class="inject" id="igeoJSON" type="textarea"></textarea></td></tr>
+        </table>
+        </div>
+
+        <div id="geom" class="geom pane">
+            All geometries that have been drawn, with their leaflet_id and coordinates will appear here.
+        </div>
+
+        <div id="info" class="info pane">
+            <h1>Draw for TiddlyWiki Leaflet plugin</h1>
+            <p>Since the TiddlyWiki <a href="https://sycom.github.io/Leaflet-Plugin/#Leaflet%20Plugin" target="_blank">leaflet plugin</a> doesn't implement a draw mechanism for now, this page helps you designing shapes for your geoTiddlers and tiddlywiki leaflet maps.</p>
+            <ul>
+                <li>Draw or edit shapes on the "<a href="#" navto="drawer">Map</a>" tab. For now you can make polygons, polylines or points,</li>
+                <li>You may also "<a href="#" navto="inject">Inject</a>" data from a geoJSON or a tiddler. Just copy paste values in corresponding fields of the tab,</li>
+                <li>Once finished, go to "<a href="#" navto="tiddler">Export</a>" tab to get fields values for your geotiddler,</li>
+                <li>You may set accuracy of your data using "<a href="#" navto="settings">Settings</a>" tab. You don't need millimetric accuracy for any data,</li>
+                <li>You may like to see individual coordinates for each object in "<a href="#" navto="geom">Objects</a>" tab.</li>
+            </ul>
+            <h2>Sources</h2>
+            Draw for TiddlyWiki Leaflet Plugin uses <a href="https://leafletjs.com" target="_blank">leaflet</a>, <a href="https://github.com/codeofsumit/leaflet.pm" target="_blank">PM leaflet plugin</a> and some <a href="https://jquery.com" target="_blank">jQuery</a>.
+            <h2>Tracking</h2>
+            This page has a Google Analytics tracker. So it will collect <b>anonymous</b> data through <a href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank">cookies</a> about your navigation and send them to Google servers for my statistical purposes (I'm always proud to see that more than 10 people are visiting me). If you don't want this, you may enable <a href="http://donottrack.us/" target="_blank">do not track</a> in your browser and the page will gently stop tracking you (fair isn't it). Some browser will also enable <i>do not track</i>, when using private mode (Firefox does).
+        </div>
+
+        <div id="settings" class="settings pane">
+            <h2>Some settings</h2>
+            <p>There are not much settings for now.</p>
+            <h3>Accuracy</h3>
+            <p>According to <a href="http://gis.stackexchange.com/questions/8650/measuring-accuracy-of-latitude-and-longitude/8674#8674" target="_blank">this reference</a>, digit number is set to 6 by default, which means your coordinates accuracy is about 0.1 meter. If you need more or less accuracy, you may change this. Note that accuracy won't apply to already drawn objects. You will have to edit them once (even very little) to apply accuracy to them.</p>
+
+            <form>
+                <input id="accu" name="accu" type="range" value="6" max="9" min="0" step="1">
+            </form>
+            <table><tr><td>100 km</td><td>10 km</td><td>1 km</td><td>100 m</td><td>10 m</td><td>1 m</td><td>10 cm</td><td>1 cm</td><td>1 mm</td><td>100 &micro;</td></tr></table>
+        </div>
+    </div>
+
+    <script>
+    // pane navigation
+    $("#tabs li, a[navto]").on("click", function(event) {
+        $('#tabs li').removeClass('active');
+        $('#panels .pane').removeClass('active');
+        $('.'+$(this).attr('navto')).addClass('active');
+        $('#'+$(this).attr('navto')).addClass('active');
+    });
+
+    // some vars
+    var lst,                                            // last clicked point
+        Obj = [], Pnt = [], Lin = [], Pol = [],         // objects and objects id by type
+        accu = 6,                                       // accuracy
+        tiddat = document.getElementById("tiddler"),    // place to get tiddler data
+        geom = document.getElementById("geom");         // place to get geometries
+
+    // create the map
+    var map = L.map('map').setView([49.5, 0.5], 5);
+    // create tile layer list for the map
+    var Couches = new Array(); // couches de tiles leaflet
+    var tiles = {}; // désignation des tiles pour le control
+    for (i in fonds) {
+        var couche = new L.TileLayer(fonds[i].url, {
+            attribution: fonds[i].attrib,
+            minZoom: fonds[i].zMin,
+            maxZoom: fonds[i].zMax,
+            unloadInvisibleTiles: true
+        });
+        Couches[fonds[i].id] = couche;
+        tiles[fonds[i].nom] = couche;
+    }
+    // Install default tile layer in map (first of the list)
+    var defaultTile = fonds[0].id;
+    Couches[defaultTile].addTo(map);
+    // Install tile selector
+    var tileSelect = L.control.layers(tiles);
+    tileSelect.addTo(map);
+
+    // define toolbar options
+    /*var options = {
+        position: 'topleft', // toolbar position, options are 'topleft', 'topright', 'bottomleft', 'bottomright'
+        drawMarker: true,  // adds button to draw markers
+        drawPolygon: true,  // adds button to draw a polygon
+        drawPolyline: true,  // adds button to draw a polyline
+        editPolygon: true,  // adds button to toggle global edit mode
+        deleteLayer: true   // adds a button to delete layers
+    };*/
+
+    // add leaflet.pm controls to the map
+    map.pm.addControls();
+
+    // create draw layer
+    var drawLayer = new L.FeatureGroup();
+    drawLayer.addTo(map);
+    // optional options
+    var options = {
+        // makes the layer draggable
+        draggable: true,
+        // makes the vertices snappable to other layers
+        // temporarily disable snapping during drag by pressing ALT
+        snappable: true,
+        // distance in pixels that needs to be undercut to trigger snapping
+        // default: 30
+        snapDistance: 15
+    };
+    drawLayer.pm.enable(options);
+    drawLayer.pm.toggleEdit(options);
+
+    // getting drawn shape
+    map.on('pm:create', function(e) {
+        if(e.layer) {
+            var eid = e.layer._leaflet_id,
+                etype = e.shape;
+        /*    // if the point is a marker
+            if(e.layer._latlng) {
+                coord = e.layer._latlng.lat.toFixed(accu)+","+e.layer._latlng.lng.toFixed(accu);
+            }
+
+            // if the point is a polygon or a polyline
+            if(e.shape == "Line") {
+                var Coords = e.layer._latlngs;
+                for(var i in Coords) {
+                    coord += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
+                }
+                coord = coord.slice(0, -1);
+                Lin.push(eid);
+            }
+
+            // if the point is a polygon or a polyline
+            if(e.shape == "Poly") {
+                var Coords = e.layer._latlngs[0];
+                for(var i in Coords) {
+                    coord += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
+                }
+                coord = coord.slice(0, -1);
+                Pol.push(eid);
+            }*/
+            Obj[eid] = {"type": etype, "coord": undefined};
+            e.layer.addTo(drawLayer);
+            listObjects();
+        }
+    });
+
+    drawLayer.on('pm:edit', function(e) {
+        var eLayers = e.target._layers;
+        for (var l in eLayers) {
+            var ltype = Obj[l].type,
+                coord = "";
+            // case point
+            if(ltype == "Marker") {
+                coord = eLayers[l]._latlng.lat.toFixed(accu)+","+eLayers[l]._latlng.lng.toFixed(accu);
+            }
+            // case polyline
+            if(ltype == "Line") {
+                var Coords = eLayers[l]._latlngs;
+                for(var i in Coords) {
+                    coord += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
+                }
+                coord = coord.slice(0, -1);
+            }
+            // case polygon
+            if(ltype == "Poly") {
+                var Coords = eLayers[l]._latlngs[0];
+                for(var i in Coords) {
+                    coord += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
+                }
+                coord = coord.slice(0, -1);
+            }
+            Obj[l].coord = coord;
+            listObjects();
+        }
+    });
+
+    function listObjects() {
+        // will list objects (and redraw with rounded values?)
+        var allObj = "",
+            tid = {"point":"","points":"","polygon":"","polygons":"","polyline":"","polylines":""};
+        Pnt = []; Pol = []; Lin = [];  // reinit categorized objects
+        // extract objects from geoJSON : if exists Obj[obj] should be undefined
+        for(var obj in drawLayer["_layers"]) {
+            if(Obj[obj] == undefined) {
+                for (var k in drawLayer["_layers"][obj]._layers) {
+                    Obj[k] = {"type":drawLayer["_layers"][obj]["_layers"][k].geometryType,"coord":undefined,"latlng":drawLayer["_layers"][obj]["_layers"][k]._latlng,"latlngs":drawLayer["_layers"][obj]["_layers"][k]._latlngs}
+                }
+            }
+        }
+        // get coordinates by type group and fix missing coord
+        for(var obj in Obj) {
+            if(Obj[obj].type == "Marker" || Obj[obj].type == "Point") {
+                if(Obj[obj].coord == undefined) {
+                    if(Obj[obj].latlng) {
+                        var ltlg = Obj[obj].latlng.lat.toFixed(accu)+","+Obj[obj].latlng.lng.toFixed(accu);
+                    }
+                    else var ltlg = drawLayer["_layers"][obj]._latlng.lat.toFixed(accu)+","+drawLayer["_layers"][obj]._latlng.lng.toFixed(accu);
+                    Obj[obj].coord = ltlg;
+                }
+                Pnt.push(obj);
+            }
+            if(Obj[obj].type == "Line" || Obj[obj].type == "LineString") {
+                if(Obj[obj].coord == undefined) {
+                    ltlg = "";
+                    if(Obj[obj].latlngs) var Coords = Obj[obj].latlngs;
+                    else var Coords = drawLayer["_layers"][obj]._latlngs;
+                    for(var i in Coords) {
+                        ltlg += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
+                    }
+                    ltlg = ltlg.slice(0, -1);
+                    Obj[obj].coord = ltlg;
+
+                }
+                Lin.push(obj);
+            }
+            if(Obj[obj].type == "Poly" || Obj[obj].type == "Polygon") {
+                if(Obj[obj].coord == undefined) {
+                    ltlg = "";
+                    if(Obj[obj].latlngs) var Coords = Obj[obj].latlngs[0];
+                    else var Coords = drawLayer["_layers"][obj]._latlngs[0];
+                    for(var i in Coords) {
+                        ltlg += Coords[i].lat.toFixed(accu)+","+Coords[i].lng.toFixed(accu)+" ";
+                    }
+                    ltlg = ltlg.slice(0, -1);
+                    Obj[obj].coord = ltlg;
+                }
+                Pol.push(obj);
+            }
+        }
+        // writing object list
+        for(var obj in Obj) {
+            allObj += "<p>" + Obj[obj].type + "(<i>" + obj + "</i>) : " + Obj[obj].coord + "</p>";
+
+            // writing tiddler data
+            if(Pnt.length > 1) {
+                for(var pnt in Pnt) {
+                    tid.points += Obj[Pnt[pnt]].coord+" ";
+                    tid.point = "";
+                }
+            }
+            else {if (Pnt.length == 1) tid.point = Obj[Pnt[0]].coord}
+            if(Pol.length > 1) {
+                for(var pol in Pol) {
+                    tid.polygons += Obj[Pol[pol]].coord+"|";
+                    tid.polygon = "";
+                }
+                tid.polygons = tid.polygons.slice(0, -1);
+            }
+            else {if (Pol.length == 1) tid.polygon = Obj[Pol[0]].coord}
+            if(Lin.length > 1) {
+                for(var lin in Lin) {
+                    tid.polylines += Obj[Lin[lin]].coord+"|";
+                    tid.polyline = "";
+                }
+                tid.polylines = tid.polylines.slice(0, -1);
+            }
+            else {if (Lin.length == 1) tid.polyline = Obj[Lin[0]].coord}
+            geom.innerHTML = allObj;
+            var tidText = "<table>";
+            for(var feat in tid) {
+                tidText += "<tr><td class='" + feat + "'>" + feat + "</td><td>" + tid[feat] + "</td></tr>";
+            }
+            tidText +="</table>";
+            // convert to geojson and get it
+            var geojson = JSON.stringify(drawLayer.toGeoJSON());
+            tidText +="<p>You may also like to have all them in a single geojson. For now accuracy won't apply here</p>";
+            tidText += "<table>";
+            tidText += "<tr><td class='geojson'> geoJSON </td><td>" + geojson + "</td></tr>";
+            tidText +="</table>";
+            tiddat.innerHTML = tidText;
+        }
+    }
+
+    // Injection
+    $("#injector").on("click", function(){
+        // let user know he did click
+        $("#injector").toggleClass("clicked");
+        window.setTimeout(function() {
+            $("#injector").toggleClass("clicked")
+        },800);
+        // inject data
+        try {
+        $("#inject .inject").each(function(e) {
+            console.log($(this));
+            var type = $(this).attr("id").substring(1);
+            var coord = $(this).val();
+            if (type === "Point" && coord != "") mapPoint(coord);
+            if (type === "Points"  && coord != "") {
+                var listloc = coord.split(" ");
+                for(var j in listloc) mapPoint(listloc[j])
+            }
+            if (type === "Polyline" && coord != "") mapLine(coord,"line");
+            if (type === "Polylines"  && coord != "") {
+                var listloc = coord.split("|");
+                for(var j in listloc) mapLine(listloc[j],"line")
+            }
+            if (type === "Polygon" && coord != "") mapLine(coord,"poly");
+            if (type === "Polygons"  && coord != "") {
+                var listloc = coord.split("|");
+                for(var j in listloc) mapLine(listloc[j],"poly")
+            }
+            if (type === "geoJSON" && coord != "") mapGeoJSON(coord);
+        });
+        listObjects();
+    } catch(error) {alert("there was something wrong with this injection. Error : "+error)}
+    });
+
+    // Mapping function (derivated from leaflet plugin ;-)
+    function mapPoint(co) {
+        var loc = co.split(",");
+        for(var i in loc) loc[i] = (loc[i]*1).toFixed(accu);
+        co = loc.join(",");
+        var marker = L.marker(loc);
+        drawLayer.addLayer(marker);
+        Obj[marker._leaflet_id] = {"type": "Marker", "coord": co};
+    }
+    function mapLine(co,lg) {
+        var lPnt = co.split(" "),
+            Line = [];
+
+        for (var pt in lPnt) {
+            var loc = lPnt[pt].split(",");
+            for(var i in loc) loc[i] = (loc[i]*1).toFixed(accu);
+            lPnt[pt] = loc.join(",")
+            Line.push(loc);
+            }
+        co = lPnt.join(" ");
+        if(lg === "line") {
+            var polyline = L.polyline(Line);
+            drawLayer.addLayer(polyline);
+            Obj[polyline._leaflet_id] = {"type": "Line", "coord": co};
+        }
+        if(lg === "poly" || lg === undefined) {
+            var polygon = L.polygon(Line);
+            drawLayer.addLayer(polygon);
+            Obj[polygon._leaflet_id] = {"type": "Poly", "coord": co};
+        }
+    }
+    function mapGeoJSON(co) {
+        var data = JSON.parse(co);
+        var geoJson = L.geoJSON(data, {
+            // adding style
+            onEachFeature: function (feature, layer) {
+                layer.geometryType = feature.geometry.type;
+            }
+            /*,
+            // adding points
+            pointToLayer: function(geoJsonPoint, latlng) {
+                // working to get color (from properties)
+                var cl;
+                if(geoJsonPoint.properties.color !== undefined) cl = geoJsonPoint.properties.color;
+                if(geoJsonPoint.properties.fillColor !== undefined) cl = geoJsonPoint.properties.fillColor;
+                if(col !== undefined && col !== null) cl = col;
+                // binding default icon
+                var jsonPoint = L.marker(latlng, {
+                    icon: lfltIcon(cl, mark, map)
+                });
+                jsonPoint.bindPopup(jsonPop(geoJsonPoint));
+                if (clust.count) clust.count +=1;
+                else clust.count = 1;
+                clust.addLayer(jsonPoint);
+            }*/
+        });
+        drawLayer.addLayer(geoJson);
+    }
+
+    // Accuracy settings
+    $("#accu").on("change", function(){
+			accu = $(this).val();
+		});
+
+    </script>
+    <script>
+    // launching only if do not track is not activated
+    if(navigator.doNotTrack != 1) {
+        // getting parameters
+        var GA_ACCOUNT = "UA-109815-12",
+        GA_DOMAIN = "";
+        // handling domain parameter : user defined > from window location > "auto" fallback
+        if (GA_DOMAIN == "") GA_DOMAIN = window.location.hostname;
+        if (GA_DOMAIN == undefined) GA_DOMAIN = "auto";
+        // using ga "isogram" function
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', GA_ACCOUNT, GA_DOMAIN);
+        ga('send', 'pageview');
+    }
+    </script>
+</body>
+
+</html>

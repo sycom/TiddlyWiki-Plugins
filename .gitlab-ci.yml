@@ -6,6 +6,7 @@ pages:
   - cp -R * /usr/local/lib/node_modules/tiddlywiki/
   - tiddlywiki ./editions/collection --build
   - mv ./editions/collection/output public
+  - cp -R ./files/* public
   artifacts:
     paths:
     - public
