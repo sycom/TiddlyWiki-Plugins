@@ -5,7 +5,7 @@ pages:
   - npm install -g tiddlywiki
   - cp -R * /usr/local/lib/node_modules/tiddlywiki/
   - tiddlywiki ./editions/collection --build
-  - mv /usr/local/lib/node_modules/tiddlywiki/editions/collection/output public
+  - mv ./editions/collection/output public
   artifacts:
     paths:
     - public
