@@ -3,9 +3,9 @@ image: node
 pages:
   script:
   - npm install -g tiddlywiki
-  - mv ./plugins/sycom /usr/local/lib/node_modules/tiddlywiki/plugins
+  - cp -R * /usr/local/lib/node_modules/tiddlywiki/
   - tiddlywiki ./editions/collection --build
-  - mv ./editions/collection/output public
+  - mv /usr/local/lib/node_modules/tiddlywiki/editions/collection/output public
   artifacts:
     paths:
     - public
