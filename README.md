@@ -1,7 +1,7 @@
 *[Main repository][repo] is hosted by [Framasoft][framasoft] Gitlab instance. You may find replicant, as on github or gitlab, but they're mirrored... Please, [report bug and comment on framagit][issues]*
 
 # TiddlyWiki Plugins
-is a playing space for [TiddlyWiki][tiddlywiki] plugins. Try the demos on [gitlab.io pages][gl-pages] and [github.io pages][demo]. Drag drop the last release from those to your TiddlyWiki to enhance it.
+is a playing space for [TiddlyWiki][tiddlywiki] plugins. Try the demos on [gitlab.io pages][gl-pages] and [github.io pages][demo]. Drag drop the last release from those to your TiddlyWiki to enhance it. You may also find some unreleased work here around : not all experiments are a success.
 
 ## [Feather icons](./plugins/sycom/feather-icons) - 0.1
 The feather icons plugin aims to integrate feather icons library in TiddlyWiki. Feather is a very open alternative to classic Font Awesome library, using svg sprites instead of classical font implementation. Pretty lightweight and elegant.

@@ -1,7 +1,7 @@
 created: 20190331211222900
-modified: 20190331211238614
+modified: 20190405144005208
 tags: $:/tags/Image
 title: $:/core/images/advanced-search-button
 type: text/vnd.tiddlywiki
 
-<<f-i search>>
+<<f-i-stack search more-horizontal '' .65 '5 5'>>
