@@ -4,10 +4,10 @@
 			"tiddlywiki/tiddlyweb",
 			"tiddlywiki/filesystem",
 			"tiddlywiki/markdown",
-      "sycom/feather-icons",
-			"sycom/g-analytics",
-			"sycom/leaflet",
-			"sycom/atom-feed"
+      "../../TW5dev/plugins/sycom/feather-icons",
+			"../../TW5dev/plugins/sycom/g-analytics",
+			"../../TW5dev/plugins/sycom/leaflet",
+			"../../TW5dev/plugins/sycom/atom-feed"
 	],
 	"themes": [
 		"tiddlywiki/vanilla",

@@ -1,0 +1,6 @@
+created: 20190407150203600
+modified: 20190407150231675
+title: $:/plugins/sycom/atom-feed/publicationDate
+type: text/vnd.tiddlywiki
+
+<<now YYYY-0MM-0DDT0hh:0mm:0ss>>
