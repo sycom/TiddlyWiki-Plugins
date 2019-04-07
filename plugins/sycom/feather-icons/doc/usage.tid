@@ -17,7 +17,7 @@ Once plugin is installed, you can call any icon of the library using its name. S
 
 !!! using integrated [[macros|$:/plugins/sycom/feather-icons/macros.tid]]
 
-!!!! `<<f-i>>` (//icon_name// //classes//)
+!!!! `<<f-i>>` (//icon// //class//)
 ```
 <<f-i feather>>
 ```
@@ -27,3 +27,9 @@ Once plugin is installed, you can call any icon of the library using its name. S
 <<f-i box 'x3 block'>>
 ```
 they may also be displayed <<f-i box 'x3 block'>> on its own line
+
+!!!!  `<<f-i-stack>>` (//icon1// //icon2// //class// //scale(1)// //move("0 0")//)
+```
+<<f-i-stack search more-horizontal x3 .5 '18 18'>>
+```
+And you can stack them! <<f-i-stack search more-horizontal x3 .5 '18 18'>>

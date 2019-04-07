@@ -4,7 +4,7 @@
 			"tiddlywiki/tiddlyweb",
 			"tiddlywiki/filesystem",
 			"tiddlywiki/markdown",
-      "../../TW5dev/plugins/sycom/f-awesome"
+      "sycom/feather-icons"
 	],
 	"themes": [
 		"tiddlywiki/vanilla",

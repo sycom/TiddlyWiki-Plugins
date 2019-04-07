@@ -77,13 +77,19 @@ ul.feather li svg {
   padding: .5em;
 }
 
-.presentation .feather, .presentation span {
-
-}
-
 .presentation span {
   margin-left: .2em;
   font-size: .9em;
   vertical-align: top;
   padding-left: .5em;
+}
+
+.tc-btn-invisible svg.feather, body.tc-dirty span.tc-dirty-indicator svg.feather {
+  fill:none;
+}
+
+.tc-btn-invisible:hover svg.feather {
+  fill:none;
+  stroke:black;
+  stroke-width: 2;
 }
