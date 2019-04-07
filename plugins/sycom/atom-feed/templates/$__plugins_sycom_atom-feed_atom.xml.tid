@@ -8,14 +8,14 @@ type: text/vnd.tiddlywiki
    <feed xmlns="http://www.w3.org/2005/Atom">
      <title type="html">{{$:/SiteTitle}}</title>
      <subtitle type="html">{{$:/SiteSubtitle}}</subtitle>
-     <updated><<now YYYY-0MM-0DDT0hh:0mm:0ss>></updated>
-     <id>tag:example.org,2003:3</id>
+     <updated>{{$:/plugins/sycom/atom-feed/publicationDate}}</updated>
+     <id>{{$:/plugins/sycom/atom/publicationWebsite}}</id>
      <link rel="alternate" type="text/html"
-      hreflang="{{$:/language}}" href="{{$:/plugins/sycom/atom/publicationWebsite}}"/>
+      hreflang="{{$:/language}}" href="{{$:/plugins/sycom/atom-feed/publicationWebsite}}"/>
      <link rel="self" type="application/atom+xml"
-      href="{{$:/plugins/sycom/atom/publicationWebsite}}/atom.xml"/>
+      href="{{$:/plugins/sycom/atom-feed/publicationWebsite}}/atom.xml"/>
      <rights></rights>
-     <generator uri="https://sycom.gitlab.io/TiddlyWiki-Plugins/#AtomFeed%20Plugin" version="">
+     <generator uri="https://sycom.gitlab.io/TiddlyWiki-Plugins/#AtomFeed%20Plugin" version="{{$:/plugins/sycom/atom-feed!!version}}">
        Sycom's AtomFeed TiddlyWiki plugin
      </generator>
 
