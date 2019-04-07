@@ -1,0 +1,7 @@
+created: 20190407141826200
+modified: 20190407145916341
+tags: 
+title: $:/plugins/sycom/atom-feed/entrylist
+type: text/vnd.tiddlywiki
+
+<$list filter="[all[tiddlers]![This wiki uses Google analytics]!prefix[$:/]!prefix[-$:/]!sort[created]limit[25]]" template="$:/plugins/sycom/atom-feed/templates/itemfeed"/>

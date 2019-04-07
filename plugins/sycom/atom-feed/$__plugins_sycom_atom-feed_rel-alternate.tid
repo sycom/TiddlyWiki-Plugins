@@ -1,0 +1,7 @@
+created: 20190407151615100
+modified: 20190407152216117
+tags: $:/tags/RawMarkup
+title: $:/plugins/sycom/atom-feed/rel-alternate
+type: text/vnd.tiddlywiki
+
+<link rel="alternate" type="application/atom+xml" title="last published - feed" href="./atom.xml" />

@@ -6,7 +6,8 @@
 			"tiddlywiki/markdown",
       "sycom/feather-icons",
 			"sycom/g-analytics",
-			"sycom/leaflet"
+			"sycom/leaflet",
+			"sycom/atom-feed"
 	],
 	"themes": [
 		"tiddlywiki/vanilla",
@@ -14,7 +15,10 @@
 	],
 	"build": {
 		"index": [
-			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","index.html","text/plain"]
+			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","index.html","text/plain"],
+		"feed": [
+			"--rendertiddler","$:/plugins/sycom/atom-feed/atom.xml","atom.xml","text/plain"]
+
 	},
 	"config": {
 		"retain-original-tiddler-path": true

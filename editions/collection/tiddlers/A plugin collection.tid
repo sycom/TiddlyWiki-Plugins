@@ -1,6 +1,6 @@
 created: 20151127192625926
 creator: Sylvain Comte
-modified: 20190405100148926
+modified: 20190407160457725
 modifier: Sylvain Comte
 title: A plugin collection
 type: text/vnd.tiddlywiki
@@ -21,7 +21,10 @@ The plugins also brings the <<f-i map-pin>> [[geoLocationWidget]] which creates 
 the <$link to="$:/plugins/sycom/g-analytics"> <<f-i download>> Google analytics plugin</$link> is a fork of the official one you will find in the TiddlyWiki plugin library. It enables internal individual tiddlers tracking and is //Do Not Track// compliant.
 
 !! <<f-i feather>> [[Feather icons plugin]]
-the <$link to="$:/plugins/sycom/feather-icons"><<f-i download>> Feather icons plugin</$link> offers an icon library alternative to the Font Awesome one. It's pretty lightweight and elegant...
+the <$link to="$:/plugins/sycom/feather-icons"><<f-i download>> Feather icons plugin</$link> offers an icon library alternative to the Font Awesome one. It's pretty lightweight and elegant.
+
+!! <<f-i rss>> Atom feed plugin
+the <$link to="$:/plugins/sycom/atom-feed"><<f-i download>> Atom feed plugin</$link> will create an <a rel="alternate" href="atom.xml" target="_blank">atom.xml</a> file alongside your wiki. Helpful for people who whish follow your work.
 
 !! <<f-i globe>> [[i18n macro]]
 the <$link to="$:/ext/modules/macros/i18n-macro.js"><<f-i download>> i18n macro</$link> will help you to have a multilingual wiki if you wish without hacking internal //language + lingo// system in TiddlyWiki...

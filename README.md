@@ -12,7 +12,10 @@ The leaflet plugin is an attempt to integrate the leaflet js library in TiddlyWi
 For now you can display an interactive map, select size, location and zoom, marker and background. You can also display simple geographical data, stored as json or even stored in metadata fields from tiddler(s) : point(s), polygon(s) and/or polyline(s). Points are clustered when needed (but you can disable clustering) and you have some ways to choose colors.
 
 ## [G-Analytics plugin](./plugins/sycom/g-analytics) - 1.0
-A tool for having stats of wikis visitors. Forked from the [official one][tw-ga-official] you can find in TiddlyWiki's plugin library. It implements Do Not Track and enables individual tiddlers tracking.
+A tool for having stats of wikis visitors. Forked from the [official one][tw-ga-official] you can find in TiddlyWiki's plugin library. It implements Do Not Track and enables individual tiddlers tracking
+
+## [Atom feed plugin](./plugins/sycom/atom-feed) - 0.0
+A very early release of a plugin that creates an atom feed for your wiki. Will possibly help people to follow your news and maybe help for SEO?
 
 ## Sources / licenses
 * [TiddlyWiki][tiddlywiki] uses a BSD 3-Clause [License][tw-license]
