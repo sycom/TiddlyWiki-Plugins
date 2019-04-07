@@ -1,0 +1,65 @@
+created: 20190406203049600
+modified: 20190407152226190
+tags: 
+title: Working on atom feed
+type: text/vnd.tiddlywiki
+
+Since i'm not getting all the purpose of the pretty complex Dullroar's https://github.com/dullroar/TW5-atomfeed/ let's try de deploy a very lightweight version.
+
+What we need :
+
+* a [[global template|$:/plugins/sycom/atom-feed/atom.xml]] for the atom.xml output file
+* a template [[for each item|$:/plugins/sycom/atom-feed/templates/itemfeed]] of the feed
+* a [[list of lattest tiddlers|$:/plugins/sycom/atom-feed/entrylist]] based upon this template (and maybe latest updated tiddlers?).
+* a $:/plugins/sycom/atom-feed/publicationWebsite parameter
+* an information for bots and browser through a //rawMarkup// tagged [[tiddler|$:/plugins/sycom/atom-feed/rel-alternate]]
+
+Starting example from [[RFC 4287|https://tools.ietf.org/html/rfc4287]]
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+   <feed xmlns="http://www.w3.org/2005/Atom">
+     <title type="text">dive into mark</title>
+     <subtitle type="html">
+       A &lt;em&gt;lot&lt;/em&gt; of effort
+       went into making this effortless
+     </subtitle>
+     <updated>2005-07-31T12:29:29Z</updated>
+     <id>tag:example.org,2003:3</id>
+     <link rel="alternate" type="text/html"
+      hreflang="en" href="http://example.org/"/>
+     <link rel="self" type="application/atom+xml"
+      href="http://example.org/feed.atom"/>
+     <rights>Copyright (c) 2003, Mark Pilgrim</rights>
+     <generator uri="http://www.example.com/" version="1.0">
+       Example Toolkit
+     </generator>
+     <entry>
+       <title>Atom draft-07 snapshot</title>
+       <link rel="alternate" type="text/html"
+        href="http://example.org/2005/04/02/atom"/>
+       <link rel="enclosure" type="audio/mpeg" length="1337"
+        href="http://example.org/audio/ph34r_my_podcast.mp3"/>
+       <id>tag:example.org,2003:3.2397</id>
+       <updated>2005-07-31T12:29:29Z</updated>
+       <published>2003-12-13T08:29:29-04:00</published>
+       <author>
+         <name>Mark Pilgrim</name>
+         <uri>http://example.org/</uri>
+         <email>f8dy@example.com</email>
+       </author>
+       <contributor>
+         <name>Sam Ruby</name>
+       </contributor>
+       <contributor>
+         <name>Joe Gregorio</name>
+       </contributor>
+       <content type="xhtml" xml:lang="en"
+        xml:base="http://diveintomark.org/">
+         <div xmlns="http://www.w3.org/1999/xhtml">
+           <p><i>[Update: The Atom draft is finished.]</i></p>
+         </div>
+       </content>
+     </entry>
+   </feed>
+```
