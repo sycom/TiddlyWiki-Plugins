@@ -4,7 +4,7 @@ title: $:/plugins/sycom/feather-icons/icons
 type: text/vnd.tiddlywiki
 caption: Icons
 
-Here is the feather icons list. Find yours...
+<<i18n featherIconsListIntro $:/plugins/sycom/feather-icons>>
 
 <div style="text-align:center">
 <$edit-text tag="input" tiddler="$:/temp/searchFeatherIcons" placeholder="search your icon" />

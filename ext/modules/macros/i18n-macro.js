@@ -37,7 +37,9 @@ exports.run = function(title,domain,orig_lang,inline) {
     tiddler = this.wiki.getTiddler(dom+"/i18n/"+base+"/"+title),
 		language = this.wiki.getTiddler("$:/language").fields.text || "$:/languages/en-GB",
     lang = this.wiki.getTiddler(language).fields.name,
-    translation = this.wiki.getTiddler(dom+"/i18n/"+lang+"/"+title);
+    translation = this.wiki.getTiddler(dom+"/i18n/"+lang+"/"+title),
+    option = {};
+    if(block !== true) option.parseAsInline = true;
   // checks if there is a translation for the tiddlers
   if(!translation) {
   // if not checks if there is an original

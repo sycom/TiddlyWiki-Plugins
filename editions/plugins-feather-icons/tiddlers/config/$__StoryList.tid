@@ -1,6 +1,6 @@
-created: 20190405135942500
-list: $:/core/images/advanced-search-button $:/plugins/sycom/feather-icons $:/plugins/sycom/feather-icons/usage $:/plugins/sycom/feather-icons/macros.tid
-modified: 20190405145404884
+created: 20190408170915100
+list: [[Feather icons plugin]] $:/ext/modules/macros/i18n-macro.js $:/plugins/sycom/feather-icons/usage
+modified: 20190408171016994
 title: $:/StoryList
 type: text/vnd.tiddlywiki
 
