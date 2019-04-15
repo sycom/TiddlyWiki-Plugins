@@ -86,7 +86,8 @@ ul.feather li svg {
 
 
 /* style corrections for TW usage (icon substitution) */
-.tc-btn-invisible svg.feather, body.tc-dirty span.tc-dirty-indicator svg.feather {
+.tc-btn-invisible svg.feather,
+body.tc-dirty span.tc-dirty-indicator svg.feather {
   fill:none;
 }
 
@@ -98,6 +99,6 @@ ul.feather li svg {
 
 button.tc-selected svg.feather {
 	fill:none;
-  stroke: <<colour primary>>
+  stroke: <<colour primary>>;
   stroke-width: 2px;
 }
