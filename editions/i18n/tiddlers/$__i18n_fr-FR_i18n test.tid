@@ -1,6 +1,6 @@
 created: 20190415144053382
-modified: 20190415144102962
+modified: 20190415203304663
 title: $:/i18n/fr-FR/i18n test
 type: text/vnd.tiddlywiki
 
-un test de tiddler traduit
+un test de tiddler traduit (<$link to={{!!title}}>lien</$link>)

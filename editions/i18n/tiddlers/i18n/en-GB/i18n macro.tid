@@ -1,6 +1,6 @@
 created: 20190402212356600
-modified: 20190402213929902
-tags:
+modified: 20190415210830128
+tags: 
 title: $:/ext/modules/macros/i18n/en-GB/i18n macro
 type: text/vnd.tiddlywiki
 
@@ -11,6 +11,7 @@ the [[i18n|$:/ext/modules/macros/i18n-macro.js]] macro aims to make it easier to
 * `title` : the tiddler title
 * `domain` : the tiddler //domain// of the tiddler (default `$:`)
 * `orig_lang` : the original language of the tiddler (default `en-GB`)
+* `inline` : set to `true` force //inline// rendering (défault `false`). For short text mainly.
 
 So, as an example
 

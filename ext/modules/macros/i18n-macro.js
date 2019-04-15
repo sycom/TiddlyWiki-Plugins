@@ -22,16 +22,18 @@ exports.name = "i18n";
 exports.params = [
   {name: "title"},
   {name: "domain"},
-  {name: "orig_lang"}
+  {name: "orig_lang"},
+  {name: "inline"}
 ];
 
 /*
 Run the macro
 */
-exports.run = function(title,domain,orig_lang) {
+exports.run = function(title,domain,orig_lang,inline) {
 	var self = this,
     dom = domain || "$:",
     base = orig_lang || "en-GB",
+    inline = inline || false,
     tiddler = this.wiki.getTiddler(dom+"/i18n/"+base+"/"+title),
 		language = this.wiki.getTiddler("$:/language").fields.text || "$:/languages/en-GB",
     lang = this.wiki.getTiddler(language).fields.name,
@@ -50,7 +52,7 @@ exports.run = function(title,domain,orig_lang) {
       return alert;
     }
 	}
-	else return this.wiki.renderText("text/html",translation.parseType,translation.fields.text)
+	else return this.wiki.renderText("text/html",translation.parseType,translation.fields.text,{parseAsInline: inline})
 };
 
 })();
