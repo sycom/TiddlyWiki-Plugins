@@ -7,5 +7,5 @@ It uses svg sprites library instead of classical font library which is **not as 
 * **font awesome sprites icons plugin** is released under similar [BSD 3-Clause license][license] as TiddlyWiki
 
 [f-a]: https://fontawesome.com
-[license]: https://framagit.org/sycom/TiddlyWikiPlugins/LICENSE.md
+[license]: https://framagit.org/sycom/TiddlyWiki-Plugins/LICENSE.md
 [diveOplugin]: http://thediveo.github.io/TW5FontAwesome/

@@ -13,7 +13,7 @@ modifier: Sylvain Comte
 name: Leaflet maps plugin
 plugin_tiddler: $:/plugins/sycom/leaflet
 release: 0.8.6
-repository: https://framagit.org/sycom/TiddlyWikiPlugins
+repository: https://framagit.org/sycom/TiddlyWiki-Plugins
 short_description: A plugin to make geographical maps from and within your tiddlers
 tags: [[Plugin twCard]] widget- widget-<$leafmap>
 title: twCard - Plugin - Leaflet maps

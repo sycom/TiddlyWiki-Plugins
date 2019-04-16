@@ -11,8 +11,8 @@ Keep in mind that the plugin might be buggy or imperfect. Please [report any com
 !! Side projects
 
 [plugindemo]: https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel%20Strogoff%20from%20the%20sky
-[source]: https://framagit.org/sycom/TiddlyWikiPlugins/plugins/sycom/leaflet
-[issues]: https://framagit.org/sycom/TiddlyWikiPlugins/issues
+[source]: https://framagit.org/sycom/TiddlyWiki-Plugins/plugins/sycom/leaflet
+[issues]: https://framagit.org/sycom/TiddlyWiki-Plugins/issues
 [leaflet]: http://leafletjs.com/
 [markercluster]: https://github.com/Leaflet/Leaflet.markercluster
-[license]: https://framagit.org/sycom/TiddlyWikiPlugins/LICENSE.md
+[license]: https://framagit.org/sycom/TiddlyWiki-Plugins/LICENSE.md

@@ -31,5 +31,4 @@ More options will come later (//accuracy//, //object type//...).
 <$geoloc target="Geolocation Store" />
 
 ! Source
-The ''geolocation widget'' is developped aside Leaflet Map Plugin. Source code can be found on the same repository : https://framagit.org/sycom/TiddlyWikiPlugins/tree/master/ext/modules/widget/geolocation
-
+The ''geolocation widget'' is developped aside Leaflet Map Plugin. Source code can be found on the same repository : https://framagit.org/sycom/TiddlyWiki-Plugins/tree/master/ext/modules/widget/geolocation

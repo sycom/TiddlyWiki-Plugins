@@ -28,9 +28,9 @@ A very early release of a plugin that creates an atom feed for your wiki. Will p
         * [github][github]
             * *gh-pages* > **[github.io page][demo]**
 
-[repo]: https://framagit.org/sycom/TiddlyWikiPlugins
-[issues]: https://framagit.org/sycom/TiddlyWikiPlugins/issues
-[gitlab]: https://gitlab.com/sycom/TiddlyWikiPlugins
+[repo]: https://framagit.org/sycom/TiddlyWiki-Plugins
+[issues]: https://framagit.org/sycom/TiddlyWiki-Plugins/issues
+[gitlab]: https://gitlab.com/sycom/TiddlyWiki-Plugins
 [gl-pages]: http://sycom.gitlab.io/TiddlyWiki-Plugins/#Leaflet%20plugin
 [github]: https://github.com/sycom/TiddlyWiki-Plugins
 [tw-ga-official]: https://github.com/sycom/TiddlyWiki5/plugins/tiddlywiki/googleanalytics

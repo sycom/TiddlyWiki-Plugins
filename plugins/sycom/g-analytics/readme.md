@@ -12,6 +12,6 @@ Have a look at [demo page on the web][plugindemo] or at integrated documentation
 [official]: https://github.com/Jermolene/TiddlyWiki5/tree/master/plugins/tiddlywiki/googleanalytics
 [googlecode]: https://developers.google.com/analytics/devguides/collection/analyticsjs
 [dnt]: http://donottrack.us/
-[source]: https://framagit.org/sycom/TiddlyWikiPlugins/plugins/sycom/g-analytics
+[source]: https://framagit.org/sycom/TiddlyWiki-Plugins/plugins/sycom/g-analytics
 [rgpd]: https://en.wikipedia.org/wiki/General_Data_Protection_Regulation
-[license]: https://framagit.org/sycom/TiddlyWikiPlugins/LICENSE.md
+[license]: https://framagit.org/sycom/TiddlyWiki-Plugins/LICENSE.md
