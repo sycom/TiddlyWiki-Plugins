@@ -1,25 +1,27 @@
 created: 20190402212356600
 modified: 20190415210830128
-tags: 
-title: $:/ext/modules/macros/i18n/en-GB/i18n macro
+tags:
+title: $:/ext/modules/macros/i18n/i18n/en-GB/i18n macro
 type: text/vnd.tiddlywiki
 
 the [[i18n|$:/ext/modules/macros/i18n-macro.js]] macro aims to make it easier to translate some parts of TiddlyWiki beside $:/languages mechanism. It might be useful to translate extensions or tiddlers.
 
  `<<i18n>>`  parameters are
 
-* `title` : the tiddler title
+* `title` : the tiddler title (''mandatory'')
 * `domain` : the tiddler //domain// of the tiddler (default `$:`)
 * `orig_lang` : the original language of the tiddler (default `en-GB`)
 * `inline` : set to `true` force //inline// rendering (défault `false`). For short text mainly.
 
-So, as an example
+So,
 
 ```
-<<i18n "i18n macro" "$:/ext/modules/macros" "fr-FR">>
+<<i18n "i18n macro" "$:/ext/modules/macros/i18n" "fr-FR">>
 ```
 will call
 
-* the [[$:/ext/modules/macros/i18n/lg-LG/i18n macro]] tiddler where lg-LG is the current TiddlyWiki $:/language
-* if missing, the original language tiddler : [[$:/ext/modules/macros/i18n/fr-FR/i18n macro]]
+* the [[$:/ext/modules/macros/i18n/i18n/lg-LG/i18n macro]] tiddler where lg-LG is the current TiddlyWiki [[$:/language]]
+* if missing, the original language tiddler : [[$:/ext/modules/macros/i18n/i18n/fr-FR/i18n macro]]
 * if missing an alert telling that original tiddler doesn't exist
+
+See current [[i18n macro]], [[un tiddler sans traduction en-GB]] and [[a tiddler without original version]] as live examples.
