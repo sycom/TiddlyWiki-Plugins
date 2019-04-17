@@ -4,7 +4,10 @@
 			"tiddlywiki/tiddlyweb",
 			"tiddlywiki/filesystem",
 			"tiddlywiki/markdown",
-      "sycom/feather-icons"
+      "../../TW5dev/plugins/sycom/feather-icons"
+	],
+	"languages": [
+		"fr-FR"
 	],
 	"themes": [
 		"tiddlywiki/vanilla",

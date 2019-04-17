@@ -1,0 +1,33 @@
+created: 20190328141500000
+modified: 20190328141500000
+title: $:/plugins/sycom/feather-icons/i18n/en-GB/usage
+
+Once plugin is installed, you can call any icon of the library using its name. See //Icons// for the full list. Some classes are ready to go :
+
+* `x2`, `x3`, `x5`, `x11` will increase the icon size
+* `thin` will force the stroke line to be... ...thin
+* `block` will treat your icon as a block and have its own paragraph (defaultly icons are inline block)
+
+!!! hard coding your svg sprites call
+```
+<svg class="feather class" style="your_styles"><use href="#name_of_your_icon" /></svg>
+```
+
+!!! using integrated [[macros|$:/plugins/sycom/feather-icons/macros.tid]]
+
+!!!! `<<f-i>>` (//icon// //class//)
+```
+<<f-i feather>>
+```
+<<f-i feather>> icons are pretty nice and easy to use
+
+```
+<<f-i box 'x3 block'>>
+```
+they may also be displayed <<f-i box 'x3 block'>> on its own line
+
+!!!!  `<<f-i-stack>>` (//icon1// //icon2// //class// //scale(1)// //move("0 0")//)
+```
+<<f-i-stack search more-horizontal x3 .5 '18 18'>>
+```
+And you can stack them! <<f-i-stack search more-horizontal x3 .5 '18 18'>>

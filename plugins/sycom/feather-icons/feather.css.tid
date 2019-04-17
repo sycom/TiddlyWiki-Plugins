@@ -62,7 +62,7 @@ ul.feather li svg {
   margin: 0 0.1em;
 }
 
-/* styles pour la liste */
+/* styles for the list */
 .presentation {
   display: flex;
   flex-wrap: wrap;
@@ -84,12 +84,21 @@ ul.feather li svg {
   padding-left: .5em;
 }
 
-.tc-btn-invisible svg.feather, body.tc-dirty span.tc-dirty-indicator svg.feather {
+
+/* style corrections for TW usage (icon substitution) */
+.tc-btn-invisible svg.feather,
+body.tc-dirty span.tc-dirty-indicator svg.feather {
   fill:none;
 }
 
 .tc-btn-invisible:hover svg.feather {
   fill:none;
-  stroke:black;
+  stroke: <<colour sidebar-controls-foreground-hover>>;
   stroke-width: 2;
+}
+
+button.tc-selected svg.feather {
+	fill:none;
+  stroke: <<colour primary>>;
+  stroke-width: 2px;
 }
