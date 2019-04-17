@@ -1,0 +1,10 @@
+created: 20190417081216623
+modified: 20190417092458693
+title: $:/i18n/en-GB/a tiddler without translation
+type: text/vnd.tiddlywiki
+
+this tiddler has an original but doesn't have any translation in fr-FR.
+
+Also i will have some work to make macros works :
+
+* `<<colour primary>>` > <<colour primary>>
