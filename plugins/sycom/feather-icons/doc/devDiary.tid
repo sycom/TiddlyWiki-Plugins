@@ -1,10 +1,12 @@
 created: 20190328141500000
-modified: 20190330231500000
+modified: 20190417161500000
 title: $:/plugins/sycom/feather-icons/doc/devDiary
 type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20190417
+** Fixed some problems with stacking. Due to `xxem` usage in stylesheet, stacked use was moving somewhat randomly. Fixed it by using the viewBox attribute.
 * 20190330
 ** Adding the full list of icons via a macro directly picking in the svg. Had to add an id to the svg. Will have to remember this when updating library...
 * 20190329
