@@ -1,0 +1,13 @@
+created: 20190415140518914
+modified: 20190418085154120
+title: $:/i18n/en-GB/IntroText
+type: text/vnd.tiddlywiki
+
+The [[Feather icons plugin|$:/plugins/sycom/feather-icons]] provide an elegant and lightweight solution for displaying icons in your TiddlyWiki.
+
+<ul class="feather">
+  <li><<f-i plus>> 275 icons and counting</li>
+  <li><<f-i package>> ready to use</li> with included [[macros|$:/plugins/sycom/feather-icons/macros.tid]]
+  <li><<f-i git-branch>> pretty much hackable</li>
+  <li><<f-i more-vertical>> invent your [[own usages|More examples]]...</li>
+</ul>

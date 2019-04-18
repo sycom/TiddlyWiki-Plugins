@@ -35,11 +35,13 @@ exports.run = function(title,domain,orig_lang,inline) {
     base = orig_lang || "en-GB",
     inline = inline || false,
     tid = this.wiki.getTiddler(dom+"/i18n/"+base+"/"+title),
-		language = this.wiki.getTiddler("$:/language").fields.text || "$:/languages/en-GB",
-    lang = this.wiki.getTiddler(language).fields.name,
-    translation = this.wiki.getTiddler(dom+"/i18n/"+lang+"/"+title),
+		language = this.wiki.getTiddler("$:/language").fields.text || "$:/languages/en-GB";
+    var lang;
+    if (this.wiki.getTiddler(language) !== undefined) lang = this.wiki.getTiddler(language).fields.name;
+    else lang = "en-GB";
+    var translation = this.wiki.getTiddler(dom+"/i18n/"+lang+"/"+title),
     option = {};
-    if(block !== true) option.parseAsInline = true;
+    if(inline === true) option.parseAsInline = true;
   // checks if there is a translation for the tiddlers
   if(!translation) {
   // if not checks if there is an original
@@ -50,11 +52,11 @@ exports.run = function(title,domain,orig_lang,inline) {
   // if yes, displays original
     else {
       var alert = "<div class='tc-tiddler-info'>this text has not been yet translated in [[" + lang + "|" + dom+"/i18n/"+lang+"/"+title + "]]. Displaying original (" + base + ") instead.</div>";
-        alert += "{{" + dom+"/i18n/"+base+"/"+title + "}}";
+        alert += "\n\n{{" + dom+"/i18n/"+base+"/"+title + "}}";
       return alert;
     }
 	}
-	else return "{{" + dom+"/i18n/"+lang+"/"+title + "}}";
+	else return "\n\n{{" + dom+"/i18n/"+lang+"/"+title + "}}";
 };
 
 })();

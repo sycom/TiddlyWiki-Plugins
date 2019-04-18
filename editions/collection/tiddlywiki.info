@@ -9,6 +9,9 @@
 			"sycom/leaflet",
 			"sycom/atom-feed"
 	],
+	"languages": [
+		"fr-FR"
+	],
 	"themes": [
 		"tiddlywiki/vanilla",
 		"tiddlywiki/snowwhite"

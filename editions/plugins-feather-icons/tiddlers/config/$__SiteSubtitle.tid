@@ -3,4 +3,4 @@ modified: 20190415140344696
 title: $:/SiteSubtitle
 type: text/vnd.tiddlywiki
 
-<<i18n 'SiteSubtitle' $:/plugins/sycom/feather-icons '' ''>>
+<<i18n 'SiteSubtitle' $:/config '' ''>>

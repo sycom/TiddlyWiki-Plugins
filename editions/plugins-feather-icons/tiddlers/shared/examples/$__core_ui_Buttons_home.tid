@@ -1,0 +1,16 @@
+caption: {{$:/core/images/home-button}} {{$:/language/Buttons/Home/Caption}}
+created: 20190417130612777
+description: {{$:/language/Buttons/Home/Hint}}
+modified: 20190417130623889
+tags: $:/tags/PageControls example
+title: $:/core/ui/Buttons/home
+type: text/vnd.tiddlywiki
+
+<$button message="tm-home" tooltip={{$:/language/Buttons/Home/Hint}} aria-label={{$:/language/Buttons/Home/Caption}} class=<<tv-config-toolbar-class>>>
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+<<f-i home>>
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text={{$:/language/Buttons/Home/Caption}}/></span>
+</$list>
+</$button>

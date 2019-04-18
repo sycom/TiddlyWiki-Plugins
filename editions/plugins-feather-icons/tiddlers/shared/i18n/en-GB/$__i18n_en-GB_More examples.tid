@@ -1,0 +1,20 @@
+created: 20190418074400313
+modified: 20190418084948365
+title: $:/i18n/en-GB/More examples
+type: text/vnd.tiddlywiki
+
+Current wiki overwrites some default icons with feather's ones :
+
+<div  style='font-size:160%'><$list filter=[tag[example]]>
+<$link>{{}}</$link>
+</$list></div>
+
+Or you may want to animate some?
+
+<div style="text-align:center"><svg class="feather x5" style=";stroke:#888;fill:#00ffff33" viewBox="0 0 50 50"><use href="#compass">
+<animateTransform id="move2"
+   attributeName="transform"
+   type="rotate"
+   from="0 25 25"
+   to="360 25 25" repeatCount="indefinite"
+   dur="4s" /></use></svg></div>
