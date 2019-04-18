@@ -1,30 +1,8 @@
 created: 20151127192625926
 creator: Sylvain Comte
-modified: 20190407160457725
+modified: 20190418120924374
 modifier: Sylvain Comte
 title: A plugin collection
 type: text/vnd.tiddlywiki
 
-<div class="info-alert">
-{{$:/SiteTitle}} is a work in progress. I ''do'' use them for my needs and don't have (much) problems. Feel free to do the same, but remember TiddlyWiki's n°1 rule : ''Alway backup before any experiment''...
-</div>
-
-!! <<f-i map>> [[Leaflet maps plugin]]
-the <$link to="$:/plugins/sycom/leaflet"><<f-i download>> Leaflet maps plugin</$link> will embed leaflet maps in your tiddlywiki with the `<$leafmap />` widget. See the [[Michel Strogoff|Michel Strogoff from the sky]] (map below) or [[included doc]] examples to learn more.
-
-The plugins also brings the <<f-i map-pin>> [[geoLocationWidget]] which creates a button to collect the current geolocation of your browser. But it may be used independently if you do not need the plugin...
-
-<$leafmap tileControl height='210px' tile='natgeo' places='{"filter":"[tag[Michel Strogoff from the sky]]"}' cluster='5' />
-//the [[Michel Strogoff from the sky]] example to see what can be done with it. see also plugin embedded [[example|$:/plugins/sycom/leaflet/example]]//
-
-!! <<f-i eye>> [[Google analytics plugin|G-Analytics plugin]]
-the <$link to="$:/plugins/sycom/g-analytics"> <<f-i download>> Google analytics plugin</$link> is a fork of the official one you will find in the TiddlyWiki plugin library. It enables internal individual tiddlers tracking and is //Do Not Track// compliant.
-
-!! <<f-i feather>> [[Feather icons plugin]]
-the <$link to="$:/plugins/sycom/feather-icons"><<f-i download>> Feather icons plugin</$link> offers an icon library alternative to the Font Awesome one. It's pretty lightweight and elegant.
-
-!! <<f-i rss>> Atom feed plugin
-the <$link to="$:/plugins/sycom/atom-feed"><<f-i download>> Atom feed plugin</$link> will create an <a rel="alternate" href="atom.xml" target="_blank">atom.xml</a> file alongside your wiki. Helpful for people who whish follow your work.
-
-!! <<f-i globe>> [[i18n macro]]
-the <$link to="$:/ext/modules/macros/i18n-macro.js"><<f-i download>> i18n macro</$link> will help you to have a multilingual wiki if you wish without hacking internal //language + lingo// system in TiddlyWiki...
+<<i18n 'A plugin collection' '$:/collection'>>
