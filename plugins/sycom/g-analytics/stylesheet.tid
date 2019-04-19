@@ -1,0 +1,58 @@
+created: 20190419133629300
+modified: 20190419134549966
+tags: $:/tags/Stylesheet
+title: $:/plugins/sycom/g-analytics/Stylesheet
+type: text/vnd.tiddlywiki
+
+/* inspired from https://codepen.io/AllThingsSmitty/pen/MmxxOz */
+
+.switch {
+  margin:0;
+  display: inline-block;
+  height: 1.5em;
+  position: relative;
+  width:2.6em;
+  vertical-align:bottom;
+}
+
+.switch input[type=checkbox] {
+  display:none;
+}
+
+.slider {
+  background-color: <<colour very-muted-foreground>>;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 1em;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 1em;
+}
+
+input:checked + span .slider {
+  background-color: <<colour primary>>;
+}
+
+input:checked + span .slider:before {
+  transform: translateX(1em);
+}
+
+span .slider.round {
+  border-radius: 1em;
+}
+
+span .slider.round:before {
+  border-radius: 50%;
+}
