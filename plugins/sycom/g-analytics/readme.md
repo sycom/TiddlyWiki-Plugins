@@ -1,6 +1,6 @@
 This [G-Analytics plugin](#$:/plugins/sycom/g-analytics) is an alternative version for the official plugin you can find in TiddlyWiki library.
 
-It's compliant with [Do Not Track][dnt] and will soon be with [GDPR][rgpd]. It enables also individual tiddlers tracking.
+It's compliant with [Do Not Track][dnt] and also with [GDPR][rgpd]. It enables also individual tiddlers tracking.
 
 Have a look at [demo page on the web][plugindemo] or at integrated documentation to see how it works.
 

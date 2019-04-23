@@ -1,6 +1,6 @@
 Ce [plugin G-Analytics](#$:/plugins/sycom/g-analytics) constitue une alternative à celui que vous trouverez dans la librairie officielle de TiddlyWiki.
 
-Il est compatible avec [Do Not Track][dnt] et le sera prochainement avec le [RGPD][rgpd]. Il permet aussi un suivi de la navigation d'un tiddler à l'autre.
+Il est compatible avec [Do Not Track][dnt] et avec le [RGPD][rgpd]. Il permet aussi un suivi de la navigation d'un tiddler à l'autre.
 
 Voyez la [page de demonstration][plugindemo] ou la documentation intégrée pour voir comment il fonctionne.
 

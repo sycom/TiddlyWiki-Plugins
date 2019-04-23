@@ -5,7 +5,7 @@ tags: $:/tags/PageTemplate
     <div class="tc-plugin-reload-warning">
         <$set name="tv-config-toolbar-class" value="">
 
-<<slideCheck $:/temp/GoogleAnalyticsGDPRoption '' 'no' 'yes' 'no' 'switch tracking'>> {{$:/plugins/sycom/g-analytics/disclaimer_notification}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<$button set="$:/temp/HideAnalyticsWarning" setTo="yes" class="tc-btn-invisible">{{$:/core/images/close-button}}</$button>
+<<slideCheck $:/temp/GoogleAnalyticsGDPRoption '' 'no' 'yes' 'no' 'tracking?'>> {{$:/plugins/sycom/g-analytics/disclaimer_notification}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<$button set="$:/temp/HideAnalyticsWarning" setTo="yes" class="tc-btn-invisible">{{$:/core/images/close-button}}</$button>
         </$set>
     </div>
 </$reveal>
