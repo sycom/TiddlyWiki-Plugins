@@ -1,3 +1,16 @@
 title: $:/plugins/sycom/g-analytics/settings
+tags: $:/tags/Macro
+
+\define slideCheck(tid field:'text' checked unchecked default tooltip)
+<$checkbox class="switch"
+  tiddler="$tid$"
+  field="$field$"
+  checked="$checked$"
+  unchecked="$unchecked$"
+  default="$default$">
+  <div title="$tooltip$" class="slider round"></div>
+  <span class="switchtext"></span>
+</$checkbox>
+\end
 
 <<i18n settings $:/plugins/sycom/g-analytics>>
