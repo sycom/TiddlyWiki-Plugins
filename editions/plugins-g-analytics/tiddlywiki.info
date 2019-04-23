@@ -6,9 +6,11 @@
 			"tiddlywiki/markdown",
       "../../TW5dev/plugins/sycom/g-analytics"
 	],
+	"languages": [
+		"fr-FR"
+	],
 	"themes": [
-		"tiddlywiki/vanilla",
-		"tiddlywiki/snowwhite"
+		"tiddlywiki/vanilla"
 	],
 	"build": {
 		"index": [

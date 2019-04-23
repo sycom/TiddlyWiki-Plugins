@@ -1,0 +1,4 @@
+title: $:/plugins/sycom/g-analytics/disclaimer_dnt
+tags: privacy analytics alert
+
+<<i18n disclaimer_dnt $:/plugins/sycom/g-analytics>>

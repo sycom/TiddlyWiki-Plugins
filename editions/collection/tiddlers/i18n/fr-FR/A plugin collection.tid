@@ -1,0 +1,28 @@
+created: 20190418102256742
+modified: 20190418121320168
+title: $:/collection/i18n/fr-FR/A plugin collection
+type: text/vnd.tiddlywiki
+
+<div class="info-alert">
+<div style="float:left;color:red;padding:4px 8px 4px 0"><<f-i alert-triangle x3>></div>{{$:/SiteTitle}} est un travail en cours. Je ''l'utilise'' pour mes propres besoins et je n'ai pas (trop) de problèmes avec. N'hésitez pas à l'utiliser mais souvenez vous de la règle n°1 de TiddlyWiki : ''Toujours faire une sauvegarde avant d'essayer quelque chose''...
+</div>
+
+!! <<f-i map>> [[Leaflet maps plugin]] ({{$:/plugins/sycom/leaflet!!version}})
+Le <$link to="$:/plugins/sycom/leaflet"><<f-i download>> plugin Leaflet maps</$link> permet d'intégrer des cartes leaflet dans votre TiddlyWiki grâce au widget `<$leafmap />` widget. Voyez l'exemple de [[Michel Strogoff|Michel Strogoff from the sky]] (carte ci-dessous) ou les exemples [[inclus dans la documentation|$:/plugins/sycom/leaflet/example]] pour en savoir plus.
+
+Le plugin intègre également le <<f-i map-pin>> [[geoLocationWidget]] qui crée un bouton permettant de récupérer la position géographique de du navigateur. Ce widget peut aussi être utilisé indépendamment du plugin...
+
+<$leafmap tileControl height='210px' tile='natgeo' places='{"filter":"[tag[Michel Strogoff from the sky]]"}' cluster='5' />
+<div style="text-align:center">//l'exemple [[Michel Strogoff vu du ciel|Michel Strogoff from the sky]]//</div>
+
+!! <<f-i eye>> [[Google analytics plugin|G-Analytics plugin]] (sycom-{{$:/plugins/sycom/g-analytics!!version}})
+Le <$link to="$:/plugins/sycom/g-analytics"> <<f-i download>> plugin Google analytics </$link> est dérivé du plugin officiel qu'on trouve dans la libraire intégrée de TiddyWiki. Il fournit en plus des statistiques sur les tiddlers visités et est compatible avec le protocole //Do Not Track//.
+
+!! <<f-i feather>> [[Feather icons plugin]] ({{$:/plugins/sycom/feather-icons!!version}})
+Le <$link to="$:/plugins/sycom/feather-icons"><<f-i download>> plugin Feather icons </$link> propose une collection d'icône alternative à la très utilisée Font Awesome. Elle est très légère et élégante.
+
+!! <<f-i rss>> Atom feed plugin ({{$:/plugins/sycom/atom-feed!!version}})
+Le <$link to="$:/plugins/sycom/atom-feed"><<f-i download>> plujgin Atom feed</$link> ajoutera un fichier <a rel="alternate" href="atom.xml" target="_blank">atom.xml</a> à côté de votre wiki. Pratique pour les gens qui veulent suivre votre travail.
+
+!! <<f-i globe>> [[i18n macro]] ({{$:/ext/modules/macros/i18n-macro.js!!version}})
+La <$link to="$:/ext/modules/macros/i18n-macro.js"><<f-i download>> macro i18n</$link> aide à construire un wiki multilingue sans avoir à bricoler le système //language + lingo//  interne à TiddlyWiki...

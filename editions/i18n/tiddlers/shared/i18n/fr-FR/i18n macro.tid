@@ -1,13 +1,13 @@
 created: 20190402210933800
-modified: 20190417094118085
+modified: 20190418142605342
 title: $:/ext/modules/macros/i18n/i18n/fr-FR/i18n macro
 type: text/vnd.tiddlywiki
 
-La macro [[i18n|$:/ext/modules/macros/i18n-macro.js]] a pour vocation de faciliter la traduction de parties de TiddlyWiki indépendamment du mécanisme déjà intégré $:/languages. Cela peut permettre la traduction d'extensions ou de tiddlers.
+La macro [[i18n|$:/ext/modules/macros/i18n-macro.js]] a pour vocation de faciliter la traduction de parties de TiddlyWiki indépendamment du mécanisme déjà intégré $:/languages + `<<lingo>>`. Cela peut permettre la traduction d'extensions ou de tiddlers assez facilement
 
 Les paramètres de `<<i18n>>` sont
 
-* `title` : le titre du tiddler (''obligatoire'')
+* `title` : le titre du tiddler (par défaut le titre du tiddler courant)
 * `domain` : le //domaine// du tiddler (par défaut `$:`)
 * `orig_lang` : la langue originale du tiddler (par défaut `en-GB`)
 * `inline` : si `true` force le rendu //inline// (par défault `false`). Pour les textes courts principalement.
@@ -19,8 +19,10 @@ Ainsi,
 ```
 appelera
 
-* le tiddler [[$:/ext/modules/macros/i18n/lg-LG/i18n macro]] où lg-LG est la langue courante définie par $:/language
-* à défaut, le tiddler dans la langue originale : [[$:/ext/modules/macros/i18n/fr-FR/i18n macro]]
-* à défaut, un message d'alerte indiquant que le tiddler original n'existe pas
+# le tiddler [[$:/ext/modules/macros/i18n/lg-LG/i18n macro]] où lg-LG est la langue courante définie par $:/language
+# à défaut, le tiddler dans la langue originale : [[$:/ext/modules/macros/i18n/fr-FR/i18n macro]]
+# à défaut, un message d'alerte indiquant que le tiddler original n'existe pas
+
+Pour les tiddlers utilisants `<<i18n>>` des liens sont disponibles au survol de la partie traduite pour permettre l'édition plus facilement des différentes traductions. Lorsque l'on est dans le cas //2.//, deux liens sont disponibles : un pour ajouter la traduction manquante, l'autre pour éditer la version originale.
 
 Voir le présent [[i18n macro]], [[a tiddler without fr-FR translation]] et [[a tiddler without original version]] comme exemples illustrant ce fonctionnement.

@@ -1,9 +1,9 @@
 created: 20170201105200000
-modified: 20190331155150919
+modified: 20190419101842627
 tags: plugins tracking
 title: G-Analytics plugin
 type: text/vnd.tiddlywiki
 
-Description goes here
+<<i18n intro>>
 
 <$list filter="[[$:/plugins/sycom/g-analytics]]" emptyMessage=<<lingo "Empty/Hint">> template="$:/core/ui/Components/plugin-info"/>
