@@ -1,11 +1,10 @@
 created: 20190419133629300
-modified: 20190419134549966
+modified: 20190423183600000
 tags: $:/tags/Stylesheet
 title: $:/plugins/sycom/g-analytics/Stylesheet
 type: text/vnd.tiddlywiki
 
 /* inspired from https://codepen.io/AllThingsSmitty/pen/MmxxOz */
-
 .switch {
   margin:0;
   display: inline-block;
@@ -13,14 +12,10 @@ type: text/vnd.tiddlywiki
   position: relative;
   width:2.6em;
   vertical-align:bottom;
-}
-
-.switch input[type=checkbox] {
+}.switch input[type=checkbox] {
   display:none;
-}
-
-.slider {
-  background-color: <<colour very-muted-foreground>>;
+}.slider {
+  background-color: #888888;
   bottom: 0;
   cursor: pointer;
   left: 0;
@@ -28,9 +23,7 @@ type: text/vnd.tiddlywiki
   right: 0;
   top: 0;
   transition: .4s;
-}
-
-.slider:before {
+}.slider:before {
   background-color: #fff;
   bottom: 4px;
   content: "";
@@ -39,20 +32,25 @@ type: text/vnd.tiddlywiki
   position: absolute;
   transition: .4s;
   width: 1em;
-}
-
-input:checked + span .slider {
-  background-color: <<colour primary>>;
-}
-
-input:checked + span .slider:before {
+}input:checked + span .slider {
+  background-color: #5778d8;
+}input:checked + span .slider:before {
   transform: translateX(1em);
-}
-
-span .slider.round {
+}span .slider.round {
   border-radius: 1em;
-}
-
-span .slider.round:before {
+}span .slider.round:before {
   border-radius: 50%;
+}input + span .switchtext:before {
+  display: inline-block;
+  color: white;
+  content: 'no';
+  font-size: .85em;
+  transform: translateX(.75em) translatey(-.15em);
+}input:checked + span .switchtext:before {
+  content: 'on';
+  transform: translateX(-.8em) translatey(-.15em);
+}.tc-tiddler-body input + span .switchtext:before {
+  transform: translateX(1.6em) translatey(-.15em);
+}.tc-tiddler-body input:checked + span .switchtext:before {
+  transform: translateX(.2em) translatey(-.15em);
 }
