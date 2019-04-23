@@ -1,4 +1,4 @@
-title: $:/plugins/sycom/g-analytics/disclaimer_base
+title: $:/plugins/sycom/g-analytics/i18n/en-GB/disclaimer_base
 tags: privacy analytics alert
 
 As many website do, this wiki uses [[Google Analytics|https://analytics.google.com]] (via the [[Google Analytics plugin|$:/plugins/sycom/g-analytics]]) to help analyse how much visitors use this site and where they come from. Google uses “[[cookies|https://en.wikipedia.org/wiki/HTTP_cookie]]”, which are small text files placed on your computer, to collect standard internet log information in an anonymous form.
@@ -7,3 +7,4 @@ Your anonymity is safe here but you may wish to disable all tracking since data 
 
 * if you enable ''do not track'' option ''in your browser'' and reload the page the wiki will not collect nor send data any more. You may also use privacy extensions to control which site can track you. [[All About Do Not Track|https://allaboutdnt.com/]] website provide usefull informations about all this.
 * some browsers enable do not track when using "private mode" ([[Firefox|http://firefox.com]] does). If you visit the wiki from those browsers in "private mode" no data will be sent either.
+* you may also want to be sure that tracking is fully disabled. If so, uncheck this <<slideCheck $:/temp/GoogleAnalyticsGDPRoption '' 'no' 'yes' 'no' 'tracking?'>>

@@ -1,0 +1,25 @@
+title: $:/plugins/sycom/g-analytics/i18n/fr-FR/usage
+type: text/vnd.tiddlywiki
+
+!! Créez-vous un compte Google Analytics
+
+Si vous n'avez pas déjà un compte :
+
+# Rendez vous sur le site de Google Analytics : http://www.google.com/analytics/
+# Cliquez sur le bouton ''Accéder à Google Analytics'' et suivez les instructions pour créer votre compte
+# Donnez l'adresse URL à laquelle votre wiki est hébergé
+# Récupérez l'identifiant de suivi pour ce domaine sous la forme `UA-XXXXXX-XX`
+
+!! Installez le plugin sur votre TiddlyWiki
+
+# ''Faites une sauvegarde de votre TiddlyWiki''. Juste au cas où
+# Installez le plugin en le glissant déposant depuis ici sur votre wiki
+# Enregistrez votre TiddlyWiki et rafraichissez la page pour mettre en route le plugin
+# Allez dans [[$:/ControlPanel]] > onglet Plugins et dépliez le plugin Google Analytics
+# Allez dans l'onglet //settings// et mettez à jour les paramètres
+# Sauvegardez votre TiddlyWiki
+
+!! Chargez la nouvelle version de votre TiddlyWiki
+
+# Envoyez la nouvelle version de votre TiddlyWiki sur TiddlySpot, GitHub, GitLab ou tout autre hébergeur
+# Retournez à votre page Google Analytics page pour vérifier que votre site est bien suivi.

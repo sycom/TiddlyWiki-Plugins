@@ -22,8 +22,6 @@ exports.startup = function() {
     // initializing disclaimer
     var GA_DISCLAIMER_TITLE = $tw.wiki.getTiddlerText("$:/plugins/sycom/g-analytics/disclaimer_title") || "This wiki uses Google analytics";
     GA_DISCLAIMER_TITLE = GA_DISCLAIMER_TITLE.replace(/\n/g,"");
-console.log("test");
-console.log(GA_DISCLAIMER_TITLE);
     // testing do not track before launching
     if(navigator.doNotTrack !== 1) {
     	// getting parameters
@@ -43,7 +41,8 @@ console.log(GA_DISCLAIMER_TITLE);
     	var GA_TRACKALL;
     	if($tw.wiki.getTiddler("$:/GoogleAnalyticsTrackAll")) GA_TRACKALL = $tw.wiki.getTiddlerText("$:/GoogleAnalyticsTrackAll").replace(/\n/g,"");
     	else GA_TRACKALL = "no";
-    	if (GA_TRACKALL == "yes") {
+      var GA_GDPR = $tw.wiki.getTiddlerText("$:/temp/GoogleAnalyticsGDPRoption") || "no";
+    	if (GA_TRACKALL == "yes" && GA_GDPR !== "yes") {
             ga('create', GA_ACCOUNT, GA_DOMAIN);
             // change informations about tracking - full tracking
             $tw.wiki.setText(GA_DISCLAIMER_TITLE,"text",null,$tw.wiki.getTiddlerText("$:/plugins/sycom/g-analytics/disclaimer_full"));
@@ -61,7 +60,7 @@ console.log(GA_DISCLAIMER_TITLE);
     			if(storyList.includes(GA_CURRENT)) {
     				// if history modified is true send tracker (else user may just closed another tiddler)
     				// note that clicking on a tiddlerlink from already opened tiddler will count
-    				if(changes[historyTitle]) {
+    				if(changes[historyTitle] && GA_GDPR !== "yes") {
     					ga('set', 'page', window.location.pathname+'#'+GA_CURRENT);
     					ga('set', 'title', GA_CURRENT);
     					ga('send', 'pageview');
@@ -74,8 +73,11 @@ console.log(GA_DISCLAIMER_TITLE);
             // change informations about tracking - base mode
             $tw.wiki.setText(GA_DISCLAIMER_TITLE,"text",null,$tw.wiki.getTiddlerText("$:/plugins/sycom/g-analytics/disclaimer_base"));
             // send data for whole page once only
-            ga('create', GA_ACCOUNT, GA_DOMAIN);
-            ga('send', 'pageview');
+            if (GA_GDPR !== "yes") {
+  console.log(GA_GDPR);
+              ga('create', GA_ACCOUNT, GA_DOMAIN);
+              ga('send', 'pageview');
+            }
         }
     }
     else {

@@ -1,0 +1,10 @@
+title: $:/plugins/sycom/g-analytics/i18n/fr-FR/disclaimer_base
+type: text/vnd.tiddlywiki
+
+Comme le font beaucoup de sites internet, ce wiki utilise [[Google Analytics|https://analytics.google.com]] (via le [[plugin Google Analytics|$:/plugins/sycom/g-analytics]]) pour aider à analyser combien de visiteurs utilisent le site et d'où ils viennent. Google utilise des  “[[cookies|https://fr.wikipedia.org/wiki/Cookie_(informatique)]]”, qui sont de petit fichiers texte placés sur votre ordinateur pour collecter des informations de connexion classique sous une forme anonyme.
+
+Votre anonymat est préservé ici, mais vous voudrez peut-être désactiver toute collecte de statistique, dans la mesure où les données sont envoyées à Google qui peut les utiliser à des fins commerciales. Le plugin est compatible avec [[Do Not Track|http://donottrack.us/]]. Donc,
+
+* si vous activez l'option ''ne pas pister'' (//do not track//) ''dans votre navigateur'' le wiki ne collectera et n'enverra plus aucune donnée. Il est également possible d'utiliser des extensions pour votre navigateur qui contrôlent qui vous piste. Le site [[All About Do Not Track|https://allaboutdnt.com/]] (en anglais) fourni des informations utiles sur ce sujet.
+* certains navigateurs activent //do not track// lorsque l'on passe en mode "navigation privée" ([[Firefox|http://firefox.com]] le fait). Si vous visitez le wiki dans ce mode aucune donnée ne sera alors envoyée.
+* dans tous les cas si vous préférez être sûr de ne pas être suivi, désactivé le pistage <<slideCheck $:/temp/GoogleAnalyticsGDPRoption '' 'no' 'yes' 'no' 'tracking?'>>
