@@ -24,11 +24,15 @@ exports.startup = function() {
     GA_DISCLAIMER_TITLE = GA_DISCLAIMER_TITLE.replace(/\n/g,"");
     // testing do not track before launching
     if(navigator.doNotTrack !== 1) {
-    	// getting parameters
+    	// getting parameters - account, domain, tracking tiddlers and gdpr - opt-out
     	var GA_ACCOUNT = $tw.wiki.getTiddlerText("$:/GoogleAnalyticsAccount") || "",
-    		GA_DOMAIN = $tw.wiki.getTiddlerText("$:/GoogleAnalyticsDomain") || "";
-            GA_ACCOUNT = GA_ACCOUNT.replace(/\n/g,"");
-            GA_DOMAIN = GA_DOMAIN.replace(/\n/g,"");
+    		GA_DOMAIN = $tw.wiki.getTiddlerText("$:/GoogleAnalyticsDomain") || "",
+        GA_TRACKALL = $tw.wiki.getTiddlerText("$:/GoogleAnalyticsTrackAll") || "no",
+        GA_GDPR;
+        GA_ACCOUNT = GA_ACCOUNT.replace(/\n/g,"");
+        GA_DOMAIN = GA_DOMAIN.replace(/\n/g,"");
+        GA_TRACKALL = GA_TRACKALL.replace(/\n/g,"");
+
       // handling domain parameter : user defined > from window location > "auto" fallback
     	if (GA_DOMAIN == "") GA_DOMAIN = window.location.hostname;
         if (GA_DOMAIN == undefined) GA_DOMAIN = "auto";
@@ -37,11 +41,7 @@ exports.startup = function() {
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    	// adding (optional) tracking internal navigation if activated
-    	var GA_TRACKALL;
-    	if($tw.wiki.getTiddler("$:/GoogleAnalyticsTrackAll")) GA_TRACKALL = $tw.wiki.getTiddlerText("$:/GoogleAnalyticsTrackAll").replace(/\n/g,"");
-    	else GA_TRACKALL = "no";
-      var GA_GDPR = $tw.wiki.getTiddlerText("$:/temp/GoogleAnalyticsGDPRoption") || "no";
+
     	if (GA_TRACKALL == "yes" && GA_GDPR !== "yes") {
             ga('create', GA_ACCOUNT, GA_DOMAIN);
             // change informations about tracking - full tracking
@@ -58,6 +58,9 @@ exports.startup = function() {
     			var GA_CURRENT = historyList[historyList.length-1].title;
     			// if last item has not been closed, prepare data and send to tracker
     			if(storyList.includes(GA_CURRENT)) {
+            // get informations about GDPR opt-out
+            GA_GDPR = $tw.wiki.getTiddlerText("$:/temp/GoogleAnalyticsGDPRoption") || "no";
+            GA_GDPR = GA_GDPR.replace(/\n/g,"");
     				// if history modified is true send tracker (else user may just closed another tiddler)
     				// note that clicking on a tiddlerlink from already opened tiddler will count
     				if(changes[historyTitle] && GA_GDPR !== "yes") {
@@ -72,9 +75,11 @@ exports.startup = function() {
         else {
             // change informations about tracking - base mode
             $tw.wiki.setText(GA_DISCLAIMER_TITLE,"text",null,$tw.wiki.getTiddlerText("$:/plugins/sycom/g-analytics/disclaimer_base"));
-            // send data for whole page once only
+            // get informations about GDPR opt-out
+            GA_GDPR = $tw.wiki.getTiddlerText("$:/temp/GoogleAnalyticsGDPRoption") || "no";
+            GA_GDPR = GA_GDPR.replace(/\n/g,"");
+    				// send data for whole page once only
             if (GA_GDPR !== "yes") {
-  console.log(GA_GDPR);
               ga('create', GA_ACCOUNT, GA_DOMAIN);
               ga('send', 'pageview');
             }
