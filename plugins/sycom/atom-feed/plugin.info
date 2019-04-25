@@ -2,7 +2,7 @@
     "title": "$:/plugins/sycom/atom-feed",
     "description": "Atom feed",
     "author": "Sylvain Comte",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "core-version": ">=5.0.0",
     "source": "https://framagit.org/sycom/TiddlyWiki-Plugins",
     "plugin-type": "plugin",
