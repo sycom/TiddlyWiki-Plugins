@@ -15,11 +15,11 @@ For now you can display an interactive map, select size, location and zoom, mark
 A tool for having stats of wikis visitors. Forked from the [official one][tw-ga-official] you can find in TiddlyWiki's plugin library. It implements Do Not Track and enables individual tiddlers tracking
 
 ## [Atom feed plugin](./plugins/sycom/atom-feed) - 0.0
-A very early release of a plugin that creates an atom feed for your wiki. Will possibly help people to follow your news and maybe help for SEO?
+A very early release of a plugin that creates an atom feed for your wiki. Will possibly help people to follow your news. And maybe will help for SEO?
 
 ## Sources / licenses
 * [TiddlyWiki][tiddlywiki] uses a BSD 3-Clause [License][tw-license]
-* All my projects for TiddlyWiki have [a similar one](LICENSE.md). Please refer to each plugin directory for more informations.
+* All my projects for TiddlyWiki have [a similar one](LICENSE.md). Please refer to each plugin directory for more informations about sources.
 
 ## parcours for my plugins
 * **[framagit][repo]**
