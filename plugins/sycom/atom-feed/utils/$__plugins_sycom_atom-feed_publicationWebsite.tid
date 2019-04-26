@@ -2,5 +2,6 @@ created: 20190407150203600
 modified: 20190407150231675
 title: $:/plugins/sycom/atom-feed/publicationWebsite
 type: text/vnd.tiddlywiki
+caption: https://sycom.gitlab.io/TiddlyWiki-Plugins
 
-https://sycom.gitlab.io/TiddlyWIki-Plugins
+Please set url in caption field
