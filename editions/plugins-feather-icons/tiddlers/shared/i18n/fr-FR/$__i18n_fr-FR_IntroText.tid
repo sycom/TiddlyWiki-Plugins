@@ -1,7 +1,6 @@
 created: 20190415140527471
 modified: 20190418085209795
-tags: 
-title: $:/i18n/fr-FR/IntroText
+title: $:/feather-icons/i18n/fr-FR/IntroText
 type: text/vnd.tiddlywiki
 
 Le [[plugin Feather icons|$:/plugins/sycom/feather-icons]] fournit une solution légère et élégante pour afficher des icônes dans votre TiddlyWiki.
