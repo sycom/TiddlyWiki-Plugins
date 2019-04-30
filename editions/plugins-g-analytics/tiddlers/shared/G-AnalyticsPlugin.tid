@@ -4,6 +4,6 @@ tags: plugins tracking
 title: G-Analytics plugin
 type: text/vnd.tiddlywiki
 
-<<i18n intro>>
+<<i18n intro $:/g-analytics>>
 
 <$list filter="[[$:/plugins/sycom/g-analytics]]" emptyMessage=<<lingo "Empty/Hint">> template="$:/core/ui/Components/plugin-info"/>

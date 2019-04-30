@@ -19,7 +19,7 @@ You may personalize or translate messages displayed by the plugin by editing tho
 * [[Notification message|$:/plugins/sycom/g-analytics/disclaimer_notification]]
 
 * ''Privacy disclaimer''
-*# [[Title|$:/plugins/sycom/g-analytics/disclaimer_title]] : <$edit-text tiddler="$:/plugins/sycom/g-analytics/disclaimer_title" tag="input"/>
+*# [[Title|$:/plugins/sycom/g-analytics/disclaimer_title]] : <$edit-text tiddler="$:/plugins/sycom/g-analytics/disclaimer_title" field="caption" tag="input"/>
 *# [[Default message|$:/plugins/sycom/g-analytics/disclaimer_base]]
 *# [[internal tracking activated|$:/plugins/sycom/g-analytics/disclaimer_full]]
 *# [[Visitor in private mode or using Do Not Track|$:/plugins/sycom/g-analytics/disclaimer_dnt]]

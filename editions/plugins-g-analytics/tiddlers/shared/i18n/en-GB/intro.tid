@@ -1,0 +1,8 @@
+created: 20190419101957600
+modified: 20190419121010512
+title: $:/g-analytics/i18n/en-GB/intro
+type: text/vnd.tiddlywiki
+
+[[G-Analytics plugin|$:/plugins/sycom/g-analytics]] will enable analytics tracking in your wiki. You may also activate individual tiddler tracking to have a fine grained view of your visitor's path.
+
+The plugin is [[Do Not Track|http://donottrack.us]] compliant and not fully (but soon will be) [[GDPR|https://en.wikipedia.org/wiki/General_Data_Protection_Regulation]].
