@@ -20,7 +20,7 @@ exports.synchronous = true;
 
 exports.startup = function() {
     // initializing disclaimer
-    var GA_DISCLAIMER_TITLE = $tw.wiki.getTiddlerText("$:/plugins/sycom/g-analytics/disclaimer_title") || "This wiki uses Google analytics";
+    var GA_DISCLAIMER_TITLE = $tw.wiki.getTiddler("$:/plugins/sycom/g-analytics/disclaimer_title").fields.caption || "This wiki uses Google analytics";
     GA_DISCLAIMER_TITLE = GA_DISCLAIMER_TITLE.replace(/\n/g,"");
     // testing do not track before launching
     if(navigator.doNotTrack !== 1) {
