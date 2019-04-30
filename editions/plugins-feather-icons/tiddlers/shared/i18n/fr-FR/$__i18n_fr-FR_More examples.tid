@@ -1,6 +1,6 @@
 created: 20190418084508348
 modified: 20190418084926628
-title: $:/i18n/fr-FR/More examples
+title: $:/feather-icons/i18n/fr-FR/More examples
 type: text/vnd.tiddlywiki
 
 Ce wiki remplace les icones par défaut par des versions issues de feather
@@ -18,4 +18,3 @@ Mais peut-être voudrez-vous mettre un peu d'animation?
    from="0 25 25"
    to="360 25 25" repeatCount="indefinite"
    dur="4s" /></use></svg></div>
-
