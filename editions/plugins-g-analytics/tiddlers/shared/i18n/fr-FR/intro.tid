@@ -1,6 +1,6 @@
 created: 20190419120615400
 modified: 20190419121034274
-title: $:/i18n/fr-FR/intro
+title: $:/g-analytics/i18n/fr-FR/intro
 type: text/vnd.tiddlywiki
 
 Le [[plugin G-Analytics|$:/plugins/sycom/g-analytics]] permet de disposer de statistiques de visites sur votre wiki. Il est possible d'activiter un suivi des tiddlers visités individuellement pour avoir une vision fine du parcours de vos visiteurs.

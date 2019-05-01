@@ -22,7 +22,7 @@ Le <$link to="$:/plugins/sycom/g-analytics"> <<f-i download>> plugin Google anal
 Le <$link to="$:/plugins/sycom/feather-icons"><<f-i download>> plugin Feather icons </$link> propose une collection d'icône alternative à la très utilisée Font Awesome. Elle est très légère et élégante.
 
 !! <<f-i rss>> Atom feed plugin ({{$:/plugins/sycom/atom-feed!!version}})
-Le <$link to="$:/plugins/sycom/atom-feed"><<f-i download>> plujgin Atom feed</$link> ajoutera un fichier <a rel="alternate" href="atom.xml" target="_blank">atom.xml</a> à côté de votre wiki. Pratique pour les gens qui veulent suivre votre travail.
+Le <$link to="$:/plugins/sycom/atom-feed"><<f-i download>> plugin Atom feed</$link> ajoutera un fichier <a rel="alternate" href="atom.xml" target="_blank">atom.xml</a> à côté de votre wiki. Pratique pour les gens qui veulent suivre votre travail.
 
 !! <<f-i globe>> [[i18n macro]] ({{$:/ext/modules/macros/i18n-macro.js!!version}})
 La <$link to="$:/ext/modules/macros/i18n-macro.js"><<f-i download>> macro i18n</$link> aide à construire un wiki multilingue sans avoir à bricoler le système //language + lingo//  interne à TiddlyWiki...

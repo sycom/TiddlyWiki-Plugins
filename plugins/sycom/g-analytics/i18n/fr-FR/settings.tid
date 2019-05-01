@@ -19,7 +19,7 @@ Vous pouvez personnaliser ou traduire les messages affichés par le plugin en é
 * [[Message de notification|$:/plugins/sycom/g-analytics/disclaimer_notification]]
 
 * ''Infomations sur la vie pivée''
-*# [[Titre|$:/plugins/sycom/g-analytics/disclaimer_title]] : <$edit-text tiddler="$:/plugins/sycom/g-analytics/disclaimer_title" tag="input"/>
+*# [[Titre|$:/plugins/sycom/g-analytics/disclaimer_title]] : <$edit-text tiddler="$:/plugins/sycom/g-analytics/disclaimer_title" field="caption" tag="input"/>
 *# [[Message par défaut|$:/plugins/sycom/g-analytics/disclaimer_base]]
 *# [[Suivi de la navigation interne activé|$:/plugins/sycom/g-analytics/disclaimer_full]]
 *# [[Visiteur en mode navigation privée ou utilisant Do Not Track|$:/plugins/sycom/g-analytics/disclaimer_dnt]]

@@ -4,7 +4,7 @@ tags: plugins icons
 title: Feather icons plugin
 type: text/vnd.tiddlywiki
 
-<<i18n IntroText '' ''>>
+<<i18n IntroText $:/feather-icons ''>>
 
 <div style="text-align:center;vertical-align:top;margin: 2.4em auto"><<f-i star x3>><<f-i sun x11>><<f-i smile x5>><<f-i heart x11>><<f-i star x3>></div>
 

@@ -9,4 +9,4 @@ Votre anonymat est préservé ici, mais vous voudrez peut-être désactiver tout
 
 * si vous activez l'option ''ne pas pister'' (//do not track//) ''dans votre navigateur'' le wiki ne collectera et n'enverra plus aucune donnée. Il est également possible d'utiliser des extensions pour votre navigateur qui contrôlent qui vous piste. Le site [[All About Do Not Track|https://allaboutdnt.com/]] (en anglais) fourni des informations utiles sur ce sujet.
 * certains navigateurs activent //do not track// lorsque l'on passe en mode "navigation privée" ([[Firefox|http://firefox.com]] le fait). Si vous visitez le wiki dans ce mode aucune donnée ne sera alors envoyée.
-* dans tous les cas si vous préférez être sûr de ne pas être suivi, désactivé le pistage <<slideCheck $:/temp/GoogleAnalyticsGDPRoption '' 'no' 'yes' 'no' 'tracking?'>>
+* dans tous les cas si vous préférez être sûr de ne pas être suivi, désactivez le pistage <<slideCheck $:/temp/GoogleAnalyticsGDPRoption '' 'no' 'yes' 'no' 'tracking?'>>
