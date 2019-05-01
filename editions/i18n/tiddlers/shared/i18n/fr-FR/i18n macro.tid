@@ -1,5 +1,5 @@
 created: 20190402210933800
-modified: 20190418142605342
+modified: 20190501174213891
 title: $:/ext/modules/macros/i18n/i18n/fr-FR/i18n macro
 type: text/vnd.tiddlywiki
 
@@ -9,6 +9,7 @@ Les paramètres de `<<i18n>>` sont
 
 * `title` : le titre du tiddler (par défaut le titre du tiddler courant)
 * `domain` : le //domaine// du tiddler (par défaut `$:`)
+* `dico` : si défini à la valeur `dico` recherchera une entrée //title// dans le [[tiddler dictionnaire| DictionaryTiddlers]] `domain`/i18n/`lg-LG` 
 * `orig_lang` : la langue originale du tiddler (par défaut `en-GB`)
 * `inline` : si `true` force le rendu //inline// (par défault `false`). Pour les textes courts principalement.
 
@@ -23,6 +24,8 @@ appelera
 # à défaut, le tiddler dans la langue originale : [[$:/ext/modules/macros/i18n/fr-FR/i18n macro]]
 # à défaut, un message d'alerte indiquant que le tiddler original n'existe pas
 
+Lorsque l'on utilise la version `dico`, le processus est presque le même, mais la macro va cherche une entrée ##`title` dans un "tiddler dictionnaire" $:/ext/modules/macros/i18n/i18n/lg-LG (ou ''fr-FR'') si il n'est pas défini. C'est plus pratique pour les traductions de phrases courtes ou de mots seuls. Pour l'heure, si l'entrée n'existe pas, on n'aura qu'un texte vide...
+
 Pour les tiddlers utilisants `<<i18n>>` des liens sont disponibles au survol de la partie traduite pour permettre l'édition plus facilement des différentes traductions. Lorsque l'on est dans le cas //2.//, deux liens sont disponibles : un pour ajouter la traduction manquante, l'autre pour éditer la version originale.
 
-Voir le présent [[i18n macro]], [[a tiddler without fr-FR translation]] et [[a tiddler without original version]] comme exemples illustrant ce fonctionnement.
+Voir le présent [[i18n macro]], [[a tiddler without fr-FR translation]] et [[a tiddler without original version]] comme exemples illustrant ce fonctionnement. $:/SiteTitle et $:/SiteSubtitle utilisent la version //dico//, voyez $:/ControlPanel .
