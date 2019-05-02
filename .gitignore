@@ -4,3 +4,5 @@ tmp/
 output/
 node_modules/
 $_StoryList.tid
+
+editions/i18n/tiddlers/config/\$__StoryList\.tid

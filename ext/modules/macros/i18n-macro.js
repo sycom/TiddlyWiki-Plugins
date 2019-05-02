@@ -44,26 +44,27 @@ exports.run = function(title,domain,dico,orig_lang,inline) {
     dico = dico || "no",
     base = orig_lang || "en-GB",
     inline = inline || false,
-    language = this.wiki.getTiddler("$:/language").fields.text || "$:/languages/en-GB";
-    var tid;
-    if(dico === "dico") tid = this.wiki.getTiddler(dom+"/i18n/"+base);
-      else tid = this.wiki.getTiddler(dom+"/i18n/"+base+"/"+title);
-    var lang;
-     if (this.wiki.getTiddler(language) !== undefined) lang = this.wiki.getTiddler(language).fields.name;
-     else lang = "en-GB";
-    // var translation;
-    var translation;
-    if(dico === "dico") translation = this.wiki.getTiddler(dom+"/i18n/"+lang);
-      else translation = this.wiki.getTiddler(dom+"/i18n/"+lang+"/"+title);
-    var option = {};
+    language = this.wiki.getTiddler("$:/language").fields.text || "$:/languages/en-GB",
+    lang = (this.wiki.getTiddler(language) !== undefined ?
+      this.wiki.getTiddler(language).fields.name :
+      "en-GB"),
+    // getting base and translation tiddler depending on "dico" mode active
+    tid = (dico === "dico" ?
+      this.wiki.getTiddler(dom+"/i18n/"+base) :
+      this.wiki.getTiddler(dom+"/i18n/"+base+"/"+title)),
+    translation = (dico === "dico" ?
+      this.wiki.getTiddler(dom+"/i18n/"+lang) :
+      this.wiki.getTiddler(dom+"/i18n/"+lang+"/"+title)),
+    option = {};
     if(inline === true) option.parseAsInline = true;
   // checks if there is a translation for the tiddlers
   if(!translation) {
   // if not checks if there is an original
     if(!tid) {
       // if not displays a text telling the original is not defined
-      if(dico === "dico") return "<div class='tc-tiddler-info'>sorry but there is not any [[" + dom+"/i18n/"+base+"]] dictionnary tiddler</div>";
-      else return "<div class='tc-tiddler-info'>sorry but there is not any [[" + dom+"/i18n/"+base+"/"+title + "]] tiddler</div>";
+      return (dico === "dico" ?
+        "<div class='tc-tiddler-info'>sorry but there is not any [[" + dom+"/i18n/"+base+"]] dictionnary tiddler</div>" :
+        "<div class='tc-tiddler-info'>sorry but there is not any [[" + dom+"/i18n/"+base+"/"+title + "]] tiddler</div>")
     }
   // if yes, displays original
     else {
