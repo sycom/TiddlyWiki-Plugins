@@ -1,0 +1,9 @@
+created: 20170201105200000
+modified: 20190419101842627
+tags: plugins feed rss atom
+title: Atom-feed plugin
+type: text/vnd.tiddlywiki
+
+<<i18n intro $:/atom-feed>>
+
+<$list filter="[[$:/plugins/sycom/atom-feed]]" emptyMessage=<<lingo "Empty/Hint">> template="$:/core/ui/Components/plugin-info"/>
