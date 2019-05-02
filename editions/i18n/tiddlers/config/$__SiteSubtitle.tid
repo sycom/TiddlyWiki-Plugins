@@ -1,6 +1,6 @@
 created: 20190331154402700
-modified: 20190415210224028
+modified: 20190501172229476
 title: $:/SiteSubtitle
 type: text/vnd.tiddlywiki
 
-<<i18n SiteSubtitle '' '' true>>
+<<i18n SiteSubtitle '$:/i18n' 'dico'>>
