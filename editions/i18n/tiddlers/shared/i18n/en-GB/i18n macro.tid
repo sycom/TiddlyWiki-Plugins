@@ -1,5 +1,5 @@
 created: 20190402212356600
-modified: 20190501174219038
+modified: 20190502062947787
 tags: 
 title: $:/ext/modules/macros/i18n/i18n/en-GB/i18n macro
 type: text/vnd.tiddlywiki
@@ -25,8 +25,8 @@ will call
 # if missing, the original language tiddler : [[$:/ext/modules/macros/i18n/i18n/fr-FR/i18n macro]]
 # if missing an alert telling that original tiddler doesn't exist
 
-When using `dico` version, the process is almost the same, but the macro will search ##`title` entry in a $:/ext/modules/macros/i18n/i18n/lg-LG dictionnary tiddler (or ''fr-FR'') if not set. It's more convenient for short phrase or word only translation. For now if entry doesn't exist, you will have blank text...
+When using `dico` version, the process is almost the same, but the macro will search ##`title` entry in a $:/ext/modules/macros/i18n/i18n/lg-LG dictionnary tiddler (or ''fr-FR'' base language if not set). It's more convenient for short phrases or words only translation. For now if entry doesn't exist, you will have blank text...
 
 For tiddlers using `<<i18n>>` links will appear on translated parts hover in order to make edition easier. For case //.2// two links will apper : one for adding missing translation, the other for original language edition.
 
-See current [[i18n macro]], [[un tiddler sans traduction en-GB]] and [[a tiddler without original version]] as live examples. $:/SiteTitle and $:/SiteSubtitle are using the //dico// version, have a look to  $:/ControlPanel 
+See current [[i18n macro]], [[un tiddler sans traduction en-GB]] and [[a tiddler without original version]] as live examples. $:/SiteTitle and $:/SiteSubtitle are using the //dico// version, have a look to  $:/ControlPanel to get more.

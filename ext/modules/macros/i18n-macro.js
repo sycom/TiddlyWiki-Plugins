@@ -56,11 +56,6 @@ exports.run = function(title,domain,dico,orig_lang,inline) {
     if(dico === "dico") translation = this.wiki.getTiddler(dom+"/i18n/"+lang);
       else translation = this.wiki.getTiddler(dom+"/i18n/"+lang+"/"+title);
     var option = {};
-    console.log(tid); console.log(translation);
-    //create a style for displaying edit button
-    /* var domNode = this.document.createElement("style");
-    domNode.text = "div .i18n-edit {display:none} div:hover .i18n-edit {float:right;display:block}"
-    parent.insertBefore(domNode, null);*/
     if(inline === true) option.parseAsInline = true;
   // checks if there is a translation for the tiddlers
   if(!translation) {
