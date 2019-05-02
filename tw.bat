@@ -4,7 +4,7 @@ goto :init
 
 :header
     echo %__NAME% v%__VERSION%
-    echo This batch file make TW launching command lines shorter,
+    echo This batch file makes TW launching command lines shorter,
     echo Just say if you want to use node (default -n) or local version (-l)
     echo and tells edition (default "collection") and mode (default "server")
     echo.
