@@ -3,13 +3,13 @@ modified: 20190502062832626
 title: $:/ext/modules/macros/i18n/i18n/fr-FR/i18n macro
 type: text/vnd.tiddlywiki
 
-La macro [[i18n|$:/ext/modules/macros/i18n-macro.js]] a pour vocation de faciliter la traduction de parties de TiddlyWiki indépendamment du mécanisme déjà intégré $:/languages + `<<lingo>>`. Cela peut permettre la traduction d'extensions ou de tiddlers assez facilement
+La macro [[i18n|$:/ext/modules/macros/i18n-macro.js]] a pour vocation de faciliter la traduction de parties de [[TiddlyWiki|https://tiddlywiki.com/languages/fr-FR/static/TiddlyWiki.html]] indépendamment du mécanisme déjà intégré $:/languages + `<<lingo>>`. Cela peut permettre la traduction d'extensions ou de tiddlers assez facilement
 
 Les paramètres de `<<i18n>>` sont
 
 * `title` : le titre du tiddler (par défaut le titre du tiddler courant)
 * `domain` : le //domaine// du tiddler (par défaut `$:`)
-* `dico` : si défini à la valeur `dico` recherchera une entrée //title// dans le [[tiddler dictionnaire| DictionaryTiddlers]] `domain`/i18n/`lg-LG` 
+* `dico` : si défini à la valeur `dico` recherchera une entrée //title// dans le [[tiddler dictionnaire| https://tiddlywiki.com/languages/fr-FR/static/DictionaryTiddlers.html]] `domain`/i18n/`lg-LG`
 * `orig_lang` : la langue originale du tiddler (par défaut `en-GB`)
 * `inline` : si `true` force le rendu //inline// (par défault `false`). Pour les textes courts principalement.
 

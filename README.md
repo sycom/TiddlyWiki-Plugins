@@ -17,12 +17,16 @@ A tool for having stats of wikis visitors. Forked from the [official one][tw-ga-
 ## [Atom feed plugin](./plugins/sycom/atom-feed) - 0.0
 A very early release of a plugin that creates an atom feed for your wiki. Will possibly help people to follow your news. And maybe will help for SEO?
 
+## [Some macros and widget](./ext/modules)
+* **i18n macro** enables multinlingual capabilities without hacking existing `<<lingo>>` mechanism
+* **geolocation widget** is part of Leaflet plugin but may also bring geolocation capabilities to your wiki
+
 ## Sources / licenses
 * [TiddlyWiki][tiddlywiki] uses a BSD 3-Clause [License][tw-license]
 * All my projects for TiddlyWiki have [a similar one](LICENSE.md). Please refer to each plugin directory for more informations about sources.
 
 ## parcours for my plugins
-* **[framagit][repo]**
+* **[framagit][repo]** ([issues][issues])
     * [gitlab][gitlab]
         * *gh-pages* > [gitlab.io page][gl-pages]
         * [github][github]

@@ -6,17 +6,5 @@
 			"type": "application/javascript",
 			"module-type": "macro"
 		},
-		"isTiddlerFile": true},
-		{
-		"file": "../../../../../../TiddlyWiki5/editions/tw5.com/tiddlers/concepts/TiddlyWiki.tid",
-		"fields": {
-			"title": "$:/ext/modules/macros/i18n/i18n/en-GB/TiddlyWiki"
-			},
-		"isTiddlerFile": true},
-		{
-		"file": "../../../../../../TiddlyWiki5/editions/fr-FR/tiddlers/TiddlyWiki.tid",
-		"fields": {
-			"title": "$:/ext/modules/macros/i18n/i18n/fr-FR/TiddlyWiki"
-			},
 		"isTiddlerFile": true}]
 }

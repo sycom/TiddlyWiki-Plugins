@@ -1,16 +1,16 @@
 created: 20190402212356600
 modified: 20190502062947787
-tags: 
+tags:
 title: $:/ext/modules/macros/i18n/i18n/en-GB/i18n macro
 type: text/vnd.tiddlywiki
 
-the [[i18n|$:/ext/modules/macros/i18n-macro.js]] macro aims to make it easier to translate some parts of TiddlyWiki beside $:/languages + `<<lingo>>` mechanism. It might be useful translate extensions or tiddlers.
+the [[i18n|$:/ext/modules/macros/i18n-macro.js]] macro aims to make it easier to translate some parts of your [[TiddlyWiki|https://tiddlywiki.com/static/TiddlyWiki.html]] beside $:/languages + `<<lingo>>` mechanism. It might be useful to translate extensions or tiddlers.
 
  `<<i18n>>`  parameters are
 
 * `title` : the tiddler title (default current tiddler title)
 * `domain` : the tiddler //domain// of the tiddler (default `$:`)
-* `dico` : if set to `dico` will search //title// entry in the `domain`/i18n/`lg-LG` [[dictionnary tiddler| DictionaryTiddlers]]
+* `dico` : if set to `dico` will search //title// entry in the `domain`/i18n/`lg-LG` [[dictionary tiddler|https://tiddlywiki.com/static/DictionaryTiddlers.html]]
 * `orig_lang` : the original language of the tiddler (default `en-GB`)
 * `inline` : set to `true` force //inline// rendering (défault `false`). For short text mainly.
 
@@ -25,7 +25,7 @@ will call
 # if missing, the original language tiddler : [[$:/ext/modules/macros/i18n/i18n/fr-FR/i18n macro]]
 # if missing an alert telling that original tiddler doesn't exist
 
-When using `dico` version, the process is almost the same, but the macro will search ##`title` entry in a $:/ext/modules/macros/i18n/i18n/lg-LG dictionnary tiddler (or ''fr-FR'' base language if not set). It's more convenient for short phrases or words only translation. For now if entry doesn't exist, you will have blank text...
+When using `dico` version, the process is almost the same, but the macro will search ##`title` entry in a $:/ext/modules/macros/i18n/i18n/lg-LG dictionary tiddler (or ''fr-FR'' base language if not set). It's more convenient for short phrases or words only translation. For now if entry doesn't exist, you will have blank text...
 
 For tiddlers using `<<i18n>>` links will appear on translated parts hover in order to make edition easier. For case //.2// two links will apper : one for adding missing translation, the other for original language edition.
 
