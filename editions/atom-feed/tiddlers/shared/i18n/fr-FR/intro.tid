@@ -1,5 +1,5 @@
 created: 20190419120615400
-modified: 20190419121034274
+modified: 20190503154309739
 title: $:/atom-feed/i18n/fr-FR/intro
 type: text/vnd.tiddlywiki
 
@@ -7,7 +7,7 @@ Le [[plugin Atom-feed|$:/plugins/sycom/atom-feed]] permet de construire (lors du
 
 Consulter l'onglet //usage// du plugin pour les réglages (site internet et nombre d'item à lister dans le flux).
 
-!! Pourquoi un autre plugin de ce type
+!! Pourquoi un autre plugin de ce type?
 
 Je n'ai pas réussi à comprendre le fonction du plugin de Dullroar (https://github.com/dullroar/TW5-atomfeed/) qui est assez complexe (et permet sans doute une configuration plus fine). J'ai donc esssayé de construire une version beaucoup plus "légère" en partant des besoins primordiaux :
 
