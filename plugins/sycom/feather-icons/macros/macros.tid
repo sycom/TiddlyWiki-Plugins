@@ -1,0 +1,13 @@
+tags: $:/tags/Macro
+title: $:/plugins/sycom/feather-icons/macros.tid
+
+\define f-i(icon class)
+<svg class="feather $class$" viewBox="0 0 24 24"><use href="#$icon$" /></svg>
+\end
+\define f-i-stack(icon1 icon2 class scale:'1' move:'0 0')
+<svg class="feather $class$" viewBox="0 0 24 24"><use href="#$icon1$" /><use class="stack" href="#$icon2$" transform="scale($scale$) translate($move$)" /></svg>
+\end
+
+<<i18n macrosIntro $:/plugins/sycom/feather-icons>>
+
+{{$:/plugins/sycom/feather-icons/usage}}

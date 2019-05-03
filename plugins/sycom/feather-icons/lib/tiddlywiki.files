@@ -11,6 +11,15 @@
 			}
 		},
 		{
+			"file": "feather-ext.svg",
+			"fields": {
+				"title": "$:/plugins/sycom/feather-icons/lib/feather-ext.svg",
+				"module-type": "library",
+				"tags": "$:/tags/RawMarkup",
+				"version": "4.21.0"
+			}
+		},
+		{
 			"file": "../../../../ext/modules/macros/i18n-macro.js",
 			"fields": {
 				"title": "$:/ext/modules/macros/i18n-macro.js",

@@ -1,12 +1,12 @@
 created: 20190415140527471
-modified: 20190418085209795
+modified: 20190503102218333
 title: $:/feather-icons/i18n/fr-FR/IntroText
 type: text/vnd.tiddlywiki
 
 Le [[plugin Feather icons|$:/plugins/sycom/feather-icons]] fournit une solution légère et élégante pour afficher des icônes dans votre TiddlyWiki.
 
 <ul class="feather">
-  <li><<f-i plus>> 275 icônes pour l'instant</li>
+  <li><<f-i plus>> 279 + 2 icônes pour l'instant</li>
   <li><<f-i package>> prêt à l'emploi avec les [[macros|$:/plugins/sycom/feather-icons/macros.tid]] incluses</li>
   <li><<f-i git-branch>> facile à bricoler</li>
   <li><<f-i more-vertical>> inventez vos [[propres usages|More examples]]...</li>

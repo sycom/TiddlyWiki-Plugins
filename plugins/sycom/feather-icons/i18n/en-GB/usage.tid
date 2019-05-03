@@ -1,5 +1,3 @@
-created: 20190328141500000
-modified: 20190328141500000
 title: $:/plugins/sycom/feather-icons/i18n/en-GB/usage
 
 Once plugin is installed, you can call any icon of the library using its name. See //Icons// for the full list. Some classes are ready to go :
@@ -28,6 +26,6 @@ they may also be displayed <<f-i box 'x3 block'>> on its own line
 
 !!!!  `<<f-i-stack>>` (//icon1// //icon2// //class// //scale(1)// //move("0 0")//)
 ```
-<<f-i-stack search more-horizontal x3 .5 '18 18'>>
+<<f-i-stack search more-horizontal x3 .6 '6 7'>>
 ```
-And you can stack them! <<f-i-stack search more-horizontal x3 .5 '18 18'>>
+And you can stack them! <<f-i-stack search more-horizontal x3 .6 '6 7'>>

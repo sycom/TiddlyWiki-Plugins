@@ -24,14 +24,14 @@ exports.params = [
 Run the macro
 */
 exports.run = function(filter) {
-	var self = this,
-		allIcons = document.getElementById("feather-icons").firstChild.childNodes,
+	var allIcons = document.querySelectorAll('#feather-icons > defs symbol, #feather-icons-ext > defs symbol'),
 		html = "<div class='presentation'>",
 		regFilter = new RegExp("(" + filter + ")","g"),
 		iCount = 0;
 	for (var i in allIcons) {
 		if (allIcons[i].id !== undefined && allIcons[i].id.match(regFilter)) {
-			html +="<div class='block'><div><svg class='feather x2'><use href='#" + allIcons[i].id + "'/></svg><span class='name'>" + allIcons[i].id +"</span></div></div>";
+			let cls = allIcons[i].parentNode.parentNode.id;
+			html +="<div class='" + cls + " block'><div><svg class='feather x2'><use href='#" + allIcons[i].id + "'/></svg><span class='name'>" + allIcons[i].id +"</span></div></div>";
 			iCount++;
 		}
 	}

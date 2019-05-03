@@ -1,5 +1,3 @@
-created: 20190328141500000
-modified: 20190328141500000
 title: $:/plugins/sycom/feather-icons/i18n/fr-FR/usage
 
 Une fois le plugin installé, vous pouvez utiliser n'importe quel icone de la bibliothèque. Voir //Icons// pour la liste complète. Certaines classes sont prêtes à l'emploi :
@@ -28,6 +26,6 @@ Ils peuvent aussi s'afficher <<f-i box 'x3 block'>> sur leur propre ligne
 
 !!!!  `<<f-i-stack>>` (//icon1// //icon2// //class// //scale(1)// //move("0 0")//)
 ```
-<<f-i-stack search more-horizontal x3 .5 '18 18'>>
+<<f-i-stack search more-horizontal x3 .6 '6 7'>>
 ```
-Et il est aussi possible de les empiler! <<f-i-stack search more-horizontal x3 .5 '18 18'>>
+Et il est aussi possible de les empiler! <<f-i-stack search more-horizontal x3 .6 '6 7'>>

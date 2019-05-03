@@ -1,13 +1,11 @@
-created: 20190328141500000
-modified: 20190331000000000
 title: $:/plugins/sycom/feather-icons/icons
 type: text/vnd.tiddlywiki
 caption: Icons
 
-<<i18n featherIconsListIntro $:/plugins/sycom/feather-icons>>
+<<i18n list_intro $:/plugins/sycom/feather-icons dico>>
 
 <div style="text-align:center">
-<$edit-text tag="input" tiddler="$:/temp/searchFeatherIcons" placeholder="search your icon" />
+<$edit-text tag="input" tiddler="$:/temp/searchFeatherIcons" placeholder="find yours" />
 </div>
 
 <$macrocall $name=list-feather-icons filter={{$:/temp/searchFeatherIcons}}>>
