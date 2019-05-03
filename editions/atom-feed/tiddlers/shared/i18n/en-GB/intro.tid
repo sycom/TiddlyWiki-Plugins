@@ -1,5 +1,5 @@
 created: 20190419101957600
-modified: 20190419121010512
+modified: 20190503154055337
 title: $:/atom-feed/i18n/en-GB/intro
 type: text/vnd.tiddlywiki
 
@@ -7,7 +7,7 @@ type: text/vnd.tiddlywiki
 
 Go to plugin's //usage// tab for settings (website and number of items in the feed).
 
-!! Why another plugin doing this
+!! Why another plugin doing this?
 
 I did not manage to really understand the pretty complex (and probably much more configurable) Dullroars plugin (https://github.com/dullroar/TW5-atomfeed/). So I did work on a much more lighter version based on mandatory needs :
 

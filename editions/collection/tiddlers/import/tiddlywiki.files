@@ -1,17 +1,9 @@
 {
 	"directories": [
+		"../../../atom-feed/tiddlers/shared",
+		"../../../feather-icons/tiddlers/shared",
+		"../../../g-analytics/tiddlers/shared",
 		"../../../i18n/tiddlers/shared",
-		"../../../plugins-feather-icons/tiddlers/shared",
-		"../../../plugins-g-analytics/tiddlers/shared",
-		"../../../plugins-leaflet/tiddlers/shared"
-	],
-	"tiddlers": [{
-		"file": "../../../../ext/modules/macros/i18n-macro.js",
-		"fields": {
-			"title": "$:/ext/modules/macros/i18n-macro.js",
-			"type": "application/javascript",
-			"module-type": "macro"
-		},
-		"isTiddlerFile": true
-	}]
+		"../../../leaflet/tiddlers/shared"
+	]
 }

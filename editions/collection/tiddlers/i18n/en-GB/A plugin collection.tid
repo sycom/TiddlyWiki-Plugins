@@ -1,5 +1,5 @@
 created: 20190418102208421
-modified: 20190418121316602
+modified: 20190503154145674
 title: $:/collection/i18n/en-GB/A plugin collection
 type: text/vnd.tiddlywiki
 
@@ -21,7 +21,7 @@ the <$link to="$:/plugins/sycom/g-analytics"> <<f-i download>> Google analytics 
 !! <<f-i feather>> [[Feather icons plugin]] ({{$:/plugins/sycom/feather-icons!!version}})
 the <$link to="$:/plugins/sycom/feather-icons"><<f-i download>> Feather icons plugin</$link> offers an icon library alternative to the Font Awesome one. It's pretty lightweight and elegant.
 
-!! <<f-i rss>> Atom feed plugin ({{$:/plugins/sycom/atom-feed!!version}})
+!! <<f-i rss>> [[Atom feed plugin]] ({{$:/plugins/sycom/atom-feed!!version}})
 the <$link to="$:/plugins/sycom/atom-feed"><<f-i download>> Atom feed plugin</$link> will create an <a rel="alternate" href="atom.xml" target="_blank">atom.xml</a> file alongside your wiki. Helpful for people who whish follow your work.
 
 !! <<f-i globe>> [[i18n macro]] ({{$:/ext/modules/macros/i18n-macro.js!!version}})

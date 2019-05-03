@@ -1,7 +1,7 @@
 created: 20170201105200000
-modified: 20190419101842627
+modified: 20190503154200336
 tags: plugins feed rss atom
-title: Atom-feed plugin
+title: Atom feed plugin
 type: text/vnd.tiddlywiki
 
 <<i18n intro $:/atom-feed>>
