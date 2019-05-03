@@ -1,0 +1,6 @@
+.DS_Store
+.c9/
+tmp/
+output/
+node_modules/
+\$__StoryList.tid
