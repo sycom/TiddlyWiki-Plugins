@@ -3,4 +3,4 @@
 tmp/
 output/
 node_modules/
-$_StoryList.tid
+\$__StoryList.tid

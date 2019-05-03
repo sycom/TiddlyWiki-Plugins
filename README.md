@@ -3,7 +3,7 @@
 # TiddlyWiki Plugins
 is a playing space for [TiddlyWiki][tiddlywiki] plugins. Try the demos on [gitlab.io pages][gl-pages] and [github.io pages][demo]. Drag drop the last release from those to your TiddlyWiki to enhance it. You may also find some unreleased work here around : not all experiments are a success.
 
-## [Feather icons](./plugins/sycom/feather-icons) - 0.1
+## [Feather icons](./plugins/sycom/feather-icons) - 0.2
 The feather icons plugin aims to integrate feather icons library in TiddlyWiki. Feather is a very open alternative to classic Font Awesome library, using svg sprites instead of classical font implementation. Pretty lightweight and elegant.
 
 ## [Leaflet plugin](./plugins/sycom/leaflet) - 0.8
@@ -17,12 +17,16 @@ A tool for having stats of wikis visitors. Forked from the [official one][tw-ga-
 ## [Atom feed plugin](./plugins/sycom/atom-feed) - 0.0
 A very early release of a plugin that creates an atom feed for your wiki. Will possibly help people to follow your news. And maybe will help for SEO?
 
+## [Some macros and widget](./ext/modules)
+* **i18n macro** enables multinlingual capabilities without hacking existing `<<lingo>>` mechanism
+* **geolocation widget** is part of Leaflet plugin but may also bring geolocation capabilities to your wiki
+
 ## Sources / licenses
 * [TiddlyWiki][tiddlywiki] uses a BSD 3-Clause [License][tw-license]
 * All my projects for TiddlyWiki have [a similar one](LICENSE.md). Please refer to each plugin directory for more informations about sources.
 
 ## parcours for my plugins
-* **[framagit][repo]**
+* **[framagit][repo]** ([issues][issues])
     * [gitlab][gitlab]
         * *gh-pages* > [gitlab.io page][gl-pages]
         * [github][github]

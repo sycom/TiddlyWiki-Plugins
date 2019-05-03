@@ -1,0 +1,9 @@
+title: $:/plugins/sycom/feather-icons/i18n/en-GB/macrosIntro
+
+List of pre-defined macros for the feather icons plugin
+
+* `<<f-i>> (icon class)` will display the `icon` with the `class`. If class are multiple, put them into single or double quotes `'` , `"`
+* `<<f-i-stack>> (icon1 icon2 class adjust)` will  //stack// icon2 above icon1. You may adjust position with adjust (translate coordinates)
+* `<<list-feather-icons>> (filter)` will display a list of icons corresponding to the `filter` string (not a tiddler filter)
+
+!! examples
