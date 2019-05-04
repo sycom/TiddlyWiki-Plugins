@@ -18,9 +18,11 @@ testing:
     - npm install -g tiddlywiki
     - cp -R * /usr/local/lib/node_modules/tiddlywiki/
     - tiddlywiki ./editions/collection --build
+    - mkdir -p public/dev
     - mv ./editions/collection/output public/dev
     - cp -R ./files/* public/dev
     - tiddlywiki ./editions/atom-feed --build
+    - mkdir -p public/atom-feed
     - mv ./editions/atom-feed/output public/atom-feed
   artifacts:
     paths:
