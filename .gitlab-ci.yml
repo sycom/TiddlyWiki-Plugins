@@ -13,7 +13,7 @@ pages:
   only:
   - release
 
-testing:
+pages:
   script:
     - npm install -g tiddlywiki
     - cp -R * /usr/local/lib/node_modules/tiddlywiki/
