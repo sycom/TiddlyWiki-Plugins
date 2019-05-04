@@ -15,17 +15,16 @@ pages:
 
 pages:
   script:
-    - mkdir .public
-    - cp -R  public/* .public
+    - wget "https://sycom.gitlab.io/"
     - npm install -g tiddlywiki
     - cp -R * /usr/local/lib/node_modules/tiddlywiki/
     - tiddlywiki ./editions/collection --build
-    - mkdir -p .public/dev
-    - mv ./editions/collection/output .public/dev
-    - cp -R ./files/* .public/dev
+    - mkdir -p public/dev
+    - mv ./editions/collection/output public/dev
+    - cp -R ./files/* public/dev
     - tiddlywiki ./editions/atom-feed --build
-    - mkdir -p .public/atom-feed
-    - mv ./editions/atom-feed/output .public/atom-feed
+    - mkdir -p public/atom-feed
+    - mv ./editions/atom-feed/output public/atom-feed
     - cp -R .public/* public
   artifacts:
     paths:
