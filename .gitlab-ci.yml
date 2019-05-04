@@ -15,7 +15,9 @@ pages:
 
 pages:
   script:
-    - wget -r --no-parent "https://sycom.gitlab.io/TiddlyWiki-Plugins"
+    - mkdri public
+    - cd public
+    - wget -r --no-parent -q "https://sycom.gitlab.io/TiddlyWiki-Plugins"
     - npm install -g tiddlywiki
     - cp -R * /usr/local/lib/node_modules/tiddlywiki/
     - tiddlywiki ./editions/collection --build
