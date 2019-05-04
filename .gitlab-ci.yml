@@ -15,7 +15,7 @@ pages:
 
 pages:
   script:
-    - wget "https://sycom.gitlab.io/"
+    - wget -r "https://sycom.gitlab.io/"
     - npm install -g tiddlywiki
     - cp -R * /usr/local/lib/node_modules/tiddlywiki/
     - tiddlywiki ./editions/collection --build
