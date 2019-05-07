@@ -1,9 +1,14 @@
 created: 20190402210933800
-modified: 20190502062832626
+modified: 20190507102012887
 title: $:/ext/modules/macros/i18n/i18n/fr-FR/i18n macro
 type: text/vnd.tiddlywiki
 
 La macro [[i18n|$:/ext/modules/macros/i18n-macro.js]] a pour vocation de faciliter la traduction de parties de [[TiddlyWiki|https://tiddlywiki.com/languages/fr-FR/static/TiddlyWiki.html]] indépendamment du mécanisme déjà intégré $:/languages + `<<lingo>>`. Cela peut permettre la traduction d'extensions ou de tiddlers assez facilement
+
+La macro est déjà incluse dans les plugins suivant, donc si vous utilisez l'un d'entre eux vous n'avez pas besoin de l'installer par ailleurs :
+<ul><$list filter="[prefix[$:/plugins/]search[$:/ext/modules/macros/i18n-macro.js]]" >
+<li><<currentTiddler>></li>
+</$list></ul>
 
 Les paramètres de `<<i18n>>` sont
 
