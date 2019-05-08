@@ -17,17 +17,21 @@ Information about this macro
 exports.name = "list-feather-icons";
 
 exports.params = [
-	{name: "filter"}
+	{name: "string"}
 ];
 
 /*
 Run the macro
 */
-exports.run = function(filter) {
+exports.run = function(string) {
 	var allIcons = document.querySelectorAll('#feather-icons > defs symbol, #feather-icons-ext > defs symbol'),
 		html = "<div class='presentation'>",
-		regFilter = new RegExp("(" + filter + ")","g"),
+		str = string.toLowerCase(),
+		regFilter = new RegExp("(" + string.toLowerCase() + ")","g"),
 		iCount = 0;
+console.log(string);
+console.log(str);
+console.log(regFilter);
 	for (var i in allIcons) {
 		if (allIcons[i].id !== undefined && allIcons[i].id.match(regFilter)) {
 			let cls = allIcons[i].parentNode.parentNode.id;

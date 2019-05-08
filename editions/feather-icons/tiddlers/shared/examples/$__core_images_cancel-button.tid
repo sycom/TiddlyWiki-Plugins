@@ -1,0 +1,7 @@
+created: 20190508095228400
+modified: 20190508102646293
+tags: example $:/tags/Image
+title: $:/core/images/cancel-button
+type: text/vnd.tiddlywiki
+
+<<f-i x-circle 'tc-cancel-button tc-image-button'>>

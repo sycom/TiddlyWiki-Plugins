@@ -1,0 +1,7 @@
+created: 20190508095514400
+modified: 20190508102741600
+tags: example $:/tags/Image
+title: $:/core/images/done-button
+type: text/vnd.tiddlywiki
+
+<<f-i check 'tc-image-done-button tc-image-button'>>
