@@ -3,6 +3,8 @@ type: text/vnd.tiddlywiki
 
 Some notes about coding this plugin. Might be useful to others...
 
+* 20190508
+** On mobile, search field will always begin with UpperCase, so had to `toLowerCase` the string query.
 * 20190503
 ** Added library extension capabilities and two icons : pentagon and motovun-jack to try it. Dealed with the NodeList concept to enable multiple list crossing. (almost) finished translation.
 * 20190417

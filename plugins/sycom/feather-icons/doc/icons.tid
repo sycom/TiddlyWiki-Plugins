@@ -8,4 +8,4 @@ caption: Icons
 <$edit-text tag="input" tiddler="$:/temp/searchFeatherIcons" placeholder="find yours" />
 </div>
 
-<$macrocall $name=list-feather-icons filter={{$:/temp/searchFeatherIcons}}>>
+<$macrocall $name=list-feather-icons string={{$:/temp/searchFeatherIcons}}>>

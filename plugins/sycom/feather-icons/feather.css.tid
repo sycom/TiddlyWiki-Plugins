@@ -96,11 +96,13 @@ ul.feather li svg {
 
 /* style corrections for TW usage (icon substitution) */
 .tc-btn-invisible svg.feather,
+.tc-tiddler-controls svg.feather,
 body.tc-dirty span.tc-dirty-indicator svg.feather {
   fill:none;
 }
 
-.tc-btn-invisible:hover svg.feather {
+.tc-btn-invisible:hover svg.feather,
+.tc-tiddler-controls svg.feather {
   fill:none;
   stroke: <<colour sidebar-controls-foreground-hover>>;
   stroke-width: 2;

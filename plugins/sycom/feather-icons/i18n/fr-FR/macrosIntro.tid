@@ -3,7 +3,7 @@ title: $:/plugins/sycom/feather-icons/i18n/fr-FR/macrosIntro
 Liste des macros prédéfinies pour le plugin feather icons
 
 * `<<f-i>> (icon class)` affichera l'icône `icon` avec la classe `class`. Si vous voulez utiliser des classes multiples, mettez-les à l'intérieur de guillemets simples ou doubles `'` , `"`
-* `<<f-i-stack>> (icon1 icon2 class scale translate)` //empilera// l'icon2 sur l'icon1. Vous pouvez ajuster l'échelle (scale entre O et 1) et la position (translate 'x y')
-* `<<list-feather-icons>> (filter)` affichera une liste d'icônes correspondant au filtre texte `filter` (il ne s'agit pas d'un filtre de tiddlers)
+* `<<f-i-stack>> (icon1 icon2 class scale translate)` //empilera// l'icon2 sur l'icon1. Vous pouvez ajuster l'échelle (scale entre O et 1) et la position de icon2 (translate 'x y')
+* `<<list-feather-icons>> (string)` affichera une liste d'icônes correspondant à la chaine de caractères `string`
 
 !! exemples
