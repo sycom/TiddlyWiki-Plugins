@@ -11,7 +11,7 @@ The leaflet plugin is an attempt to integrate the leaflet js library in TiddlyWi
 
 For now you can display an interactive map, select size, location and zoom, marker and background. You can also display simple geographical data, stored as json or even stored in metadata fields from tiddler(s) : point(s), polygon(s) and/or polyline(s). Points are clustered when needed (but you can disable clustering) and you have some ways to choose colors.
 
-## [G-Analytics plugin](./plugins/sycom/g-analytics) - 1.0
+## [G-Analytics plugin](./plugins/sycom/g-analytics) - 1.2
 A tool for having stats of wikis visitors. Forked from the [official one][tw-ga-official] you can find in TiddlyWiki's plugin library. It implements Do Not Track and enables individual tiddlers tracking
 
 ## [Atom feed plugin](./plugins/sycom/atom-feed) - 0.0
@@ -27,16 +27,19 @@ A very early release of a plugin that creates an atom feed for your wiki. Will p
 
 ## parcours for my plugins
 * **[framagit][repo]** ([issues][issues])
+    * *release* > [frama.io page][fm-pages]
     * [gitlab][gitlab]
-        * *gh-pages* > [gitlab.io page][gl-pages]
+        * *release* > **[gitlab.io page][gl-pages]**
         * [github][github]
-            * *gh-pages* > **[github.io page][demo]**
+            * *gh-pages* > [github.io page][gh-pages]
 
 [repo]: https://framagit.org/sycom/TiddlyWiki-Plugins
 [issues]: https://framagit.org/sycom/TiddlyWiki-Plugins/issues
+[fm-pages]: http://sycom.frama.io/TiddlyWiki-Plugins
 [gitlab]: https://gitlab.com/sycom/TiddlyWiki-Plugins
-[gl-pages]: http://sycom.gitlab.io/TiddlyWiki-Plugins/#Leaflet%20plugin
+[gl-pages]: http://sycom.gitlab.io/TiddlyWiki-Plugins
 [github]: https://github.com/sycom/TiddlyWiki-Plugins
+[gh-pages]: http://sycom.github.io/TiddlyWiki-Plugins
 [tw-ga-official]: https://github.com/sycom/TiddlyWiki5/plugins/tiddlywiki/googleanalytics
 [tw-license]: https://github.com/Jermolene/TiddlyWiki5/blob/master/license
 
