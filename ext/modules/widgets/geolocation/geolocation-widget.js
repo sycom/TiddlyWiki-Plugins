@@ -6,22 +6,20 @@ module-type: widget
 Geolocation widget
 
 \*/
-(function () {
+(function() {
     /*jslint node: true, browser: true */
     /*global $tw: false */
     "use strict";
     var Widget = require("$:/core/modules/widgets/widget.js").widget;
-    var GeolocationWidget = function (parseTreeNode, options) {
+    var GeolocationWidget = function(parseTreeNode, options) {
         this.initialise(parseTreeNode, options);
     };
-
-
 
     /* Inherit from the base widget class */
     GeolocationWidget.prototype = new Widget();
 
     /* Compute the internal state of the widget  */
-    GeolocationWidget.prototype.execute = function () {
+    GeolocationWidget.prototype.execute = function() {
         // Get attributes
         this.target = this.getAttribute("target") || this.getVariable("currentTiddler");
         this.icon = this.getAttribute("icon") || "$:/core/images/globe";
@@ -33,7 +31,7 @@ Geolocation widget
     };
 
     /* Render this widget into the DOM */
-    GeolocationWidget.prototype.render = function (parent, nextSibling) {
+    GeolocationWidget.prototype.render = function(parent, nextSibling) {
         var self = this;
         // Remember parent
         this.parentDomNode = parent;
@@ -47,18 +45,17 @@ Geolocation widget
         }
         var domNode = this.document.createElement(tag);
         // Add a click event handler
-        domNode.addEventListener("click", function (event) {
+        domNode.addEventListener("click", function(event) {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     // success callback
-                    function (position) {
+                    function(position) {
                         /* to replace by field populating (point(s) polyline(s) or polygon(s)) */
                         /* default : if tiddler has point field, will create a points field to store new data;
         if tiddler has points field, will add a new point to the tiddler field;	*/
                         var target = self.target;
                         var accuracy = self.accuracy;
                         var type = self.type;
-                        console.log("Lat: " + position.coords.latitude + " - Long: " + position.coords.longitude);
                         var newPoint = position.coords.latitude + "," + position.coords.longitude;
                         /* check if tiddler has a geofield */
                         var track = "";
@@ -82,7 +79,7 @@ Geolocation widget
                         }
                     },
                     // error callback
-                    function (error) {
+                    function(error) {
                         noLocation(error.message + ". You may not are connected via httpS://")
                     }
                 );
@@ -124,7 +121,7 @@ Geolocation widget
     /*
     We don't allow actions to propagate because we trigger actions ourselves
     */
-    GeolocationWidget.prototype.allowActionPropagation = function () {
+    GeolocationWidget.prototype.allowActionPropagation = function() {
         return false;
     };
 
