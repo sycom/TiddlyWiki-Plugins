@@ -1,0 +1,6 @@
+created: 20190612134706600
+modified: 20190612134813327
+title: $:/SiteSubtitle
+type: text/vnd.tiddlywiki
+
+<<i18n SiteSubtitle $:/TiddlyStatic>>
