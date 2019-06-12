@@ -1,0 +1,16 @@
+title: $:/plugins/sycom/tiddlystatic/i18n/fr-FR/usage
+type: text/vnd.tiddlywiki
+caption: Usage
+
+Une fois le plugin installé, indiquez l'adresse de publication de votre site et le nombre des derniers tiddlers à faire apparaitre dans le flux ici
+
+* url du site web <$edit-text tiddler="$:/plugins/sycom/tiddlystatic/publicationWebsite" field="caption" tag="input"/>
+
+* nombre de tiddlers <$edit-text tiddler="$:/plugins/sycom/tiddlystatic/entrylist" field="caption" tag="input"/>
+
+Ensuite ajoutez cette ligne à votre commande `build` (dans le fichier tiddlywiki.info)
+
+```
+"feed": [
+  "--rendertiddler","$:/plugins/sycom/tiddlystatic/atom.xml","atom.xml","text/plain"]
+```
