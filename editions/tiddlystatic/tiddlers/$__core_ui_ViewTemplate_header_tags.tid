@@ -1,8 +1,0 @@
-created: 20190612125106700
-modified: 20190612125112870
-title: $:/core/ui/ViewTemplate/header/tags
-type: text/vnd.tiddlywiki
-
-<$reveal type="nomatch" stateTitle=<<folded-state>> text="hide" tag="div" retain="yes" animate="yes">
-<div class="tc-tags-wrapper"><$list filter="[all[current]tags[]sort[title]]" template="$:/core/ui/TagTemplate" storyview="pop"/></div>
-</$reveal>

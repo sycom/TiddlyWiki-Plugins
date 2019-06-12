@@ -1,0 +1,22 @@
+created: 20190612145701700
+creator: Sylvain
+modified: 20190612150902664
+modifier: Sylvain
+tags: $:/tags/Stylesheet
+title: $:/plugins/sycom/tiddlystatic/vanillaReset.css
+type: text/css
+
+blockquote {
+    border-left: none;
+    margin: none;
+    padding-left: none;
+    quotes: none;
+}
+
+body.tc-body {
+    font-size: inherit;
+    line-height: inherit;
+    word-wrap: break-word;
+    color: inherit;
+    fill: inherit;
+}

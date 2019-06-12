@@ -1,0 +1,18 @@
+created: 20190612135310100
+creator: Sylvain
+modified: 20190612145656671
+modifier: Sylvain
+title: $:/TiddlyStatic/i18n/en-GB/TiddlyStatic
+type: text/vnd.tiddlywiki
+
+The TiddlyStatic project aims at building a static website generator based upon TiddlyWiki and using node.js by enhancing already implemented capacities that delivers the static version of TiddlyWiki :
+
+* more //responsive// design, mobile first, semantic for static webpages
+** work on [[Symple]] framework in the same time
+** for more consistency between dynamic and static version there is a [[vanilla reset stylesheet|$:/plugins/sycom/tiddlystatic/vanillaReset.css]]
+* implementing a search engine (powered by lunr.js?)
+* better compliance between dynamic tiddlywiki and static wiki 
+* atom feed
+* indexes (by year/month, by tag)
+* ready to use `.gitlab-ci.yml` to help deploy
+* ...

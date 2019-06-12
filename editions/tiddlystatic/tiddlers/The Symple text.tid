@@ -1,0 +1,9 @@
+created: 20190612142439700
+creator: Sylvain
+modified: 20190612142850718
+modifier: Sylvain
+tags: Symple
+title: The Symple text
+type: text/vnd.tiddlywiki
+
+<<i18n SympleText $:/Symple>>
