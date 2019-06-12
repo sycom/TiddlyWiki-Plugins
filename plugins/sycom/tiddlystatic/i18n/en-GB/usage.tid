@@ -1,0 +1,16 @@
+title: $:/plugins/sycom/tiddlystatic/i18n/en-GB/usage
+type: text/vnd.tiddlywiki
+caption: Usage
+
+Once plugin is installed, set your website address and numbers of latest tiddlers to list here
+
+* website url <$edit-text tiddler="$:/plugins/sycom/tiddlystatic/publicationWebsite" field="caption" tag="input"/>
+
+* tiddlers number <$edit-text tiddler="$:/plugins/sycom/tiddlystatic/entrylist" field="caption" tag="input"/>
+
+Then add this line to your build command (in tiddlywiki.info file)
+
+```
+"feed": [
+  "--rendertiddler","$:/plugins/sycom/tiddlystatic/atom.xml","atom.xml","text/plain"]
+```

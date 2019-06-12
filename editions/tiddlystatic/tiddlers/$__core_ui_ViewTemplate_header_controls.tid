@@ -1,0 +1,15 @@
+created: 20190612125305700
+modified: 20190612125328538
+tags: 
+title: $:/core/ui/ViewTemplate/header/controls
+type: text/vnd.tiddlywiki
+
+<nav class="tc-tiddler-controls">
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]]" variable="listItem">
+    <$reveal type="nomatch" state=<<config-title>> text="hide">
+        <$set name="tv-config-toolbar-class" filter="[<tv-config-toolbar-class>] [<listItem>encodeuricomponent[]addprefix[tc-btn-]]">
+            <$transclude tiddler=<<listItem>>/>
+        </$set>
+    </$reveal>
+</$list>
+</nav>
