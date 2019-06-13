@@ -1,0 +1,415 @@
+created: 20190612141457400
+creator: Sylvain
+modified: 20190613121055560
+modifier: Sylvain
+tags: Symple
+title: $:/plugins/sycom/tiddlystatic/Symple/Stylesheet
+type: text/vnd.tiddlywiki
+
+\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline macrocallblock
+
+/* Symple stylesheet */
+
+/* Symple is a free @sycom project */
+
+/* V A R I A B L E S */
+
+:root {
+    --color-dominant: <<colour primary>>;
+    --color-dominant-accent: <<colour primary-accent>>;
+    --color-background: <<colour background>>;
+--color-background-accent: <<colour background-accent>>;
+    --color-neutral: <<colour foreground>>;
+    --color-neutral-accent: <<colour foreground-accent>>;
+    --color-secondary: <<colour secondary>>;
+    --color-secondary-accent:<<colour secondary-accent>>;
+
+    --font-sans: "~HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    --font-serif: Serif;
+    --font-monospace: monospace;
+}
+
+/* N O R M A L I Z E */
+
+body,
+header,
+nav,
+main,
+footer,
+div {
+    display: block;
+}
+
+body,
+header,
+nav,
+main,
+footer,
+div,
+table,
+thead,
+tbody,
+tr,
+th,
+td,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+header,
+nav,
+main,
+footer,
+div,
+table,
+thead,
+tbody,
+tr,
+th,
+td,
+ul,
+ol,
+li {
+    box-sizing: border-box;
+}
+
+
+/* C O L O R S */
+
+body {
+    background: var(--color-background);
+    color: var(--color-neutral);
+    font-size: 1rem;
+}
+
+h1 {
+    color: var(--color-dominant);
+}
+
+h2 {
+    color: var(--color-secondary);
+}
+a, a:visited {
+  color: var(--color-dominant);
+}
+a:hover {
+  color: var(--color-neutral);
+}
+thead td, th {
+    background: var(--color-background-accent);
+    border-left: 2px solid var(--color-background);
+    border-right: 2px solid var(--color-background)
+}
+
+td {
+    border-top: 1.5px solid var(--color-background-accent);
+    border-bottom: 1.5px solid var(--color-background-accent);
+}
+
+blockquote:before,
+blockquote:after {
+    color: var(--color-dominant-accent);
+}
+
+code {
+    background: var(--color-secondary-accent);
+}
+
+#nav_list,
+#nav label {
+    background: var(--color-dominant);
+    opacity: .9;
+}
+
+#nav, #nav_list li, #nav_list a {
+    color: var(--color-background);
+}
+
+
+/* T Y P O G R A P H Y */
+
+html, body {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    line-height: 1.5rem
+}
+
+h2 {
+    margin: 1.5rem 0 .5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+h3 {
+    margin: .5rem 0 .25rem;
+    font-size: 1.35rem;
+    padding-left: 2rem;
+    font-weight: 600;
+}
+
+h4 {
+    margin: .3rem 0 .25rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+p {
+    margin: .75rem 0 .25rem;
+}
+
+thead td, th {
+    font-weight: 600;
+}
+
+blockquote,
+q {
+    margin: 0;
+    font-family: --font-serif;
+    font-style: italic;
+}
+
+blockquote {
+    text-indent: -2.6rem;
+    padding: .25rem .25rem .25rem 2.5rem;
+    margin: 1em 0;
+}
+
+blockquote p {
+  display: inline;
+}
+
+blockquote:before {
+    margin: 0 .5rem 0 0;
+    font-size: 4rem;
+    font-weight: bold;
+    vertical-align: bottom;
+}
+
+blockquote:before,
+ :lang(en) blockquote:before,
+blockquote:lang(en):before {
+    content: "\201C";
+}
+
+blockquote:after {
+    float: right;
+    font-size: 4rem;
+    font-weight: 600;
+    margin-top: -1.75rem;
+}
+
+blockquote:after,
+ :lang(en) blockquote:after,
+blockquote:lang(en):after {
+    content: "\201D";
+}
+
+:lang(fr) blockquote:before,
+blockquote:lang(fr):before,
+:lang(es) blockquote:before,
+blockquote:lang(es):before,
+:lang(it) blockquote:before,
+blockquote:lang(it):before {
+    content: "\00ab";
+}
+
+:lang(fr) blockquote:after,
+blockquote:lang(fr):after,
+:lang(es) blockquote:after,
+blockquote:lang(es):after,
+:lang(it) blockquote:after,
+blockquote:lang(it):after {
+    content: "»";
+}
+
+:lang(de) blockquote:before,
+blockquote:lang(de):before {
+    content: "\201E";
+}
+
+:lang(de) blockquote:after,
+blockquote:lang(de):after {
+    content: "\201D";
+}
+
+q,
+ :lang(en) q,
+q:lang(en) {
+    quotes: '\201C' '\201D' '\2018' '\2019';
+}
+
+:lang(fr) q,
+q:lang(fr) {
+    quotes: '« ' ' »';
+}
+
+:lang(es) q,
+q:lang(es) :lang(it) q,
+q:lang(it) {
+    quotes: '«' '»';
+}
+
+:lang(de) q,
+q:lang(de) {
+    quotes: '\201E' '\201D' '»' '«';
+}
+
+blockquote cite {
+    display: block;
+    margin: 0 .25rem 0 2.6rem;
+}
+
+blockquote cite:before {
+    content: "\2013\00a0";
+}
+
+code {
+    font-family: var(--font-monospace);
+    padding: .15rem .35rem .15rem .3rem
+}
+
+
+/* L A Y O U T */
+
+ul,
+ol {
+    padding-left: 1.25rem;
+}
+
+table {
+    width: 100%;
+    margin: 1em 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: .25rem;
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    padding: .1rem;
+    font-size: 2rem;
+    line-height: 2.75rem;
+}
+
+
+/* collapsible menu */
+
+#nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+
+#nav_check {
+    display: none;
+}
+
+#nav label {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    width: 2rem;
+    height: 2rem;
+    margin: .5rem;
+    padding: .5rem .25rem;
+    text-align: center;
+    line-height: 1rem;
+    z-index: 2;
+}
+
+#nav_check+label:before {
+    content: "\2261";
+    font-size: 2rem;
+}
+
+#nav_check:checked+label:before {
+    content: "X ";
+    font-size: 1rem;
+    content: "O ";
+}
+
+#nav_check:checked+label:before {
+    content: "X ";
+}
+
+#nav_list {
+    display: none;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+}
+
+#nav_list::-webkit-scrollbar {
+    /* webkit */
+    width: 0;
+    height: 0;
+}
+
+#nav_check:checked+label+#nav_list {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 3rem .5rem .5rem .5rem;
+    z-index: 0;
+    width: 75vw;
+    max-width: 320px;
+    overflow-y: scroll;
+}
+
+main {
+    padding: 1.25rem
+}
+
+
+/* R E S P O N S I V E */
+
+@media only screen and (min-width: 320px) and (max-width: 479px) {}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 1245px) {
+    main {
+        width: 768px;
+        margin: auto;
+    }
+}
+
+@media only screen and (min-width: 1245px) {
+    main,
+    header {
+        max-width: 768px;
+        margin-left: 320px;
+    }
+}
+
+
+/* P R I N T I N G */
+
+@media print {
+    body {
+        font-family: var(--font-serif);
+        background: none;
+        color: black;
+    }
+    #nav,
+    footer {
+        display: none;
+    }
+    a:after {
+        content: " [" attr(href) "] ";
+    }
+}

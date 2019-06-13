@@ -1,0 +1,22 @@
+created: 20190613074227200
+modified: 20190613095757603
+title: $:/plugins/sycom/tiddlystatic/SymplePaletteEditor
+type: text/vnd.tiddlywiki
+
+\define pal-edit-raw(tw-index symple-id text) <tr><td><$edit-text tiddler={{$:/palette}} index=$tw-index$ tag="input" type="color"/></td><td><code>$symple-id$</code></td><td><code>$tw-index$</code></td><td><$edit-text tag=input tiddler={{$:/palette}} index=$tw-index$ /></td><td>$text$</td></tr>
+
+
+
+The Symple palette (will update <$link to={{$:/palette}}>{{$:/palette}}</$link>) :
+
+<table>
+<tr><th>color</th><th>Symple</th><th>TW</th><th>#code</th><th>explain</th></tr>
+<<pal-edit-raw primary dominant "is the main color for the page. Defaultly, you will find it on main titles, important informations, buttons, navigation objects">>
+<<pal-edit-raw primary-accent dominant-accent "is a dominant variant. Defaultly for marking differences with usualy dominant objects : selected menu, button etc...">>
+<<pal-edit-raw background background "is surprisingly the background color for the page. So you know where it will be...">>
+<<pal-edit-raw background-accent background-accent "a variation of the background colour">>
+<<pal-edit-raw foreground neutral "is a neutral color contrasting with background. Typicaly for text.">>
+<<pal-edit-raw foreground-accent neutral-accent "same as the dominant-accent for neutral...">>
+<<pal-edit-raw secondary secondary "is a contrast color for things you want visible on the page with less importance than dominant.">>
+<<pal-edit-raw secondary-accent secondary-accent "same as the dominant-accent for secondary...">>
+</table>

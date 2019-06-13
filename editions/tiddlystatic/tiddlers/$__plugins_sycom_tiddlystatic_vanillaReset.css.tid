@@ -1,10 +1,23 @@
 created: 20190612145701700
 creator: Sylvain
-modified: 20190612150902664
+modified: 20190613121501823
 modifier: Sylvain
-tags: $:/tags/Stylesheet
 title: $:/plugins/sycom/tiddlystatic/vanillaReset.css
 type: text/css
+
+h2.tc-title, a.tc-tiddlylink-external {
+    color: var(--color-dominant);
+}
+
+.tc-tiddler-frame .tc-tiddler-body {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+table, table td {
+  border-left: 2px solid var(--color-background);
+  border-right: 2px solid var(--color-background);
+}
 
 blockquote {
     border-left: none;

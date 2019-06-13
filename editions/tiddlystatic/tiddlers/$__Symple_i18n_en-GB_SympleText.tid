@@ -1,6 +1,6 @@
 created: 20190612142904800
 creator: Sylvain
-modified: 20190612150829856
+modified: 20190613115600309
 modifier: Sylvain
 title: $:/Symple/i18n/en-GB/SympleText
 type: text/vnd.tiddlywiki
@@ -54,9 +54,9 @@ Some special elements have predefined typographies. Feel free to edit them in th
 
 Because it's always good to have a punchline in your text (<q>If there is no solution, there is no problem.</q>) you may use `blockquote` or `q` tag (and `cite` tag for source / reference)...
 
-<<< 
+<<<
 Only by continually trying we finally succeed. So the more it fails, the greater are the chances that it works.
-<<<  Les shadoks
+<<<  [[Les shadoks|https://en.wikipedia.org/wiki/Les_Shadoks]]
 
 !! Todo list
 

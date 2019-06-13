@@ -1,6 +1,6 @@
 created: 20190612140159000
 creator: Sylvain
-modified: 20190612141910864
+modified: 20190613121438617
 modifier: Sylvain
 title: $:/Symple/i18n/en-GB/Symple
 type: text/vnd.tiddlywiki
@@ -10,7 +10,7 @@ Looking around and around at templates, boilerplates and other frameworks never 
 !! content
 * Symple has no npm, scss or any of this. Only two files
 ** an [[html skeleton|symple index]], both demo and boilerplate
-** a [[css stylesheet|symple stylesheet]] easy to tweak and configure
+** a [[css stylesheet|$:/plugins/sycom/tiddlystatic/Symple/Stylesheet]] easy to tweak and configure
 
 !! philosophy and design principles
 * make code clear, light, simple, efficient
