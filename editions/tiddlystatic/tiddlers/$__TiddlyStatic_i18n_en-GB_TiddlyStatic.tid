@@ -1,6 +1,6 @@
 created: 20190612135310100
 creator: Sylvain
-modified: 20190612145656671
+modified: 20190613090456540
 modifier: Sylvain
 title: $:/TiddlyStatic/i18n/en-GB/TiddlyStatic
 type: text/vnd.tiddlywiki
@@ -9,7 +9,9 @@ The TiddlyStatic project aims at building a static website generator based upon 
 
 * more //responsive// design, mobile first, semantic for static webpages
 ** work on [[Symple]] framework in the same time
-** for more consistency between dynamic and static version there is a [[vanilla reset stylesheet|$:/plugins/sycom/tiddlystatic/vanillaReset.css]]
+** for more consistency between dynamic and static version there is
+*** a [[vanilla reset stylesheet|$:/plugins/sycom/tiddlystatic/vanillaReset.css]]
+*** a [[Symple palette editor|$:/plugins/sycom/tiddlystatic/SymplePaletteEditor]] linked to the main wiki palette (defaultly a clone from Vanilla)
 * implementing a search engine (powered by lunr.js?)
 * better compliance between dynamic tiddlywiki and static wiki 
 * atom feed

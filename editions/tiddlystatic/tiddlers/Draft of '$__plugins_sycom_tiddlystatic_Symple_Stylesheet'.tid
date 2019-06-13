@@ -1,10 +1,14 @@
 created: 20190612141457400
 creator: Sylvain
-modified: 20190612151108179
+draft.of: $:/plugins/sycom/tiddlystatic/Symple/Stylesheet
+draft.title: $:/plugins/sycom/tiddlystatic/Symple/Stylesheet
+modified: 20190613121442725
 modifier: Sylvain
-tags: $:/tags/Stylesheet Symple
-title: symple stylesheet
-type: text/css
+tags: Symple
+title: Draft of '$:/plugins/sycom/tiddlystatic/Symple/Stylesheet'
+type: text/vnd.tiddlywiki
+
+\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline macrocallblock
 
 /* Symple stylesheet */
 
@@ -13,13 +17,15 @@ type: text/css
 /* V A R I A B L E S */
 
 :root {
-    --color-dominant: #4e1290;
-    --color-dominant-accent: #bc93ff;
-    --color-background: #fefefe;
-    --color-neutral: #333;
-    --color-neutral-accent: #dedede;
-    --color-secondary: #1a921c;
-    --color-secondary-accent: #8dd48f;
+    --color-dominant: <<colour primary>>;
+    --color-dominant-accent: <<colour primary-accent>>;
+    --color-background: <<colour background>>;
+--color-background-accent: <<colour background-accent>>;
+    --color-neutral: <<colour foreground>>;
+    --color-neutral-accent: <<colour foreground-accent>>;
+    --color-secondary: <<colour secondary>>;
+    --color-secondary-accent:<<colour secondary-accent>>;
+
     --font-sans: "~HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     --font-serif: Serif;
     --font-monospace: monospace;
@@ -88,16 +94,21 @@ h1 {
 h2 {
     color: var(--color-secondary);
 }
-
-th {
-    background: var(--color-neutral-accent);
+a, a:visited {
+  color: var(--color-dominant);
+}
+a:hover {
+  color: var(--color-neutral);
+}
+thead td, th {
+    background: var(--color-background-accent);
     border-left: 2px solid var(--color-background);
     border-right: 2px solid var(--color-background)
 }
 
 td {
-    border-top: 1.5px solid var(--color-neutral-accent);
-    border-bottom: 1.5px solid var(--color-neutral-accent);
+    border-top: 1.5px solid var(--color-background-accent);
+    border-bottom: 1.5px solid var(--color-background-accent);
 }
 
 blockquote:before,
@@ -106,7 +117,7 @@ blockquote:after {
 }
 
 code {
-    background: var(--color-secondary-accent)
+    background: var(--color-secondary-accent);
 }
 
 #nav_list,
@@ -151,7 +162,7 @@ p {
     margin: .75rem 0 .25rem;
 }
 
-th {
+thead td, th {
     font-weight: 600;
 }
 
@@ -168,8 +179,12 @@ blockquote {
     margin: 1em 0;
 }
 
+blockquote p {
+  display: inline;
+}
+
 blockquote:before {
-    margin-right: .25rem;
+    margin: 0 .5rem 0 0;
     font-size: 4rem;
     font-weight: bold;
     vertical-align: bottom;
