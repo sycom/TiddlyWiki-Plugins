@@ -1,0 +1,65 @@
+created: 20190617141914904
+modified: 20190617142820678
+title: $:/plugins/sycom/tiddlystatic/GitlabDeployFilesGenerator
+type: text/vnd.tiddlywiki
+
+<<i18n $:/plugins/sycom/tiddlystatic GitlabGeneratorIntro>>
+
+!!!! `tiddlywiki.info` content
+```
+{
+	"description": "wikiFoncier : une expérimentation pour promouvoir les outils fonciers",
+	"plugins": [
+		"tiddlywiki/tiddlyweb",
+		"tiddlywiki/filesystem",
+		"tiddlywiki/codemirror",
+		"tiddlywiki/highlight",
+		"tiddlywiki/markdown"
+	],
+	"themes": [
+		"tiddlywiki/vanilla",
+		"tiddlywiki/centralised"
+	],
+	"languages": [
+		"fr-FR"
+	],
+	"build": {
+		"index": [
+			"--savetiddlers","[is[image]has[_canonical_uri]]","images",
+			"--setfield","[is[image]has[_canonical_uri]]","_canonical_uri","$:/core/templates/canonical-uri-external-image","text/plain",
+			"--setfield","[tag[external-text]]","_canonical_uri","$:/core/templates/canonical-uri-external-text","text/plain",
+			"--rendertiddler","$:/StaticWiki/Templates/index.html","index.html","text/plain",
+			"--rendertiddler","$:/core/save/all","WikiFoncier.html","text/plain"],
+		"styles":[
+			"--rendertiddler","$:/StaticWiki/lib/spectre.min.css","styles/spectre.min.css","text/plain",
+			"--rendertiddler","$:/StaticWiki/lib/spectre-docs.min.css","styles/spectre-docs.min.css","text/plain",
+			"--rendertiddler","$:/StaticWiki/lib/spectre-exp.min.css","styles/spectre-exp.min.css","text/plain",
+			"--rendertiddler","$:/StaticWiki/Styles/static-wiki.css","styles/static-wiki.css","text/plain"
+		],
+		"favicon": [
+			"--savetiddler","$:/favicon.ico","favicon.ico"],
+		"wiki": [
+			"--rendertiddlers","[!is[system]] [prefix[$:/StaticWiki]] [prefix[$:/WikiFoncier]]","$:/StaticWiki/Templates/wiki.tiddler.html","wiki","text/plain"
+			]
+	},
+	"config": {
+		"retain-original-tiddler-path": true
+	}
+}
+```
+
+!!!! `.gitlab-ci.yml` content
+```
+image: node
+
+pages:
+  script:
+  - npm install -g tiddlywiki
+  - tiddlywiki ./ --build 
+  - mv ./output public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+```
