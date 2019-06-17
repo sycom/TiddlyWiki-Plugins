@@ -1,9 +1,9 @@
 created: 20190613074227200
-modified: 20190613095757603
+modified: 20190617131030570
 title: $:/plugins/sycom/tiddlystatic/SymplePaletteEditor
 type: text/vnd.tiddlywiki
 
-\define pal-edit-raw(tw-index symple-id text) <tr><td><$edit-text tiddler={{$:/palette}} index=$tw-index$ tag="input" type="color"/></td><td><code>$symple-id$</code></td><td><code>$tw-index$</code></td><td><$edit-text tag=input tiddler={{$:/palette}} index=$tw-index$ /></td><td>$text$</td></tr>
+\define pal-edit-raw(tw-index symple-id text) <tr><td><$edit-text tiddler={{$:/palette}} index=$tw-index$ tag="input" type="color" class="mini"/></td><td><code>$symple-id$</code></td><td><code>$tw-index$</code></td><td><$edit-text tag=input tiddler={{$:/palette}} index=$tw-index$ class="mid code"/></td><td>$text$</td></tr>
 
 
 
