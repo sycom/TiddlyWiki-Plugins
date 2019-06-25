@@ -55,11 +55,14 @@ image: node
 pages:
   script:
   - npm install -g tiddlywiki
-  - tiddlywiki ./ --build 
-  - mv ./output public
+  - cp -R * /usr/local/lib/node_modules/tiddlywiki/
+  - tiddlywiki ./editions/collection --build
+  - gzip --recursive --keep ./editions/collection/output
+  - mv ./editions/collection/output public
+  - cp -R ./files/* public
   artifacts:
     paths:
     - public
   only:
-  - master
+  - release
 ```
