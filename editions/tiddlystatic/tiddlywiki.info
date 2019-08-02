@@ -1,24 +1,35 @@
 {
-	"description": "tiddlystatic edition for plugin test",
-	"plugins": [
-		"tiddlywiki/tiddlyweb",
-		"tiddlywiki/filesystem",
-		"tiddlywiki/markdown",
-		"sycom/tiddlystatic"
-	],
-	"languages": [
-		"fr-FR"
-	],
-	"themes": [
-		"tiddlywiki/vanilla"
-	],
-	"build": {
-		"dynamic": [
-			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","tiddlystatic.html","text/plain"],
-		"feed": [
-			"--rendertiddler","$:/plugins/sycom/atom-feed/atom.xml","atom.xml","text/plain"]
-	},
-	"config": {
-		"retain-original-tiddler-path": true
-	}
+   "description": "TiddlyStatic - an experiment to publish static website based upon TiddlyWiki and Node.js",
+   "plugins": [
+	 		"tiddlywiki/filesystem",
+      "tiddlywiki/markdown",
+      "tiddlywiki/tiddlyweb",
+			"sycom/atom-feed",
+      "sycom/tiddlystatic"
+      ],
+   "languages": [
+      "fr-FR"
+      ],
+   "themes": [
+      "tiddlywiki/vanilla"
+      ],
+   "build": {
+      "index": [
+         "--savetiddlers","[is[image]has[_canonical_uri]]","images",
+         "--setfield","[is[image]has[_canonical_uri]]","_canonical_uri","$:/core/templates/canonical-uri-external-image","text/plain",
+         "--setfield","[tag[external-text]]","_canonical_uri","$:/core/templates/canonical-uri-external-text","text/plain"
+         ],
+      "dynamic": [
+         "--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","TiddlyStatic.html","text/plain"
+         ],
+      "wiki": [
+         "--rendertiddlers", "[tags[wiki]]","$:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html","wiki","text/plain"
+         ],
+      "styles":[
+         "--rendertiddler","$:/plugins/sycom/tiddlystatic/Symple/symple.css","styles/symple.css","text/plain"
+         ]
+   },
+   "config": {
+      "retain-original-tiddler-path": true
+      }
 }
