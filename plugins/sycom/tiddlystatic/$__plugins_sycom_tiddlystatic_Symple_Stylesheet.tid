@@ -1,12 +1,10 @@
 created: 20190612141457400
 creator: Sylvain
-modified: 20190614152545216
+modified: 20190805122045304
 modifier: Sylvain
 tags: Symple
 title: $:/plugins/sycom/tiddlystatic/Symple/Stylesheet
 type: text/vnd.tiddlywiki
-
-\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline macrocallblock
 
 /* Symple stylesheet */
 
@@ -24,7 +22,7 @@ type: text/vnd.tiddlywiki
     --color-secondary: <<colour secondary>>;
     --color-secondary-accent:<<colour secondary-accent>>;
 
-    --font-sans: "~HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    --font-sans: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     --font-serif: Serif;
     --font-monospace: monospace;
 }
