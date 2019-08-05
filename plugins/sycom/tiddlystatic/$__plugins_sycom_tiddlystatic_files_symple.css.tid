@@ -1,0 +1,9 @@
+created: 20190612141457400
+creator: Sylvain
+modified: 20190805121609043
+modifier: Sylvain
+tags: Symple
+title: $:/plugins/sycom/tiddlystatic/files/symple.css
+type: text/vnd.tiddlywiki
+
+{{$:/plugins/sycom/tiddlystatic/Symple/Stylesheet||$:/core/templates/wikified-tiddler}}

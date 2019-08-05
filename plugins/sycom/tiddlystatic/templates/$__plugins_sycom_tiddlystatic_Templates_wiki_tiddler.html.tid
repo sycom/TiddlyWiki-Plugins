@@ -83,9 +83,7 @@ Will contain a local index for the page (maybe)
     </nav>
     <main>
         <section class="main">
-
-          `<$transclude />`
-
+`<$view format="htmlwikified"/>`
         </section>
 
     </main>

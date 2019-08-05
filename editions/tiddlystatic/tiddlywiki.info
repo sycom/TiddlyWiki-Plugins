@@ -15,18 +15,18 @@
       ],
    "build": {
       "index": [
-         "--savetiddlers","[is[image]has[_canonical_uri]]","images",
-         "--setfield","[is[image]has[_canonical_uri]]","_canonical_uri","$:/core/templates/canonical-uri-external-image","text/plain",
-         "--setfield","[tag[external-text]]","_canonical_uri","$:/core/templates/canonical-uri-external-text","text/plain"
+         "--savetiddlers", "[is[image]has[_canonical_uri]]", "images",
+         "--setfield", "[is[image]has[_canonical_uri]]", "_canonical_uri","$:/core/templates/canonical-uri-external-image","text/plain",
+         "--setfield","[tag[external-text]]", "_canonical_uri", "$:/core/templates/canonical-uri-external-text","text/plain"
          ],
       "dynamic": [
-         "--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","TiddlyStatic.html","text/plain"
+         "--rendertiddler", "$:/plugins/tiddlywiki/tiddlyweb/save/offline", "TiddlyStatic.html","text/plain"
          ],
       "wiki": [
-         "--rendertiddlers", "[tags[wiki]]","$:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html","wiki","text/plain"
+         "--rendertiddlers", "[tags[wiki]]", "$:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html", "wiki", "text/plain"
          ],
       "styles":[
-         "--rendertiddler","$:/plugins/sycom/tiddlystatic/Symple/symple.css","styles/symple.css","text/plain"
+         "--rendertiddler", "$:/plugins/sycom/tiddlystatic/files/symple.css", "styles/symple.css", "text/plain"
          ]
    },
    "config": {
