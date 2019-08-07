@@ -1,0 +1,21 @@
+caption: Usage
+created: 20190807091400296
+modified: 20190807092533407
+title: $:/plugins/sycom/tiddlystatic/i18n/en-GB/usage
+type: text/vnd.tiddlywiki
+
+Once plugin is installed, go to settings tab to fine tune your static publication.
+
+Then, get the code below and replace your //tiddlywiki.info// file with it. ''beware : for now it can not distinguish plugins, themes that have to be loaded from library and included //as tiddler// ones''...
+
+
+{{$:/plugins/sycom/tiddlystatic/utils/tiddlywikiInfoGenerator}}
+
+
+
+Then add this line to your build command (in tiddlywiki.info file)
+
+```
+"feed": [
+  "--rendertiddler","$:/plugins/sycom/tiddlystatic/atom.xml","atom.xml","text/plain"]
+```

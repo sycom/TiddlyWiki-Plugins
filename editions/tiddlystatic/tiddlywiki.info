@@ -1,11 +1,11 @@
 {
    "description": "TiddlyStatic - an experiment to publish static website based upon TiddlyWiki and Node.js",
    "plugins": [
-	 		"tiddlywiki/filesystem",
+      "sycom/atom-feed",
+      "sycom/tiddlystatic",
+      "tiddlywiki/filesystem",
       "tiddlywiki/markdown",
-      "tiddlywiki/tiddlyweb",
-			"sycom/atom-feed",
-      "sycom/tiddlystatic"
+      "tiddlywiki/tiddlyweb"
       ],
    "languages": [
       "fr-FR"
@@ -14,19 +14,28 @@
       "tiddlywiki/vanilla"
       ],
    "build": {
-      "index": [
+      "images": [
          "--savetiddlers", "[is[image]has[_canonical_uri]]", "images",
-         "--setfield", "[is[image]has[_canonical_uri]]", "_canonical_uri","$:/core/templates/canonical-uri-external-image","text/plain",
-         "--setfield","[tag[external-text]]", "_canonical_uri", "$:/core/templates/canonical-uri-external-text","text/plain"
+         "--setfield", "[is[image]has[_canonical_uri]]", "_canonical_uri", "$:/core/templates/canonical-uri-external-image", "text/plain",
+         "--setfield", "[tag[external-text]]", "_canonical_uri", "$:/core/templates/canonical-uri-external-text", "text/plain"
+         ],
+      "index": [
+         "--rendertiddler", "$:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html", "index.html", "text/plain"
          ],
       "dynamic": [
-         "--rendertiddler", "$:/plugins/tiddlywiki/tiddlyweb/save/offline", "TiddlyStatic.html","text/plain"
+         "--rendertiddler", "$:/plugins/tiddlywiki/tiddlyweb/save/offline", "TiddlyStatic.html", "text/plain"
          ],
       "wiki": [
-         "--rendertiddlers", "[tags[wiki]]", "$:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html", "wiki", "text/plain"
+         "--rendertiddlers", "[!is[system]!has[draft.of]]", "$:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html", "wiki", "text/plain"
          ],
       "styles":[
-         "--rendertiddler", "$:/plugins/sycom/tiddlystatic/files/symple.css", "styles/symple.css", "text/plain"
+         "--rendertiddler", "$:/plugins/sycom/tiddlystatic/export/symple.css", "styles/symple.css", "text/plain"
+         ],
+      "favicon": [
+         "--savetiddler", "$:/favicon.ico", "favicon.ico"
+         ],
+      "feed": [
+         "--rendertiddler", "$:/plugins/sycom/atom-feed/atom.xml", "atom.xml", "text/plain"
          ]
    },
    "config": {

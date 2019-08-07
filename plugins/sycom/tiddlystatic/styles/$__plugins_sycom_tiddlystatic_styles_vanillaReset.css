@@ -1,9 +1,4 @@
-created: 20190612145701700
-creator: Sylvain
-modified: 20190613121501823
-modifier: Sylvain
-title: $:/plugins/sycom/tiddlystatic/vanillaReset.css
-type: text/css
+/* Some hacks to make TiddlyWiki work well with tiddlystatic */
 
 h2.tc-title, a.tc-tiddlylink-external {
     color: var(--color-dominant);

@@ -1,0 +1,6 @@
+title: $:/plugins/sycom/tiddlystatic/export/symple.css
+type: text/vnd.tiddlywiki
+
+{{$:/plugins/sycom/tiddlystatic/Symple/Stylesheet||$:/core/templates/wikified-tiddler}}
+
+{{$:/plugins/sycom/tiddlystatic/styles/exportReset}}

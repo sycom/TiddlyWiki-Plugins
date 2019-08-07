@@ -7,5 +7,42 @@
 			"module-type": "macro"
 		},
 		"isTiddlerFile": true
-	}]
+	},
+	{
+		"file": "../../../../ext/modules/macros/eachmonth.js",
+		"fields": {
+			"title": "$:/ext/modules/macros/eachmonth.js",
+			"type": "application/javascript",
+			"module-type": "filteroperator"
+		},
+		"isTiddlerFile": true
+	},
+	{
+		"file": "../../../../ext/modules/macros/eachyear.js",
+		"fields": {
+			"title": "$:/ext/modules/macros/eachyear.js",
+			"type": "application/javascript",
+			"module-type": "filteroperator"
+		},
+		"isTiddlerFile": true
+	},
+	{
+		"file": "../../../../ext/modules/macros/samemonth.js",
+		"fields": {
+			"title": "$:/ext/modules/macros/samemonth.js",
+			"type": "application/javascript",
+			"module-type": "filteroperator"
+		},
+		"isTiddlerFile": true
+	},
+	{
+		"file": "../../../../ext/modules/macros/sameyear.js",
+		"fields": {
+			"title": "$:/ext/modules/macros/sameyear.js",
+			"type": "application/javascript",
+			"module-type": "filteroperator"
+		},
+		"isTiddlerFile": true
+	}
+]
 }

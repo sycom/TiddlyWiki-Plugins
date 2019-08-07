@@ -1,10 +1,12 @@
 created: 20190612141457400
 creator: Sylvain
-modified: 20190805122045304
+modified: 20190806123907265
 modifier: Sylvain
 tags: Symple
 title: $:/plugins/sycom/tiddlystatic/Symple/Stylesheet
 type: text/vnd.tiddlywiki
+
+\import [[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]
 
 /* Symple stylesheet */
 
@@ -13,18 +15,18 @@ type: text/vnd.tiddlywiki
 /* V A R I A B L E S */
 
 :root {
-    --color-dominant: <<colour primary>>;
-    --color-dominant-accent: <<colour primary-accent>>;
-    --color-background: <<colour background>>;
---color-background-accent: <<colour background-accent>>;
-    --color-neutral: <<colour foreground>>;
-    --color-neutral-accent: <<colour foreground-accent>>;
-    --color-secondary: <<colour secondary>>;
-    --color-secondary-accent:<<colour secondary-accent>>;
+    &#45;&#45;color-dominant: <<colour primary>>;
+    &#45;&#45;color-dominant-accent: <<colour primary-accent>>;
+    &#45;&#45;color-background: <<colour background>>;
+    &#45;&#45;color-background-accent: <<colour background-accent>>;
+    &#45;&#45;color-neutral: <<colour foreground>>;
+    &#45;&#45;color-neutral-accent: <<colour foreground-accent>>;
+    &#45;&#45;color-secondary: <<colour secondary>>;
+    &#45;&#45;color-secondary-accent:<<colour secondary-accent>>;
 
-    --font-sans: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    --font-serif: Serif;
-    --font-monospace: monospace;
+    &#45;&#45;font-sans: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    &#45;&#45;font-serif: Serif;
+    &#45;&#45;font-monospace: monospace;
 }
 
 /* N O R M A L I Z E */
@@ -78,59 +80,59 @@ li {
 /* C O L O R S */
 
 body {
-    background: var(--color-background);
-    color: var(--color-neutral);
+    background: var(&#45;&#45;color-background);
+    color: var(&#45;&#45;color-neutral);
     font-size: 1rem;
 }
 
 h1 {
-    color: var(--color-dominant);
+    color: var(&#45;&#45;color-dominant);
 }
 
 h2 {
-    color: var(--color-secondary);
+    color: var(&#45;&#45;color-secondary);
 }
 a, a:visited {
-  color: var(--color-dominant);
+  color: var(&#45;&#45;color-dominant);
 }
 a:hover {
-  color: var(--color-neutral);
+  color: var(&#45;&#45;color-neutral);
 }
 thead td, th {
-    background: var(--color-background-accent);
-    border-left: 2px solid var(--color-background);
-    border-right: 2px solid var(--color-background)
+    background: var(&#45;&#45;color-background-accent);
+    border-left: 2px solid var(&#45;&#45;color-background);
+    border-right: 2px solid var(&#45;&#45;color-background)
 }
 
 td {
-    border-top: 1.5px solid var(--color-background-accent);
-    border-bottom: 1.5px solid var(--color-background-accent);
+    border-top: 1.5px solid var(&#45;&#45;color-background-accent);
+    border-bottom: 1.5px solid var(&#45;&#45;color-background-accent);
 }
 
 blockquote:before,
 blockquote:after {
-    color: var(--color-dominant-accent);
+    color: var(&#45;&#45;color-dominant-accent);
 }
 
 code {
-    background: var(--color-secondary-accent);
+    background: var(&#45;&#45;color-secondary-accent);
 }
 
 #nav_list,
 #nav label {
-    background: var(--color-dominant);
+    background: var(&#45;&#45;color-dominant);
     opacity: .9;
 }
 
 #nav, #nav_list li, #nav_list a {
-    color: var(--color-background);
+    color: var(&#45;&#45;color-background);
 }
 
 
 /* T Y P O G R A P H Y */
 
 html, body {
-    font-family: var(--font-sans);
+    font-family: var(&#45;&#45;font-sans);
     font-weight: 300;
     line-height: 1.5rem
 }
@@ -165,7 +167,7 @@ thead td, th {
 blockquote,
 q {
     margin: 0;
-    font-family: --font-serif;
+    font-family: &#45;&#45;font-serif;
     font-style: italic;
 }
 
@@ -265,7 +267,7 @@ blockquote cite:before {
 }
 
 code {
-    font-family: var(--font-monospace);
+    font-family: var(&#45;&#45;font-monospace);
     padding: .15rem .35rem .15rem .3rem
 }
 
@@ -375,23 +377,30 @@ main {
 
 /* R E S P O N S I V E */
 
-@media only screen and (min-width: 320px) and (max-width: 479px) {}
+@media only screen and (min-width: 320px) and (max-width: 479px) {
 
-@media only screen and (min-width: 480px) and (max-width: 767px) {}
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .four.columns {column-count:2;}
+}
 
 @media only screen and (min-width: 768px) and (max-width: 1245px) {
-    main {
-        width: 768px;
-        margin: auto;
-    }
+  main {
+    width: 768px;
+    margin: auto;
+  }
 }
 
 @media only screen and (min-width: 1245px) {
-    main,
-    header {
-        max-width: 768px;
-        margin-left: 320px;
-    }
+  main,
+  header {
+      max-width: 768px;
+      margin-left: 320px;
+  }
+  .two.columns {column-count:1;}
+  .three.columns {column-count:2;}
+  .four.columns {column-count:4;}
 }
 
 
@@ -399,7 +408,7 @@ main {
 
 @media print {
     body {
-        font-family: var(--font-serif);
+        font-family: var(&#45;&#45;font-serif);
         background: none;
         color: black;
     }

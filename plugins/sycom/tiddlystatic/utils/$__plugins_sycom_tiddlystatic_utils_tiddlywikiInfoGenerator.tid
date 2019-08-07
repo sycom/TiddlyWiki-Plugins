@@ -1,0 +1,53 @@
+created: 20190802115047400
+modified: 20190807135024388
+tags: 
+title: $:/plugins/sycom/tiddlystatic/utils/tiddlywikiInfoGenerator
+type: text/vnd.tiddlywiki
+
+<$wikify name='subtitle' text={{$:/SiteSubtitle!!text}}>
+
+<pre>{
+   "description": "<$text text={{$:/SiteTitle}} /> - <<subtitle>>",
+   "plugins": [
+<$list filter="[plugin-type[plugin]!has[created]butlast[]] -[[$:/core]] +[removeprefix[$:/plugins/]]">      "{{!!title}}",
+</$list><$list filter="[plugin-type[plugin]last[]] -[[$:/core]] +[removeprefix[$:/plugins/]]">      "{{!!title}}"
+</$list>      ],
+   "languages": [
+<$list filter="[plugin-type[language]butlast[]]">      "{{!!name}}",
+</$list><$list filter="[plugin-type[language]last[]]">      "{{!!name}}"
+</$list>      ],
+   "themes": [
+<$list filter="[plugin-type[theme]butlast[]] +[removeprefix[$:/themes/]]">      "{{!!title}}",
+</$list><$list filter="[plugin-type[theme]last[]] +[removeprefix[$:/themes/]]">      "{{!!title}}"
+</$list>      ],
+   "build": {
+      "images": [
+         "&#45;&#45;savetiddlers", "[is[image]has[_canonical_uri]]", "images",
+         "&#45;&#45;setfield", "[is[image]has[_canonical_uri]]", "_canonical_uri", "$:/core/templates/canonical-uri-external-image", "text/plain",
+         "&#45;&#45;setfield", "[tag[external-text]]", "_canonical_uri", "$:/core/templates/canonical-uri-external-text", "text/plain"
+         ],
+      "index": [
+         "&#45;&#45;rendertiddler", "$:/plugins/sycom/tiddlystatic/export/index.html", "index.html", "text/plain"
+         ],
+      "dynamic": [
+         "&#45;&#45;rendertiddler", "$:/plugins/tiddlywiki/tiddlyweb/save/offline", "<$text text={{$:/SiteTitle}} />.html", "text/plain"
+         ],
+      "wiki": [
+         "&#45;&#45;rendertiddlers", "{{$:/plugins/sycom/tiddlystatic/user/settings.json##export_filter}}", "$:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html", "wiki", "text/plain"
+         ],
+      "styles":[
+         "&#45;&#45;rendertiddler", "$:/plugins/sycom/tiddlystatic/export/symple.css", "styles/symple.css", "text/plain"
+         ],
+      "favicon": [
+         "&#45;&#45;savetiddler", "$:/favicon.ico", "favicon.ico"
+         ],
+      "feed": [
+         "&#45;&#45;rendertiddler", "$:/plugins/sycom/atom-feed/atom.xml", "atom.xml", "text/plain"
+         ]
+   },
+   "config": {
+      "retain-original-tiddler-path": true
+      }
+}</pre>
+
+</$wikify>
