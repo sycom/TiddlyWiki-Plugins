@@ -1,0 +1,6 @@
+title: $:/plugins/sycom/tiddlystatic/styles/exportReset
+type: text/vnd.tiddlywiki
+
+/* Some hacks to make exported tiddler better */
+
+a.i18n-edit {display:none}

@@ -1,0 +1,29 @@
+created: 20190806124540874
+modified: 20190807092246705
+title: $:/plugins/sycom/tiddlystatic/i18n/en-GB/settings
+type: text/vnd.tiddlywiki
+
+!! What will you export as static 
+
+* export filter ^^[[?|$:/plugins/sycom/tiddlystatic/docs/export_filter]]^^ : <$edit-text tiddler="$:/plugins/sycom/tiddlystatic/user/settings.json" tag="input" index="export_filter" />(''<$count filter={{$:/plugins/sycom/tiddlystatic/user/settings.json##export_filter}} />'' tids)
+
+!! Where will you publish ?
+
+* website url : <$edit-text tiddler="$:/plugins/sycom/tiddlystatic/user/settings.json" tag="input" index="website_url" />
+
+!! Other settings
+
+!!! atom feed
+tiddlystatic provide an atom.xml feed for syndication. You may change the listed item behaviour
+
+* number of last items listed : <$edit-text tiddler="$:/plugins/sycom/tiddlystatic/user/settings.json" tag="input" class="short" index="feed_item_number" />
+* republish when a tiddler is modified ? <$edit-text tiddler="$:/plugins/sycom/tiddlystatic/user/settings.json" tag="input" class="short" index="feed_sort_mode" />
+
+
+
+!! Exported tiddlers 
+//would like to limit this to a sample but I can't make dynamically from filter...//
+
+<$list filter={{$:/plugins/sycom/tiddlystatic/user/settings.json##export_filter}} >
+   
+</$list>

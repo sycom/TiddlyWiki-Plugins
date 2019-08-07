@@ -1,0 +1,5 @@
+caption: Settings
+title: $:/plugins/sycom/tiddlystatic/settings
+type: text/vnd.tiddlywiki
+
+<<i18n settings $:/plugins/sycom/tiddlystatic>>
