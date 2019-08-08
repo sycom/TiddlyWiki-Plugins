@@ -90,6 +90,7 @@ Will contain a local index for the page (maybe)
 
     <footer>
         Some elements about this work - both legal and not
+        <div class="spacer">&nbsp;</div>
     </footer>
 </body>
 

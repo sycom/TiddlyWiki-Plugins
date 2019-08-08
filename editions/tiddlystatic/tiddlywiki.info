@@ -20,7 +20,7 @@
          "--setfield", "[tag[external-text]]", "_canonical_uri", "$:/core/templates/canonical-uri-external-text", "text/plain"
          ],
       "index": [
-         "--rendertiddler", "$:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html", "index.html", "text/plain"
+         "--rendertiddler", "$:/plugins/sycom/tiddlystatic/export/index.html", "index.html", "text/plain"
          ],
       "dynamic": [
          "--rendertiddler", "$:/plugins/tiddlywiki/tiddlyweb/save/offline", "TiddlyStatic.html", "text/plain"
