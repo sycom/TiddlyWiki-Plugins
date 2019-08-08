@@ -31,7 +31,6 @@ type: text/vnd.tiddlywiki
 
 /* N O R M A L I Z E */
 
-body,
 header,
 nav,
 main,
@@ -85,6 +84,10 @@ body {
     font-size: 1rem;
 }
 
+main h1, h2, h3, h4 {
+    background: var(&#45;&#45;color-background);
+}
+
 h1 {
     color: var(&#45;&#45;color-dominant);
 }
@@ -118,23 +121,45 @@ code {
     background: var(&#45;&#45;color-secondary-accent);
 }
 
+footer,
 #nav_list,
 #nav label {
     background: var(&#45;&#45;color-dominant);
     opacity: .9;
 }
 
-#nav, #nav_list li, #nav_list a {
+footer, footer li, footer a, #nav, #nav_list li, #nav_list a {
     color: var(&#45;&#45;color-background);
 }
 
+footer .spacer {
+    background: linear-gradient(180deg, var(&#45;&#45;color-dominant) 5%, var(&#45;&#45;color-background) 95%);
+}
 
 /* T Y P O G R A P H Y */
-
 html, body {
     font-family: var(&#45;&#45;font-sans);
     font-weight: 300;
     line-height: 1.5rem
+}
+
+main {
+    padding: 1.25rem
+}
+footer {
+    padding:.25rem 1.25rem
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    padding: .1rem;
+    font-size: 2rem;
+    line-height: 2.75rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding:0.2rem 0;
 }
 
 h2 {
@@ -274,6 +299,41 @@ code {
 
 /* L A Y O U T */
 
+html,
+body {
+  height: 100%;
+}
+
+body, footer {
+  display: flex;
+  flex-flow: column;
+}
+
+header {
+  flex: 0 1 auto;
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+footer {
+  flex: 0 1 100%;
+}
+
+footer .spacer {
+  margin:0 -1.25rem -.25rem;
+  flex: 0 1 100%;
+}
+
+main h1, main h2, main h3, main h4 {
+    position: sticky;
+    }
+main h1 {top:0}
+h2 {top:1.75rem}
+h3 {top:3.5rem}
+h4 {top:5.25rem}
+
 ul,
 ol {
     padding-left: 1.25rem;
@@ -290,15 +350,6 @@ th,
 td {
     padding: .25rem;
 }
-
-header h1 {
-    text-align: center;
-    margin: 0;
-    padding: .1rem;
-    font-size: 2rem;
-    line-height: 2.75rem;
-}
-
 
 /* collapsible menu */
 
@@ -325,7 +376,7 @@ header h1 {
     padding: .5rem .25rem;
     text-align: center;
     line-height: 1rem;
-    z-index: 2;
+    z-index: 9999;
 }
 
 #nav_check+label:before {
@@ -345,10 +396,9 @@ header h1 {
 
 #nav_list {
     display: none;
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE 10+ */
+    overflow: auto;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
 }
 
 #nav_list::-webkit-scrollbar {
@@ -367,7 +417,6 @@ header h1 {
     z-index: 0;
     width: 75vw;
     max-width: 320px;
-    overflow-y: scroll;
 }
 
 main {
@@ -377,16 +426,16 @@ main {
 
 /* R E S P O N S I V E */
 
-@media only screen and (min-width: 320px) and (max-width: 479px) {
+@media only screen and (min-width: 320px) {
 
 }
 
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+@media only screen and (min-width: 480px) {
   .four.columns {column-count:2;}
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1245px) {
-  main {
+@media only screen and (min-width: 768px) {
+  main, footer {
     width: 768px;
     margin: auto;
   }
@@ -394,10 +443,12 @@ main {
 
 @media only screen and (min-width: 1245px) {
   main,
-  header {
+  header,
+  footer {
       max-width: 768px;
       margin-left: 320px;
   }
+
   .two.columns {column-count:1;}
   .three.columns {column-count:2;}
   .four.columns {column-count:4;}

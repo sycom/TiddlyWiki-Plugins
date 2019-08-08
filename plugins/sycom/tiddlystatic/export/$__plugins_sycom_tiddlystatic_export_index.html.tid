@@ -1,7 +1,7 @@
 created: 20190807134851600
 modified: 20190807134934115
-tags: 
+tags:
 title: $:/plugins/sycom/tiddlystatic/export/index.html
 type: text/vnd.tiddlywiki
 
-{{TiddlyStatic||$:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html}}
+{{TiddlyStatic||$:/plugins/sycom/tiddlystatic/Templates/wiki/index-tiddler.html}}

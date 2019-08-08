@@ -1,0 +1,12 @@
+created: 20190808143634077
+modified: 20190808144453396
+tags: 
+title: $:/plugins/sycom/tiddlystatic/settings/pageContent/main
+type: text/vnd.tiddlywiki
+
+//Contains the current page representation. for now a single tiddler (a list of tiddlers will be possible also)//
+
+* //page title//
+* //some page information (date ? tags ?)//
+* //the page content//
+
