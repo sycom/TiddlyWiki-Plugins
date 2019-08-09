@@ -1,0 +1,8 @@
+caption: <<i18n '' $:/titles dico>>
+created: 20190809132233367
+modified: 20190809135834540
+tags: Documentation
+title: Symple Framework
+type: text/vnd.tiddlywiki
+
+<<i18n '' $:/Symple>>

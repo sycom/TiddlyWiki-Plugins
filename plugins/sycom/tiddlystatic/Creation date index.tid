@@ -1,6 +1,6 @@
 created: 20190807122350260
-modified: 20190807134500467
-tags: 
+modified: 20190808150649352
+tags: index
 title: Creation date index
 type: text/vnd.tiddlywiki
 
@@ -11,6 +11,7 @@ type: text/vnd.tiddlywiki
 !! <$view field="created" format="date" template="YYYY" />
 <div class="three columns">
    <$list filter="[sameyear:created{!!created}!sort[created]eachmonth[created]]">
+<div>
 
 !!! <$view field="created" format="date" template="MMM" />
    
@@ -19,6 +20,7 @@ type: text/vnd.tiddlywiki
       <li><$link to={{!!title}}>{{!!title}}</$link></li>
    </$list>
    </ul>
+</div>
    </$list>
 </div>
 

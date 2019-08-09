@@ -28,3 +28,9 @@ body.tc-body {
     color: inherit;
     fill: inherit;
 }
+
+.tc-titlebar h2.tc-title>span {display:none}
+
+a.tc-tiddlylink.tc-plugin-info:hover, a.tc-tiddlylink.tc-plugin-info:hover h2 {
+  background-color: var(--color-background-accent)
+}

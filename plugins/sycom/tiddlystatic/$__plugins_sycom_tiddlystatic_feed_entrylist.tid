@@ -4,7 +4,7 @@ modified: 20190806142359259
 title: $:/plugins/sycom/tiddlystatic/feed/entrylist
 type: text/vnd.tiddlywiki
 
-\define feedFilter() {{$:/plugins/sycom/tiddlystatic/user/settings.json##export_filter}}![This wiki uses Google analytics]!has[draft.of ]!prefix[$:/]!prefix[-$:/]!sort[created]limit[$(numFeed)$]]
+\define feedFilter() {{$:/plugins/sycom/tiddlystatic/settings/settings.json##export_filter}}![This wiki uses Google analytics]!has[draft.of ]!prefix[$:/]!prefix[-$:/]!sort[created]limit[$(numFeed)$]]
 
 <$set name=numFeed value={{!!caption}}>
 

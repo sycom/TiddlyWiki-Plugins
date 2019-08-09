@@ -33,7 +33,7 @@ type: text/vnd.tiddlywiki
          "&#45;&#45;rendertiddler", "$:/plugins/tiddlywiki/tiddlyweb/save/offline", "<$text text={{$:/SiteTitle}} />.html", "text/plain"
          ],
       "wiki": [
-         "&#45;&#45;rendertiddlers", "{{$:/plugins/sycom/tiddlystatic/user/settings.json##export_filter}}", "$:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html", "wiki", "text/plain"
+         "&#45;&#45;rendertiddlers", "{{$:/plugins/sycom/tiddlystatic/settings/settings.json##export_filter}}", "$:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html", "wiki", "text/plain"
          ],
       "styles":[
          "&#45;&#45;rendertiddler", "$:/plugins/sycom/tiddlystatic/export/symple.css", "styles/symple.css", "text/plain"

@@ -54,13 +54,7 @@ type: text/vnd.tiddlywiki
                     <input type="submit" value="search">
                 </form>
             </div>
-Will contain a global index for the site
-            <ul>
-                <li><a href="">one page</a></li>
-                <li><a href="">another</a></li>
-                <li><a href="">one more</a></li>
-                <li><a href="">and so on</a></li>
-            </ul>
+            `<$view tiddler="$:/plugins/sycom/tiddlystatic/templates/pageContent/nav" format="htmlwikified"/>`
 Will contain a local index for the page (maybe)
             <ol>
                 <li><a href="#examples"></a>
