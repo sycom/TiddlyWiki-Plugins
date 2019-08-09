@@ -1,0 +1,7 @@
+created: 20190809135111206
+modified: 20190809135504475
+tags: $:/tags/Macro
+title: $:/ext/modules/macros/i18n/macros
+type: text/vnd.tiddlywiki
+
+\define caption-title() <$list filter="[all[current]has[caption]]">{{!!caption}}</$list><$list filter="[all[current]!has[caption]]"><$view field="title" /></$list>

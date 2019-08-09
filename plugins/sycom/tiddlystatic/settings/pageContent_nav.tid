@@ -7,8 +7,8 @@ type: text/vnd.tiddlywiki
 
 * //search tool (to be created)//
 * //Main navigation//
-** Home page : <$edit-text tag=input tiddler="$:/plugins/sycom/tiddlystatic/user/settings.json" index="index_page" />
-** Main pages tagged with : <$edit-text tag=input tiddler="$:/plugins/sycom/tiddlystatic/user/settings.json" index="pages_tag" class="mid" />
+** Home page : <$edit-text tag=input tiddler="$:/plugins/sycom/tiddlystatic/settings/settings.json" index="index_page" />
+** Main pages tagged with : <$edit-text tag=input tiddler="$:/plugins/sycom/tiddlystatic/settings/settings.json" index="pages_tag" class="mid" />
 * //Local navigation (witthin current page - to be created)//
 //preview//
 

@@ -1,11 +1,11 @@
 created: 20190806124941074
 modified: 20190808150033695
 pages_tag: page
-title: $:/plugins/sycom/tiddlystatic/user/settings.json
+title: $:/plugins/sycom/tiddlystatic/settings/settings.json
 type: application/json
 
 {
-    "export_filter": "[!is[system]!has[draft.of]]",
+    "export_filter": "[!is[system]!has[draft.of]] +[all[tiddlers]links[]missing[]]",
     "export_filter_sample_count": "2",
     "feed_item_number": "25",
     "website_url": "https://sycom.gitlab.io/TiddlyWiki-Plugins",

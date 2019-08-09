@@ -1,0 +1,9 @@
+created: 20190809124240058
+modified: 20190809132604958
+title: $:/titles/i18n/fr-FR
+type: application/json
+
+{
+    "Roadmap": "Feuille de Route",
+    "Symple Framework": "Système Symple"
+}

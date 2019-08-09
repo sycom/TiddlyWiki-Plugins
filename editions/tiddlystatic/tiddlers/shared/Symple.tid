@@ -1,9 +1,9 @@
 created: 20190612135937000
 creator: Sylvain
-modified: 20190802133341685
+modified: 20190809135917404
 modifier: Sylvain
-tags: wiki
+tags: [[Symple Framework]] page
 title: Symple
 type: text/vnd.tiddlywiki
 
-<<i18n Symple $:/Symple>>
+<<i18n '' $:/Symple>>

@@ -1,39 +1,31 @@
 created: 20190612135310100
 creator: Sylvain
-modified: 20190807122154257
+modified: 20190809103444715
 modifier: Sylvain
 title: $:/TiddlyStatic/i18n/en-GB/TiddlyStatic
 type: text/vnd.tiddlywiki
 
 The TiddlyStatic project aims at building a static website generator based upon TiddlyWiki and using node.js by enhancing already implemented capacities that delivers the static version of TiddlyWiki.
 
+For now, it works on Gitlab instances and you will need to use node.js version or TiddlyDesktop to make it work.
+
 !! Getting started
 You will have some settings and organization to do before starting
 
-* Create a repository on a gitlab instance (and create an account there if you don't have one)
+* Create a repository on a gitlab instance (create an account there if you don't have one)
 * Setup this repo : the simplest way is to clone the master project. But you can start with your own node.js wiki and import the tiddlystatic plugin
 * Clone the repo on your local machine to work more easily
-* Launch the wiki and make some settings in the [[tiddlystatic plugin|$:/plugins/sycom/tiddlystatic]] : website adress, pages to publish, colors (and other options...)
-* Get updated `.gitlab-ci.yml` content from [[.gitlab-ci.yml generator|$:/plugins/sycom/tiddlystatic/utils/gitlabCiYmlGenerator]] and `tiddlywiki.info` from [[tiddlywiki.info generator|$:/plugins/sycom/tiddlystatic/utils/tiddlywikiInfoGenerator]] and replace current one in your folder
+* Launch the wiki with node or TiddlyDesktop
+** use your wiki as a classic TiddlyWiki
+** make some [[settings|$:/plugins/sycom/tiddlystatic/settings]] (website adress, pages to publish, colors and other options...)
+** Get updated
+*** `.gitlab-ci.yml` content from [[.gitlab-ci.yml generator|$:/plugins/sycom/tiddlystatic/utils/gitlabCiYmlGenerator]]
+*** `tiddlywiki.info` from [[tiddlywiki.info generator|$:/plugins/sycom/tiddlystatic/utils/tiddlywikiInfoGenerator]] 
+* replace current one in your folder
 * //commit//, //push//.
 
 That's it your static website is working...
 
-Then updating is as easy as //pull//, launch your wiki locally and edit it, //commit//, //push//. Note that you may also //edit//, //commit// straight from the gitlab web interface. Be WikiText fluent to do this...
+Updating is now as easy as //pull//, launch your wiki locally and edit it, //commit//, //push//. Note that you may also //edit//, //commit// straight from the gitlab web interface. Be WikiText fluent to do this...
 
-!! Roadmap
-
-Here are some of the goals and ideas behind tiddlystatic. Will transform this to a good repo on gitlab with a good issue tracker when pre-launching...
-
-* more //responsive// design, mobile first, semantic for static webpages
-** work on [[Symple]] framework in the same time
-** for more consistency between dynamic and static version there is
-*** a [[vanilla reset stylesheet|$:/plugins/sycom/tiddlystatic/styles/vanillaReset.css]]
-*** a [[Symple palette editor|$:/plugins/sycom/tiddlystatic/SymplePaletteEditor]] linked to the main wiki palette (defaultly a clone from Vanilla)
-*** an [[export reset stylesheet|$:/plugins/sycom/tiddlystatic/styles/exportReset]]
-* implementing a search engine (powered by lunr.js?)
-* better compliance between dynamic tiddlywiki and static wiki 
-* atom feed
-* indexes (by year/month, by tag)
-* ready to use `tiddlywiki.info` and `.gitlab-ci.yml` files to help deploy : $:/plugins/sycom/tiddlystatic/GitlabDeployFilesGenerator
-* ...
+For more technicals details about TiddlyStatic, please refer to [[Documentation]].

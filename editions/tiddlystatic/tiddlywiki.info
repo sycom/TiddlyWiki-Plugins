@@ -26,7 +26,7 @@
          "--rendertiddler", "$:/plugins/tiddlywiki/tiddlyweb/save/offline", "TiddlyStatic.html", "text/plain"
          ],
       "wiki": [
-         "--rendertiddlers", "[!is[system]!has[draft.of]]", "$:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html", "wiki", "text/plain"
+         "--rendertiddlers", "[!is[system]!has[draft.of]] +[all[tiddlers]links[]missing[]]", "$:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html", "wiki", "text/plain"
          ],
       "styles":[
          "--rendertiddler", "$:/plugins/sycom/tiddlystatic/export/symple.css", "styles/symple.css", "text/plain"

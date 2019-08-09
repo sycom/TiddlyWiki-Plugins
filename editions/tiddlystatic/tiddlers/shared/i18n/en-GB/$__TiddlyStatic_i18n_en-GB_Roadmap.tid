@@ -1,0 +1,34 @@
+created: 20190809124421681
+modified: 20190809130740877
+title: $:/TiddlyStatic/i18n/en-GB/Roadmap
+type: text/vnd.tiddlywiki
+
+!! Roadmap
+
+Here are some of the goals and ideas behind tiddlystatic. Will transform this to a good repo on gitlab with a good issue tracker when pre-launching...
+
+* more //responsive// design, mobile first, semantic for static webpages
+** work on [[Symple Framework]] in the same time
+** for more consistency between dynamic and static version there is
+*** a [[vanilla reset stylesheet|$:/plugins/sycom/tiddlystatic/styles/vanillaReset.css]]
+*** a [[Symple palette editor|$:/plugins/sycom/tiddlystatic/SymplePaletteEditor]] linked to the main wiki palette (defaultly a clone from Vanilla)
+*** an [[export reset stylesheet|$:/plugins/sycom/tiddlystatic/styles/exportReset]]
+* possibly make it //internationalizable//
+** work on [[i18n Macro]] in the same time
+* atom feed
+** enhance [[atom feed plugin]] in the same time
+* indexes
+** created some macro to enable year/month grouping :
+*** $:/ext/modules/macros/eachmonth.js
+*** $:/ext/modules/macros/eachyear.js
+*** $:/ext/modules/macros/samemonth.js
+*** $:/ext/modules/macros/sameyear.js
+** And two indexes with it (for now)
+*** [[Creation date index]]
+*** [[Modification date index]]
+* ready to use
+** `tiddlywiki.info` file with $:/plugins/sycom/tiddlystatic/utils/tiddlywikiInfoGenerator
+** `.gitlab-ci.yml` file with $:/plugins/sycom/tiddlystatic/utils/gitlabCiYmlGenerator
+* optionnaly enable tracking (Google? Other?) RGPD and DNT compliant
+* implementing a search engine (powered by lunr.js?)
+* ...
