@@ -7,6 +7,7 @@ pages:
   - tiddlywiki ./editions/collection --build
   - gzip --recursive --keep ./editions/collection/output
   - mv ./editions/collection/output public
+  - gzip --recursive --keep ./files/testing
   - cp -R ./files/* public
   artifacts:
     paths:
