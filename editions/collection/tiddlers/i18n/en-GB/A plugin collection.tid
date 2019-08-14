@@ -1,5 +1,5 @@
 created: 20190418102208421
-modified: 20190503154145674
+modified: 20190814131639194
 title: $:/collection/i18n/en-GB/A plugin collection
 type: text/vnd.tiddlywiki
 
@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 </div>
 
 !! <<f-i map>> [[Leaflet maps plugin]] ({{$:/plugins/sycom/leaflet!!version}})
-the <$link to="$:/plugins/sycom/leaflet"><<f-i download>> Leaflet maps plugin</$link> will embed leaflet maps in your tiddlywiki with the `<$leafmap />` widget. See the [[Michel Strogoff|Michel Strogoff from the sky]] (map below) or [[included doc]] examples to learn more.
+the <$link to="$:/plugins/sycom/leaflet"><<f-i download>> Leaflet maps plugin</$link> will embed leaflet maps in your tiddlywiki with the `<$leafmap />` widget. See the [[Michel Strogoff|Michel Strogoff from the sky]] (map below) or [[included doc examples|$:/plugins/sycom/leaflet/example]] to learn more.
 
 The plugins also brings the <<f-i map-pin>> [[geoLocationWidget]] which creates a button to collect the current geolocation of your browser. But it may be used independently if you do not need the plugin...
 

@@ -27,7 +27,6 @@ Runs Google Analytics with the account number in the tiddler `$:/GoogleAnalytics
     $tw.wiki.setText(GA_DISCLAIMER_TITLE, "text", null, $tw.wiki.getTiddlerText("$:/plugins/sycom/g-analytics/disclaimer"));
     // testing do not track before launching
     var dnt = navigator.doNotTrack || 0;
-    console.log(dnt);
     if (dnt === "1") {
       // tells the wiki that DNT is on for disclaimer adaptation
       $tw.wiki.setText("$:/temp/GoogleAnalyticsDNT", "text", null, "yes");
@@ -64,14 +63,15 @@ Runs Google Analytics with the account number in the tiddler `$:/GoogleAnalytics
               historyTitle = options.historyTitle || "$:/HistoryList";
             // getting storyList (displayed) historyList (last displayed) and last item
             var storyList = $tw.wiki.getTiddler(storyTitle).fields.list;
-            var historyList = JSON.parse($tw.wiki.getTiddlerText(historyTitle));
+            var history = $tw.wiki.getTiddlerText(historyTitle) || "[{\"title\": \"" + storyList[0] + "\"}]";
+            var historyList = JSON.parse(history);
             var GA_CURRENT = historyList[historyList.length - 1].title;
             // if last item has not been closed, prepare data and send to tracker
             if (storyList.includes(GA_CURRENT)) {
               // if history modified is true send tracker (else user may just closed another tiddler)
               // note that clicking on a tiddlerlink from already opened tiddler will count
-              if (changes[historyTitle] && GA_GDPR !== "yes") {
-                ga('set', 'page', window.location.pathname + '#' + GA_CURRENT);
+              if ((historyList.length ===1 || changes[historyTitle]) && GA_GDPR !== "yes") {
+                ga('set', 'page', window.location.pathname + '/' + GA_CURRENT);
                 ga('set', 'title', GA_CURRENT);
                 ga('send', 'pageview');
               }
