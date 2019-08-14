@@ -6,7 +6,7 @@ Sycom's TiddlyWiki plugins collection</title>
      <subtitle type="html">
 
 let's tiddler almost anything</subtitle>
-     <updated>09:32, 14th August 2019
+     <updated>16:56, 13th August 2019
 </updated>
      <id>Please set url in caption field
 </id>
@@ -21,34 +21,12 @@ let's tiddler almost anything</subtitle>
      <generator uri="https://sycom.gitlab.io/TiddlyWiki-Plugins/#AtomFeed%20Plugin" version="0.0.2">
        Sycom's AtomFeed TiddlyWiki plugin
      </generator><entry>
-   <title>This wiki uses Google Analytics</title>
-       <link rel="alternate" type="text/html"
-        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#This wiki uses Google Analytics"/>
-       <id>This wiki uses Google Analytics</id>
-       <updated>2019-08-14T09:22:47</updated>
-       <published>2019-08-14T09:22:45</published>
-       <author>
-         <name></name>
-       </author>
-       <content type="html">
-
-
-          <p><a class="tc-tiddlylink tc-tiddlylink-shadow i18n-edit" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Fdisclaimer_common"></a></p><p>As many website do, this wiki can use <a class="tc-tiddlylink-external" href="https://analytics.google.com" rel="noopener noreferrer" target="_blank">Google Analytics</a> (via the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics">G-Analytics plugin</a>) to help analyse how much visitors use this site and where they come from. Google uses “<a class="tc-tiddlylink-external" href="https://en.wikipedia.org/wiki/HTTP_cookie" rel="noopener noreferrer" target="_blank">cookies</a>”, which are small text files placed on your computer, to collect standard internet log information and visitor behaviour information in an anonymous form.
-</p><div class=" tc-reveal" hidden="true"></div><p><span class=" tc-reveal">
-   <div class=" tc-reveal"><p><a class="tc-tiddlylink tc-tiddlylink-shadow i18n-edit" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Fdisclaimer_gdpr"></a></p><p>However, as you did not &quot;opt-in&quot; to be part of our survey panel, the plugin is deactivated for now and no information will be collected nor sent anywhere. You may change your mind whenever you want by just checking this  
-</p></div>
-   <div class=" tc-reveal" hidden="true"></div>
-</span>
-</p>
-       </content>
-</entry>
-<entry>
    <title>More examples</title>
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#More examples"/>
        <id>More examples</id>
-       <updated>2019-05-08T11:10:16</updated>
-       <published>2019-04-18T07:43:31</published>
+       <updated>2019-05-08T13:10:16</updated>
+       <published>2019-04-18T09:43:31</published>
        <author>
          <name></name>
        </author>
@@ -101,8 +79,8 @@ let's tiddler almost anything</subtitle>
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#a tiddler without fr-FR translation"/>
        <id>a tiddler without fr-FR translation</id>
-       <updated>2019-04-17T08:12:56</updated>
-       <published>2019-04-17T08:11:25</published>
+       <updated>2019-04-17T10:12:56</updated>
+       <published>2019-04-17T10:11:25</published>
        <author>
          <name></name>
        </author>
@@ -117,8 +95,8 @@ let's tiddler almost anything</subtitle>
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#un tiddler sans traduction en-GB"/>
        <id>un tiddler sans traduction en-GB</id>
-       <updated>2019-04-17T08:12:56</updated>
-       <published>2019-04-17T08:11:25</published>
+       <updated>2019-04-17T10:12:56</updated>
+       <published>2019-04-17T10:11:25</published>
        <author>
          <name></name>
        </author>
@@ -133,8 +111,8 @@ let's tiddler almost anything</subtitle>
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#a tiddler without original version"/>
        <id>a tiddler without original version</id>
-       <updated>2019-04-17T08:11:16</updated>
-       <published>2019-04-17T08:10:01</published>
+       <updated>2019-04-17T10:11:16</updated>
+       <published>2019-04-17T10:10:01</published>
        <author>
          <name></name>
        </author>
@@ -149,8 +127,8 @@ let's tiddler almost anything</subtitle>
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#i18n macro"/>
        <id>i18n macro</id>
-       <updated>2019-05-07T10:20:40</updated>
-       <published>2019-04-02T17:21:24</published>
+       <updated>2019-05-07T12:20:40</updated>
+       <published>2019-04-02T19:21:24</published>
        <author>
          <name></name>
        </author>
@@ -173,8 +151,8 @@ let's tiddler almost anything</subtitle>
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Feather icons plugin"/>
        <id>Feather icons plugin</id>
-       <updated>2019-05-03T15:43:30</updated>
-       <published>2019-03-29T15:11:07</published>
+       <updated>2019-05-03T17:43:30</updated>
+       <published>2019-03-29T16:11:07</published>
        <author>
          <name></name>
        </author>
@@ -244,8 +222,8 @@ $:/plugins/sycom/feather-icons
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#geoLocationWidget"/>
        <id>geoLocationWidget</id>
-       <updated>2019-04-03T14:04:07</updated>
-       <published>2018-09-06T13:09:58</published>
+       <updated>2019-04-03T16:04:07</updated>
+       <published>2018-09-06T15:09:58</published>
        <author>
          <name></name>
        </author>
@@ -267,8 +245,8 @@ $:/plugins/sycom/feather-icons
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Atom feed plugin"/>
        <id>Atom feed plugin</id>
-       <updated>2019-05-03T15:42:00</updated>
-       <published>2017-02-01T10:52:00</published>
+       <updated>2019-05-03T17:42:00</updated>
+       <published>2017-02-01T11:52:00</published>
        <author>
          <name></name>
        </author>
@@ -361,8 +339,8 @@ $:/plugins/sycom/atom-feed
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#G-Analytics plugin"/>
        <id>G-Analytics plugin</id>
-       <updated>2019-04-19T10:18:42</updated>
-       <published>2017-02-01T10:52:00</published>
+       <updated>2019-04-19T12:18:42</updated>
+       <published>2017-02-01T11:52:00</published>
        <author>
          <name></name>
        </author>
@@ -432,8 +410,8 @@ $:/plugins/sycom/g-analytics
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Leaflet maps plugin"/>
        <id>Leaflet maps plugin</id>
-       <updated>2019-04-03T14:06:20</updated>
-       <published>2017-02-01T10:52:00</published>
+       <updated>2019-04-03T16:06:20</updated>
+       <published>2017-02-01T11:52:00</published>
        <author>
          <name></name>
        </author>
@@ -506,8 +484,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-7"/>
        <id>Michel Strogoff II-7</id>
-       <updated>2019-04-03T13:45:36</updated>
-       <published>2015-12-11T22:01:15</published>
+       <updated>2019-04-03T15:45:36</updated>
+       <published>2015-12-11T23:01:15</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -522,8 +500,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-15"/>
        <id>Michel Strogoff II-15</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T21:42:54</published>
+       <updated>2019-04-03T15:45:37</updated>
+       <published>2015-12-11T22:42:54</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -538,8 +516,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-14"/>
        <id>Michel Strogoff II-14</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T21:42:43</published>
+       <updated>2019-04-03T15:45:37</updated>
+       <published>2015-12-11T22:42:43</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -554,8 +532,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-13"/>
        <id>Michel Strogoff II-13</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T21:42:20</published>
+       <updated>2019-04-03T15:45:37</updated>
+       <published>2015-12-11T22:42:20</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -570,8 +548,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-12"/>
        <id>Michel Strogoff II-12</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T21:41:10</published>
+       <updated>2019-04-03T15:45:37</updated>
+       <published>2015-12-11T22:41:10</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -586,8 +564,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-11"/>
        <id>Michel Strogoff II-11</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T21:40:27</published>
+       <updated>2019-04-03T15:45:37</updated>
+       <published>2015-12-11T22:40:27</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -602,8 +580,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-10"/>
        <id>Michel Strogoff II-10</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T21:40:16</published>
+       <updated>2019-04-03T15:45:37</updated>
+       <published>2015-12-11T22:40:16</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -618,8 +596,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-9"/>
        <id>Michel Strogoff II-9</id>
-       <updated>2019-04-03T13:45:36</updated>
-       <published>2015-12-11T21:39:19</published>
+       <updated>2019-04-03T15:45:36</updated>
+       <published>2015-12-11T22:39:19</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -634,8 +612,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-8"/>
        <id>Michel Strogoff II-8</id>
-       <updated>2019-04-03T13:45:36</updated>
-       <published>2015-12-11T21:37:46</published>
+       <updated>2019-04-03T15:45:36</updated>
+       <published>2015-12-11T22:37:46</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -650,8 +628,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-6"/>
        <id>Michel Strogoff II-6</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T21:35:24</published>
+       <updated>2019-04-03T15:45:37</updated>
+       <published>2015-12-11T22:35:24</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -666,8 +644,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-5"/>
        <id>Michel Strogoff II-5</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T21:35:10</published>
+       <updated>2019-04-03T15:45:37</updated>
+       <published>2015-12-11T22:35:10</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -682,8 +660,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-4"/>
        <id>Michel Strogoff II-4</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T21:34:52</published>
+       <updated>2019-04-03T15:45:37</updated>
+       <published>2015-12-11T22:34:52</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -698,8 +676,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-3"/>
        <id>Michel Strogoff II-3</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T16:09:56</published>
+       <updated>2019-04-03T15:45:37</updated>
+       <published>2015-12-11T17:09:56</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -715,8 +693,8 @@ $:/plugins/sycom/leaflet
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-2"/>
        <id>Michel Strogoff II-2</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T16:09:20</published>
+       <updated>2019-04-03T15:45:37</updated>
+       <published>2015-12-11T17:09:20</published>
        <author>
          <name>Sylvain Comte</name>
        </author>
@@ -724,6 +702,22 @@ $:/plugins/sycom/leaflet
 
 
           <p>Les deux journalistes sont libérés et s’en vont à Tomsk, où l’armée tartare doit se rendre. Marfa Strogoff rencontre Nadia qui lui donne la clef de l’étrange attitude de son fils.</p>
+       </content>
+</entry>
+<entry>
+   <title>Michel Strogoff II-1</title>
+       <link rel="alternate" type="text/html"
+        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-1"/>
+       <id>Michel Strogoff II-1</id>
+       <updated>2019-04-03T15:45:37</updated>
+       <published>2015-12-11T17:05:52</published>
+       <author>
+         <name>Sylvain Comte</name>
+       </author>
+       <content type="html">
+
+
+          <p>Quatre jours sont passés pour les trois prisonniers qui rêvent de liberté. Ivan Ogareff entre alors dans le camp.</p>
        </content>
 </entry>
 
