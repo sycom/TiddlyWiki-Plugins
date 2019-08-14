@@ -1,5 +1,4 @@
 title: $:/plugins/sycom/g-analytics/i18n/fr-FR/settings
-type: text/vnd.tiddlywiki
 
 Il y a deux paramètres et une option à régler, ''seul le premier est obligatoire''. Vous pouvez (devriez?) également personnaliser les messages d'information sur la vie privée pour les adapter à votre langue ou aux règlements en vigueur localement. Sauvegardez et rechargez le wiki après changement.
 
@@ -9,7 +8,7 @@ Il y a deux paramètres et une option à régler, ''seul le premier est obligato
 
 ''[[Domaine Google Analytics|$:/GoogleAnalyticsDomain]]'' (optionnel) : l'adresse du site où le wiki est publié. Par défaut, `auto` if not set.<br/><$edit-text tiddler="$:/GoogleAnalyticsDomain" default="" tag="input"/>
 
-<<slideCheck $:/GoogleAnalyticsTrackAll '' 'yes' 'no' 'no' 'suivre tous les tiddlers'>> Si vous souhaitez suivre la navigation interne au wiki, activez cette option (mettra [[Google Analytics Track All|$:/GoogleAnalyticsTrackAll]] à la valeur "yes")
+<<slideCheck $:/plugins/sycom/g-analytics/settings/track_all '' 'yes' 'no' 'no' 'suivre tous les tiddlers'>> Si vous souhaitez suivre la navigation interne au wiki, activez cette option (mettra [[Google Analytics Track All|$:/plugins/sycom/g-analytics/settings/track_all]] à la valeur "yes")
 
 ^^1^^ //sinon, vous risquez d'envoyer vos données de suivi sur un autre compte Analytics (ou nulle part)//
 
@@ -18,10 +17,5 @@ Vous pouvez personnaliser ou traduire les messages affichés par le plugin en é
 
 * [[Message de notification|$:/plugins/sycom/g-analytics/disclaimer_notification]]
 
-* ''Infomations sur la vie pivée''
-*# [[Titre|$:/plugins/sycom/g-analytics/disclaimer_title]] : <$edit-text tiddler="$:/plugins/sycom/g-analytics/disclaimer_title" field="caption" tag="input"/>
-*# [[Message par défaut|$:/plugins/sycom/g-analytics/disclaimer_base]]
-*# [[Suivi de la navigation interne activé|$:/plugins/sycom/g-analytics/disclaimer_full]]
-*# [[Visiteur en mode navigation privée ou utilisant Do Not Track|$:/plugins/sycom/g-analytics/disclaimer_dnt]]
-
-* ''Désactiver la notification''<br/>Même si vous ''ne devriez pas'', vous pouvez désactiver la notification initiale. ''Cela n'est pas correct vis à vis de vos visiteurs'' et ''peut être considéré comme illégal'' [[dans de nombreux pays|https://www.dlapiperdataprotection.com/index.html#handbook/world-map-section]]. Dans tous les cas le plugin créera le tiddler <$link to={{$:/plugins/sycom/g-analytics/disclaimer_title!!text}}>{{$:/plugins/sycom/g-analytics/disclaimer_title!!text}}</$link> tiddler.<br/><<slideCheck $:/GoogleAnalyticsNotification '' 'no' 'yes' 'yes' 'désactiver les notifications'>> Si vous souhaitez malgré tout désactiver la notification initiale (mettra [[Google Analytics Notification|$:/GoogleAnalyticsNotification]] à la valeur "no").
+* ''Informations sur la vie privée''
+** Titre du message : <$edit-text tiddler="$:/plugins/sycom/g-analytics/settings/disclaimer_title" field="caption" tag="input"/>
