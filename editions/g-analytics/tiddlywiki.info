@@ -14,7 +14,7 @@
 	],
 	"build": {
 		"index": [
-			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","index.html","text/plain"]		
+			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","../../../files/testing/g-analytics.html","text/plain"]
 	},
 	"config": {
 		"retain-original-tiddler-path": true

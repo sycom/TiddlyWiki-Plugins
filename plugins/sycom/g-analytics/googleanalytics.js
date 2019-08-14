@@ -19,6 +19,7 @@ Runs Google Analytics with the account number in the tiddler `$:/GoogleAnalytics
   exports.synchronous = true;
 
   exports.startup = function() {
+    var GA_Launched = 0 ; // GA active detector
     // initializing disclaimer
     var GA_DISCLAIMER_TITLE = $tw.wiki.getTiddler("$:/plugins/sycom/g-analytics/settings/disclaimer_title").fields.caption || "This wiki uses Google analytics";
     GA_DISCLAIMER_TITLE = GA_DISCLAIMER_TITLE.replace(/\n/g, "");
@@ -27,10 +28,11 @@ Runs Google Analytics with the account number in the tiddler `$:/GoogleAnalytics
     // testing do not track before launching
     var dnt = navigator.doNotTrack || 0; console.log(dnt);
     if (dnt === "1") {
-console.log("dnt is alive!")
+console.log("dnt is active. Nothing more will happen - never");
       // tells the wiki that DNT is on for disclaimer adaptation
       $tw.wiki.setText("$:/temp/GoogleAnalyticsDNT", "text", null, "yes");
     } else {
+console.log("dnt is not active. Let's make things - set vars");
       // getting parameters - account, domain, tracking tiddlers and gdpr - opt-in
       var GA_ACCOUNT = $tw.wiki.getTiddlerText("$:/GoogleAnalyticsAccount") || "",
         GA_DOMAIN = $tw.wiki.getTiddlerText("$:/GoogleAnalyticsDomain") || "",
@@ -38,18 +40,32 @@ console.log("dnt is alive!")
         GA_GDPR = "yes";
       GA_ACCOUNT = GA_ACCOUNT.replace(/\n/g, "");
       GA_DOMAIN = GA_DOMAIN.replace(/\n/g, "");
-      GA_TRACKALL = GA_TRACKALL.replace(/\n/g, "");
-
       // handling domain parameter : user defined > from window location > "auto" fallback
       if (GA_DOMAIN == "") GA_DOMAIN = window.location.hostname;
       if (GA_DOMAIN == undefined) GA_DOMAIN = "auto";
-      // using ga "isogram" function
-      (function(i, s, o, g, r, a, m) {i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function() {(i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date();a = s.createElement(o),  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-      if (GA_TRACKALL == "yes" && GA_GDPR !== "yes") {
+console.log("GA_DOMAIN: " + GA_DOMAIN);
+      GA_TRACKALL = GA_TRACKALL.replace(/\n/g, "");
+console.log("GA_TRACKALL: " + GA_TRACKALL);
+      // create a "hook" on navigation to send data via tracker
+      $tw.wiki.addEventListener("change", function(changes) {
+        // if first launch, initiates GA
+        if(GA_Launched === 0) {
+console.log("start creating google function");
+          // using ga "isogram" function
+          (function(i, s, o, g, r, a, m) {i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function() {(i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date();a = s.createElement(o),  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+console.log("end creating google function");
+          GA_Launched = 1;
+          }
+      // get informations about GDPR opt-in (or not)
+      GA_GDPR = $tw.wiki.getTiddlerText("$:/temp/GoogleAnalyticsGDPRoption") || "yes";
+      GA_GDPR = GA_GDPR.replace(/\n/g, "");
+      if(GA_GDPR !== "yes") {
+        // GDPR has been cleared by opt-in
+console.log("GDPR opt-in OK, we send datas")
+        if (GA_TRACKALL === "yes") {
+console.log("trackall is on");
         ga('create', GA_ACCOUNT, GA_DOMAIN);
-        // create a "hook" on navigation to send data via tracker
-        $tw.wiki.addEventListener("change", function(changes) {
+
           // dealing with user settings !todo check if options is associated with wiki or $tw
           var options = $tw.wiki.options || {},
             storyTitle = options.storyTitle || "$:/StoryList",
@@ -60,32 +76,32 @@ console.log("dnt is alive!")
           var GA_CURRENT = historyList[historyList.length - 1].title;
           // if last item has not been closed, prepare data and send to tracker
           if (storyList.includes(GA_CURRENT)) {
-            // get informations about GDPR opt-in
-            GA_GDPR = $tw.wiki.getTiddlerText("$:/temp/GoogleAnalyticsGDPRoption") || "yes";
-            GA_GDPR = GA_GDPR.replace(/\n/g, "");
+console.log("if last item has not been closed, prepare data and send to tracker");
             // if history modified is true send tracker (else user may just closed another tiddler)
             // note that clicking on a tiddlerlink from already opened tiddler will count
             if (changes[historyTitle] && GA_GDPR !== "yes") {
+console.log("sending tiddler " + GA_CURRENT);
               ga('set', 'page', window.location.pathname + '#' + GA_CURRENT);
               ga('set', 'title', GA_CURRENT);
               ga('send', 'pageview');
             }
           }
-        });
-        // ?!todo? at first connection, should send all default pages to tracker?
-      } else {
+        } else {
+console.log("no trackall, will send once");
         // change informations about tracking - base mode
         // $tw.wiki.setText(GA_DISCLAIMER_TITLE, "text", null, $tw.wiki.getTiddlerText("$:/plugins/sycom/g-analytics/disclaimer_base"));
         // get informations about GDPR opt-out
         GA_GDPR = $tw.wiki.getTiddlerText("$:/temp/GoogleAnalyticsGDPRoption") || "yes";
         GA_GDPR = GA_GDPR.replace(/\n/g, "");
         // send data for whole page once only
-        if (GA_GDPR !== "yes") {
+console.log("no gdpr we send whole wiki");
           ga('create', GA_ACCOUNT, GA_DOMAIN);
           ga('send', 'pageview');
         }
+      } else {
+console.log("GDPR opt-in not OK, nothing should happen")
       }
-    }
+    });
     // killing notification (if asked by owner) or initializing it
     /*var GA_NOTIFICATION = $tw.wiki.getTiddlerText("$:/GoogleAnalyticsNotification") || "yes";
     if (GA_NOTIFICATION.replace(/\n/g, "") == "no") {
@@ -96,4 +112,5 @@ console.log("dnt is alive!")
       $tw.wiki.setText("$:/temp/HideAnalyticsWarning", "text", null, "no");
     }*/
   }
+}
 })();
