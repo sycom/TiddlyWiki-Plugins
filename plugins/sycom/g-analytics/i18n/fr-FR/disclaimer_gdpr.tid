@@ -1,0 +1,3 @@
+title: $:/plugins/sycom/g-analytics/i18n/fr-FR/disclaimer_gdpr
+
+Toutefois, comme vous n'avez pas fait le choix d'intégrer notre panel de suivi, le plugin est désactivé pour le moment et aucune information ne sera collectée ni envoyée nulle part. Vous pouvez changer d'avis à tout moment juste en validant ici &nbsp;<<slideCheck $:/temp/GoogleAnalyticsGDPRoption '' 'no' 'yes' 'yes' 'suivi?'>>
