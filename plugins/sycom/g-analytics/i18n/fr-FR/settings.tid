@@ -1,5 +1,4 @@
 title: $:/plugins/sycom/g-analytics/i18n/fr-FR/settings
-type: text/vnd.tiddlywiki
 
 Il y a deux paramètres et une option à régler, ''seul le premier est obligatoire''. Vous pouvez (devriez?) également personnaliser les messages d'information sur la vie privée pour les adapter à votre langue ou aux règlements en vigueur localement. Sauvegardez et rechargez le wiki après changement.
 
