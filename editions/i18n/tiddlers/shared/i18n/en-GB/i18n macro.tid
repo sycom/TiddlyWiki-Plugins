@@ -1,7 +1,7 @@
 created: 20190402212356600
-modified: 20190507101852753
+modified: 20190819085930848
 tags:
-title: $:/ext/modules/macros/i18n/i18n/en-GB/i18n macro
+title: $:/i18n/i18n/en-GB/i18n macro
 type: text/vnd.tiddlywiki
 
 the [[i18n|$:/ext/modules/macros/i18n-macro.js]] macro aims to make it easier to translate some parts of your [[TiddlyWiki|https://tiddlywiki.com/static/TiddlyWiki.html]] beside $:/languages + `<<lingo>>` mechanism. It might be useful to translate extensions or tiddlers.
@@ -19,19 +19,47 @@ The macro is already included in the following plugins, so if you already use on
 * `orig_lang` : the original language of the tiddler (default `en-GB`)
 * `inline` : set to `true` force //inline// rendering (défault `false`). For short text mainly.
 
-So,
+!! mechanism and basic usage examples
 
 ```
 <<i18n "i18n macro" "$:/ext/modules/macros/i18n" "fr-FR">>
 ```
 will call
 
-# the [[$:/ext/modules/macros/i18n/i18n/lg-LG/i18n macro]] tiddler where lg-LG is the current TiddlyWiki [[$:/language]]
+# the [[$:/ext/modules/macros/i18n/i18n/lg-LG/i18n macro]] tiddler where lg-LG is the current wiki [[$:/language]]
 # if missing, the original language tiddler : [[$:/ext/modules/macros/i18n/i18n/fr-FR/i18n macro]]
 # if missing an alert telling that original tiddler doesn't exist
 
 When using `dico` version, the process is almost the same, but the macro will search ##`title` entry in a $:/ext/modules/macros/i18n/i18n/lg-LG dictionary tiddler (or ''fr-FR'' base language if not set). It's more convenient for short phrases or words only translation. For now if entry doesn't exist, you will have blank text...
 
-For tiddlers using `<<i18n>>` links will appear on translated parts hover in order to make edition easier. For case //.2// two links will apper : one for adding missing translation, the other for original language edition.
+For tiddlers using `<<i18n>>` links will appear on translated parts hover in order to make edition easier. For case //.2// two links will appear : one for adding missing translation, the other for original language edition.
 
 See current [[i18n macro]], [[un tiddler sans traduction en-GB]] and [[a tiddler without original version]] as live examples. $:/SiteTitle and $:/SiteSubtitle are using the //dico// version, have a look to  $:/ControlPanel to get more.
+
+!! Titles translation
+
+The macro was not designed to translate full tiddlers nor titles. If you want this, there is a workaround : indicate that the tiddler is a full translated tiddlers and store tiddler titles in special dictionnary for each language. In the working solution proposed here, dictionnary are in `$:/titles/lg-LG` tiddlers and you indicate fully translated tiddlers by completing a `i18n` with the original language of the tiddler.
+
+You will have to overwrite some TiddlyWiki //system// tiddlers :
+
+* $:/core/ui/ViewTemplate/title
+* $:/core/macros/timeline
+
+Add an aesthetical fix
+
+* title: $:/ext/modules/macros/i18n/styleHack
+
+And for an easiest translated titles management, you may use
+
+* $:/ext/modules/macros/i18n/TitlesManager
+
+You may need to make your own edits to replace titles by their translation in some of the existing tiddlers. In this case, you can use this "code" sample
+
+```
+<$list filter="[<currentTiddler>has[i18n]]">
+   <$macrocall $name="i18n" title={{!!title}} domain="$:/titles" dico="dico" orig_lang={{!!i18n}} inline="true" />
+</$list>
+<$list filter="[<currentTiddler>!has[i18n]]">
+   <$view field="title" />
+</$list>
+```

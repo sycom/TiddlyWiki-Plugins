@@ -1,10 +1,8 @@
 created: 20190417081216623
-modified: 20190417092458693
-title: $:/i18n/fr-FR/un tiddler sans traduction
+modified: 20190819084806031
+title: $:/i18n/i18n/fr-FR/un tiddler sans traduction
 type: text/vnd.tiddlywiki
 
-ce tiddler dispose d'un original, mais n'a pas de traduction en en-GB.
+ce tiddler dispose d'un original, mais n'a pas de traduction en en-GB. Si la langue sélectionnée pour votre wiki est le français, voyez le lien de création //+en-GB// rouge lorsque votre souris survole le texte.
 
-Je vais aussi avoir du boulot pour la transclusion des macros :
-
-* `<<colour primary>>` > <<colour primary>>
+Changez de langue : {{$:/core/ui/Buttons/language}}

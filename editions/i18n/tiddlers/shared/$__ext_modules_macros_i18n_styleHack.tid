@@ -1,0 +1,11 @@
+created: 20190807070452529
+modified: 20190819080004077
+tags: $:/tags/Stylesheet
+title: $:/ext/modules/macros/i18n/styleHack
+type: text/vnd.tiddlywiki
+
+.tc-titlebar .tc-title >span svg {display:none}
+
+table.i18n_title_editor {width:100%}
+
+.i18n_title_editor input {width:100%;border: 0; font-family:monospace; font-size:0.95em;padding: 4px; margin: 4px 0; background: #eee;}
