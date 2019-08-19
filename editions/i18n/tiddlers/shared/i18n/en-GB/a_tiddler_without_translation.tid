@@ -1,10 +1,8 @@
 created: 20190417081216623
-modified: 20190417092458693
-title: $:/i18n/en-GB/a tiddler without translation
+modified: 20190819084351835
+title: $:/i18n/i18n/en-GB/a tiddler without translation
 type: text/vnd.tiddlywiki
 
-this tiddler has an original but doesn't have any translation in fr-FR.
+this tiddler has an original but doesn't have any translation in fr-FR. If your wiki is switched to french, see the red //+fr-FR// creation link when your mouse is over the text.
 
-Also i will have some work to make macros works :
-
-* `<<colour primary>>` > <<colour primary>>
+Switch language : {{$:/core/ui/Buttons/language}}

@@ -1,7 +1,8 @@
 created: 20190402172124000
-modified: 20190507102040340
-tags: 
+i18n: fr-FR
+modified: 20190819082948444
+tags:
 title: i18n macro
 type: text/vnd.tiddlywiki
 
-<<i18n 'i18n macro' '$:/ext/modules/macros/i18n' 'fr-FR'>>
+<<i18n 'i18n macro' '$:/i18n' {{!!i18n}}>>

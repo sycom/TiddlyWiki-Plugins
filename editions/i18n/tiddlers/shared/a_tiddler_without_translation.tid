@@ -3,4 +3,4 @@ modified: 20190417081256269
 title: a tiddler without fr-FR translation
 type: text/vnd.tiddlywiki
 
-<<i18n 'a tiddler without translation'>>
+<<i18n 'a tiddler without translation' '$:/i18n'>>

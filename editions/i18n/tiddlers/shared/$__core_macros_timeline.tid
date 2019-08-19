@@ -1,0 +1,24 @@
+created: 20141212105914482
+modified: 20190807074829059
+tags: $:/tags/Macro
+title: $:/core/macros/timeline
+
+\define timeline-title()
+<$list filter="[<currentTiddler>has[i18n]]"><$macrocall $name="i18n"title={{!!title}} domain="$:/titles" dico="dico" orig_lang={{!!i18n}} inline="true" /></$list><$list filter="[<currentTiddler>!has[i18n]]"><$view field="title" /></$list>
+\end
+\define timeline(limit:"100",format:"DDth MMM YYYY",subfilter:"",dateField:"modified")
+<div class="tc-timeline">
+<$list filter="[!is[system]$subfilter$has[$dateField$]!sort[$dateField$]limit[$limit$]eachday[$dateField$]]">
+<div class="tc-menu-list-item">
+<$view field="$dateField$" format="date" template="$format$"/>
+<$list filter="[sameday:$dateField${!!$dateField$}!is[system]$subfilter$!sort[$dateField$]]">
+<div class="tc-menu-list-subitem">
+<$link to={{!!title}}>
+<<timeline-title>>
+</$link>
+</div>
+</$list>
+</div>
+</$list>
+</div>
+\end

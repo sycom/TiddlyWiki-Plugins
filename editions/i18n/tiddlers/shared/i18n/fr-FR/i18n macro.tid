@@ -1,9 +1,9 @@
 created: 20190402210933800
-modified: 20190507102012887
-title: $:/ext/modules/macros/i18n/i18n/fr-FR/i18n macro
+modified: 20190819085100225
+title: $:/i18n/i18n/fr-FR/i18n macro
 type: text/vnd.tiddlywiki
 
-La macro [[i18n|$:/ext/modules/macros/i18n-macro.js]] a pour vocation de faciliter la traduction de parties de [[TiddlyWiki|https://tiddlywiki.com/languages/fr-FR/static/TiddlyWiki.html]] indépendamment du mécanisme déjà intégré $:/languages + `<<lingo>>`. Cela peut permettre la traduction d'extensions ou de tiddlers assez facilement
+La macro [[i18n|$:/ext/modules/macros/i18n-macro.js]] a pour vocation de faciliter la traduction de parties de [[TiddlyWiki|https://tiddlywiki.com/languages/fr-FR/static/TiddlyWiki.html]] indépendamment du mécanisme déjà intégré $:/languages + `<<lingo>>`. Cela peut permettre la traduction d'extensions ou de tiddlers assez facilement.
 
 La macro est déjà incluse dans les plugins suivant, donc si vous utilisez l'un d'entre eux vous n'avez pas besoin de l'installer par ailleurs :
 <ul><$list filter="[prefix[$:/plugins/]search[$:/ext/modules/macros/i18n-macro.js]]" >
@@ -18,7 +18,7 @@ Les paramètres de `<<i18n>>` sont
 * `orig_lang` : la langue originale du tiddler (par défaut `en-GB`)
 * `inline` : si `true` force le rendu //inline// (par défault `false`). Pour les textes courts principalement.
 
-Ainsi,
+!! Méchanisme et exemples d'usage courant
 
 ```
 <<i18n "i18n macro" "$:/ext/modules/macros" "" "fr-FR">>
@@ -34,3 +34,31 @@ Lorsque l'on utilise la version `dico`, le processus est presque le même, mais 
 Pour les tiddlers utilisants `<<i18n>>` des liens sont disponibles au survol de la partie traduite pour permettre l'édition plus facilement des différentes traductions. Lorsque l'on est dans le cas //2.//, deux liens sont disponibles : un pour ajouter la traduction manquante, l'autre pour éditer la version originale.
 
 Voir le présent [[i18n macro]], [[a tiddler without fr-FR translation]] et [[a tiddler without original version]] comme exemples illustrant ce fonctionnement. $:/SiteTitle et $:/SiteSubtitle utilisent la version //dico//, voyez le $:/ControlPanel pour plus de détails.
+
+!! Traduction des titres
+
+La macro ne permet pas par défaut la traduction des titres des tiddlers. Si vous voulez la mettre en place, une solution existe : indiquer que le tiddler est un tiddler entièrement traduit et stocker les titres dans des dictionnaires par langue. Dans la solution proposée ici, les dictionnaires sont de la forme `$:/titles/lg-LG` et le paramètre identifié pour repérer les tiddlers intégralement traduit est le champs `i18n` qui comportera la valeur de la langue originale du tiddler.
+
+Cela nécessite de modifier certains tiddlers //système// de TiddlyWiki :
+
+* $:/core/ui/ViewTemplate/title
+* $:/core/macros/timeline
+
+Ainsi qu'une modification esthétique
+
+* title: $:/ext/modules/macros/i18n/styleHack
+
+Par ailleurs, pour faciliter la gestion des titres un module spécial est utile :
+
+* $:/ext/modules/macros/i18n/TitlesManager
+
+Vous aurez peut-être besoin de faire vos propres modifications pour remplacer l'affichage des titres par leur traduction. Vous pouvez utiliser ce bout "code" dans ce champs
+
+```
+<$list filter="[<currentTiddler>has[i18n]]">
+   <$macrocall $name="i18n" title={{!!title}} domain="$:/titles" dico="dico" orig_lang={{!!i18n}} inline="true" />
+</$list>
+<$list filter="[<currentTiddler>!has[i18n]]">
+   <$view field="title" />
+</$list>
+```
