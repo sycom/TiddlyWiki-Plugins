@@ -1,0 +1,9 @@
+created: 20190819084014444
+modified: 20190819084933946
+title: $:/titles/i18n/fr-FR
+type: application/json
+
+{
+    "i18n macro": "Macro i18n",
+    "a tiddler without original version": "un tiddler sans version originale"
+}

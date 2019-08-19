@@ -1,0 +1,21 @@
+created: 20190807071457970
+modified: 20190807073300114
+title: $:/ext/modules/macros/i18n/TitlesManager
+
+\define edit-title(title lang:en-GB) <$edit-text tiddler="$:/titles/i18n/$lang$" tag=input index=<<titre>> />
+
+!! List of i18n tiddlers with title translations
+<table class="i18n_title_editor">
+<thead>
+   <tr><th>Title (id)</th><th>en-GB</th>
+<$list filter="[plugin-type[language]]"><th>{{!!name}}</th></$list>
+</tr></thead><tbody>
+<$list filter="[has[i18n]]">
+<$set name=titre value={{!!title}}>
+   <tr><td><$link to=<<titre>>><<titre>></$link></td><td><$edit-text tiddler="$:/titles/i18n/en-GB" tag=input index=<<titre>> /></td>
+<$list filter="[plugin-type[language]]"><td><$macrocall $name="edit-title" title=<<titre>> lang={{!!name}} /></td></$list>
+</tr>
+</$set>
+</$list>
+</tbody>
+</table>

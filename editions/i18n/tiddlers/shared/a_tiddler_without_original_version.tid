@@ -1,7 +1,8 @@
 created: 20190417081001302
-modified: 20190417081116055
-tags: 
+i18n: en-GB
+modified: 20190819084902585
+tags:
 title: a tiddler without original version
 type: text/vnd.tiddlywiki
 
-<<i18n 'no original'>>
+<<i18n 'no original' '$:/i18n'>>
