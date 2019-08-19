@@ -6,7 +6,7 @@ Sycom's TiddlyWiki plugins collection</title>
      <subtitle type="html">
 
 let's tiddler almost anything</subtitle>
-     <updated>13:34, 14th August 2019
+     <updated>09:26, 19th August 2019
 </updated>
      <id>Please set url in caption field
 </id>
@@ -109,7 +109,15 @@ let's tiddler almost anything</subtitle>
        <content type="html">
 
 
-          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Fi18n%2Fen-GB%2Fa%20tiddler%20without%20translation"></a></p><p>this tiddler has an original but doesn't have any translation in fr-FR.</p><p>Also i will have some work to make macros works :</p><ul><li><code>&lt;&lt;colour primary&gt;&gt;</code> &gt; </li></ul>
+          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Fi18n%2Fi18n%2Fen-GB%2Fa%20tiddler%20without%20translation"></a></p><p>this tiddler has an original but doesn't have any translation in fr-FR. If your wiki is switched to french, see the red <em>+fr-FR</em> creation link when your mouse is over the text.</p><p>Switch language : <span class="tc-popup-keep">
+<button aria-label="language" class="" title="Choose the user interface language">
+
+
+</button>
+</span>
+<span class=" tc-reveal" hidden="true"></span>
+
+</p>
        </content>
 </entry>
 <entry>
@@ -125,7 +133,15 @@ let's tiddler almost anything</subtitle>
        <content type="html">
 
 
-          <p><div class="tc-tiddler-info">sorry but there is not any <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fi18n%2Fen-GB%2Fun%20tiddler%20sans%20traduction">$:/i18n/en-GB/un tiddler sans traduction</a> tiddler</div></p>
+          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Fi18n%2Fi18n%2Ffr-FR%2Fun%20tiddler%20sans%20traduction"></a><a class="tc-tiddlylink tc-tiddlylink-missing i18n-edit alert" href="#%24%3A%2Fi18n%2Fi18n%2Fen-GB%2Fun%20tiddler%20sans%20traduction"> + en-GB</a></p><p>ce tiddler dispose d'un original, mais n'a pas de traduction en en-GB. Si la langue sélectionnée pour votre wiki est le français, voyez le lien de création <em>+en-GB</em> rouge lorsque votre souris survole le texte.</p><p>Changez de langue : <span class="tc-popup-keep">
+<button aria-label="language" class="" title="Choose the user interface language">
+
+
+</button>
+</span>
+<span class=" tc-reveal" hidden="true"></span>
+
+</p>
        </content>
 </entry>
 <entry>
@@ -133,7 +149,7 @@ let's tiddler almost anything</subtitle>
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#a tiddler without original version"/>
        <id>a tiddler without original version</id>
-       <updated>2019-04-17T08:11:16</updated>
+       <updated>2019-08-19T08:49:02</updated>
        <published>2019-04-17T08:10:01</published>
        <author>
          <name></name>
@@ -141,7 +157,7 @@ let's tiddler almost anything</subtitle>
        <content type="html">
 
 
-          <p><div class="tc-tiddler-info">sorry but there is not any <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fi18n%2Fen-GB%2Fno%20original">$:/i18n/en-GB/no original</a> tiddler</div></p>
+          <p><div class="tc-tiddler-info">sorry but there is not any <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fi18n%2Fi18n%2Fen-GB%2Fno%20original">$:/i18n/i18n/en-GB/no original</a> tiddler</div></p>
        </content>
 </entry>
 <entry>
@@ -149,7 +165,7 @@ let's tiddler almost anything</subtitle>
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#i18n macro"/>
        <id>i18n macro</id>
-       <updated>2019-05-07T10:20:40</updated>
+       <updated>2019-08-19T08:29:48</updated>
        <published>2019-04-02T17:21:24</published>
        <author>
          <name></name>
@@ -157,15 +173,19 @@ let's tiddler almost anything</subtitle>
        <content type="html">
 
 
-          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2Fi18n%2Fen-GB%2Fi18n%20macro"></a></p><p>the <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n-macro.js">i18n</a> macro aims to make it easier to translate some parts of your <a class="tc-tiddlylink-external" href="https://tiddlywiki.com/static/TiddlyWiki.html" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> beside <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Flanguages">$:/languages</a> + <code>&lt;&lt;lingo&gt;&gt;</code> mechanism. It might be useful to translate extensions or tiddlers.</p><p>The macro is already included in the following plugins, so if you already use one of them, you don't have to get it separately: :
+          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Fi18n%2Fi18n%2Fen-GB%2Fi18n%20macro"></a></p><p>the <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n-macro.js">i18n</a> macro aims to make it easier to translate some parts of your <a class="tc-tiddlylink-external" href="https://tiddlywiki.com/static/TiddlyWiki.html" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> beside <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Flanguages">$:/languages</a> + <code>&lt;&lt;lingo&gt;&gt;</code> mechanism. It might be useful to translate extensions or tiddlers.</p><p>The macro is already included in the following plugins, so if you already use one of them, you don't have to get it separately: :
 <ul>
 <li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fplugins%2Fsycom%2Ffeather-icons">$:/plugins/sycom/feather-icons</a></li>
 
 <li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics">$:/plugins/sycom/g-analytics</a></li>
 
 <li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed">$:/plugins/sycom/atom-feed</a></li>
-</ul></p><p><code>&lt;&lt;i18n&gt;&gt;</code>  parameters are</p><ul><li><code>title</code> : the tiddler title (default current tiddler title)</li><li><code>domain</code> : the tiddler <em>domain</em> of the tiddler (default <code>$:</code>)</li><li><code>dico</code> : if set to <code>dico</code> will search <em>title</em> entry in the <code>domain</code>/i18n/<code>lg-LG</code> <a class="tc-tiddlylink-external" href="https://tiddlywiki.com/static/DictionaryTiddlers.html" rel="noopener noreferrer" target="_blank">dictionary tiddler</a></li><li><code>orig_lang</code> : the original language of the tiddler (default <code>en-GB</code>)</li><li><code>inline</code> : set to <code>true</code> force <em>inline</em> rendering (défault <code>false</code>). For short text mainly.</li></ul><p>So,</p><pre><code>&lt;&lt;i18n &quot;i18n macro&quot; &quot;$:/ext/modules/macros/i18n&quot; &quot;fr-FR&quot;&gt;&gt;</code></pre><p>will call</p><ol><li>the <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2Fi18n%2Flg-LG%2Fi18n%20macro">$:/ext/modules/macros/i18n/i18n/lg-LG/i18n macro</a> tiddler where lg-LG is the current <a class="tc-tiddlylink tc-tiddlylink-missing" href="#TiddlyWiki">TiddlyWiki</a> <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Flanguage">$:/language</a></li><li>if missing, the original language tiddler : <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2Fi18n%2Ffr-FR%2Fi18n%20macro">$:/ext/modules/macros/i18n/i18n/fr-FR/i18n macro</a></li><li>if missing an alert telling that original tiddler doesn't exist</li></ol><p>When using <code>dico</code> version, the process is almost the same, but the macro will search ##<code>title</code> entry in a <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2Fi18n%2Flg-LG">$:/ext/modules/macros/i18n/i18n/lg-LG</a> dictionary tiddler (or <strong>fr-FR</strong> base language if not set). It's more convenient for short phrases or words only translation. For now if entry doesn't exist, you will have blank text...</p><p>For tiddlers using <code>&lt;&lt;i18n&gt;&gt;</code> links will appear on translated parts hover in order to make edition easier. For case <em>.2</em> two links will apper : one for adding missing translation, the other for original language edition.</p><p>See current <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#i18n%20macro">i18n macro</a>, <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#un%20tiddler%20sans%20traduction%20en-GB">un tiddler sans traduction en-GB</a> and <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#a%20tiddler%20without%20original%20version">a tiddler without original version</a> as live examples. <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2FSiteTitle">$:/SiteTitle</a> and <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2FSiteSubtitle">$:/SiteSubtitle</a> are using the <em>dico</em> version, have a look to  <a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2FControlPanel">$:/ControlPanel</a> to get more.
-</p>
+</ul></p><p><code>&lt;&lt;i18n&gt;&gt;</code>  parameters are</p><ul><li><code>title</code> : the tiddler title (default current tiddler title)</li><li><code>domain</code> : the tiddler <em>domain</em> of the tiddler (default <code>$:</code>)</li><li><code>dico</code> : if set to <code>dico</code> will search <em>title</em> entry in the <code>domain</code>/i18n/<code>lg-LG</code> <a class="tc-tiddlylink-external" href="https://tiddlywiki.com/static/DictionaryTiddlers.html" rel="noopener noreferrer" target="_blank">dictionary tiddler</a></li><li><code>orig_lang</code> : the original language of the tiddler (default <code>en-GB</code>)</li><li><code>inline</code> : set to <code>true</code> force <em>inline</em> rendering (défault <code>false</code>). For short text mainly.</li></ul><h2 class="">mechanism and basic usage examples</h2><pre><code>&lt;&lt;i18n &quot;i18n macro&quot; &quot;$:/ext/modules/macros/i18n&quot; &quot;fr-FR&quot;&gt;&gt;</code></pre><p>will call</p><ol><li>the <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2Fi18n%2Flg-LG%2Fi18n%20macro">$:/ext/modules/macros/i18n/i18n/lg-LG/i18n macro</a> tiddler where lg-LG is the current wiki <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Flanguage">$:/language</a></li><li>if missing, the original language tiddler : <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2Fi18n%2Ffr-FR%2Fi18n%20macro">$:/ext/modules/macros/i18n/i18n/fr-FR/i18n macro</a></li><li>if missing an alert telling that original tiddler doesn't exist</li></ol><p>When using <code>dico</code> version, the process is almost the same, but the macro will search ##<code>title</code> entry in a <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2Fi18n%2Flg-LG">$:/ext/modules/macros/i18n/i18n/lg-LG</a> dictionary tiddler (or <strong>fr-FR</strong> base language if not set). It's more convenient for short phrases or words only translation. For now if entry doesn't exist, you will have blank text...</p><p>For tiddlers using <code>&lt;&lt;i18n&gt;&gt;</code> links will appear on translated parts hover in order to make edition easier. For case <em>.2</em> two links will appear : one for adding missing translation, the other for original language edition.</p><p>See current <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#i18n%20macro">i18n macro</a>, <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#un%20tiddler%20sans%20traduction%20en-GB">un tiddler sans traduction en-GB</a> and <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#a%20tiddler%20without%20original%20version">a tiddler without original version</a> as live examples. <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2FSiteTitle">$:/SiteTitle</a> and <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2FSiteSubtitle">$:/SiteSubtitle</a> are using the <em>dico</em> version, have a look to  <a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2FControlPanel">$:/ControlPanel</a> to get more.</p><h2 class="">Titles translation</h2><p>The macro was not designed to translate full tiddlers nor titles. If you want this, there is a workaround : indicate that the tiddler is a full translated tiddlers and store tiddler titles in special dictionnary for each language. In the working solution proposed here, dictionnary are in <code>$:/titles/lg-LG</code> tiddlers and you indicate fully translated tiddlers by completing a <code>i18n</code> with the original language of the tiddler.</p><p>You will have to overwrite some <a class="tc-tiddlylink tc-tiddlylink-missing" href="#TiddlyWiki">TiddlyWiki</a> <em>system</em> tiddlers :</p><ul><li><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fui%2FViewTemplate%2Ftitle">$:/core/ui/ViewTemplate/title</a></li><li><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fmacros%2Ftimeline">$:/core/macros/timeline</a></li></ul><p>Add an aesthetical fix</p><ul><li>title: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2FstyleHack">$:/ext/modules/macros/i18n/styleHack</a></li></ul><p>And for an easiest translated titles management, you may use</p><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2FTitlesManager">$:/ext/modules/macros/i18n/TitlesManager</a></li></ul><p>You may need to make your own edits to replace titles by their translation in some of the existing tiddlers. In this case, you can use this &quot;code&quot; sample</p><pre><code>&lt;$list filter=&quot;[&lt;currentTiddler&gt;has[i18n]]&quot;&gt;
+   &lt;$macrocall $name=&quot;i18n&quot; title={{!!title}} domain=&quot;$:/titles&quot; dico=&quot;dico&quot; orig_lang={{!!i18n}} inline=&quot;true&quot; /&gt;
+&lt;/$list&gt;
+&lt;$list filter=&quot;[&lt;currentTiddler&gt;!has[i18n]]&quot;&gt;
+   &lt;$view field=&quot;title&quot; /&gt;
+&lt;/$list&gt;</code></pre>
        </content>
 </entry>
 <entry>
