@@ -5,5 +5,16 @@
 		"../../../g-analytics/tiddlers/shared",
 		"../../../i18n/tiddlers/shared",
 		"../../../leaflet/tiddlers/shared"
-	]
+	],
+	"tiddlers": [{
+		"file": "../../../../CONTRIBUTING.md",
+		"fields": {
+			"title": "$:/collection/i18n/en-GB/Contributing",
+			"caption": "Contributing",
+			"created": "20190821170000000",
+			"modified": "20190821170000000",
+			"type": "text/x-markdown"
+		},
+		"isTiddlerFile": true
+	}]
 }
