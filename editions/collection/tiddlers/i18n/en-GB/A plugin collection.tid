@@ -1,11 +1,13 @@
 created: 20190418102208421
-modified: 20190814131639194
+modified: 20190821135102081
 title: $:/collection/i18n/en-GB/A plugin collection
 type: text/vnd.tiddlywiki
 
 <div class="info-alert">
 <div style="float:left;color:red;padding:4px 8px 4px 0"><<f-i alert-triangle x3>></div>{{$:/SiteTitle}} is a work in progress. I ''do'' use them for my needs and don't have (much) problems. Feel free to do the same, but remember TiddlyWiki's n°1 rule : ''Alway backup before any experiment''...
 </div>
+
+Warnings have been thrown, so enjoy the projects and do not hesitate to [[contribute|Contributing]]
 
 !! <<f-i map>> [[Leaflet maps plugin]] ({{$:/plugins/sycom/leaflet!!version}})
 the <$link to="$:/plugins/sycom/leaflet"><<f-i download>> Leaflet maps plugin</$link> will embed leaflet maps in your tiddlywiki with the `<$leafmap />` widget. See the [[Michel Strogoff|Michel Strogoff from the sky]] (map below) or [[included doc examples|$:/plugins/sycom/leaflet/example]] to learn more.
