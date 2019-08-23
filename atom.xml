@@ -6,7 +6,7 @@ Sycom's TiddlyWiki plugins collection</title>
      <subtitle type="html">
 
 let's tiddler almost anything</subtitle>
-     <updated>09:26, 19th August 2019
+     <updated>14:56, 21st August 2019
 </updated>
      <id>Please set url in caption field
 </id>
@@ -21,11 +21,70 @@ let's tiddler almost anything</subtitle>
      <generator uri="https://sycom.gitlab.io/TiddlyWiki-Plugins/#AtomFeed%20Plugin" version="0.0.2">
        Sycom's AtomFeed TiddlyWiki plugin
      </generator><entry>
+   <title>Contributing</title>
+       <link rel="alternate" type="text/html"
+        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Contributing"/>
+       <id>Contributing</id>
+       <updated>2019-08-21T17:00:00</updated>
+       <published>2019-08-21T17:00:00</published>
+       <author>
+         <name></name>
+       </author>
+       <content type="html">
+
+
+          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Fcollection%2Fi18n%2Fen-GB%2FContributing"></a></p><p>Whatever type of interaction you intend to have with the project, I only have a few words : <strong>You are welcome!</strong></p><h2>Use, test, comment</h2><p>Any usage you have is a good thing. So if you have no background in coding or anything of this, go ahead to <a href="https://sycom.frama.io/TiddlyWiki-Plugins">demo front page</a>, take the tool and use it.</p><p>If everything is OK for you, enjoy and don't hesitate to make contact and tell about your experience or use case. It's good to know what tools are used for to plane further developments.</p><p>If you have bug, problems, suggestions, or any comment</p><ul><li><strong>the best way to proceed is posting an <a href="https://framagit.org/sycom/TiddlyWiki-Plugins/issues">issue</a></strong>. You will need a framagit account (you can also log in with gitlab, github or bitbucket). It's also a good place to check if your subject is already listed</li><li>You may also post on the <a href="https://groups.google.com/forum/#!forum/tiddlywiki">tiddlywiki users group</a>. Be explicit in the title if you want an answer ;-)</li></ul><h2>Help with translations</h2><p>The projects tries to support multiple language for both documentation and tools. It is far from easy when your English is limited and have no real background for other language. So do not hesitate to submit your translation in any language of any part of the project.</p><h2>Work the code</h2><h3>How the repo works, how to work with it</h3><p>You may want to fork and contribute to the project. Or you just want use it as a framework for your needs and work by yourself on different projects. It's up to you...</p><p>The repository is set up to minimize conflict with tiddlywiki core and own storage. So the project only stores its files and settings and calls TiddlyWiki for running either through a node installation or using the official repository. This is a good way to test developments with the latest release, the current master branch and any other version of the core.</p><h3>What you will need</h3><ul><li>A <a href="https://git-scm.com/">git</a> installation with or without a gui</li><li>A <a href="https://nodejs.org">node</a> installation</li></ul><h3>How to setup yours (wether you want to contribute or not)</h3><p>Instruction are given through the command line, but if you prefer genuine user interfaces you will easily find your way through.</p><p>Please note that integrated <em>bash</em> / <em>bat</em> scripts work with local copies folders named <code>TW5dev</code> and <code>tiddlywiki5</code>. You will have to edit those scripts if you want to use your own directories names.</p><ul><li><strong>You may want to fork</strong> from one of the main public repositories where the project is stored. You will find a button for that on each, once you have an account there :<ul><li><a href="https://framagit.org/sycom/TiddlyWiki-Plugins">framagit</a> (gitlab instance)</li><li><a href="https://gitlab.com/sycom/TiddlyWiki-Plugins">gitlab</a></li><li><a href="https://github.com/sycom/TiddlyWiki-Plugins">github</a></li></ul></li></ul><p>this will create a repo linked to the main TiddlyWiki-Plugins repo that will be your basecamp</p><ul><li><p><strong>Clone the repo on your machine</strong></p><ul><li><p>From your repo and then set main repo as upstream
+<code>
+git clone https://your_git_provider/user_name/your_repo_name.git TW5dev
+git remote add upstream https://framagit.org/sycom/TiddlyWiki-Plugins.git
+</code>
+Or directly from the main repo and set it as upstream if you do not have a fork
+<code>
+git clone https://framagit.org/sycom/TiddlyWiki-Plugins.git -o upstream your_repo_name
+</code></p></li></ul></li><li><p><strong>Set up basics to work</strong>
+You will need either (or both)</p><ul><li>a node installation of tiddlywiki
+<code>
+npm install -g tiddlywiki
+</code></li><li>a working copy of tiddlywiki main repo
+<code>
+git clone https://github.com/Jermolene/TiddlyWiki5.git -o upstream tiddlywiki5
+</code></li></ul></li></ul><h3><strong>Work, test your work</strong></h3><p>once you made your edit on your project you have a lot of choices and may use the <code>tw.bat</code> (no <code>tw.sh</code> for now)</p><ul><li><p>Using <strong>nodejs installed</strong> tiddlywiki</p><ul><li><p>launching server for <em>tid files / node</em> version (on http://127.0.0.1:8080)
+<code>
+tiddlywiki ./edition/your_edition
+</code>
+or
+<code>
+tw your_edition
+</code></p><ul><li><p>building <em>index.html</em> tiddlywiki file (in <a class="tc-tiddlylink tc-tiddlylink-missing" href="#">.editions/your_edition/output</a>
+<code>
+tiddlywiki ./edition/your_edition --build
+</code>
+or
+<code>
+tw your_edition build
+</code></p></li></ul></li></ul></li><li><p>Using <strong>local copy of tiddlywiki</strong> official repository</p><ul><li>launching server for <em>tid files / node</em> version (on http://127.0.0.1:8080)
+<code>
+node ../tiddlywiki5/tiddlywiki.js ../TW5dev/editions/your_edition
+</code>
+or
+<code>
+tw -l your_edition
+</code></li><li>building <em>index.html</em> tiddlywiki file (in <a class="tc-tiddlylink tc-tiddlylink-missing" href="#">.editions/your_edition/output</a>)
+<code>
+node ../tiddlywiki5/tiddlywiki.js ../TW5dev/editions/your_edition --build
+</code>
+or
+<code>
+tw -l your_edition build
+</code></li></ul></li></ul><p>Once your proud of your work, pretty sure that whole tiddlywiki community will be glad to know about. Use the <a href="https://groups.google.com/forum/#!forum/tiddlywiki">group</a> is probably the quickiest and most efficient way.</p><h3>Merge requests</h3><p>If you have merge requests proposals for the current project (nice! thank you), please try to do it through the <a href="https://framagit.org/sycom/TiddlyWiki-Plugins">framagit</a> repository since managing more than one upstream would be a bit touchy.</p><p>Happy Contributing!</p>
+       </content>
+</entry>
+<entry>
    <title>This wiki uses Google Analytics</title>
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#This wiki uses Google Analytics"/>
        <id>This wiki uses Google Analytics</id>
-       <updated>2019-08-14T13:23:25</updated>
+       <updated>2019-08-21T14:48:28</updated>
        <published>2019-08-14T13:23:24</published>
        <author>
          <name></name>
@@ -728,22 +787,6 @@ $:/plugins/sycom/leaflet
 
           <p>Marfa Strogoff voit son fils et réussit à réprimer un mouvement naturel bien compréhensible. Son attitude est surprise par une tsigane, Sangarre, qui rapporte à Ivan Ogareff la scène à laquelle elle a assisté. Le traître menace alors de fouetter Marfa Strogoff mais son fils s’interpose, défigurant Ivan d’un coup de knout : il est arrêté.
 </p>
-       </content>
-</entry>
-<entry>
-   <title>Michel Strogoff II-2</title>
-       <link rel="alternate" type="text/html"
-        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-2"/>
-       <id>Michel Strogoff II-2</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T16:09:20</published>
-       <author>
-         <name>Sylvain Comte</name>
-       </author>
-       <content type="html">
-
-
-          <p>Les deux journalistes sont libérés et s’en vont à Tomsk, où l’armée tartare doit se rendre. Marfa Strogoff rencontre Nadia qui lui donne la clef de l’étrange attitude de son fils.</p>
        </content>
 </entry>
 

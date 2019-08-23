@@ -166,7 +166,11 @@ Error message and password prompt
 
 <li>$:/collection/i18n/en-GB/A plugin collection</li>
 
+<li>$:/collection/i18n/en-GB/Contributing</li>
+
 <li>$:/collection/i18n/fr-FR/A plugin collection</li>
+
+<li>$:/collection/i18n/fr-FR/Contributing</li>
 
 <li>$:/config/OriginalTiddlerPaths</li>
 
@@ -293,6 +297,8 @@ Error message and password prompt
 <li>a tiddler without original version</li>
 
 <li>Atom feed plugin</li>
+
+<li>Contributing</li>
 
 <li>Feather icons plugin</li>
 
@@ -539,10 +545,12 @@ Je suis parti de l'exemple fournit par la norme [[RFC 4287|https://tools.ietf.or
 ```
 </pre>
 </div>
-<div created="20190418102208421" modified="20190814131639194" title="$:/collection/i18n/en-GB/A plugin collection" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20190418102208421" modified="20190821135102081" title="$:/collection/i18n/en-GB/A plugin collection" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;div class=&quot;info-alert&quot;&gt;
 &lt;div style=&quot;float:left;color:red;padding:4px 8px 4px 0&quot;&gt;&lt;&lt;f-i alert-triangle x3&gt;&gt;&lt;/div&gt;{{$:/SiteTitle}} is a work in progress. I ''do'' use them for my needs and don't have (much) problems. Feel free to do the same, but remember TiddlyWiki's n°1 rule : ''Alway backup before any experiment''...
 &lt;/div&gt;
+
+Warnings have been thrown, so enjoy the projects and do not hesitate to [[contribute|Contributing]]
 
 !! &lt;&lt;f-i map&gt;&gt; [[Leaflet maps plugin]] ({{$:/plugins/sycom/leaflet!!version}})
 the &lt;$link to=&quot;$:/plugins/sycom/leaflet&quot;&gt;&lt;&lt;f-i download&gt;&gt; Leaflet maps plugin&lt;/$link&gt; will embed leaflet maps in your tiddlywiki with the `&lt;$leafmap /&gt;` widget. See the [[Michel Strogoff|Michel Strogoff from the sky]] (map below) or [[included doc examples|$:/plugins/sycom/leaflet/example]] to learn more.
@@ -565,10 +573,139 @@ the &lt;$link to=&quot;$:/plugins/sycom/atom-feed&quot;&gt;&lt;&lt;f-i download&
 the &lt;$link to=&quot;$:/ext/modules/macros/i18n-macro.js&quot;&gt;&lt;&lt;f-i download&gt;&gt; i18n macro&lt;/$link&gt; will help you to have a multilingual wiki if you wish without hacking internal //language + lingo// system in TiddlyWiki...
 </pre>
 </div>
-<div created="20190418102256742" modified="20190418121320168" title="$:/collection/i18n/fr-FR/A plugin collection" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div caption="Contributing" created="20190821170000000" modified="20190821170000000" title="$:/collection/i18n/en-GB/Contributing" type="text/x-markdown" revision="0" bag="default">
+<pre>Whatever type of interaction you intend to have with the project, I only have a few words : **You are welcome!**
+
+## Use, test, comment
+
+Any usage you have is a good thing. So if you have no background in coding or anything of this, go ahead to [demo front page][demo], take the tool and use it.
+
+If everything is OK for you, enjoy and don't hesitate to make contact and tell about your experience or use case. It's good to know what tools are used for to plane further developments.
+
+If you have bug, problems, suggestions, or any comment
+
+* **the best way to proceed is posting an [issue][issues]**. You will need a framagit account (you can also log in with gitlab, github or bitbucket). It's also a good place to check if your subject is already listed
+* You may also post on the [tiddlywiki users group][group]. Be explicit in the title if you want an answer ;-)
+
+## Help with translations
+
+The projects tries to support multiple language for both documentation and tools. It is far from easy when your English is limited and have no real background for other language. So do not hesitate to submit your translation in any language of any part of the project.
+
+## Work the code
+
+### How the repo works, how to work with it
+
+You may want to fork and contribute to the project. Or you just want use it as a framework for your needs and work by yourself on different projects. It's up to you...
+
+The repository is set up to minimize conflict with tiddlywiki core and own storage. So the project only stores its files and settings and calls TiddlyWiki for running either through a node installation or using the official repository. This is a good way to test developments with the latest release, the current master branch and any other version of the core.
+
+### What you will need
+
+* A [git][git] installation with or without a gui
+* A [node][nodejs] installation
+
+### How to setup yours (wether you want to contribute or not)
+
+Instruction are given through the command line, but if you prefer genuine user interfaces you will easily find your way through.
+
+Please note that integrated _bash_ / _bat_ scripts work with local copies folders named `TW5dev` and `tiddlywiki5`. You will have to edit those scripts if you want to use your own directories names.
+
+* **You may want to fork** from one of the main public repositories where the project is stored. You will find a button for that on each, once you have an account there :
+  * [framagit][framagit] (gitlab instance)
+  * [gitlab][gitlab]
+  * [github][github]
+
+this will create a repo linked to the main TiddlyWiki-Plugins repo that will be your basecamp
+
+* **Clone the repo on your machine**
+  * From your repo and then set main repo as upstream
+    ```
+    git clone https://your_git_provider/user_name/your_repo_name.git TW5dev
+    git remote add upstream https://framagit.org/sycom/TiddlyWiki-Plugins.git
+    ```
+    Or directly from the main repo and set it as upstream if you do not have a fork
+    ```
+    git clone https://framagit.org/sycom/TiddlyWiki-Plugins.git -o upstream your_repo_name
+    ```
+
+* **Set up basics to work**
+  You will need either (or both)
+  * a node installation of tiddlywiki
+    ```
+    npm install -g tiddlywiki
+    ```
+  * a working copy of tiddlywiki main repo
+    ```
+    git clone https://github.com/Jermolene/TiddlyWiki5.git -o upstream tiddlywiki5
+    ```
+
+### **Work, test your work**
+once you made your edit on your project you have a lot of choices and may use the `tw.bat` (no `tw.sh` for now)
+
+* Using **nodejs installed** tiddlywiki
+  * launching server for _tid files / node_ version (on http://127.0.0.1:8080)
+    ```
+    tiddlywiki ./edition/your_edition
+    ```
+    or
+    ```
+    tw your_edition
+    ```
+    * building _index.html_ tiddlywiki file (in [.editions/your_edition/output](#)
+    ```
+    tiddlywiki ./edition/your_edition --build
+    ```
+    or
+    ```
+    tw your_edition build
+    ```
+
+* Using **local copy of tiddlywiki** official repository
+  * launching server for _tid files / node_ version (on http://127.0.0.1:8080)
+    ```
+    node ../tiddlywiki5/tiddlywiki.js ../TW5dev/editions/your_edition
+    ```
+    or
+    ```
+    tw -l your_edition
+    ```
+  * building _index.html_ tiddlywiki file (in [.editions/your_edition/output](#))
+    ```
+    node ../tiddlywiki5/tiddlywiki.js ../TW5dev/editions/your_edition --build
+    ```
+    or
+    ```
+    tw -l your_edition build
+    ```
+
+Once your proud of your work, pretty sure that whole tiddlywiki community will be glad to know about. Use the [group][group] is probably the quickiest and most efficient way.
+
+### Merge requests
+
+If you have merge requests proposals for the current project (nice! thank you), please try to do it through the [framagit][framagit] repository since managing more than one upstream would be a bit touchy.
+
+Happy Contributing!
+
+[fr-FR]: ./editions/collection/tiddlers/i18n/fr-FR/CONTRIBUTING.md
+
+[git]: https://git-scm.com/
+[nodejs]: https://nodejs.org
+
+[issues]: https://framagit.org/sycom/TiddlyWiki-Plugins/issues
+[group]: https://groups.google.com/forum/#!forum/tiddlywiki
+
+[demo]: https://sycom.frama.io/TiddlyWiki-Plugins
+[framagit]: https://framagit.org/sycom/TiddlyWiki-Plugins
+[gitlab]: https://gitlab.com/sycom/TiddlyWiki-Plugins
+[github]: https://github.com/sycom/TiddlyWiki-Plugins
+</pre>
+</div>
+<div created="20190418102256742" modified="20190821135204756" title="$:/collection/i18n/fr-FR/A plugin collection" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;div class=&quot;info-alert&quot;&gt;
 &lt;div style=&quot;float:left;color:red;padding:4px 8px 4px 0&quot;&gt;&lt;&lt;f-i alert-triangle x3&gt;&gt;&lt;/div&gt;{{$:/SiteTitle}} est un travail en cours. Je ''l'utilise'' pour mes propres besoins et je n'ai pas (trop) de problèmes avec. N'hésitez pas à l'utiliser mais souvenez vous de la règle n°1 de TiddlyWiki : ''Toujours faire une sauvegarde avant d'essayer quelque chose''...
 &lt;/div&gt;
+
+Les avertissements de rigueur ayant été fait, profitez bien des projets et n'hésitez pas à [[contribuer|Contributing]]
 
 !! &lt;&lt;f-i map&gt;&gt; [[Leaflet maps plugin]] ({{$:/plugins/sycom/leaflet!!version}})
 Le &lt;$link to=&quot;$:/plugins/sycom/leaflet&quot;&gt;&lt;&lt;f-i download&gt;&gt; plugin Leaflet maps&lt;/$link&gt; permet d'intégrer des cartes leaflet dans votre TiddlyWiki grâce au widget `&lt;$leafmap /&gt;` widget. Voyez l'exemple de [[Michel Strogoff|Michel Strogoff from the sky]] (carte ci-dessous) ou les exemples [[inclus dans la documentation|$:/plugins/sycom/leaflet/example]] pour en savoir plus.
@@ -591,8 +728,138 @@ Le &lt;$link to=&quot;$:/plugins/sycom/atom-feed&quot;&gt;&lt;&lt;f-i download&g
 La &lt;$link to=&quot;$:/ext/modules/macros/i18n-macro.js&quot;&gt;&lt;&lt;f-i download&gt;&gt; macro i18n&lt;/$link&gt; aide à construire un wiki multilingue sans avoir à bricoler le système //language + lingo//  interne à TiddlyWiki...
 </pre>
 </div>
+<div caption="Contribuer" created="20190821170000000" modified="20190821142236897" title="$:/collection/i18n/fr-FR/Contributing" type="text/x-markdown" revision="0" bag="default">
+<pre># CONTRIBUTING.MD
+
+Quel que soit le type de rapport que vous souhaitez avoir avec le projet, je n'ai que quelques mots : **Ça nous fait plaisir !**
+
+## Utiliser, tester, commenter
+
+Toute utilisation est une bonne chose. Donc même si vous ne pratiquez pas la programmation ou rien s'en approchant, allez à la [page de démonstration][demo], saisissez-vous des outils et utilisez les.
+
+Si tous vous convient, profitez en bien et n'hésitez pas à nous parler de votre expérience et de vos usages. Il est toujours bon de savoir à quoi sont utilisés les outils pour les développements ultérieurs.
+
+Si vous rencontrez des difficultés, bogues, avez des suggestions ou des commentaires
+
+* **le mieux est de poster une _[issue][issues]_** (si vous ne savez pas l'anglais, nous traduirons). Il vous faudra un compte framagit (vous pouvez vous connecter avec gitlab, github ou bitbucket). C'est aussi un bon endroit pour savoir si le sujet a déjà été abordé,
+* Vous pouvez laisser un message sur le [groupe d'utilisateurs tiddlywiki][group] (en anglais seulement) ou sur le moins fréquenté mais fort convivial [groupe en français][fr_group]. Trouvez un titre explicite si vous voulez une réponse ;-)
+
+## Aider pour les traductions
+
+Le projet essaye de proposer une traduction dans plusieurs langues à la fois pour la documentation et les outils (la preuve !). C'est loin d'être facile quand votre anglais est limité et que vous n'avez pas de réelle compétence dans aucune autre langue. Donc n'hésitez pas à proposer vos traductions dans n'importe quelle langue pour toute partie du projet.
+
+## Travailler sur le code
+
+### Comment le dépôt fonctionne, comment travailler avec
+
+Vous voudrez peut-être _forker_ et contribuer au projet. Ou peut-être juste l'utiliser comme un canevas pour vos besoins et travailler sur d'autres projets. À vous de voir.
+
+Le dépôt est organisé pour essayer de limiter les conflits avec le programme principal de TiddlyWiki ainsi que le volume de stockage. Donc il ne stocke que ses propres fichiers et fait appel à TiddlyWiki pour fonctionner soit via une installation node, soit en utilisant le dépôt officiel. C'est une bonne façon de tester les développements tant sur la dernière version officielle que sur la version en cours de développement.
+
+### De quoi aurez-vous besoin ?
+
+* Une installation de [git][git] avec ou sans interface graphique
+* Une installation de [node][nodejs]
+
+### Comment mettre en place votre dépôt (que vous vouliez contribuer ou non)
+
+Les instructions sont données en ligne de commande, mais si vous préférez les interfaces graphiques, vous pourrez facilement vous y retrouver.
+
+Merci de noter que le script _bash_ / _bat_ intégré fonctionne avec des dossiers locaux baptisés `TW5dev` et `tiddlywiki5`. Vous devrez modifier ces scripts si vous voulez les utiliser avec vos propres nom de dossiers.
+
+* **Vous voudrez peut-être forker** depuis l'un des principaux dépôts publics du projet. Vous y trouverez un bouton dédié si vous avez un compte là-bas :
+  * [framagit][framagit] (instance gitlab)
+  * [gitlab][gitlab]
+  * [github][github]
+
+Cela créera un dépôt à vous, lié au dépôt TiddlyWiki-Plugins principal qui sera votre camp de base.
+
+* **Clonez le dépôt sur votre machine**
+  * Depuis votre dépôt, puis définissez le dépôt principal comme _upstream_
+```
+git clone https://your_git_provider/user_name/your_repo_name.git TW5dev
+git remote add upstream https://framagit.org/sycom/TiddlyWiki-Plugins.git
+```
+
+  * Ou directement depuis le dépôt principal en le définissant comme _upstream_
+```
+git clone https://framagit.org/sycom/TiddlyWiki-Plugins.git -o upstream your_repo_name
+```
+
+* **Les bases pour travailler**
+  Il vous faudra au choix (ou les deux)
+  * une installation de TiddlyWiki dans node
+```
+npm install -g tiddlywiki
+```
+  * une copie du dépôt principal de tiddlywiki
+```
+git clone https://github.com/Jermolene/TiddlyWiki5.git -o upstream tiddlywiki5
+```
+
+### **Travaillez, testez votre travail**
+  Une fois que vous avez fait des modifications, vous avez plein de choix et pouvez utiliser le script `tw.bat` (pas de `tw.sh` pour l'instant)
+
+* Utiliser **l'installation nodejs** de tiddlywiki
+  * en version serveur _fichiers tid / node_ (sur http://127.0.0.1:8080)
+    ```
+    tiddlywiki ./edition/your_edition
+    ```
+    ou
+    ```
+    tw your_edition
+    ```
+  * construction d'un fichier TiddlyWiki _index.html_ (dans [.editions/your_edition/output](#)
+    ```
+    tiddlywiki ./edition/your_edition --build
+    ```
+    ou
+    ```
+    tw your_edition build
+    ```
+* Utiliser **une copie locale du dépôt TiddlyWiki** officiel
+  * en version serveur _fichiers tid / node_ (sur http://127.0.0.1:8080)
+    ```
+    node ../tiddlywiki5/tiddlywiki.js ../TW5dev/editions/your_edition
+    ```
+    ou
+    ```
+    tw -l your_edition
+    ```
+  * construction d'un fichier TiddlyWiki _index.html_ (dans [.editions/your_edition/output](#))
+    ```
+    node ../tiddlywiki5/tiddlywiki.js ../TW5dev/editions/your_edition --build
+    ```
+    ou
+    ```
+    tw -l your_edition build
+    ```   
+
+Quand vous serez content de votre production, l'ensemble de la communauté TiddlyWiki sera très heureuse d'en entendre parler. Venir en parler sur le [groupe][group] (ou le [forum français][fr_group]) est surement la façon la plus rapide et efficace.
+
+### Propositions d'intégration
+
+Si vous avez des propositions d'intégration de votre code (_merge request_) (c'est chouette ! Merci), merci de le faire via le dépôt [framagit][framagit]. Gérer plus d'un dépôt principal serait plutôt compliqué.
+
+Joyeuses contributions !
+
+[en-GB]: ../../../../CONTRIBUTING.md
+
+[git]: https://git-scm.com/
+[nodejs]: https://nodejs.org
+
+[issues]: https://framagit.org/sycom/TiddlyWiki-Plugins/issues
+[group]: https://groups.google.com/forum/#!forum/tiddlywiki
+[fr_group]: https://forum.tiddlywiki.fr/
+
+[demo]: https://sycom.frama.io/TiddlyWiki-Plugins
+[framagit]: https://framagit.org/sycom/TiddlyWiki-Plugins
+[gitlab]: https://gitlab.com/sycom/TiddlyWiki-Plugins
+[github]: https://github.com/sycom/TiddlyWiki-Plugins
+</pre>
+</div>
 <div title="$:/config/OriginalTiddlerPaths" type="application/json" revision="0" bag="default">
-<pre>{&quot;A plugin collection&quot;:&quot;A plugin collection.tid&quot;,&quot;Atom feed plugin&quot;:&quot;Atom feed plugin.tid&quot;,&quot;This wiki uses Google Analytics&quot;:&quot;This wiki uses Google Analytics.tid&quot;,&quot;$:/DefaultTiddlers&quot;:&quot;config/$__DefaultTiddlers.tid&quot;,&quot;$:/GoogleAnalyticsAccount&quot;:&quot;config/$__GoogleAnalyticsAccount.tid&quot;,&quot;$:/SiteSubtitle&quot;:&quot;config/$__SiteSubtitle.tid&quot;,&quot;$:/SiteTitle&quot;:&quot;config/$__SiteTitle.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel&quot;:&quot;config/$__config_PageControlButtons_Visibility_$__core_ui_Buttons_control-panel.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home&quot;:&quot;config/$__config_PageControlButtons_Visibility_$__core_ui_Buttons_home.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/language&quot;:&quot;config/$__config_PageControlButtons_Visibility_$__core_ui_Buttons_language.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler&quot;:&quot;config/$__config_PageControlButtons_Visibility_$__core_ui_Buttons_new-tiddler.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/plugins/tiddlywiki/markdown/new-markdown-button&quot;:&quot;config/$__config_PageControlButtons_Visibility_$__plugins_tiddlywiki_markdown_new-markdown-button.tid&quot;,&quot;$:/language&quot;:&quot;config/$__language.tid&quot;,&quot;$:/plugins/sycom/g-analytics/settings/track_all&quot;:&quot;config/$__plugins_sycom_g-analytics_settings_track_all.tid&quot;,&quot;-$:/plugins/sycom/g-analytics---115323142&quot;:&quot;config/-$__plugins_sycom_g-analytics---115323142.tid&quot;,&quot;-$:/plugins/sycom/g-analytics&quot;:&quot;config/-$__plugins_sycom_g-analytics.tid&quot;,&quot;-$:/plugins/sycom/leaflet--1278279229&quot;:&quot;config/-$__plugins_sycom_leaflet--1278279229.tid&quot;,&quot;-$:/plugins/sycom/leaflet&quot;:&quot;config/-$__plugins_sycom_leaflet.tid&quot;,&quot;$:/i18n/en-GB/SiteSubTitle&quot;:&quot;config/en-GB/SiteSubTitle.tid&quot;,&quot;$:/i18n/en-GB/SiteTitle&quot;:&quot;config/en-GB/SiteTitle.tid&quot;,&quot;$:/i18n/fr-FR/SiteSubTitle&quot;:&quot;config/fr-FR/SiteSubTitle.tid&quot;,&quot;$:/i18n/fr-FR/SiteTitle&quot;:&quot;config/fr-FR/SiteTitle.tid&quot;,&quot;$:/collection/i18n/en-GB/A plugin collection&quot;:&quot;i18n/en-GB/A plugin collection.tid&quot;,&quot;$:/collection/i18n/fr-FR/A plugin collection&quot;:&quot;i18n/fr-FR/A plugin collection.tid&quot;,&quot;$:/atom-feed/i18n/en-GB/intro&quot;:&quot;../../atom-feed/tiddlers/shared/i18n/en-GB/intro.tid&quot;,&quot;$:/atom-feed/i18n/fr-FR/intro&quot;:&quot;../../atom-feed/tiddlers/shared/i18n/fr-FR/intro.tid&quot;,&quot;Feather icons plugin&quot;:&quot;../../feather-icons/tiddlers/shared/FeatherIconsPlugin.tid&quot;,&quot;More examples&quot;:&quot;../../feather-icons/tiddlers/shared/More examples.tid&quot;,&quot;-$:/plugins/sycom/feather-icons--1623732560&quot;:&quot;../../feather-icons/tiddlers/shared/config/-$__plugins_sycom_feather-icons--1623732560.tid&quot;,&quot;-$:/plugins/sycom/feather-icons&quot;:&quot;../../feather-icons/tiddlers/shared/config/-$__plugins_sycom_feather-icons.tid&quot;,&quot;$:/core/images/advanced-search-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_advanced-search-button.tid&quot;,&quot;$:/core/images/cancel-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_cancel-button.tid&quot;,&quot;$:/core/images/close-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_close-button.tid&quot;,&quot;$:/core/images/delete-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_delete-button.tid&quot;,&quot;$:/core/images/done-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_done-button.tid&quot;,&quot;$:/core/images/down-arrow&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_down-arrow.tid&quot;,&quot;$:/core/images/edit-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_edit-button.tid&quot;,&quot;$:/core/images/options-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_options-button.tid&quot;,&quot;$:/core/images/save-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_save-button.tid&quot;,&quot;$:/core/ui/Buttons/home&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_ui_Buttons_home.tid&quot;,&quot;$:/core/ui/Buttons/language&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_ui_Buttons_language.tid&quot;,&quot;$:/feather-icons/i18n/en-GB/IntroText&quot;:&quot;../../feather-icons/tiddlers/shared/i18n/en-GB/$__i18n_en-GB_IntroText.tid&quot;,&quot;$:/feather-icons/i18n/en-GB/More examples&quot;:&quot;../../feather-icons/tiddlers/shared/i18n/en-GB/$__i18n_en-GB_More examples.tid&quot;,&quot;$:/feather-icons/i18n/fr-FR/IntroText&quot;:&quot;../../feather-icons/tiddlers/shared/i18n/fr-FR/$__i18n_fr-FR_IntroText.tid&quot;,&quot;$:/feather-icons/i18n/fr-FR/More examples&quot;:&quot;../../feather-icons/tiddlers/shared/i18n/fr-FR/$__i18n_fr-FR_More examples.tid&quot;,&quot;G-Analytics plugin&quot;:&quot;../../g-analytics/tiddlers/shared/G-AnalyticsPlugin.tid&quot;,&quot;$:/g-analytics/i18n/en-GB/intro&quot;:&quot;../../g-analytics/tiddlers/shared/i18n/en-GB/intro.tid&quot;,&quot;$:/g-analytics/i18n/fr-FR/intro&quot;:&quot;../../g-analytics/tiddlers/shared/i18n/fr-FR/intro.tid&quot;,&quot;$:/core/macros/timeline&quot;:&quot;../../i18n/tiddlers/shared/$__core_macros_timeline.tid&quot;,&quot;$:/core/ui/ViewTemplate/title&quot;:&quot;../../i18n/tiddlers/shared/$__core_ui_ViewTemplate_title.tid&quot;,&quot;$:/ext/modules/macros/i18n/TitlesManager&quot;:&quot;../../i18n/tiddlers/shared/$__ext_modules_macros_i18n_TitlesManager.tid&quot;,&quot;$:/ext/modules/macros/i18n/styleHack&quot;:&quot;../../i18n/tiddlers/shared/$__ext_modules_macros_i18n_styleHack.tid&quot;,&quot;a tiddler without original version&quot;:&quot;../../i18n/tiddlers/shared/a_tiddler_without_original_version.tid&quot;,&quot;a tiddler without fr-FR translation&quot;:&quot;../../i18n/tiddlers/shared/a_tiddler_without_translation.tid&quot;,&quot;$:/titles/i18n/en-GB&quot;:&quot;../../i18n/tiddlers/shared/i18n/$__titles_i18n_en-GB.tid&quot;,&quot;$:/titles/i18n/fr-FR&quot;:&quot;../../i18n/tiddlers/shared/i18n/$__titles_i18n_fr-FR.tid&quot;,&quot;$:/i18n/i18n/en-GB/a tiddler without translation&quot;:&quot;../../i18n/tiddlers/shared/i18n/en-GB/a_tiddler_without_translation.tid&quot;,&quot;$:/i18n/i18n/en-GB&quot;:&quot;../../i18n/tiddlers/shared/i18n/en-GB/dictionary.tid&quot;,&quot;$:/i18n/i18n/en-GB/i18n macro&quot;:&quot;../../i18n/tiddlers/shared/i18n/en-GB/i18n macro.tid&quot;,&quot;$:/i18n/i18n/fr-FR&quot;:&quot;../../i18n/tiddlers/shared/i18n/fr-FR/dictionnaire.tid&quot;,&quot;$:/i18n/i18n/fr-FR/i18n macro&quot;:&quot;../../i18n/tiddlers/shared/i18n/fr-FR/i18n macro.tid&quot;,&quot;$:/i18n/i18n/fr-FR/un tiddler sans traduction&quot;:&quot;../../i18n/tiddlers/shared/i18n/fr-FR/un_tiddler_sans_traduction.tid&quot;,&quot;i18n macro&quot;:&quot;../../i18n/tiddlers/shared/i18n macro.tid&quot;,&quot;un tiddler sans traduction en-GB&quot;:&quot;../../i18n/tiddlers/shared/un_tiddler_sans_traduction.tid&quot;,&quot;Leaflet maps plugin&quot;:&quot;../../leaflet/tiddlers/shared/LeafletMapPlugin.tid&quot;,&quot;Michel Strogoff I-1&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-1.tid&quot;,&quot;Michel Strogoff I-10&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-10.tid&quot;,&quot;Michel Strogoff I-11&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-11.tid&quot;,&quot;Michel Strogoff I-12&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-12.tid&quot;,&quot;Michel Strogoff I-13&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-13.tid&quot;,&quot;Michel Strogoff I-14&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-14.tid&quot;,&quot;Michel Strogoff I-15&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-15.tid&quot;,&quot;Michel Strogoff I-16&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-16.tid&quot;,&quot;Michel Strogoff I-17&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-17.tid&quot;,&quot;Michel Strogoff I-2&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-2.tid&quot;,&quot;Michel Strogoff I-3&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-3.tid&quot;,&quot;Michel Strogoff I-4&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-4.tid&quot;,&quot;Michel Strogoff I-5&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-5.tid&quot;,&quot;Michel Strogoff I-6&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-6.tid&quot;,&quot;Michel Strogoff I-7&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-7.tid&quot;,&quot;Michel Strogoff I-8&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-8.tid&quot;,&quot;Michel Strogoff I-9&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-9.tid&quot;,&quot;Michel Strogoff II-1&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-1.tid&quot;,&quot;Michel Strogoff II-10&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-10.tid&quot;,&quot;Michel Strogoff II-11&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-11.tid&quot;,&quot;Michel Strogoff II-12&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-12.tid&quot;,&quot;Michel Strogoff II-13&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-13.tid&quot;,&quot;Michel Strogoff II-14&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-14.tid&quot;,&quot;Michel Strogoff II-15&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-15.tid&quot;,&quot;Michel Strogoff II-2&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-2.tid&quot;,&quot;Michel Strogoff II-3&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-3.tid&quot;,&quot;Michel Strogoff II-4&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-4.tid&quot;,&quot;Michel Strogoff II-5&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-5.tid&quot;,&quot;Michel Strogoff II-6&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-6.tid&quot;,&quot;Michel Strogoff II-7&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-7.tid&quot;,&quot;Michel Strogoff II-8&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-8.tid&quot;,&quot;Michel Strogoff II-9&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-9.tid&quot;,&quot;Michel Strogoff from the sky&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff from the sky.tid&quot;,&quot;geoLocationWidget&quot;:&quot;../../leaflet/tiddlers/shared/geoLocationWidget.tid&quot;,&quot;twCard - Plugin - Leaflet maps&quot;:&quot;../../leaflet/tiddlers/shared/twCard - Plugin - Leaflet maps.tid&quot;}</pre>
+<pre>{&quot;A plugin collection&quot;:&quot;A plugin collection.tid&quot;,&quot;Contributing&quot;:&quot;Contributing.tid&quot;,&quot;This wiki uses Google Analytics&quot;:&quot;This wiki uses Google Analytics.tid&quot;,&quot;$:/DefaultTiddlers&quot;:&quot;config/$__DefaultTiddlers.tid&quot;,&quot;$:/GoogleAnalyticsAccount&quot;:&quot;config/$__GoogleAnalyticsAccount.tid&quot;,&quot;$:/SiteSubtitle&quot;:&quot;config/$__SiteSubtitle.tid&quot;,&quot;$:/SiteTitle&quot;:&quot;config/$__SiteTitle.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel&quot;:&quot;config/$__config_PageControlButtons_Visibility_$__core_ui_Buttons_control-panel.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home&quot;:&quot;config/$__config_PageControlButtons_Visibility_$__core_ui_Buttons_home.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/language&quot;:&quot;config/$__config_PageControlButtons_Visibility_$__core_ui_Buttons_language.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler&quot;:&quot;config/$__config_PageControlButtons_Visibility_$__core_ui_Buttons_new-tiddler.tid&quot;,&quot;$:/config/PageControlButtons/Visibility/$:/plugins/tiddlywiki/markdown/new-markdown-button&quot;:&quot;config/$__config_PageControlButtons_Visibility_$__plugins_tiddlywiki_markdown_new-markdown-button.tid&quot;,&quot;$:/language&quot;:&quot;config/$__language.tid&quot;,&quot;$:/plugins/sycom/g-analytics/settings/track_all&quot;:&quot;config/$__plugins_sycom_g-analytics_settings_track_all.tid&quot;,&quot;-$:/plugins/sycom/g-analytics---115323142&quot;:&quot;config/-$__plugins_sycom_g-analytics---115323142.tid&quot;,&quot;-$:/plugins/sycom/g-analytics&quot;:&quot;config/-$__plugins_sycom_g-analytics.tid&quot;,&quot;-$:/plugins/sycom/leaflet--1278279229&quot;:&quot;config/-$__plugins_sycom_leaflet--1278279229.tid&quot;,&quot;-$:/plugins/sycom/leaflet&quot;:&quot;config/-$__plugins_sycom_leaflet.tid&quot;,&quot;$:/i18n/en-GB/SiteSubTitle&quot;:&quot;config/en-GB/SiteSubTitle.tid&quot;,&quot;$:/i18n/en-GB/SiteTitle&quot;:&quot;config/en-GB/SiteTitle.tid&quot;,&quot;$:/i18n/fr-FR/SiteSubTitle&quot;:&quot;config/fr-FR/SiteSubTitle.tid&quot;,&quot;$:/i18n/fr-FR/SiteTitle&quot;:&quot;config/fr-FR/SiteTitle.tid&quot;,&quot;$:/collection/i18n/en-GB/A plugin collection&quot;:&quot;i18n/en-GB/A plugin collection.tid&quot;,&quot;$:/collection/i18n/fr-FR/A plugin collection&quot;:&quot;i18n/fr-FR/A plugin collection.tid&quot;,&quot;$:/collection/i18n/fr-FR/Contributing&quot;:&quot;i18n/fr-FR/CONTRIBUTING.md&quot;,&quot;Atom feed plugin&quot;:&quot;../../atom-feed/tiddlers/shared/Atom feed plugin.tid&quot;,&quot;$:/atom-feed/i18n/en-GB/intro&quot;:&quot;../../atom-feed/tiddlers/shared/i18n/en-GB/intro.tid&quot;,&quot;$:/atom-feed/i18n/fr-FR/intro&quot;:&quot;../../atom-feed/tiddlers/shared/i18n/fr-FR/intro.tid&quot;,&quot;Feather icons plugin&quot;:&quot;../../feather-icons/tiddlers/shared/FeatherIconsPlugin.tid&quot;,&quot;More examples&quot;:&quot;../../feather-icons/tiddlers/shared/More examples.tid&quot;,&quot;-$:/plugins/sycom/feather-icons--1623732560&quot;:&quot;../../feather-icons/tiddlers/shared/config/-$__plugins_sycom_feather-icons--1623732560.tid&quot;,&quot;-$:/plugins/sycom/feather-icons&quot;:&quot;../../feather-icons/tiddlers/shared/config/-$__plugins_sycom_feather-icons.tid&quot;,&quot;$:/core/images/advanced-search-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_advanced-search-button.tid&quot;,&quot;$:/core/images/cancel-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_cancel-button.tid&quot;,&quot;$:/core/images/close-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_close-button.tid&quot;,&quot;$:/core/images/delete-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_delete-button.tid&quot;,&quot;$:/core/images/done-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_done-button.tid&quot;,&quot;$:/core/images/down-arrow&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_down-arrow.tid&quot;,&quot;$:/core/images/edit-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_edit-button.tid&quot;,&quot;$:/core/images/options-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_options-button.tid&quot;,&quot;$:/core/images/save-button&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_images_save-button.tid&quot;,&quot;$:/core/ui/Buttons/home&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_ui_Buttons_home.tid&quot;,&quot;$:/core/ui/Buttons/language&quot;:&quot;../../feather-icons/tiddlers/shared/examples/$__core_ui_Buttons_language.tid&quot;,&quot;$:/feather-icons/i18n/en-GB/IntroText&quot;:&quot;../../feather-icons/tiddlers/shared/i18n/en-GB/$__i18n_en-GB_IntroText.tid&quot;,&quot;$:/feather-icons/i18n/en-GB/More examples&quot;:&quot;../../feather-icons/tiddlers/shared/i18n/en-GB/$__i18n_en-GB_More examples.tid&quot;,&quot;$:/feather-icons/i18n/fr-FR/IntroText&quot;:&quot;../../feather-icons/tiddlers/shared/i18n/fr-FR/$__i18n_fr-FR_IntroText.tid&quot;,&quot;$:/feather-icons/i18n/fr-FR/More examples&quot;:&quot;../../feather-icons/tiddlers/shared/i18n/fr-FR/$__i18n_fr-FR_More examples.tid&quot;,&quot;G-Analytics plugin&quot;:&quot;../../g-analytics/tiddlers/shared/G-AnalyticsPlugin.tid&quot;,&quot;$:/g-analytics/i18n/en-GB/intro&quot;:&quot;../../g-analytics/tiddlers/shared/i18n/en-GB/intro.tid&quot;,&quot;$:/g-analytics/i18n/fr-FR/intro&quot;:&quot;../../g-analytics/tiddlers/shared/i18n/fr-FR/intro.tid&quot;,&quot;$:/core/macros/timeline&quot;:&quot;../../i18n/tiddlers/shared/$__core_macros_timeline.tid&quot;,&quot;$:/core/ui/ViewTemplate/title&quot;:&quot;../../i18n/tiddlers/shared/$__core_ui_ViewTemplate_title.tid&quot;,&quot;$:/ext/modules/macros/i18n/TitlesManager&quot;:&quot;../../i18n/tiddlers/shared/$__ext_modules_macros_i18n_TitlesManager.tid&quot;,&quot;$:/ext/modules/macros/i18n/styleHack&quot;:&quot;../../i18n/tiddlers/shared/$__ext_modules_macros_i18n_styleHack.tid&quot;,&quot;a tiddler without original version&quot;:&quot;../../i18n/tiddlers/shared/a_tiddler_without_original_version.tid&quot;,&quot;a tiddler without fr-FR translation&quot;:&quot;../../i18n/tiddlers/shared/a_tiddler_without_translation.tid&quot;,&quot;$:/titles/i18n/en-GB&quot;:&quot;../../i18n/tiddlers/shared/i18n/$__titles_i18n_en-GB.tid&quot;,&quot;$:/titles/i18n/fr-FR&quot;:&quot;../../i18n/tiddlers/shared/i18n/$__titles_i18n_fr-FR.tid&quot;,&quot;$:/i18n/i18n/en-GB/a tiddler without translation&quot;:&quot;../../i18n/tiddlers/shared/i18n/en-GB/a_tiddler_without_translation.tid&quot;,&quot;$:/i18n/i18n/en-GB&quot;:&quot;../../i18n/tiddlers/shared/i18n/en-GB/dictionary.tid&quot;,&quot;$:/i18n/i18n/en-GB/i18n macro&quot;:&quot;../../i18n/tiddlers/shared/i18n/en-GB/i18n macro.tid&quot;,&quot;$:/i18n/i18n/fr-FR&quot;:&quot;../../i18n/tiddlers/shared/i18n/fr-FR/dictionnaire.tid&quot;,&quot;$:/i18n/i18n/fr-FR/i18n macro&quot;:&quot;../../i18n/tiddlers/shared/i18n/fr-FR/i18n macro.tid&quot;,&quot;$:/i18n/i18n/fr-FR/un tiddler sans traduction&quot;:&quot;../../i18n/tiddlers/shared/i18n/fr-FR/un_tiddler_sans_traduction.tid&quot;,&quot;i18n macro&quot;:&quot;../../i18n/tiddlers/shared/i18n macro.tid&quot;,&quot;un tiddler sans traduction en-GB&quot;:&quot;../../i18n/tiddlers/shared/un_tiddler_sans_traduction.tid&quot;,&quot;Leaflet maps plugin&quot;:&quot;../../leaflet/tiddlers/shared/LeafletMapPlugin.tid&quot;,&quot;Michel Strogoff I-1&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-1.tid&quot;,&quot;Michel Strogoff I-10&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-10.tid&quot;,&quot;Michel Strogoff I-11&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-11.tid&quot;,&quot;Michel Strogoff I-12&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-12.tid&quot;,&quot;Michel Strogoff I-13&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-13.tid&quot;,&quot;Michel Strogoff I-14&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-14.tid&quot;,&quot;Michel Strogoff I-15&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-15.tid&quot;,&quot;Michel Strogoff I-16&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-16.tid&quot;,&quot;Michel Strogoff I-17&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-17.tid&quot;,&quot;Michel Strogoff I-2&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-2.tid&quot;,&quot;Michel Strogoff I-3&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-3.tid&quot;,&quot;Michel Strogoff I-4&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-4.tid&quot;,&quot;Michel Strogoff I-5&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-5.tid&quot;,&quot;Michel Strogoff I-6&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-6.tid&quot;,&quot;Michel Strogoff I-7&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-7.tid&quot;,&quot;Michel Strogoff I-8&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-8.tid&quot;,&quot;Michel Strogoff I-9&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff I-9.tid&quot;,&quot;Michel Strogoff II-1&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-1.tid&quot;,&quot;Michel Strogoff II-10&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-10.tid&quot;,&quot;Michel Strogoff II-11&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-11.tid&quot;,&quot;Michel Strogoff II-12&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-12.tid&quot;,&quot;Michel Strogoff II-13&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-13.tid&quot;,&quot;Michel Strogoff II-14&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-14.tid&quot;,&quot;Michel Strogoff II-15&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-15.tid&quot;,&quot;Michel Strogoff II-2&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-2.tid&quot;,&quot;Michel Strogoff II-3&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-3.tid&quot;,&quot;Michel Strogoff II-4&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-4.tid&quot;,&quot;Michel Strogoff II-5&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-5.tid&quot;,&quot;Michel Strogoff II-6&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-6.tid&quot;,&quot;Michel Strogoff II-7&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-7.tid&quot;,&quot;Michel Strogoff II-8&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-8.tid&quot;,&quot;Michel Strogoff II-9&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff II-9.tid&quot;,&quot;Michel Strogoff from the sky&quot;:&quot;../../leaflet/tiddlers/shared/MStrogoff/Michel Strogoff from the sky.tid&quot;,&quot;geoLocationWidget&quot;:&quot;../../leaflet/tiddlers/shared/geoLocationWidget.tid&quot;,&quot;twCard - Plugin - Leaflet maps&quot;:&quot;../../leaflet/tiddlers/shared/twCard - Plugin - Leaflet maps.tid&quot;}</pre>
 </div>
 <div created="20190418071958801" modified="20190418071959846" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>hide</pre>
@@ -10297,7 +10564,7 @@ Changez de langue : {{$:/core/ui/Buttons/language}}
 <div title="$:/isEncrypted" revision="0" bag="default">
 <pre>no</pre>
 </div>
-<div created="20190423192331800" modified="20190814132401183" title="$:/language" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20190423192331800" modified="20190821144843640" title="$:/language" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>$:/languages/en-GB</pre>
 </div>
 <div author="xcazin" core-version="&gt;=5.0.0" dependents="" description="Français (France)" name="fr-FR" plugin-type="language" title="$:/languages/fr-FR" type="application/json" version="5.1.20" revision="0" bag="default">
@@ -14861,7 +15128,7 @@ Changez de langue : {{$:/core/ui/Buttons/language}}
 <div list="[[A plugin collection]]" title="$:/StoryList" revision="1" bag="default">
 <pre></pre>
 </div>
-<div created="20190819092654442" modified="20190819092654442" tags="$:/tags/Stylesheet" title="$:/temp/ext/modules/macros/i18n-style" revision="2" bag="default">
+<div created="20190821145639003" modified="20190821145639003" tags="$:/tags/Stylesheet" title="$:/temp/ext/modules/macros/i18n-style" revision="2" bag="default">
 <pre>.i18n-edit{float:right;display:none;opacity:0.5} .i18n-edit svg {width:16px} div:hover &gt; p &gt; .i18n-edit, div:hover &gt; .i18n-edit, h1:hover &gt; .i18n-edit, h2:hover &gt; .i18n-edit, h3:hover &gt; .i18n-edit{display:block} .i18n-edit.alert{color:red;margin:0 4px}</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json" revision="0" bag="default">
@@ -15014,6 +15281,10 @@ Changez de langue : {{$:/core/ui/Buttons/language}}
 <pre>&lt;&lt;i18n intro $:/atom-feed&gt;&gt;
 
 &lt;$list filter=&quot;[[$:/plugins/sycom/atom-feed]]&quot; emptyMessage=&lt;&lt;lingo &quot;Empty/Hint&quot;&gt;&gt; template=&quot;$:/core/ui/Components/plugin-info&quot;/&gt;
+</pre>
+</div>
+<div created="20190821170000000" modified="20190821170000000" title="Contributing" revision="0" bag="default">
+<pre>&lt;&lt;i18n '' '$:/collection'&gt;&gt;
 </pre>
 </div>
 <div created="20190329151107000" modified="20190503154330572" tags="plugins icons" title="Feather icons plugin" type="text/vnd.tiddlywiki" revision="0" bag="default">
@@ -15201,7 +15472,7 @@ Deux journalistes, Alcide Jolivet et Harry Blount, un Français et un Anglais, a
 <pre>&lt;&lt;i18n 'More examples' $:/feather-icons&gt;&gt;
 </pre>
 </div>
-<div created="20190814132324851" modified="20190814132325941" title="This wiki uses Google Analytics" type="text/vnd.tiddlywiki" revision="0" bag="default">
+<div created="20190814132324851" modified="20190821144828114" title="This wiki uses Google Analytics" type="text/vnd.tiddlywiki" revision="0" bag="default">
 <pre>&lt;&lt;i18n disclaimer_common $:/plugins/sycom/g-analytics&gt;&gt;
 
 &lt;$reveal type=&quot;match&quot; stateTitle=&quot;$:/temp/GoogleAnalyticsDNT&quot; text=&quot;yes&quot;&gt;
