@@ -1,11 +1,11 @@
 created: 20190913103638700
-modified: 20190913114755458
+modified: 20190913124701597
 title: $:/o-tree/i18n/fr-FR/another tree macro
 type: text/vnd.tiddlywiki
 
 La [[macro tree|$:/core/macros/tree]] du noyau affiche une liste de tiddler sous forme d'arbre dépliable, en se basant sur un préfixe (//prefix//) et un séparateur (//separator//).
 
-La [[macro other-tree|$:/ext/modules/macros/other-tree-macro.tid]] est basée sur celle-ci avec quelques différences :
+La [[macro other-tree|$:/ext/macros/other-tree-macro]] est basée sur celle-ci avec quelques différences :
 
 * si un //dossier// est aussi un tiddler, il n'apparaitra qu'une fois dans l'arbre : comme un dossier avec un lien vers le tiddler,
 ** l'ouverture d'un dossier se fait en cliquant sur l'icone et pas sur le titre (qui vous conduira au tiddler),
@@ -19,7 +19,7 @@ La [[macro other-tree|$:/ext/modules/macros/other-tree-macro.tid]] est basée su
 ;separator
 : Le séparateur permettant de séparer les titres de tiddlers, par défaut `/`
 ;show
-: Si la valeur `show` est donné, rendra un arbre entièrement déplié, par défaut `hide`.
+: Si la valeur `show` est donné, rendra un arbre entièrement déplié ''jusqu'à ce que vous cliquiez sur une branche'', par défaut `hide`.
 ;sort
 : Le nom du champ de tiddler utilisé pour le tri, par défaut aucun (ordre alphabétique).
 

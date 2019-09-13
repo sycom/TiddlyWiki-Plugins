@@ -20,6 +20,7 @@ A very early release of a plugin that creates an atom feed for your wiki. Will p
 ## [Some macros and widget](./ext/modules)
 * **i18n macro** enables multinlingual capabilities without hacking existing `<<lingo>>` mechanism
 * **geolocation widget** is part of Leaflet plugin but may also bring geolocation capabilities to your wiki
+* **other-tree macro** is a variant of the core _tree macro_
 
 ## Sources / licenses
 * [TiddlyWiki][tiddlywiki] uses a BSD 3-Clause [License][tw-license]

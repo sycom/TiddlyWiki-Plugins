@@ -1,7 +1,8 @@
 created: 20190912064907147
-modified: 20190912162224877
+modified: 20190913122221619
 tags: $:/tags/Macro
-title: $:/ext/modules/macros/other-tree-macro.tid
+title: $:/ext/macros/other-tree-macro
+type: text/vnd.tiddlywiki
 
 \define o-leaf-link(full-title,chunk)
 <$link to=<<__full-title__>>><$text text=<<__chunk__>>/></$link>
@@ -19,7 +20,7 @@ title: $:/ext/modules/macros/other-tree-macro.tid
 
 \define o-branch-link(full-title,chunk,separator:"/")
 <$set name="short-title" value={{{ [<__chunk__>removesuffix<__separator__>] }}}>
-<$list filter="[<__full-title__>is[missing]]"><<short-title>></$list><$list filter="[<__full-title__>!is[missing]]"><$link to=<<__full-title__>> ><<short-title>></$link></$list>
+<$list filter="[<__full-title__>is[missing]]"><$text text=<<short-title>> /></$list><$list filter="[<__full-title__>!is[missing]]"><$link to=<<__full-title__>> ><<short-title>></$link></$list>
 </$set>
 \end
 
@@ -47,7 +48,7 @@ title: $:/ext/modules/macros/other-tree-macro.tid
 
 \define o-tree-node(prefix,separator: "/",show:"hide",sort)
 <ol>
-<$list filter="[all[shadows+tiddlers]removeprefix<__prefix__>splitbefore<__separator__>sort<__sort__>]" variable="chunk">
+<$list filter="[all[tiddlers+shadows]sort<__sort__>removeprefix<__prefix__>splitbefore<__separator__>]" variable="chunk">
     <$list filter="[<chunk>suffix<__separator__>]">
         <$macrocall $name="o-branch-node" prefix=<<__prefix__>> chunk=<<chunk>> separator=<<__separator__>> show=<<__show__>> sort=<<__sort__>>/>
     </$list>
@@ -73,7 +74,7 @@ title: $:/ext/modules/macros/other-tree-macro.tid
 </$list>
 <$list filter="[<__prefix__>!suffix<__separator__>]">
 <ol><li><$set name="start-title" value={{{ [<__prefix__>addsuffix<__separator__>] }}}>
-<$list filter="[<__prefix__>is[missing]]"><span class="tc-reveal"><$text text=<<start-title>>/></span></$list>
+<$list filter="[<__prefix__>is[missing]]"><span class="tc-reveal"><$text text=<<__prefix__>>/></span></$list>
 <$list filter="[<__prefix__>!is[missing]]"><span class="tc-reveal"><$link to=<<__prefix__>> ><<__prefix__>></$link></span></$list>
 <$macrocall $name="o-tree-node" prefix=<<start-title>> chunk="" separator=<<__separator__>> show=<<__show__>> sort=<<__sort__>>/>
 </$set></li></ol>
@@ -82,7 +83,7 @@ title: $:/ext/modules/macros/other-tree-macro.tid
 </div>
 \end
 
-The <<.def other-tree>> [[macro|Macros]] is similar to the [[tree Macro]]. Renders an expandable tree view based on a //prefix// and //separator// within tiddler titles. Differences are :
+The ''other-tree'' [[macro|Macros]] is similar to the [[tree Macro]]. Renders an expandable tree view based on a //prefix// and //separator// within tiddler titles. Differences are :
 
 * if a //folder// is also a tiddler, it will appear only once in the tree. As a folder with a link to the tiddler.
 * you expand a folder by clicking on the icon and not on the title (which drives you to the tiddler)
@@ -110,7 +111,7 @@ The <<.def other-tree>> [[macro|Macros]] is similar to the [[tree Macro]]. Rende
 
 !! Sub-Macros
 
-`<<other-tree>>` defines also
+In order to work `<<other-tree>>` defines also
 
 * `<<o-tree-node prefix separator show sort>>` will explore and display a node of the tree and also define the `chunk` variable which is the part of the name after the `prefix`. Launching `<<o-branch-node>>` for the branches and `<<o-leaf-node>>` for the leaves.
 ** `<<o-branch-node prefix chunk separator show sort>>` will display a branch node as a clickable folder icon with a link to the the tiddler if the folder is also a tiddler, using `<<o-branch-link>>` or only the title of the node if not. It also displays the number of //sub-nodes//, defines `full-title` which is used for the link and launch `<<other-tree>>` with the new `prefix` = former `prefix` + `chunk`.

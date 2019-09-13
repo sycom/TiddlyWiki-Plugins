@@ -1,10 +1,11 @@
 # BSD 3-Clause License
 
-TiddlyWiki plugins, widgets and macro
+TiddlyWiki plugins, widgets and macro :
 * _leaflet map plugin_ and _geolocation widget_
+* _g-analytics plugin_
 * _feather icons plugin_
-* _i18n macro_
 * _atom feed plugin_
+* _i18n_ and _other-tree_ macros
 
 were created by Sylvain Comte, (sylvain [dot] comte [at] free [dot] fr)
 

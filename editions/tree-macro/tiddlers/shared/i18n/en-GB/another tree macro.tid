@@ -1,11 +1,11 @@
 created: 20190913081247200
-modified: 20190913121616668
+modified: 20190913124629416
 title: $:/o-tree/i18n/en-GB/another tree macro
 type: text/vnd.tiddlywiki
 
 The core [[tree macro|$:/core/macros/tree]] renders an expandable tree view based on a //prefix// and //separator// within tiddler titles.
 
-The [[other-tree macro|$:/ext/macros/other-tree-macro.tid]] is based on this with slight differences :
+The [[other-tree macro|$:/ext/macros/other-tree-macro]] is based on this with slight differences :
 
 * if a //folder// is also a tiddler, it will appear only once in the tree : as a folder with a link to the tiddler,
 ** you expand a folder by clicking on the icon and not on the title (which drives you to the tiddler),
@@ -19,7 +19,7 @@ The [[other-tree macro|$:/ext/macros/other-tree-macro.tid]] is based on this wit
 ;separator
 : The separator between parts of the tiddler titles, defaults to `/`
 ;show
-: When set to `show` will expand all branches of the tree ''when displayed the first time'', defaults to `hide`.
+: When set to `show` will expand all branches of the tree ''until you click on a branch'', defaults to `hide`.
 ;sort
 : The tiddler field used to sort the nodes, defaults to empty (alphabetical order).
 
