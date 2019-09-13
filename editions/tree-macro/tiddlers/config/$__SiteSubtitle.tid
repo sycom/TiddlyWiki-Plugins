@@ -1,0 +1,6 @@
+created: 20190331154402700
+modified: 20190501172229476
+title: $:/SiteSubtitle
+type: text/vnd.tiddlywiki
+
+<<i18n SiteSubtitle '$:/o-tree' 'dico'>>

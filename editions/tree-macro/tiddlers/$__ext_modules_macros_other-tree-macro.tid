@@ -1,0 +1,120 @@
+created: 20190912064907147
+modified: 20190913122221619
+tags: $:/tags/Macro
+title: $:/ext/macros/other-tree-macro.tid
+type: text/vnd.tiddlywiki
+
+\define o-leaf-link(full-title,chunk)
+<$link to=<<__full-title__>>><$text text=<<__chunk__>>/></$link>
+\end
+
+\define o-leaf-node(prefix,chunk)
+<li>
+<$list filter="[<__prefix__>addsuffix<__chunk__>is[shadow]] [<__prefix__>addsuffix<__chunk__>is[tiddler]]" variable="full-title">
+<$list filter="[<full-title>removeprefix<__prefix__>]" variable="chunk">
+<span>{{$:/core/images/file}}</span> <$macrocall $name="o-leaf-link" full-title=<<full-title>> chunk=<<chunk>>/>
+</$list>
+</$list>
+</li>
+\end
+
+\define o-branch-link(full-title,chunk,separator:"/")
+<$set name="short-title" value={{{ [<__chunk__>removesuffix<__separator__>] }}}>
+<$list filter="[<__full-title__>is[missing]]"><$text text=<<short-title>> /></$list><$list filter="[<__full-title__>!is[missing]]"><$link to=<<__full-title__>> ><<short-title>></$link></$list>
+</$set>
+\end
+
+\define o-branch-node(prefix,chunk,separator: "/",show:"hide",sort)
+<li>
+<$set name="full-title" value={{{ [<__prefix__>addsuffix<__chunk__>removesuffix<__separator__>] }}}>
+<$set name="reveal-state" value={{{ [[$:/state/tree/]addsuffix<__prefix__>addsuffix<__chunk__>] }}}>
+<$reveal type="nomatch" stateTitle=<<reveal-state>> text="show" default=<<__show__>> >
+<$button setTitle=<<reveal-state>> setTo="show" class="tc-btn-invisible">
+{{$:/core/images/folder}}
+</$button> <$macrocall $name="o-branch-link" full-title=<<full-title>> chunk=<<chunk>> separator=<<__separator__>> />
+</$reveal>
+<$reveal type="match" stateTitle=<<reveal-state>> text="show" default=<<__show__>>>
+<$button setTitle=<<reveal-state>> setTo="hide" class="tc-btn-invisible">
+{{$:/core/images/folder}}
+</$button> <$macrocall $name="o-branch-link" full-title=<<full-title>> chunk=<<chunk>> separator=<<__separator__>> />
+</$reveal>
+<span>(<$count filter="[all[shadows+tiddlers]removeprefix<__prefix__>removeprefix<__chunk__>] -[<__prefix__>addsuffix<__chunk__>]"/>)</span>
+<$reveal type="match" stateTitle=<<reveal-state>> text="show" default=<<__show__>>>
+<$macrocall $name="o-tree-node" prefix={{{ [<__prefix__>addsuffix<__chunk__>] }}} separator=<<__separator__>> show=<<__show__>> sort=<<__sort__>>/>
+</$reveal>
+</$set></$set>
+</li>
+\end
+
+\define o-tree-node(prefix,separator: "/",show:"hide",sort)
+<ol>
+<$list filter="[all[shadows+tiddlers]removeprefix<__prefix__>splitbefore<__separator__>sort<__sort__>]" variable="chunk">
+    <$list filter="[<chunk>suffix<__separator__>]">
+        <$macrocall $name="o-branch-node" prefix=<<__prefix__>> chunk=<<chunk>> separator=<<__separator__>> show=<<__show__>> sort=<<__sort__>>/>
+    </$list>
+    <$list filter="[<chunk>!suffix<__separator__>]">
+        <$set name="branch-test" value={{{ [<__prefix__>addsuffix<chunk>addsuffix<__separator__>] }}}>
+        <$list filter="[all[tiddlers+shadows]prefix<branch-test>count[]match[0]]"><$macrocall $name="o-leaf-node" prefix=<<__prefix__>> chunk=<<chunk>> separator=<<__separator__>> /></$list>
+        </$set>
+    </$list>
+</$list>
+
+</ol>
+\end
+
+\define other-tree(prefix: "$:/",separator: "/",show:"hide",sort)
+<div class="tc-tree">
+<div>
+<$list filter="[<__prefix__>suffix<__separator__>]">
+<ol><li><$set name="short-title" value={{{ [<__prefix__>removesuffix<__separator__>] }}}>
+<$list filter="[<__short-title__>is[missing]]"><span class="tc-reveal"><$text text=<<short-title>>/></span></$list>
+<$list filter="[<__short-title__>!is[missing]]"><span class="tc-reveal"><$link to=<<__short-title__>> ><<short-title>></$link></span></$list>
+<$macrocall $name="o-tree-node" prefix=<<__prefix__>> chunk="" separator=<<__separator__>> show=<<__show__>>/>
+</$set></li></ol>
+</$list>
+<$list filter="[<__prefix__>!suffix<__separator__>]">
+<ol><li><$set name="start-title" value={{{ [<__prefix__>addsuffix<__separator__>] }}}>
+<$list filter="[<__prefix__>is[missing]]"><span class="tc-reveal"><$text text=<<__prefix__>>/></span></$list>
+<$list filter="[<__prefix__>!is[missing]]"><span class="tc-reveal"><$link to=<<__prefix__>> ><<__prefix__>></$link></span></$list>
+<$macrocall $name="o-tree-node" prefix=<<start-title>> chunk="" separator=<<__separator__>> show=<<__show__>> sort=<<__sort__>>/>
+</$set></li></ol>
+</$list>
+</div>
+</div>
+\end
+
+The ''other-tree'' [[macro|Macros]] is similar to the [[tree Macro]]. Renders an expandable tree view based on a //prefix// and //separator// within tiddler titles. Differences are :
+
+* if a //folder// is also a tiddler, it will appear only once in the tree. As a folder with a link to the tiddler.
+* you expand a folder by clicking on the icon and not on the title (which drives you to the tiddler)
+* you can have a full expanded view of the tree. ''Be careful with this parameter'' : with big trees your wiki will idle a lot.
+* you can sort your tree upon a [[tiddler field|TiddlerFields]]
+
+!! Parameters
+
+;prefix
+: The prefix from which to generate the tree, defaults to `$:/`
+;separator
+: The separator between parts of the tiddler titles, defaults to `/`
+;show
+: When set to `show` will expand all branches of the tree, defaults to `hide`.
+;sort
+: The tiddler field used to sort the nodes, defaults to empty (alphabetical order).
+
+//Another difference with the tree Macro is that if `~` is your separator `<<other-tree myRoot~>>` and  `<<other-tree myRoot>>` will give you the same result.//
+
+!! Example
+
+* The full plugins structure of the current wiki with `<<other-tree $:/plugins "" "show">>`
+
+<<other-tree $:/plugins "" "show">>
+
+!! Sub-Macros
+
+In order to work `<<other-tree>>` defines also
+
+* `<<o-tree-node prefix separator show sort>>` will explore and display a node of the tree and also define the `chunk` variable which is the part of the name after the `prefix`. Launching `<<o-branch-node>>` for the branches and `<<o-leaf-node>>` for the leaves.
+** `<<o-branch-node prefix chunk separator show sort>>` will display a branch node as a clickable folder icon with a link to the the tiddler if the folder is also a tiddler, using `<<o-branch-link>>` or only the title of the node if not. It also displays the number of //sub-nodes//, defines `full-title` which is used for the link and launch `<<other-tree>>` with the new `prefix` = former `prefix` + `chunk`.
+*** `<<o-branch-link full-title chunk separator>>` a link to `full-title` with the `chunk` text minus `separator`
+** `<<o-leaf-node prefix chunk>>` will display a leaf node with a file icon and a link to the tiddler.
+*** `<<o-leaf-link full-title chunk>>` a link to `full-title` with the `chunk`
