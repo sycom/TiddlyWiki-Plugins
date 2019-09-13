@@ -14,7 +14,7 @@
 	],
 	"build": {
 		"index": [
-			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","index.html","text/plain"]
+			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","tree-macro.html","text/plain"]
 	},
 	"config": {
 		"retain-original-tiddler-path": true
