@@ -6,8 +6,8 @@ pages:
   - cp -R * /usr/local/lib/node_modules/tiddlywiki/
   - tiddlywiki ./editions/collection --build
   - tiddlywiki ./editions/tree-macro --build
-  - gzip --recursive --keep ./editions/*/output
-  - mv ./editions/*/output public
+  - gzip --recursive --keep ./editions/output
+  - mv ./editions/output public
   - cp -R ./files/* public
   artifacts:
     paths:
