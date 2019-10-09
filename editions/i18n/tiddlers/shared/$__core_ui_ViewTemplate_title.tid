@@ -1,7 +1,8 @@
 created: 20190806150718587
-modified: 20190819073719652
+modified: 20191009133337111
 tags: $:/tags/ViewTemplate
 title: $:/core/ui/ViewTemplate/title
+type: text/vnd.tiddlywiki
 
 \define title-styles()
 fill:$(foregroundColor)$;
@@ -29,7 +30,7 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 </h2>
 </$list>
 <$list filter="[all[current]!prefix[$:/]]">
-<h2 class="tc-title"><$list filter="[<currentTiddler>has[i18n]]"><$macrocall $name="i18n" title={{!!title}} domain="$:/titles" dico="dico" orig_lang={{!!i18n}} inline="true" /></$list><$list filter="[<currentTiddler>!has[i18n]]"><$view field="title" /></$list>
+<h2 class="tc-title"><$list filter="[<currentTiddler>has[i18n]]"><$macrocall $name="i18n-js" title={{!!title}} domain="$:/titles" dico="dico" orig_lang={{!!i18n}} inline="true" /></$list><$list filter="[<currentTiddler>!has[i18n]]"><$view field="title" /></$list>
 </h2>
 </$list>
 </$link>

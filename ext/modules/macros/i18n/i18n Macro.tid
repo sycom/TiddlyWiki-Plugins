@@ -1,0 +1,7 @@
+created: 20191007155203480
+modified: 20191009125539744
+tags: 
+title: i18n Macro
+type: text/vnd.tiddlywiki
+
+<<i18n "" $:/core/wiki/macros/i18n>>

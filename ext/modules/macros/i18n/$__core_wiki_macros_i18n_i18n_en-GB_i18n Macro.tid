@@ -1,0 +1,34 @@
+created: 20191007155447350
+modified: 20191009153021275
+title: $:/core/wiki/macros/i18n/i18n/en-GB/i18n Macro
+type: text/vnd.tiddlywiki
+
+\define .def(_) <dfn class="doc-def">$_$</dfn>
+\define .macro-examples(m,text:"Examples") <$link to="$m$ Macro (Examples)">$text$</$link>
+
+The <<.def i18n>> [[macro|Macros]] is an alternative to <<.def lingo>> for translating tiddlers. It may be usefull for plugin translations.
+
+!! Parameters
+
+;title
+: The short reference for the tiddler you want to display, defaults to `<<currentTiddler>>`
+;domain
+: The domain prefix used to store translations. If your translating a plugin `$:/plugins/vendor/plugin_title` is a good domain. Defaults to `$:/`
+;orig_lang
+: The language used for the original tiddlers. This tiddler will be used as fallback if no translation is found, defaults to `en-GB`
+;mode
+: Transclusion mode for the result. Set to `inline` to avoid line breaks in your text. Defaults to `block`
+
+!! Behaviour
+An installed [[language plugin|Languages]] is required in order to switch language.
+
+When calling `<<i18n title domain orig_lang>>`, the macro will look at current wiki language (`lg-LG` stored via $:/language).
+
+* If `domain`/i18n/`lg-LG`/`title` exists, will be displayed
+* If not will test if `lg-LG` is `orig_lang`
+** If yes will display an alert inviting to create `domain`/i18n/`orig_lang`/`title` 
+** If no, will display an alert telling that this translation doesn't exist and will try to display original language tiddler
+*** if `domain`/i18n/`orig_lang`/`title` exists, will be displayed in a div with `lang="orig_lang"` attribute so you may style it differently.
+*** if not, will  display an alert inviting to create `domain`/i18n/`orig_lang`/`title` 
+
+!! <<.macro-examples "i18n">>

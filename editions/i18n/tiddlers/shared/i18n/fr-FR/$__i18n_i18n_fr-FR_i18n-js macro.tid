@@ -1,16 +1,18 @@
 created: 20190402210933800
-modified: 20190819085100225
-title: $:/i18n/i18n/fr-FR/i18n macro
+modified: 20191009132050848
+title: $:/i18n/i18n/fr-FR/i18n-js macro
 type: text/vnd.tiddlywiki
 
-La macro [[i18n|$:/ext/modules/macros/i18n-macro.js]] a pour vocation de faciliter la traduction de parties de [[TiddlyWiki|https://tiddlywiki.com/languages/fr-FR/static/TiddlyWiki.html]] indépendamment du mécanisme déjà intégré $:/languages + `<<lingo>>`. Cela peut permettre la traduction d'extensions ou de tiddlers assez facilement.
+<div class="tc-message-box">{{$:/core/images/warning}} i18n-js était une première expérience autour des possibilités de traduction interne à TiddlyWiki. Il est préférable d'utiliser [[i18n|i18n Macro]] à la place</div>
+
+La macro [[i18n-js|$:/ext/modules/macros/i18n.js]] a pour vocation de faciliter la traduction de parties de [[TiddlyWiki|https://tiddlywiki.com/languages/fr-FR/static/TiddlyWiki.html]] indépendamment du mécanisme déjà intégré $:/languages + `<<lingo>>`. Cela peut permettre la traduction d'extensions ou de tiddlers assez facilement.
 
 La macro est déjà incluse dans les plugins suivant, donc si vous utilisez l'un d'entre eux vous n'avez pas besoin de l'installer par ailleurs :
-<ul><$list filter="[prefix[$:/plugins/]search[$:/ext/modules/macros/i18n-macro.js]]" >
+<ul><$list filter="[prefix[$:/plugins/]search[$:/ext/modules/macros/i18n.js]]" >
 <li><<currentTiddler>></li>
 </$list></ul>
 
-Les paramètres de `<<i18n>>` sont
+Les paramètres de `<<i18n-js>>` sont
 
 * `title` : le titre du tiddler (par défaut le titre du tiddler courant)
 * `domain` : le //domaine// du tiddler (par défaut `$:`)
@@ -21,19 +23,17 @@ Les paramètres de `<<i18n>>` sont
 !! Méchanisme et exemples d'usage courant
 
 ```
-<<i18n "i18n macro" "$:/ext/modules/macros" "" "fr-FR">>
+<<i18n-js "i18n-js macro" "$:/ext/modules/macros" "" "fr-FR">>
 ```
 appelera
 
-# le tiddler [[$:/ext/modules/macros/i18n/lg-LG/i18n macro]] où lg-LG est la langue courante définie par $:/language
-# à défaut, le tiddler dans la langue originale : [[$:/ext/modules/macros/i18n/fr-FR/i18n macro]]
+# le tiddler [[$:/ext/modules/macros/i18n/lg-LG/i18n-js macro]] où lg-LG est la langue courante définie par $:/language
+# à défaut, le tiddler dans la langue originale : [[$:/ext/modules/macros/i18n/fr-FR/i18n-js macro]]
 # à défaut, un message d'alerte indiquant que le tiddler original n'existe pas
 
 Lorsque l'on utilise la version `dico`, le processus est presque le même, mais la macro va chercher une entrée ##`title` dans un "tiddler dictionnaire" $:/ext/modules/macros/i18n/i18n/lg-LG (ou ''fr-FR'' langue de base si il n'est pas défini). C'est plus pratique pour les traductions de phrases courtes ou de mots seuls. Pour l'heure, si l'entrée n'existe pas, on n'aura qu'un texte vide...
 
-Pour les tiddlers utilisants `<<i18n>>` des liens sont disponibles au survol de la partie traduite pour permettre l'édition plus facilement des différentes traductions. Lorsque l'on est dans le cas //2.//, deux liens sont disponibles : un pour ajouter la traduction manquante, l'autre pour éditer la version originale.
-
-Voir le présent [[i18n macro]], [[a tiddler without fr-FR translation]] et [[a tiddler without original version]] comme exemples illustrant ce fonctionnement. $:/SiteTitle et $:/SiteSubtitle utilisent la version //dico//, voyez le $:/ControlPanel pour plus de détails.
+Pour les tiddlers utilisants `<<i18n-js>>` des liens sont disponibles au survol de la partie traduite pour permettre l'édition plus facilement des différentes traductions. Lorsque l'on est dans le cas //2.//, deux liens sont disponibles : un pour ajouter la traduction manquante, l'autre pour éditer la version originale.
 
 !! Traduction des titres
 
@@ -52,7 +52,7 @@ Par ailleurs, pour faciliter la gestion des titres un module spécial est utile 
 
 * $:/ext/modules/macros/i18n/TitlesManager
 
-Vous aurez peut-être besoin de faire vos propres modifications pour remplacer l'affichage des titres par leur traduction. Vous pouvez utiliser ce bout "code" dans ce champs
+Vous aurez peut-être besoin de faire vos propres modifications pour remplacer l'affichage des titres par leur traduction. Vous pouvez utiliser ce bout "code" dans ce champ
 
 ```
 <$list filter="[<currentTiddler>has[i18n]]">

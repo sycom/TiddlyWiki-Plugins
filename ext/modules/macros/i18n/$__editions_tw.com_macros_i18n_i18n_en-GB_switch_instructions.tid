@@ -1,0 +1,6 @@
+created: 20191007162741324
+modified: 20191009125539681
+title: $:/editions/tw.com/macros/i18n/i18n/en-GB/switch_instructions
+type: text/vnd.tiddlywiki
+
+Switch from one language to another to see what happens {{$:/core/ui/Buttons/language}}

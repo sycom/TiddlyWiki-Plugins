@@ -1,0 +1,24 @@
+created: 20191009135253649
+modified: 20191009143327670
+title: $:/i18n/i18n/en-GB/i18n for TiddlyWiki
+type: text/vnd.tiddlywiki
+
+This wiki is experimenting TiddlyWiki translation capabilities. The main goal is to provide an efficient tool for translating plugins and documentations without running [[lingo macro|https://tiddlywiki.com/#lingo%20Macro]].
+
+!! Where we are?
+
+To keep it short, we now have the [[i18n Macro]].
+
+As translations are basically stored in hidden tiddlers, I made an [[i18n translation helper]] (that might become part of the $:/ControlPanel ?)
+
+!! History and thoughts
+
+A first attempt was [[i18n-js|i18n-js macro]] macro. I began to //eat my own dogfood// in my plugins production (like G-Analytics Plugin).
+
+After presenting it through [[#2722 PR|https://github.com/Jermolene/TiddlyWiki5/pull/2722]] and then [[#4179 issue|https://github.com/Jermolene/TiddlyWiki5/issues/4179]] on the github repository I decided
+
+# to transform i18n-js macro into a non-javascript [[i18n Macro]]
+# to remove the //dico// parameter since the //json-application// and //x-tiddler dictionnary//  system have to disapear in the future.
+# to make a clear distinction between
+#* the future i18n Macro that aims to plugins and documentation translations outside the //lingo// / //languages plugins// system
+#* what could become a i18n Plugin that aims to offer a full multilingual wiki. We still have tho [[think about this one|i18n Plugin?]].

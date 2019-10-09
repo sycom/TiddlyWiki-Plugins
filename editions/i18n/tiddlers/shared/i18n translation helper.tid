@@ -1,0 +1,30 @@
+created: 20191007165554914
+modified: 20191009143740226
+tags: 
+title: i18n translation helper
+type: text/vnd.tiddlywiki
+
+\define i18nTiddlersFilter() [all[tiddlers+shadows]regexp[/i18n/$(lg-LG)$/]]
+\define i18nWhere() [all[tiddlers+shadows]regexp[<<i18n [.]+/i18n/[.]+/$(title)$]]
+\define i18nRegexp() /i18n/$(lg-LG)$/
+
+!!! All tiddlers in current language and their translations {{$:/core/ui/Buttons/language}}
+<$set name="lg-LG" tiddler={{$:/language}} field="name">
+<table>
+<tr><th>short</th><$list filter="[[$:/languages/en-GB]] [plugin-type[language]sort[description]]"><th>{{!!name}}</th></$list></tr>
+<$list filter=<<i18nTiddlersFilter>> variable="init">
+<$list filter="[<init>splitregexp<i18nRegexp>!sort[]limit[1]]" variable="title">
+<tr>
+<td><$text text=<<title>>/></td>
+<$list filter="[[$:/languages/en-GB]] [plugin-type[language]sort[description]]" variable="lgTid">
+<td>
+<$set name="lang" tiddler=<<lgTid>> field="name">
+<$list filter="[<init>removesuffix<title>removesuffix[/]removesuffix<lg-LG>addsuffix<lang>addsuffix[/]addsuffix<title>!missing[]]"><$link to=<<currentTiddler>>>create</$link></$list>
+<$list filter="[<init>removesuffix<title>removesuffix[/]removesuffix<lg-LG>addsuffix<lang>addsuffix[/]addsuffix<title>missing[]]"><$link to=<<currentTiddler>>><$view field="modified" format="date" template="YYYY0MM0DD">edit</$view></$link></$list>
+</$set>
+</td>
+</$list>
+</tr>
+</$list></$list>
+</table>
+</$set>

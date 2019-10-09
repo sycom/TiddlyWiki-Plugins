@@ -14,10 +14,7 @@
 	],
 	"build": {
 		"index": [
-			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","index.html","text/plain"],
-		"favicon": [
-			"--savetiddler","$:/favicon.ico","favicon.ico",
-			"--savetiddler","$:/green_favicon.ico","static/favicon.ico"]
+			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","../../output/i18n.html","text/plain"]
 	},
 	"config": {
 		"retain-original-tiddler-path": true

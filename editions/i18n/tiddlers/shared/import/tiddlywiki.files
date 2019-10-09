@@ -1,8 +1,11 @@
 {
-	"tiddlers": [{
-		"file": "../../../../../ext/modules/macros/i18n-macro.js",
+  "directories": [
+    "../../../../../ext/modules/macros/i18n"
+    ],
+  "tiddlers": [{
+		"file": "../../../../../ext/modules/macros/i18n.js",
 		"fields": {
-			"title": "$:/ext/modules/macros/i18n-macro.js",
+			"title": "$:/ext/modules/macros/i18n.js",
 			"type": "application/javascript",
 			"module-type": "macro"
 		},

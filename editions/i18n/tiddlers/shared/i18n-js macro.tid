@@ -1,0 +1,8 @@
+created: 20190402172124000
+i18n: fr-FR
+modified: 20191009132320929
+tags: 
+title: i18n-js macro
+type: text/vnd.tiddlywiki
+
+<<i18n-js '' '$:/i18n' {{!!i18n}}>>

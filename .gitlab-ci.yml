@@ -4,14 +4,15 @@ pages:
   script:
   - npm install -g tiddlywiki
   - cp -R * /usr/local/lib/node_modules/tiddlywiki/
-  - tiddlywiki ./editions/collection --build
+  - git checkout i18n
+  - tiddlywiki ./editions/i18n --build
+  - git checkout m-tree
   - tiddlywiki ./editions/tree-macro --build
+  - git checkout release
+  - tiddlywiki ./editions/collection --build
   - gzip --recursive --keep ./editions/output
   - mv ./editions/output public
   - cp -R ./files/* public
   artifacts:
     paths:
     - public
-  only:
-  - release
-  - master

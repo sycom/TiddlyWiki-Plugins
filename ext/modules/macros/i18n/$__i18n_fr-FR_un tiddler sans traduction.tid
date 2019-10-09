@@ -1,0 +1,9 @@
+created: 20191007100734300
+modified: 20191009134520562
+title: $:/i18n/fr-FR/un tiddler sans traduction
+type: text/vnd.tiddlywiki
+
+Ce tiddler en Français ne dispose pas de traduction dans une autre langue. Il apparaitra lorsque :
+
+* le wiki est affiché en français,
+* le wiki est affiché dans une autre langue, mais avec un message d'avertissement.
