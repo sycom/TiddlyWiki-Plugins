@@ -26,5 +26,5 @@ the <$link to="$:/plugins/sycom/feather-icons"><<f-i download>> Feather icons pl
 !! <<f-i rss>> [[Atom feed plugin]] ({{$:/plugins/sycom/atom-feed!!version}})
 the <$link to="$:/plugins/sycom/atom-feed"><<f-i download>> Atom feed plugin</$link> will create an <a rel="alternate" href="atom.xml" target="_blank">atom.xml</a> file alongside your wiki. Helpful for people who whish follow your work.
 
-!! <<f-i globe>> [[i18n macro]] ({{$:/ext/modules/macros/i18n-macro.js!!version}})
-the <$link to="$:/ext/modules/macros/i18n-macro.js"><<f-i download>> i18n macro</$link> will help you to have a multilingual wiki if you wish without hacking internal //language + lingo// system in TiddlyWiki...
+!! <<f-i globe>> [[i18n macro]] ({{$:/core/macros/i18n!!version}})
+the <$link to="$:/core/macros/i18n"><<f-i download>> i18n macro</$link> will help you to have a multilingual wiki if you wish without hacking internal //language + lingo// system in TiddlyWiki...
