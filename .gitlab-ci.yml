@@ -5,10 +5,13 @@ pages:
   - npm install -g tiddlywiki
   - cp -R * /usr/local/lib/node_modules/tiddlywiki/
   - git checkout i18n
+  - git pull
   - tiddlywiki ./editions/i18n --build
   - git checkout m-tree
+  - git pull
   - tiddlywiki ./editions/tree-macro --build
   - git checkout release
+  - git pull
   - tiddlywiki ./editions/collection --build
   - gzip --recursive --keep ./editions/output
   - mv ./editions/output public

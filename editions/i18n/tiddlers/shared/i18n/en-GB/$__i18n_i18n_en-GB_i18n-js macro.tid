@@ -1,6 +1,6 @@
 created: 20190402212356600
 modified: 20191009132538665
-tags: 
+tags:
 title: $:/i18n/i18n/en-GB/i18n-js macro
 type: text/vnd.tiddlywiki
 
@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 the [[i18n|$:/ext/modules/macros/i18n.js]] macro aims to make it easier to translate some parts of your [[TiddlyWiki|https://tiddlywiki.com/static/TiddlyWiki.html]] beside $:/languages + `<<lingo>>` mechanism. It might be useful to translate extensions or tiddlers.
 
 The macro is already included in the following plugins, so if you already use one of them, you don't have to get it separately: :
-<ul><$list filter="[prefix[$:/plugins/]search[$:/ext/modules/macros/i18n-macro.js]]" >
+<ul><$list filter="[prefix[$:/plugins/]search[$:/core/macros/i18n]]" >
 <li><<currentTiddler>></li>
 </$list></ul>
 
