@@ -5,7 +5,6 @@ tags: $:/tags/Macro
 title: $:/core/macros/i18n
 version: 0.9.0
 type: text/vnd.tiddlywiki
-version: 0.9.0
 
 
 \define i18nOriginal(title domain orig_lang lang mode)
