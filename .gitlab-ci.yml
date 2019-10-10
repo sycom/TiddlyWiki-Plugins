@@ -13,8 +13,10 @@ collection:
     - cp -R * /usr/local/lib/node_modules/tiddlywiki/
     - tiddlywiki ./editions/collection --build
     - tiddlywiki ./editions/i18n --build
+    - mkdir .public
     - mv ./editions/output/dev/* ./editions/output
-    - mv ./editions/output public
+    - mv ./editions/output/* .public
+    - mv .public public
     - cp -R ./files/* public
   stage: pages
   artifacts:
@@ -24,6 +26,9 @@ collection:
     - release
 
 i18n:
+  stage: test
+  script:
+    - ls public
   stage: build
   script:
     - git checkout i18n
@@ -31,7 +36,9 @@ i18n:
     - npm install -g tiddlywiki
     - cp -R * /usr/local/lib/node_modules/tiddlywiki/
     - tiddlywiki ./editions/i18n --build
-    - mv ./editions/output public
+    - mkdir .public
+    - mv ./editions/output .public
+    - cp -R .public public
   stage: pages
   artifacts:
     paths:
