@@ -34,10 +34,8 @@ i18n:
     - mv ./editions/output public
   stage: pages
   artifacts:
-    name: "TEST_%CI_PIPELINE_ID%"
-    when: on_success
     paths:
-      - 'public/dev/i18n.html'
+      - public
   only:
     - i18n
     - release
