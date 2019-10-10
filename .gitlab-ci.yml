@@ -10,7 +10,7 @@ pages:
   - tiddlywiki ./editions/collection --build
 #  - tiddlywiki ./editions/i18n --build
   - mkdir .public
-  - cp ./editions/output/dev/* ./editions/output
+# à activer quand j'aurai mergé  - cp ./editions/output/dev/* ./editions/output
   - mv ./editions/output/* .public
   - mv .public public
   - cp -R ./files/* public
