@@ -8,9 +8,9 @@ pages:
   - npm install -g tiddlywiki
   - cp -R * /usr/local/lib/node_modules/tiddlywiki/
   - tiddlywiki ./editions/collection --build
-  - tiddlywiki ./editions/i18n --build
+#  - tiddlywiki ./editions/i18n --build
   - mkdir .public
-  - mv ./editions/output/dev/* ./editions/output
+  - cp ./editions/output/dev/* ./editions/output
   - mv ./editions/output/* .public
   - mv .public public
   - cp -R ./files/* public
