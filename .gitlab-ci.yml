@@ -24,7 +24,6 @@ pages:
 pages:
   script:
 # testings
-  - ls public
   - git checkout i18n
   - git pull
   - npm install -g tiddlywiki
@@ -32,9 +31,7 @@ pages:
   - tiddlywiki ./editions/i18n --build
   - mkdir .public
   - mv ./editions/output/dev .public
-  - ls -al .public/
   - cp -r .public public
-  - ls -al public/
   artifacts:
     paths:
     - public
