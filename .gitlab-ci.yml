@@ -1,6 +1,7 @@
 image: node
 
 stages:
+  - test
   - build
   - pages
 
@@ -38,7 +39,9 @@ i18n:
     - tiddlywiki ./editions/i18n --build
     - mkdir .public
     - mv ./editions/output .public
+    - ls .public
     - cp -R .public public
+    - ls public
   stage: pages
   artifacts:
     paths:
