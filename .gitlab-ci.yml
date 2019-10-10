@@ -17,8 +17,6 @@ pages:
   artifacts:
     paths:
     - public
-  only:
-  - release
 
 # i18n (possibly use branch name?)
 pages:
@@ -37,4 +35,3 @@ pages:
     - public
   only:
   - i18n
-  - release
