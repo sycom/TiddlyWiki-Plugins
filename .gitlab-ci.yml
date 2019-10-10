@@ -1,21 +1,42 @@
 image: node
 
-pages:
-  script:
-  - npm install -g tiddlywiki
-  - cp -R * /usr/local/lib/node_modules/tiddlywiki/
-  - git checkout i18n
-  - git pull
-  - tiddlywiki ./editions/i18n --build
-  - git checkout m-tree
-  - git pull
-  - tiddlywiki ./editions/tree-macro --build
-  - git checkout release
-  - git pull
-  - tiddlywiki ./editions/collection --build
-  - gzip --recursive --keep ./editions/output
-  - mv ./editions/output public
-  - cp -R ./files/* public
-  artifacts:
-    paths:
-    - public
+stages:
+  - install
+  - build
+  - pages
+
+tw:
+  install:
+    - npm install -g tiddlywiki
+
+i18n:
+  build:
+    script:
+      - git checkout i18n
+      - git pull
+      - cp -R * /usr/local/lib/node_modules/tiddlywiki/
+      - tiddlywiki ./editions/i18n --build
+      - mv ./editions/output public
+  pages:
+    artifacts:
+      name: "TEST_%CI_PIPELINE_ID%"
+      when: on_success
+      paths:
+        - 'public/i18n.html'
+  only:
+    - i18n
+
+collection:
+  build:
+    script:
+      - git checkout release
+      - git pull
+      - cp -R * /usr/local/lib/node_modules/tiddlywiki/
+      - tiddlywiki ./editions/collection --build
+      - mv ./editions/output public
+      - cp -R ./files/* public
+  pages:
+    artifacts:
+      - public
+  only:
+    - release
