@@ -11,7 +11,7 @@ pages:
 #  - tiddlywiki ./editions/i18n --build
   - mkdir .public
 # à activer quand j'aurai mergé  - cp ./editions/output/dev/* ./editions/output
-  - mv ./editions/output/* .public
+  - mv ./editions/collection/output/* .public
   - mv .public public
   - cp -R ./files/* public
 # i18n (possibly use branch name?)
