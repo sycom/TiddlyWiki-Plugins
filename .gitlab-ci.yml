@@ -3,6 +3,8 @@ image: node
 pages:
   script:
 # collection
+  - git config --global user.email "bot@bot-for-this-project.me"
+  - git config --global user.name "A Bot"
   - git checkout release
   - git pull
   - npm install -g tiddlywiki
