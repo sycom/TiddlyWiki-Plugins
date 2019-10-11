@@ -3,6 +3,7 @@ image: node
 pages:
   script:
 # collection
+  - docker login --username $CI_REGISTRY_USER --password $CI_REGISTRY_PASSWORD $CI_REGISTRY
   - git config --global user.email "bot@bot-for-this-project.me"
   - git config --global user.name "A Bot"
   - git checkout release
