@@ -1,0 +1,32 @@
+created: 20191007163529888
+modified: 20191009152949621
+title: $:/core/wiki/macros/i18n/i18n/fr-FR/i18n Macro
+type: text/vnd.tiddlywiki
+
+La [[macro|Macros]] <<.def i18n>> est une alternative à <<.def lingo>> pour traduire des tiddlers. Elle peut être utile pour les traductions de plugins.
+
+!! Paramètres
+
+;title
+: La référence courte au tiddler que vous voulez afficher, par défaut le titre du tiddler courant  `<<currentTiddler>>`
+;domain
+: Le domaine servant de préfixe pour stocker les traductions. Si vous traduisez un plugin, `$:/plugins/vendor/plugin_title` est un bon domaine. Par défaut `$:/`
+;orig_lang
+: La langue utilisée pour le tiddler original. Ce tiddler sera utilisé en secours si la traduction n'est pas trouvée. Par défaut `en-GB`
+;mode
+: Mode de transclusion du résultat. Définir à `inline` pour éviter les sauts de ligne dans le texte. Par défaut `block`
+
+!! Comportement
+
+Il est nécessaire d'avoir un [[plugin de langue|Languages]] installé pour basculer d'une langue à l'autre.
+
+Lorsqu'on appelle `<<i18n title domain orig_lang>>`, la macro va récupérer la langue courant du wiki (`lg-LG` stockée via $:/language).
+
+* Si `domain`/i18n/`lg-LG`/`title` existe, il sera affiché
+* Si non la macro teste si `lg-LG` est `orig_lang`
+** Si oui, s'affiche une alerte invitant à créer `domain`/i18n/`orig_lang`/`title`
+** Si non, s'affiche une alerte indiquant que la traduction n'existe pas et essaye d'afficher le tiddler dans la langue originale
+*** si `domain`/i18n/`orig_lang`/`title` existe, il sera affiché dans un div avec l'attribut `lang="orig_lang"` ce qui vous permet d'en changer le style
+*** si non, s'affiche une alerte invitant à créer `domain`/i18n/`orig_lang`/`title`
+
+!! <<.macro-examples "i18n">>

@@ -1,0 +1,13 @@
+created: 20191007161936790
+modified: 20191009134524194
+tags: [[i18n Macro]] [[Macro Examples]]
+title: i18n Macro (Examples)
+type: text/vnd.tiddlywiki
+
+<<i18n "switch_instructions" "$:/editions/tw.com/macros/i18n">>
+
+<$macrocall $name=".example" n="1"
+eg="""<<i18n "a tiddler without translation" "$:/core/macros/i18n/examples">>"""/>
+
+<$macrocall $name=".example" n="2"
+eg="""<<i18n "un tiddler sans traduction" "$:/core/macros/i18n/examples" "fr-FR">>"""/>

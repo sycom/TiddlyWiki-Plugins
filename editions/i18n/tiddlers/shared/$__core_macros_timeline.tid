@@ -1,10 +1,11 @@
 created: 20141212105914482
-modified: 20190807074829059
+modified: 20191009132238074
 tags: $:/tags/Macro
 title: $:/core/macros/timeline
+type: text/vnd.tiddlywiki
 
 \define timeline-title()
-<$list filter="[<currentTiddler>has[i18n]]"><$macrocall $name="i18n"title={{!!title}} domain="$:/titles" dico="dico" orig_lang={{!!i18n}} inline="true" /></$list><$list filter="[<currentTiddler>!has[i18n]]"><$view field="title" /></$list>
+<$list filter="[<currentTiddler>has[i18n]]"><$macrocall $name="i18n-js"title={{!!title}} domain="$:/titles" dico="dico" orig_lang={{!!i18n}} inline="true" /></$list><$list filter="[<currentTiddler>!has[i18n]]"><$view field="title" /></$list>
 \end
 \define timeline(limit:"100",format:"DDth MMM YYYY",subfilter:"",dateField:"modified")
 <div class="tc-timeline">

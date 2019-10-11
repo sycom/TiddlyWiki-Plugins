@@ -2,7 +2,7 @@ created: 20190402172124000
 i18n: fr-FR
 modified: 20190819082948444
 tags:
-title: i18n macro
+title: another tree macro
 type: text/vnd.tiddlywiki
 
-<<i18n 'i18n macro' '$:/i18n' {{!!i18n}}>>
+<<i18n 'another tree macro' '$:/o-tree'>>

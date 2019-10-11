@@ -3,12 +3,12 @@ image: node
 pages:
   script:
   - npm install -g tiddlywiki
-  - cp -R * /usr/local/lib/node_modules/tiddlywiki/
+  - cp -r * /usr/local/lib/node_modules/tiddlywiki/
   - tiddlywiki ./editions/collection --build
   - gzip --recursive --keep ./editions/collection/output
   - mv ./editions/collection/output public
-  - gzip --recursive --keep ./files/testing
-  - cp -R ./files/* public
+  - gzip --recursive --keep ./files/dev
+  - cp -r ./files/* public
   artifacts:
     paths:
     - public

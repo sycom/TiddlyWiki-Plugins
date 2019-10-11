@@ -1,0 +1,6 @@
+created: 20191009135221268
+modified: 20191009135238135
+title: i18n for TiddlyWiki
+type: text/vnd.tiddlywiki
+
+<<i18n '' '$:/i18n'>>

@@ -1,0 +1,9 @@
+created: 20191007102553100
+modified: 20191009134833734
+title: $:/core/macros/i18n/examples/i18n/en-GB/a tiddler without translation
+type: text/vnd.tiddlywiki
+
+This tiddler in English has no translation in another language. It will be displayed:
+
+* when the wiki is in English
+* when the wiki is in another language, but will be surrounded by an alert message.

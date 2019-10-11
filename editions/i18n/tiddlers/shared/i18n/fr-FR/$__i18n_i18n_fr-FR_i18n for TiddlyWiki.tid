@@ -1,0 +1,24 @@
+created: 20191009141753588
+modified: 20191009143322558
+title: $:/i18n/i18n/fr-FR/i18n for TiddlyWiki
+type: text/vnd.tiddlywiki
+
+Ce wiki explore les possibilités de traduction de TiddlyWiki. Le but principal est de fournir un outil efficace pour traduire des plugins et de la documentation sans recourir à [[la macro lingo|https://tiddlywiki.com/#lingo%20Macro]].
+
+!! Où en sommes nous?
+
+Pour faire court, il y a maintenant [[la Macro i18n|i18n Macro]]. C'est un bon outil pour traduire des tiddlers cachés ou système (comme des plugins). Mais les tiddlers traduits ne sont pas cherchables, ce qui constitue une limite certaine pour un véritable système multilingue dans TiddlyWiki (voir les réflexions ci-après).
+
+Comme les traductions sont enregistrées dans des tiddlers cachés, j'ai fait [[i18n translation helper]] pour aider à les trouver (et qui pourrait prendre place dans le $:/ControlPanel ?)
+
+!! Historique et réflexions
+
+Il y a eu une première tentative à travers la macro [[i18n-js|i18n-js macro]]. J'ai commencé à //manger ma propre pâtée pour chien// dans mes productions de plugins (comme G-Analytics Plugin).
+
+Après l'avoir présenté au travers de la [[PR #2722|https://github.com/Jermolene/TiddlyWiki5/pull/2722]] et aussi de [[l'issue #4179|https://github.com/Jermolene/TiddlyWiki5/issues/4179]] sur le dépôt github, j'ai pris les orientations suivantes
+
+# transformer la macro i18n-js en [[i18n Macro]] sans javascript
+# enlever le paramètre //dico// anticipant le retrait à terme des systèmes //json-application// et //x-tiddler dictionnary//
+# faire une distinction claire entre
+#* la future Macro i18n destinée à la traduction des plugins et documentation hors du système //lingo// / //plugins de langues//
+#* ce qui pourrait devenir un Plugin i18n destiné à permettre un wiki multilingue. [[Des réflexions|i18n Plugin?]] restent clairement à mener sur ce dernier.

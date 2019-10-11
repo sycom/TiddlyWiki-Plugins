@@ -1,0 +1,17 @@
+{
+  "tiddlers": [
+    {
+      "file": "../../../../../ext/modules/macros/i18n.js",
+      "fields": {
+        "title": "$:/ext/modules/macros/i18n.js",
+        "type": "application/javascript",
+        "module-type": "macro"
+      },
+      "isTiddlerFile": true
+    },
+    {
+      "file": "../../../../../ext/modules/macros/other-tree-macro.tid",
+      "isTiddlerFile": true
+    }
+  ]
+}

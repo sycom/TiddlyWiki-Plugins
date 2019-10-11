@@ -1,13 +1,16 @@
 created: 20190418102256742
-modified: 20190821135204756
+modified: 20191011143644533
 title: $:/collection/i18n/fr-FR/A plugin collection
 type: text/vnd.tiddlywiki
 
 <div class="info-alert">
-<div style="float:left;color:red;padding:4px 8px 4px 0"><<f-i alert-triangle x3>></div>{{$:/SiteTitle}} est un travail en cours. Je ''l'utilise'' pour mes propres besoins et je n'ai pas (trop) de problèmes avec. N'hésitez pas à l'utiliser mais souvenez vous de la règle n°1 de TiddlyWiki : ''Toujours faire une sauvegarde avant d'essayer quelque chose''...
+<div style="float:left;color:red;padding:4px 8px 4px 0"><<f-i alert-triangle x3>></div>{{$:/i18n/fr-FR/SiteTitle}} est un travail en cours. Je ''l'utilise'' pour mes propres besoins et je n'ai pas (trop) de problèmes avec. N'hésitez pas à l'utiliser mais souvenez-vous de la règle n°1 de TiddlyWiki : ''Toujours faire une sauvegarde avant d'essayer quelque chose''...
 </div>
 
-Les avertissements de rigueur ayant été fait, profitez bien des projets et n'hésitez pas à [[contribuer|Contributing]]
+Les avertissements de rigueur ayant été fait, profitez bien des projets. Ce wiki combine plusieurs outils; vous pouvez aussi les tester [[seuls|standalone versions]]. N'hésitez pas à [[contribuer|Contributing]]. Une autre façon de faire avancer vos projets préférés est de devenir [[patron|Patron?]]...
+
+!! <<f-i globe>> [[i18n Macro]] ({{$:/core/macros/i18n!!version}})
+La <$link to="$:/core/macros/i18n"><<f-i download>> macro i18n</$link> aide à construire un wiki multilingue sans avoir à bricoler le système //language + lingo//  interne à TiddlyWiki... Vous apprécierez peut-être [[l'outil d'aide à la traduction|i18n translation helper]] associé.
 
 !! <<f-i map>> [[Leaflet maps plugin]] ({{$:/plugins/sycom/leaflet!!version}})
 Le <$link to="$:/plugins/sycom/leaflet"><<f-i download>> plugin Leaflet maps</$link> permet d'intégrer des cartes leaflet dans votre TiddlyWiki grâce au widget `<$leafmap />` widget. Voyez l'exemple de [[Michel Strogoff|Michel Strogoff from the sky]] (carte ci-dessous) ou les exemples [[inclus dans la documentation|$:/plugins/sycom/leaflet/example]] pour en savoir plus.
@@ -25,6 +28,3 @@ Le <$link to="$:/plugins/sycom/feather-icons"><<f-i download>> plugin Feather ic
 
 !! <<f-i rss>> [[Atom feed plugin]] ({{$:/plugins/sycom/atom-feed!!version}})
 Le <$link to="$:/plugins/sycom/atom-feed"><<f-i download>> plugin Atom feed</$link> ajoutera un fichier <a rel="alternate" href="atom.xml" target="_blank">atom.xml</a> à côté de votre wiki. Pratique pour les gens qui veulent suivre votre travail.
-
-!! <<f-i globe>> [[i18n macro]] ({{$:/ext/modules/macros/i18n-macro.js!!version}})
-La <$link to="$:/ext/modules/macros/i18n-macro.js"><<f-i download>> macro i18n</$link> aide à construire un wiki multilingue sans avoir à bricoler le système //language + lingo//  interne à TiddlyWiki...

@@ -1,0 +1,22 @@
+{
+	"description": "tree-macro edition for testing",
+	"plugins": [
+			"tiddlywiki/tiddlyweb",
+			"tiddlywiki/filesystem",
+			"tiddlywiki/markdown"
+	],
+	"languages": [
+	 "fr-FR"
+	],
+	"themes": [
+		"tiddlywiki/vanilla",
+		"tiddlywiki/snowwhite"
+	],
+	"build": {
+		"index": [
+			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","../../output/tree-macro.html","text/plain"]
+	},
+	"config": {
+		"retain-original-tiddler-path": true
+	}
+}

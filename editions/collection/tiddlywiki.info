@@ -18,7 +18,7 @@
 	],
 	"build": {
 		"index": [
-			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","index.html","text/plain"],
+			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","../../output/index.html","text/plain"],
 		"feed": [
 			"--rendertiddler","$:/plugins/sycom/atom-feed/atom.xml","atom.xml","text/plain"]
 	},

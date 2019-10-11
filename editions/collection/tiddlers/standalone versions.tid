@@ -1,0 +1,8 @@
+created: 20191011142725500
+modified: 20191011143748801
+title: standalone versions
+type: text/vnd.tiddlywiki
+
+<<i18n "" "$:/collection" inline>>
+
+* <a href="./i18n.html">i18n Macro</a>(<a href="./dev/i18n.html">dev</a>)
