@@ -12,6 +12,7 @@ pages:
   - mkdir .public
 # à activer quand j'aurai mergé  - cp ./editions/output/dev/* ./editions/output
   - mv ./editions/collection/output/* .public
+  - git add .public/*
   - git stash
   # i18n (possibly use branch name?)
   - git checkout i18n
@@ -21,6 +22,8 @@ pages:
   - cp -r * /usr/local/lib/node_modules/tiddlywiki/
   - tiddlywiki ./editions/i18n --build
   - cp ./editions/output/dev .public
+#  - git add .public/*
+#  - git stash
 # another branch...
 # ...
   - mv .public public
