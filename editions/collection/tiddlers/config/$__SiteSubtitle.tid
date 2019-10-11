@@ -1,6 +1,6 @@
 created: 20190331154402700
-modified: 20190403144725594
+modified: 20191011150130887
 title: $:/SiteSubtitle
 type: text/vnd.tiddlywiki
 
-<<i18n SiteSubTitle>>
+<<i18n SiteSubTitle "" inline>>
