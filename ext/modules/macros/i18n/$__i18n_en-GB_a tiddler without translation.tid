@@ -1,6 +1,6 @@
 created: 20191007102553100
 modified: 20191009134833734
-title: $:/i18n/en-GB/a tiddler without translation
+title: $:/core/macros/i18n/examples/i18n/en-GB/a tiddler without translation
 type: text/vnd.tiddlywiki
 
 This tiddler in English has no translation in another language. It will be displayed:

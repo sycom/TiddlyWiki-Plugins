@@ -3,9 +3,6 @@ modified: 20191009152949621
 title: $:/core/wiki/macros/i18n/i18n/fr-FR/i18n Macro
 type: text/vnd.tiddlywiki
 
-\define .def(_) <dfn class="doc-def">$_$</dfn>
-\define .macro-examples(m,text:"Examples") <$link to="$m$ Macro (Examples)">$text$</$link>
-
 La [[macro|Macros]] <<.def i18n>> est une alternative à <<.def lingo>> pour traduire des tiddlers. Elle peut être utile pour les traductions de plugins.
 
 !! Paramètres
@@ -27,9 +24,9 @@ Lorsqu'on appelle `<<i18n title domain orig_lang>>`, la macro va récupérer la 
 
 * Si `domain`/i18n/`lg-LG`/`title` existe, il sera affiché
 * Si non la macro teste si `lg-LG` est `orig_lang`
-** Si oui, s'affiche une alerte invitant à créer `domain`/i18n/`orig_lang`/`title` 
+** Si oui, s'affiche une alerte invitant à créer `domain`/i18n/`orig_lang`/`title`
 ** Si non, s'affiche une alerte indiquant que la traduction n'existe pas et essaye d'afficher le tiddler dans la langue originale
 *** si `domain`/i18n/`orig_lang`/`title` existe, il sera affiché dans un div avec l'attribut `lang="orig_lang"` ce qui vous permet d'en changer le style
-*** si non, s'affiche une alerte invitant à créer `domain`/i18n/`orig_lang`/`title` 
+*** si non, s'affiche une alerte invitant à créer `domain`/i18n/`orig_lang`/`title`
 
 !! <<.macro-examples "i18n">>

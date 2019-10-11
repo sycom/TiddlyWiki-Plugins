@@ -4,7 +4,7 @@ tags:
 title: $:/i18n/i18n/en-GB/i18n-js macro
 type: text/vnd.tiddlywiki
 
-<div class="tc-message-box">{{$:/core/images/warning}} i18n-js was a first experiment around TiddlyWiki translation capabilities. It's now better to use [[i18n|i18n Macro]] instead</div>
+<div class="tc-message-box">{{$:/core/images/warning}} i18n-js was a first experiment around TiddlyWiki translation capabilities. It's now better to use [[i18n|i18n Macro]] instead, since i18n-js will not be supported any more.</div>
 
 the [[i18n|$:/ext/modules/macros/i18n.js]] macro aims to make it easier to translate some parts of your [[TiddlyWiki|https://tiddlywiki.com/static/TiddlyWiki.html]] beside $:/languages + `<<lingo>>` mechanism. It might be useful to translate extensions or tiddlers.
 

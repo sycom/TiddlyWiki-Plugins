@@ -7,7 +7,7 @@ type: text/vnd.tiddlywiki
 <<i18n "switch_instructions" "$:/editions/tw.com/macros/i18n">>
 
 <$macrocall $name=".example" n="1"
-eg="""<<i18n "a tiddler without translation">>"""/>
+eg="""<<i18n "a tiddler without translation" "$:/core/macros/i18n/examples">>"""/>
 
 <$macrocall $name=".example" n="2"
-eg="""<<i18n "un tiddler sans traduction" "" "fr-FR">>"""/>
+eg="""<<i18n "un tiddler sans traduction" "$:/core/macros/i18n/examples" "fr-FR">>"""/>

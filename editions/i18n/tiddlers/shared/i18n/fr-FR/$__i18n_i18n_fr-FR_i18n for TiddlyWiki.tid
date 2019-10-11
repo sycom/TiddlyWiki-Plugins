@@ -7,7 +7,7 @@ Ce wiki explore les possibilités de traduction de TiddlyWiki. Le but principal 
 
 !! Où en sommes nous?
 
-Pour faire court, il y a maintenant [[la Macro i18n|i18n Macro]].
+Pour faire court, il y a maintenant [[la Macro i18n|i18n Macro]]. C'est un bon outil pour traduire des tiddlers cachés ou système (comme des plugins). Mais les tiddlers traduits ne sont pas cherchables, ce qui constitue une limite certaine pour un véritable système multilingue dans TiddlyWiki (voir les réflexions ci-après).
 
 Comme les traductions sont enregistrées dans des tiddlers cachés, j'ai fait [[i18n translation helper]] pour aider à les trouver (et qui pourrait prendre place dans le $:/ControlPanel ?)
 

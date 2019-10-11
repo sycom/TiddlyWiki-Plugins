@@ -3,4 +3,4 @@ modified: 20190417081256269
 title: un tiddler sans traduction en-GB
 type: text/vnd.tiddlywiki
 
-<<i18n 'un tiddler sans traduction' '$:/i18n' no 'fr-FR'>>
+<<i18n-js 'un tiddler sans traduction' '$:/i18n' no 'fr-FR'>>
