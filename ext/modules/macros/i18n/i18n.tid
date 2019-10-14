@@ -13,7 +13,7 @@ version: 1.0.0-pre
 <$list filter="[<__title__>addprefix[/]addprefix<__orig_lang__>addprefix[/i18n/]addprefix<__domain__>is[missing]]-[<__title__>addprefix[/]addprefix<__orig_lang__>addprefix[/i18n/]addprefix<__domain__>is[shadow]]">
 
 <div class="tc-message-box">
-//<<__orig_lang__>>// original is missing, please create it at <$link to=<<currentTiddler>> /></div>
+//<<__orig_lang__>>// original is missing, please create it at <$link to=<<currentTiddler>>><$text text=<<currentTiddler>> /></$link></div>
 </$list>
 \end
 
@@ -27,7 +27,7 @@ version: 1.0.0-pre
 <$macrocall $name="i18nOriginal" title=<<__title__>> domain=<<__domain__>> orig_lang=<<__orig_lang__>> lang=<<__lang__>> mode=<<__mode__>>/>
 </$list>
 <$list filter="[<__lang__>!search<__orig_lang__>]">
-<div class="tc-message-box">//<<__lang__>>// translation is missing, you may create it at <$link to=<<target>> /></div>
+<div class="tc-message-box">//<<__lang__>>// translation is missing, you may create it at <$link to=<<target>>><$text text=<<target>> /></$link></div>
 <div lang=<<__orig_lang__>>>
 <$macrocall $name="i18nOriginal" title=<<__title__>> domain=<<__domain__>> orig_lang=<<__orig_lang__>> lang=<<__lang__>> mode=<<__mode__>> />
 </div>
