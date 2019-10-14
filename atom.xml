@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
    <feed xmlns="http://www.w3.org/2005/Atom">
      <title type="html">
-
-Sycom's TiddlyWiki plugins collection</title>
+</title>
      <subtitle type="html">
-
-let's tiddler almost anything</subtitle>
-     <updated>14:56, 21st August 2019
+</subtitle>
+     <updated>16:25, 14th October 2019
 </updated>
      <id>Please set url in caption field
 </id>
@@ -21,6 +19,750 @@ let's tiddler almost anything</subtitle>
      <generator uri="https://sycom.gitlab.io/TiddlyWiki-Plugins/#AtomFeed%20Plugin" version="0.0.2">
        Sycom's AtomFeed TiddlyWiki plugin
      </generator><entry>
+   <title>standalone versions</title>
+       <link rel="alternate" type="text/html"
+        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#standalone versions"/>
+       <id>standalone versions</id>
+       <updated>2019-10-11T14:37:48</updated>
+       <published>2019-10-11T14:27:25</published>
+       <author>
+         <name></name>
+       </author>
+       <content type="html">
+
+
+          <ul><li><a href="./i18n.html">i18n Macro</a>(<a href="./dev/i18n.html">dev</a>)</li></ul>
+       </content>
+</entry>
+<entry>
+   <title>This wiki uses Google Analytics</title>
+       <link rel="alternate" type="text/html"
+        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#This wiki uses Google Analytics"/>
+       <id>This wiki uses Google Analytics</id>
+       <updated>2019-10-11T14:56:09</updated>
+       <published>2019-10-11T13:52:08</published>
+       <author>
+         <name></name>
+       </author>
+       <content type="html">
+
+
+          <div class=" tc-reveal" hidden="true"></div><p><span class=" tc-reveal">
+   <div class=" tc-reveal"></div>
+   <div class=" tc-reveal" hidden="true"></div>
+</span>
+</p>
+       </content>
+</entry>
+<entry>
+   <title>i18n Plugin?</title>
+       <link rel="alternate" type="text/html"
+        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#i18n Plugin?"/>
+       <id>i18n Plugin?</id>
+       <updated>2019-10-09T14:38:42</updated>
+       <published>2019-10-09T14:33:40</published>
+       <author>
+         <name></name>
+       </author>
+       <content type="html">
+
+
+          
+       </content>
+</entry>
+<entry>
+   <title>i18n for TiddlyWiki</title>
+       <link rel="alternate" type="text/html"
+        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#i18n for TiddlyWiki"/>
+       <id>i18n for TiddlyWiki</id>
+       <updated>2019-10-09T13:52:38</updated>
+       <published>2019-10-09T13:52:21</published>
+       <author>
+         <name></name>
+       </author>
+       <content type="html">
+
+
+          
+       </content>
+</entry>
+<entry>
+   <title>i18n translation helper</title>
+       <link rel="alternate" type="text/html"
+        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#i18n translation helper"/>
+       <id>i18n translation helper</id>
+       <updated>2019-10-09T14:37:40</updated>
+       <published>2019-10-07T16:55:54</published>
+       <author>
+         <name></name>
+       </author>
+       <content type="html">
+
+
+          <h3 class="">All tiddlers in current language and their translations <span class="tc-popup-keep">
+<button aria-label="language" class="" title="Choose the user interface language">
+
+
+</button>
+</span>
+<span class=" tc-reveal" hidden="true"></span>
+</h3><p>
+<table>
+<tr><th>short</th><th>en-GB</th><th>fr-FR</th></tr>
+
+
+<tr>
+<td>SiteSubTitle</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fi18n%2Fen-GB%2FSiteSubTitle">20190403</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fi18n%2Ffr-FR%2FSiteSubTitle">20190417</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>SiteTitle</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fi18n%2Fen-GB%2FSiteTitle">20190403</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fi18n%2Ffr-FR%2FSiteTitle">20190403</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>Patron?</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2FCollection%2Fi18n%2Fen-GB%2FPatron%3F">20190823</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2FCollection%2Fi18n%2Ffr-FR%2FPatron%3F">20190823</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>A plugin collection</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fcollection%2Fi18n%2Fen-GB%2FA%20plugin%20collection">20191011</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fcollection%2Fi18n%2Ffr-FR%2FA%20plugin%20collection">20191011</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>Contributing</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fcollection%2Fi18n%2Fen-GB%2FContributing">20190821</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fcollection%2Fi18n%2Ffr-FR%2FContributing">20190821</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>intro</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fatom-feed%2Fi18n%2Fen-GB%2Fintro">20190503</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fatom-feed%2Fi18n%2Ffr-FR%2Fintro">20190503</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>IntroText</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Ffeather-icons%2Fi18n%2Fen-GB%2FIntroText">20190503</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Ffeather-icons%2Fi18n%2Ffr-FR%2FIntroText">20190503</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>More examples</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Ffeather-icons%2Fi18n%2Fen-GB%2FMore%20examples">20190418</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Ffeather-icons%2Fi18n%2Ffr-FR%2FMore%20examples">20190418</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>intro</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fg-analytics%2Fi18n%2Fen-GB%2Fintro">20190419</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fg-analytics%2Fi18n%2Ffr-FR%2Fintro">20190419</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>i18n Plugin?</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fi18n%2Fi18n%2Fen-GB%2Fi18n%20Plugin%3F">20191009</a>
+
+</td>
+
+<td>
+
+<a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fi18n%2Fi18n%2Ffr-FR%2Fi18n%20Plugin%3F">create</a>
+
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>i18n for TiddlyWiki</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fi18n%2Fi18n%2Fen-GB%2Fi18n%20for%20TiddlyWiki">20191009</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fi18n%2Fi18n%2Ffr-FR%2Fi18n%20for%20TiddlyWiki">20191009</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>i18n-js macro</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fi18n%2Fi18n%2Fen-GB%2Fi18n-js%20macro">20191009</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fi18n%2Fi18n%2Ffr-FR%2Fi18n-js%20macro">20191009</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>i18n Macro</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fwiki%2Fmacros%2Fi18n%2Fi18n%2Fen-GB%2Fi18n%20Macro">20191009</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fwiki%2Fmacros%2Fi18n%2Fi18n%2Ffr-FR%2Fi18n%20Macro">20191009</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>switch_instructions</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Feditions%2Ftw.com%2Fmacros%2Fi18n%2Fi18n%2Fen-GB%2Fswitch_instructions">20191009</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Feditions%2Ftw.com%2Fmacros%2Fi18n%2Fi18n%2Ffr-FR%2Fswitch_instructions">20191009</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>a tiddler without translation</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fmacros%2Fi18n%2Fexamples%2Fi18n%2Fen-GB%2Fa%20tiddler%20without%20translation">20191009</a>
+
+</td>
+
+<td>
+
+<a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fcore%2Fmacros%2Fi18n%2Fexamples%2Fi18n%2Ffr-FR%2Fa%20tiddler%20without%20translation">create</a>
+
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>usage</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed%2Fi18n%2Fen-GB%2Fusage">edit</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed%2Fi18n%2Ffr-FR%2Fusage">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>readme</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed%2Fi18n%2Fen-GB%2Freadme">20190328</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed%2Fi18n%2Ffr-FR%2Freadme">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>macrosIntro</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Ffeather-icons%2Fi18n%2Fen-GB%2FmacrosIntro">edit</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Ffeather-icons%2Fi18n%2Ffr-FR%2FmacrosIntro">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>usage</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Ffeather-icons%2Fi18n%2Fen-GB%2Fusage">edit</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Ffeather-icons%2Fi18n%2Ffr-FR%2Fusage">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>readme</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Ffeather-icons%2Fi18n%2Fen-GB%2Freadme">edit</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Ffeather-icons%2Fi18n%2Ffr-FR%2Freadme">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>disclaimer_common</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Fdisclaimer_common">edit</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Ffr-FR%2Fdisclaimer_common">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>disclaimer_dnt</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Fdisclaimer_dnt">edit</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Ffr-FR%2Fdisclaimer_dnt">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>disclaimer_gdpr</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Fdisclaimer_gdpr">edit</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Ffr-FR%2Fdisclaimer_gdpr">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>disclaimer_internal</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Fdisclaimer_internal">edit</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Ffr-FR%2Fdisclaimer_internal">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>disclaimer_nogdpr</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Fdisclaimer_nogdpr">edit</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Ffr-FR%2Fdisclaimer_nogdpr">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>disclaimer_notification</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Fdisclaimer_notification">edit</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Ffr-FR%2Fdisclaimer_notification">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>disclaimer_settings</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Fdisclaimer_settings">edit</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Ffr-FR%2Fdisclaimer_settings">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>settings</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Fsettings">edit</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Ffr-FR%2Fsettings">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>usage</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Fusage">edit</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Ffr-FR%2Fusage">edit</a>
+
+</td>
+
+</tr>
+
+
+<tr>
+<td>readme</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Freadme">20190401</a>
+
+</td>
+
+<td>
+
+
+<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Ffr-FR%2Freadme">edit</a>
+
+</td>
+
+</tr>
+
+</table>
+</p>
+       </content>
+</entry>
+<entry>
+   <title>i18n Macro (Examples)</title>
+       <link rel="alternate" type="text/html"
+        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#i18n Macro (Examples)"/>
+       <id>i18n Macro (Examples)</id>
+       <updated>2019-10-09T13:45:24</updated>
+       <published>2019-10-07T16:19:36</published>
+       <author>
+         <name></name>
+       </author>
+       <content type="html">
+
+
+          
+       </content>
+</entry>
+<entry>
+   <title>i18n Macro</title>
+       <link rel="alternate" type="text/html"
+        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#i18n Macro"/>
+       <id>i18n Macro</id>
+       <updated>2019-10-09T12:55:39</updated>
+       <published>2019-10-07T15:52:03</published>
+       <author>
+         <name></name>
+       </author>
+       <content type="html">
+
+
+          
+       </content>
+</entry>
+<entry>
+   <title>Patron?</title>
+       <link rel="alternate" type="text/html"
+        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Patron?"/>
+       <id>Patron?</id>
+       <updated>2019-08-23T15:06:58</updated>
+       <published>2019-08-23T14:55:58</published>
+       <author>
+         <name></name>
+       </author>
+       <content type="html">
+
+
+          
+       </content>
+</entry>
+<entry>
    <title>Contributing</title>
        <link rel="alternate" type="text/html"
         href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Contributing"/>
@@ -33,72 +775,7 @@ let's tiddler almost anything</subtitle>
        <content type="html">
 
 
-          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Fcollection%2Fi18n%2Fen-GB%2FContributing"></a></p><p>Whatever type of interaction you intend to have with the project, I only have a few words : <strong>You are welcome!</strong></p><h2>Use, test, comment</h2><p>Any usage you have is a good thing. So if you have no background in coding or anything of this, go ahead to <a href="https://sycom.frama.io/TiddlyWiki-Plugins">demo front page</a>, take the tool and use it.</p><p>If everything is OK for you, enjoy and don't hesitate to make contact and tell about your experience or use case. It's good to know what tools are used for to plane further developments.</p><p>If you have bug, problems, suggestions, or any comment</p><ul><li><strong>the best way to proceed is posting an <a href="https://framagit.org/sycom/TiddlyWiki-Plugins/issues">issue</a></strong>. You will need a framagit account (you can also log in with gitlab, github or bitbucket). It's also a good place to check if your subject is already listed</li><li>You may also post on the <a href="https://groups.google.com/forum/#!forum/tiddlywiki">tiddlywiki users group</a>. Be explicit in the title if you want an answer ;-)</li></ul><h2>Help with translations</h2><p>The projects tries to support multiple language for both documentation and tools. It is far from easy when your English is limited and have no real background for other language. So do not hesitate to submit your translation in any language of any part of the project.</p><h2>Work the code</h2><h3>How the repo works, how to work with it</h3><p>You may want to fork and contribute to the project. Or you just want use it as a framework for your needs and work by yourself on different projects. It's up to you...</p><p>The repository is set up to minimize conflict with tiddlywiki core and own storage. So the project only stores its files and settings and calls TiddlyWiki for running either through a node installation or using the official repository. This is a good way to test developments with the latest release, the current master branch and any other version of the core.</p><h3>What you will need</h3><ul><li>A <a href="https://git-scm.com/">git</a> installation with or without a gui</li><li>A <a href="https://nodejs.org">node</a> installation</li></ul><h3>How to setup yours (wether you want to contribute or not)</h3><p>Instruction are given through the command line, but if you prefer genuine user interfaces you will easily find your way through.</p><p>Please note that integrated <em>bash</em> / <em>bat</em> scripts work with local copies folders named <code>TW5dev</code> and <code>tiddlywiki5</code>. You will have to edit those scripts if you want to use your own directories names.</p><ul><li><strong>You may want to fork</strong> from one of the main public repositories where the project is stored. You will find a button for that on each, once you have an account there :<ul><li><a href="https://framagit.org/sycom/TiddlyWiki-Plugins">framagit</a> (gitlab instance)</li><li><a href="https://gitlab.com/sycom/TiddlyWiki-Plugins">gitlab</a></li><li><a href="https://github.com/sycom/TiddlyWiki-Plugins">github</a></li></ul></li></ul><p>this will create a repo linked to the main TiddlyWiki-Plugins repo that will be your basecamp</p><ul><li><p><strong>Clone the repo on your machine</strong></p><ul><li><p>From your repo and then set main repo as upstream
-<code>
-git clone https://your_git_provider/user_name/your_repo_name.git TW5dev
-git remote add upstream https://framagit.org/sycom/TiddlyWiki-Plugins.git
-</code>
-Or directly from the main repo and set it as upstream if you do not have a fork
-<code>
-git clone https://framagit.org/sycom/TiddlyWiki-Plugins.git -o upstream your_repo_name
-</code></p></li></ul></li><li><p><strong>Set up basics to work</strong>
-You will need either (or both)</p><ul><li>a node installation of tiddlywiki
-<code>
-npm install -g tiddlywiki
-</code></li><li>a working copy of tiddlywiki main repo
-<code>
-git clone https://github.com/Jermolene/TiddlyWiki5.git -o upstream tiddlywiki5
-</code></li></ul></li></ul><h3><strong>Work, test your work</strong></h3><p>once you made your edit on your project you have a lot of choices and may use the <code>tw.bat</code> (no <code>tw.sh</code> for now)</p><ul><li><p>Using <strong>nodejs installed</strong> tiddlywiki</p><ul><li><p>launching server for <em>tid files / node</em> version (on http://127.0.0.1:8080)
-<code>
-tiddlywiki ./edition/your_edition
-</code>
-or
-<code>
-tw your_edition
-</code></p><ul><li><p>building <em>index.html</em> tiddlywiki file (in <a class="tc-tiddlylink tc-tiddlylink-missing" href="#">.editions/your_edition/output</a>
-<code>
-tiddlywiki ./edition/your_edition --build
-</code>
-or
-<code>
-tw your_edition build
-</code></p></li></ul></li></ul></li><li><p>Using <strong>local copy of tiddlywiki</strong> official repository</p><ul><li>launching server for <em>tid files / node</em> version (on http://127.0.0.1:8080)
-<code>
-node ../tiddlywiki5/tiddlywiki.js ../TW5dev/editions/your_edition
-</code>
-or
-<code>
-tw -l your_edition
-</code></li><li>building <em>index.html</em> tiddlywiki file (in <a class="tc-tiddlylink tc-tiddlylink-missing" href="#">.editions/your_edition/output</a>)
-<code>
-node ../tiddlywiki5/tiddlywiki.js ../TW5dev/editions/your_edition --build
-</code>
-or
-<code>
-tw -l your_edition build
-</code></li></ul></li></ul><p>Once your proud of your work, pretty sure that whole tiddlywiki community will be glad to know about. Use the <a href="https://groups.google.com/forum/#!forum/tiddlywiki">group</a> is probably the quickiest and most efficient way.</p><h3>Merge requests</h3><p>If you have merge requests proposals for the current project (nice! thank you), please try to do it through the <a href="https://framagit.org/sycom/TiddlyWiki-Plugins">framagit</a> repository since managing more than one upstream would be a bit touchy.</p><p>Happy Contributing!</p>
-       </content>
-</entry>
-<entry>
-   <title>This wiki uses Google Analytics</title>
-       <link rel="alternate" type="text/html"
-        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#This wiki uses Google Analytics"/>
-       <id>This wiki uses Google Analytics</id>
-       <updated>2019-08-21T14:48:28</updated>
-       <published>2019-08-14T13:23:24</published>
-       <author>
-         <name></name>
-       </author>
-       <content type="html">
-
-
-          <p><a class="tc-tiddlylink tc-tiddlylink-shadow i18n-edit" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Fdisclaimer_common"></a></p><p>As many website do, this wiki can use <a class="tc-tiddlylink-external" href="https://analytics.google.com" rel="noopener noreferrer" target="_blank">Google Analytics</a> (via the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics">G-Analytics plugin</a>) to help analyse how much visitors use this site and where they come from. Google uses “<a class="tc-tiddlylink-external" href="https://en.wikipedia.org/wiki/HTTP_cookie" rel="noopener noreferrer" target="_blank">cookies</a>”, which are small text files placed on your computer, to collect standard internet log information and visitor behaviour information in an anonymous form.
-</p><div class=" tc-reveal" hidden="true"></div><p><span class=" tc-reveal">
-   <div class=" tc-reveal"><p><a class="tc-tiddlylink tc-tiddlylink-shadow i18n-edit" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics%2Fi18n%2Fen-GB%2Fdisclaimer_gdpr"></a></p><p>However, as you did not &quot;opt-in&quot; to be part of our survey panel, the plugin is deactivated for now and no information will be collected nor sent anywhere. You may change your mind whenever you want by just checking this  
-</p></div>
-   <div class=" tc-reveal" hidden="true"></div>
-</span>
-</p>
+          
        </content>
 </entry>
 <entry>
@@ -114,69 +791,7 @@ tw -l your_edition build
        <content type="html">
 
 
-          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Ffeather-icons%2Fi18n%2Fen-GB%2FMore%20examples"></a></p><p>Current wiki overwrites some default icons with feather's ones :</p><p><div style="font-size:160%">
-<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fimages%2Fadvanced-search-button">
-</a>
-
-<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fimages%2Fcancel-button"></a>
-
-<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fimages%2Fclose-button"></a>
-
-<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fimages%2Fdelete-button"></a>
-
-<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fimages%2Fdone-button"></a>
-
-<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fimages%2Fdown-arrow"></a>
-
-<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fimages%2Fedit-button"></a>
-
-<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fimages%2Foptions-button">
-</a>
-
-<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fimages%2Fsave-button">
-</a>
-
-<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fui%2FButtons%2Fhome"><button aria-label="home" class="" title="Open the default tiddlers">
-
-
-</button>
-</a>
-
-<a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fui%2FButtons%2Flanguage"><span class="tc-popup-keep">
-<button aria-label="language" class="" title="Choose the user interface language">
-
-
-</button>
-</span>
-<span class=" tc-reveal" hidden="true"></span>
-</a>
-</div></p><p>Or you may want to animate some?</p><p><div style="text-align:center"><svg class="feather x5" style=";stroke:#888;fill:#00ffff33" viewBox="0 0 50 50"><use href="#compass">
-<animateTransform attributeName="transform" dur="4s" from="0 25 25" id="move2" repeatCount="indefinite" to="360 25 25" type="rotate"></animateTransform></use></svg></div>
-</p>
-       </content>
-</entry>
-<entry>
-   <title>a tiddler without fr-FR translation</title>
-       <link rel="alternate" type="text/html"
-        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#a tiddler without fr-FR translation"/>
-       <id>a tiddler without fr-FR translation</id>
-       <updated>2019-04-17T08:12:56</updated>
-       <published>2019-04-17T08:11:25</published>
-       <author>
-         <name></name>
-       </author>
-       <content type="html">
-
-
-          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Fi18n%2Fi18n%2Fen-GB%2Fa%20tiddler%20without%20translation"></a></p><p>this tiddler has an original but doesn't have any translation in fr-FR. If your wiki is switched to french, see the red <em>+fr-FR</em> creation link when your mouse is over the text.</p><p>Switch language : <span class="tc-popup-keep">
-<button aria-label="language" class="" title="Choose the user interface language">
-
-
-</button>
-</span>
-<span class=" tc-reveal" hidden="true"></span>
-
-</p>
+          
        </content>
 </entry>
 <entry>
@@ -192,15 +807,7 @@ tw -l your_edition build
        <content type="html">
 
 
-          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Fi18n%2Fi18n%2Ffr-FR%2Fun%20tiddler%20sans%20traduction"></a><a class="tc-tiddlylink tc-tiddlylink-missing i18n-edit alert" href="#%24%3A%2Fi18n%2Fi18n%2Fen-GB%2Fun%20tiddler%20sans%20traduction"> + en-GB</a></p><p>ce tiddler dispose d'un original, mais n'a pas de traduction en en-GB. Si la langue sélectionnée pour votre wiki est le français, voyez le lien de création <em>+en-GB</em> rouge lorsque votre souris survole le texte.</p><p>Changez de langue : <span class="tc-popup-keep">
-<button aria-label="language" class="" title="Choose the user interface language">
-
-
-</button>
-</span>
-<span class=" tc-reveal" hidden="true"></span>
-
-</p>
+          <p><div class="tc-tiddler-info">sorry but there is not any <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fi18n%2Fi18n%2Ffr-FR%2Fun%20tiddler%20sans%20traduction">$:/i18n/i18n/fr-FR/un tiddler sans traduction</a> tiddler</div></p>
        </content>
 </entry>
 <entry>
@@ -216,15 +823,15 @@ tw -l your_edition build
        <content type="html">
 
 
-          <p><div class="tc-tiddler-info">sorry but there is not any <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fi18n%2Fi18n%2Fen-GB%2Fno%20original">$:/i18n/i18n/en-GB/no original</a> tiddler</div></p>
+          
        </content>
 </entry>
 <entry>
-   <title>i18n macro</title>
+   <title>i18n-js macro</title>
        <link rel="alternate" type="text/html"
-        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#i18n macro"/>
-       <id>i18n macro</id>
-       <updated>2019-08-19T08:29:48</updated>
+        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#i18n-js macro"/>
+       <id>i18n-js macro</id>
+       <updated>2019-10-09T13:23:20</updated>
        <published>2019-04-02T17:21:24</published>
        <author>
          <name></name>
@@ -232,14 +839,18 @@ tw -l your_edition build
        <content type="html">
 
 
-          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Fi18n%2Fi18n%2Fen-GB%2Fi18n%20macro"></a></p><p>the <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n-macro.js">i18n</a> macro aims to make it easier to translate some parts of your <a class="tc-tiddlylink-external" href="https://tiddlywiki.com/static/TiddlyWiki.html" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> beside <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Flanguages">$:/languages</a> + <code>&lt;&lt;lingo&gt;&gt;</code> mechanism. It might be useful to translate extensions or tiddlers.</p><p>The macro is already included in the following plugins, so if you already use one of them, you don't have to get it separately: :
+          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Fi18n%2Fi18n%2Fen-GB%2Fi18n-js%20macro"></a></p><p><div class="tc-message-box"><svg class="tc-image-warning tc-image-button" height="22pt" viewBox="0 0 128 128" width="22pt">
+    <g fill-rule="evenodd">
+        <path d="M57.0717968,11 C60.1509982,5.66666667 67.8490018,5.66666667 70.9282032,11 L126.353829,107 C129.433031,112.333333 125.584029,119 119.425626,119 L8.57437416,119 C2.41597129,119 -1.43303051,112.333333 1.64617093,107 L57.0717968,11 Z M64,37 C59.581722,37 56,40.5820489 56,44.9935776 L56,73.0064224 C56,77.4211534 59.5907123,81 64,81 C68.418278,81 72,77.4179511 72,73.0064224 L72,44.9935776 C72,40.5788466 68.4092877,37 64,37 Z M64,104 C68.418278,104 72,100.418278 72,96 C72,91.581722 68.418278,88 64,88 C59.581722,88 56,91.581722 56,96 C56,100.418278 59.581722,104 64,104 Z"></path>
+    </g>
+</svg> i18n-js was a first experiment around <a class="tc-tiddlylink tc-tiddlylink-missing" href="#TiddlyWiki">TiddlyWiki</a> translation capabilities. It's now better to use <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#i18n%20Macro">i18n</a> instead, since i18n-js will not be supported any more.</div></p><p>the <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n.js">i18n</a> macro aims to make it easier to translate some parts of your <a class="tc-tiddlylink-external" href="https://tiddlywiki.com/static/TiddlyWiki.html" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> beside <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Flanguages">$:/languages</a> + <code>&lt;&lt;lingo&gt;&gt;</code> mechanism. It might be useful to translate extensions or tiddlers.</p><p>The macro is already included in the following plugins, so if you already use one of them, you don't have to get it separately: :
 <ul>
 <li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fplugins%2Fsycom%2Ffeather-icons">$:/plugins/sycom/feather-icons</a></li>
 
 <li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics">$:/plugins/sycom/g-analytics</a></li>
 
 <li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed">$:/plugins/sycom/atom-feed</a></li>
-</ul></p><p><code>&lt;&lt;i18n&gt;&gt;</code>  parameters are</p><ul><li><code>title</code> : the tiddler title (default current tiddler title)</li><li><code>domain</code> : the tiddler <em>domain</em> of the tiddler (default <code>$:</code>)</li><li><code>dico</code> : if set to <code>dico</code> will search <em>title</em> entry in the <code>domain</code>/i18n/<code>lg-LG</code> <a class="tc-tiddlylink-external" href="https://tiddlywiki.com/static/DictionaryTiddlers.html" rel="noopener noreferrer" target="_blank">dictionary tiddler</a></li><li><code>orig_lang</code> : the original language of the tiddler (default <code>en-GB</code>)</li><li><code>inline</code> : set to <code>true</code> force <em>inline</em> rendering (défault <code>false</code>). For short text mainly.</li></ul><h2 class="">mechanism and basic usage examples</h2><pre><code>&lt;&lt;i18n &quot;i18n macro&quot; &quot;$:/ext/modules/macros/i18n&quot; &quot;fr-FR&quot;&gt;&gt;</code></pre><p>will call</p><ol><li>the <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2Fi18n%2Flg-LG%2Fi18n%20macro">$:/ext/modules/macros/i18n/i18n/lg-LG/i18n macro</a> tiddler where lg-LG is the current wiki <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Flanguage">$:/language</a></li><li>if missing, the original language tiddler : <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2Fi18n%2Ffr-FR%2Fi18n%20macro">$:/ext/modules/macros/i18n/i18n/fr-FR/i18n macro</a></li><li>if missing an alert telling that original tiddler doesn't exist</li></ol><p>When using <code>dico</code> version, the process is almost the same, but the macro will search ##<code>title</code> entry in a <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2Fi18n%2Flg-LG">$:/ext/modules/macros/i18n/i18n/lg-LG</a> dictionary tiddler (or <strong>fr-FR</strong> base language if not set). It's more convenient for short phrases or words only translation. For now if entry doesn't exist, you will have blank text...</p><p>For tiddlers using <code>&lt;&lt;i18n&gt;&gt;</code> links will appear on translated parts hover in order to make edition easier. For case <em>.2</em> two links will appear : one for adding missing translation, the other for original language edition.</p><p>See current <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#i18n%20macro">i18n macro</a>, <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#un%20tiddler%20sans%20traduction%20en-GB">un tiddler sans traduction en-GB</a> and <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#a%20tiddler%20without%20original%20version">a tiddler without original version</a> as live examples. <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2FSiteTitle">$:/SiteTitle</a> and <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2FSiteSubtitle">$:/SiteSubtitle</a> are using the <em>dico</em> version, have a look to  <a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2FControlPanel">$:/ControlPanel</a> to get more.</p><h2 class="">Titles translation</h2><p>The macro was not designed to translate full tiddlers nor titles. If you want this, there is a workaround : indicate that the tiddler is a full translated tiddlers and store tiddler titles in special dictionnary for each language. In the working solution proposed here, dictionnary are in <code>$:/titles/lg-LG</code> tiddlers and you indicate fully translated tiddlers by completing a <code>i18n</code> with the original language of the tiddler.</p><p>You will have to overwrite some <a class="tc-tiddlylink tc-tiddlylink-missing" href="#TiddlyWiki">TiddlyWiki</a> <em>system</em> tiddlers :</p><ul><li><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fui%2FViewTemplate%2Ftitle">$:/core/ui/ViewTemplate/title</a></li><li><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fmacros%2Ftimeline">$:/core/macros/timeline</a></li></ul><p>Add an aesthetical fix</p><ul><li>title: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2FstyleHack">$:/ext/modules/macros/i18n/styleHack</a></li></ul><p>And for an easiest translated titles management, you may use</p><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2FTitlesManager">$:/ext/modules/macros/i18n/TitlesManager</a></li></ul><p>You may need to make your own edits to replace titles by their translation in some of the existing tiddlers. In this case, you can use this &quot;code&quot; sample</p><pre><code>&lt;$list filter=&quot;[&lt;currentTiddler&gt;has[i18n]]&quot;&gt;
+</ul></p><p><code>&lt;&lt;i18n-js&gt;&gt;</code>  parameters are</p><ul><li><code>title</code> : the tiddler title (default current tiddler title)</li><li><code>domain</code> : the tiddler <em>domain</em> of the tiddler (default <code>$:</code>)</li><li><code>dico</code> : if set to <code>dico</code> will search <em>title</em> entry in the <code>domain</code>/i18n/<code>lg-LG</code> <a class="tc-tiddlylink-external" href="https://tiddlywiki.com/static/DictionaryTiddlers.html" rel="noopener noreferrer" target="_blank">dictionary tiddler</a></li><li><code>orig_lang</code> : the original language of the tiddler (default <code>en-GB</code>)</li><li><code>inline</code> : set to <code>true</code> force <em>inline</em> rendering (défault <code>false</code>). For short text mainly.</li></ul><h2 class="">mechanism and basic usage examples</h2><pre><code>&lt;&lt;i18njs &quot;i18n-js macro&quot; &quot;$:/ext/modules/macros/i18n&quot; &quot;fr-FR&quot;&gt;&gt;</code></pre><p>will call</p><ol><li>the <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2Fi18n%2Flg-LG%2Fi18n-js%20macro">$:/ext/modules/macros/i18n/i18n/lg-LG/i18n-js macro</a> tiddler where lg-LG is the current wiki <a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Flanguage">$:/language</a></li><li>if missing, the original language tiddler : <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2Fi18n%2Ffr-FR%2Fi18n-js%20macro">$:/ext/modules/macros/i18n/i18n/fr-FR/i18n-js macro</a></li><li>if missing an alert telling that original tiddler doesn't exist</li></ol><p>When using <code>dico</code> version, the process is almost the same, but the macro will search ##<code>title</code> entry in a <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2Fi18n%2Flg-LG">$:/ext/modules/macros/i18n/i18n/lg-LG</a> dictionary tiddler (or <strong>fr-FR</strong> base language if not set). It's more convenient for short phrases or words only translation. For now if entry doesn't exist, you will have blank text...</p><p>For tiddlers using <code>&lt;&lt;i18n-js&gt;&gt;</code> links will appear on translated parts hover in order to make edition easier. For case <em>.2</em> two links will appear : one for adding missing translation, the other for original language edition.</p><h2 class="">Titles translation</h2><p>The macro was not designed to translate full tiddlers nor titles. If you want this, there is a workaround : indicate that the tiddler is a full translated tiddlers and store tiddler titles in special dictionnary for each language. In the working solution proposed here, dictionnary are in <code>$:/titles/lg-LG</code> tiddlers and you indicate fully translated tiddlers by completing a <code>i18n</code> with the original language of the tiddler.</p><p>You will have to overwrite some <a class="tc-tiddlylink tc-tiddlylink-missing" href="#TiddlyWiki">TiddlyWiki</a> <em>system</em> tiddlers :</p><ul><li><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fui%2FViewTemplate%2Ftitle">$:/core/ui/ViewTemplate/title</a></li><li><a class="tc-tiddlylink tc-tiddlylink-shadow tc-tiddlylink-resolves" href="#%24%3A%2Fcore%2Fmacros%2Ftimeline">$:/core/macros/timeline</a></li></ul><p>Add an aesthetical fix</p><ul><li>title: <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2FstyleHack">$:/ext/modules/macros/i18n/styleHack</a></li></ul><p>And for an easiest translated titles management, you may use</p><ul><li><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fext%2Fmodules%2Fmacros%2Fi18n%2FTitlesManager">$:/ext/modules/macros/i18n/TitlesManager</a></li></ul><p>You may need to make your own edits to replace titles by their translation in some of the existing tiddlers. In this case, you can use this &quot;code&quot; sample</p><pre><code>&lt;$list filter=&quot;[&lt;currentTiddler&gt;has[i18n]]&quot;&gt;
    &lt;$macrocall $name=&quot;i18n&quot; title={{!!title}} domain=&quot;$:/titles&quot; dico=&quot;dico&quot; orig_lang={{!!i18n}} inline=&quot;true&quot; /&gt;
 &lt;/$list&gt;
 &lt;$list filter=&quot;[&lt;currentTiddler&gt;!has[i18n]]&quot;&gt;
@@ -260,13 +871,7 @@ tw -l your_edition build
        <content type="html">
 
 
-          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Ffeather-icons%2Fi18n%2Fen-GB%2FIntroText"></a></p><p>The <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fplugins%2Fsycom%2Ffeather-icons">Feather icons plugin</a> provide an elegant and lightweight solution for displaying icons in your <a class="tc-tiddlylink tc-tiddlylink-missing" href="#TiddlyWiki">TiddlyWiki</a>.</p><p><ul class="feather">
-  <li> 279 + 2 icons and counting</li>
-  <li> ready to use with included <a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Ffeather-icons%2Fmacros.tid">macros</a></li>
-  <li> pretty much hackable</li>
-  <li> invent your <a class="tc-tiddlylink tc-tiddlylink-resolves" href="#More%20examples">own usages</a>...</li>
-</ul>
-</p><p><div style="text-align:center;vertical-align:top;margin: 2.4em auto"></div></p>
+          <p><div style="text-align:center;vertical-align:top;margin: 2.4em auto"></div></p>
 <span class=" tc-reveal">
 <a class="tc-tiddlylink tc-tiddlylink-resolves tc-plugin-info" href="#%24%3A%2Fplugins%2Fsycom%2Ffeather-icons">
 <div class="tc-plugin-info-chunk tc-small-icon">
@@ -354,51 +959,7 @@ $:/plugins/sycom/feather-icons
        <content type="html">
 
 
-          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Fatom-feed%2Fi18n%2Fen-GB%2Fintro"></a></p><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed">Atom-feed plugin</a> enables an atom feed creation (when using <code>build</code> command) for aggregators and search engines bots.</p><p>Go to plugin's <em>usage</em> tab for settings (website and number of items in the feed).</p><h2 class="">Why another plugin doing this?</h2><p>I did not manage to really understand the pretty complex (and probably much more configurable) Dullroars plugin (<a class="tc-tiddlylink-external" href="https://github.com/dullroar/TW5-atomfeed/" rel="noopener noreferrer" target="_blank">https://github.com/dullroar/TW5-atomfeed/</a>). So I did work on a much more lighter version based on mandatory needs :</p><ul><li>a <em>template</em> <a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed%2Ftemplates%2Fitemfeed">for each item</a> of the feed</li><li>a <a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed%2Fentrylist">list of last modified tiddlers</a> modifiés, basée sur ce template.</li><li>un <a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed%2Fatom.xml">template global</a> pour le fichier de sortie <a class="tc-tiddlylink tc-tiddlylink-missing" href="#.%2Fatom.xml">atom.xml</a></li><li>deux paramètres <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed%2Fparam%2FpublicationWebsite">$:/plugins/sycom/atom-feed/param/publicationWebsite</a> et <a class="tc-tiddlylink tc-tiddlylink-missing" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed%2Fparam%2FitemNumber">$:/plugins/sycom/atom-feed/param/itemNumber</a></li><li>une information pour les robots et navigateurs à travers un tiddler marqué <code>$:/rawMarkup</code> (<a class="tc-tiddlylink tc-tiddlylink-shadow" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed%2Frel-alternate">$:/plugins/sycom/atom-feed/rel-alternate</a>)</li></ul><p>Je suis parti de l'exemple fournit par la norme <a class="tc-tiddlylink-external" href="https://tools.ietf.org/html/rfc4287" rel="noopener noreferrer" target="_blank">RFC 4287</a></p><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-   &lt;feed xmlns=&quot;http://www.w3.org/2005/Atom&quot;&gt;
-     &lt;title type=&quot;text&quot;&gt;dive into mark&lt;/title&gt;
-     &lt;subtitle type=&quot;html&quot;&gt;
-       A &amp;lt;em&amp;gt;lot&amp;lt;/em&amp;gt; of effort
-       went into making this effortless
-     &lt;/subtitle&gt;
-     &lt;updated&gt;2005-07-31T12:29:29Z&lt;/updated&gt;
-     &lt;id&gt;tag:example.org,2003:3&lt;/id&gt;
-     &lt;link rel=&quot;alternate&quot; type=&quot;text/html&quot;
-      hreflang=&quot;en&quot; href=&quot;http://example.org/&quot;/&gt;
-     &lt;link rel=&quot;self&quot; type=&quot;application/atom+xml&quot;
-      href=&quot;http://example.org/feed.atom&quot;/&gt;
-     &lt;rights&gt;Copyright (c) 2003, Mark Pilgrim&lt;/rights&gt;
-     &lt;generator uri=&quot;http://www.example.com/&quot; version=&quot;1.0&quot;&gt;
-       Example Toolkit
-     &lt;/generator&gt;
-     &lt;entry&gt;
-       &lt;title&gt;Atom draft-07 snapshot&lt;/title&gt;
-       &lt;link rel=&quot;alternate&quot; type=&quot;text/html&quot;
-        href=&quot;http://example.org/2005/04/02/atom&quot;/&gt;
-       &lt;link rel=&quot;enclosure&quot; type=&quot;audio/mpeg&quot; length=&quot;1337&quot;
-        href=&quot;http://example.org/audio/ph34r_my_podcast.mp3&quot;/&gt;
-       &lt;id&gt;tag:example.org,2003:3.2397&lt;/id&gt;
-       &lt;updated&gt;2005-07-31T12:29:29Z&lt;/updated&gt;
-       &lt;published&gt;2003-12-13T08:29:29-04:00&lt;/published&gt;
-       &lt;author&gt;
-         &lt;name&gt;Mark Pilgrim&lt;/name&gt;
-         &lt;uri&gt;http://example.org/&lt;/uri&gt;
-         &lt;email&gt;f8dy@example.com&lt;/email&gt;
-       &lt;/author&gt;
-       &lt;contributor&gt;
-         &lt;name&gt;Sam Ruby&lt;/name&gt;
-       &lt;/contributor&gt;
-       &lt;contributor&gt;
-         &lt;name&gt;Joe Gregorio&lt;/name&gt;
-       &lt;/contributor&gt;
-       &lt;content type=&quot;xhtml&quot; xml:lang=&quot;en&quot;
-        xml:base=&quot;http://diveintomark.org/&quot;&gt;
-         &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-           &lt;p&gt;&lt;i&gt;[Update: The Atom draft is finished.]&lt;/i&gt;&lt;/p&gt;
-         &lt;/div&gt;
-       &lt;/content&gt;
-     &lt;/entry&gt;
-   &lt;/feed&gt;</code></pre>
+          
 <span class=" tc-reveal">
 <a class="tc-tiddlylink tc-tiddlylink-resolves tc-plugin-info" href="#%24%3A%2Fplugins%2Fsycom%2Fatom-feed">
 <div class="tc-plugin-info-chunk tc-small-icon">
@@ -448,8 +1009,7 @@ $:/plugins/sycom/atom-feed
        <content type="html">
 
 
-          <p><a class="tc-tiddlylink tc-tiddlylink-resolves i18n-edit" href="#%24%3A%2Fg-analytics%2Fi18n%2Fen-GB%2Fintro"></a></p><p><a class="tc-tiddlylink tc-tiddlylink-resolves" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics">G-Analytics plugin</a> will enable analytics tracking in your wiki. You may also activate individual tiddler tracking to have a fine grained view of your visitor's path.</p><p>The plugin is compliant with <a class="tc-tiddlylink-external" href="http://donottrack.us" rel="noopener noreferrer" target="_blank">Do Not Track</a> and <a class="tc-tiddlylink-external" href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation" rel="noopener noreferrer" target="_blank">GDPR</a>. Which means that <strong>visitors have to opt-in to your survey panel</strong> before data are collected about their visit...
-</p>
+          
 <span class=" tc-reveal">
 <a class="tc-tiddlylink tc-tiddlylink-resolves tc-plugin-info" href="#%24%3A%2Fplugins%2Fsycom%2Fg-analytics">
 <div class="tc-plugin-info-chunk tc-small-icon">
@@ -477,7 +1037,7 @@ $:/plugins/sycom/atom-feed
 $:/plugins/sycom/g-analytics
 </h2>
 <h2>
-<div><em>1.3.1</em></div>
+<div><em>1.3.2</em></div>
 </h2>
 </div>
 </a>
@@ -690,103 +1250,6 @@ $:/plugins/sycom/leaflet
 
 
           <p>Nadia et Michel Strogoff s’organisent pour franchir le lac Baïkal et retrouvent à cette occasion les deux journalistes.</p>
-       </content>
-</entry>
-<entry>
-   <title>Michel Strogoff II-9</title>
-       <link rel="alternate" type="text/html"
-        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-9"/>
-       <id>Michel Strogoff II-9</id>
-       <updated>2019-04-03T13:45:36</updated>
-       <published>2015-12-11T21:39:19</published>
-       <author>
-         <name>Sylvain Comte</name>
-       </author>
-       <content type="html">
-
-
-          <p>Ils avancent à travers la steppe, <strong>jusqu’au lac Baïkal</strong>.</p>
-       </content>
-</entry>
-<entry>
-   <title>Michel Strogoff II-8</title>
-       <link rel="alternate" type="text/html"
-        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-8"/>
-       <id>Michel Strogoff II-8</id>
-       <updated>2019-04-03T13:45:36</updated>
-       <published>2015-12-11T21:37:46</published>
-       <author>
-         <name>Sylvain Comte</name>
-       </author>
-       <content type="html">
-
-
-          <p>Michel Strogoff et Nadia passent à <strong>Kamsk</strong>, puis à <strong>Nijni-Oudinsk</strong>, mise à sac. Faits prisonniers par les Tartares, le hasard les délivre.</p>
-       </content>
-</entry>
-<entry>
-   <title>Michel Strogoff II-6</title>
-       <link rel="alternate" type="text/html"
-        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-6"/>
-       <id>Michel Strogoff II-6</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T21:35:24</published>
-       <author>
-         <name>Sylvain Comte</name>
-       </author>
-       <content type="html">
-
-
-          <p>Nadia et Michel Strogoff avancent lentement, à pied et à charrette vers Irkoutsk.</p>
-       </content>
-</entry>
-<entry>
-   <title>Michel Strogoff II-5</title>
-       <link rel="alternate" type="text/html"
-        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-5"/>
-       <id>Michel Strogoff II-5</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T21:35:10</published>
-       <author>
-         <name>Sylvain Comte</name>
-       </author>
-       <content type="html">
-
-
-          <p>Ivan Ogareff condamne le coursier du tsar à être aveuglé par un sabre chauffé à blanc puis l’abandonne. Nadia décide de l’accompagner à Irkoutsk.</p>
-       </content>
-</entry>
-<entry>
-   <title>Michel Strogoff II-4</title>
-       <link rel="alternate" type="text/html"
-        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-4"/>
-       <id>Michel Strogoff II-4</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T21:34:52</published>
-       <author>
-         <name>Sylvain Comte</name>
-       </author>
-       <content type="html">
-
-
-          <p>Arrivés à <strong>Tomsk</strong>, les voyageurs assistent au triomphe d’Ivan Ogareff. Michel Strogoff est jugé : sa sentence consiste à ne plus pouvoir voir « les choses de la terre ».</p>
-       </content>
-</entry>
-<entry>
-   <title>Michel Strogoff II-3</title>
-       <link rel="alternate" type="text/html"
-        href="https://sycom.gitlab.io/TiddlyWiki-Plugins/#Michel Strogoff II-3"/>
-       <id>Michel Strogoff II-3</id>
-       <updated>2019-04-03T13:45:37</updated>
-       <published>2015-12-11T16:09:56</published>
-       <author>
-         <name>Sylvain Comte</name>
-       </author>
-       <content type="html">
-
-
-          <p>Marfa Strogoff voit son fils et réussit à réprimer un mouvement naturel bien compréhensible. Son attitude est surprise par une tsigane, Sangarre, qui rapporte à Ivan Ogareff la scène à laquelle elle a assisté. Le traître menace alors de fouetter Marfa Strogoff mais son fils s’interpose, défigurant Ivan d’un coup de knout : il est arrêté.
-</p>
        </content>
 </entry>
 
