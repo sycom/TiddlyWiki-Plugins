@@ -16,7 +16,7 @@
 	],
 	"build": {
 		"index": [
-			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","index.html","text/plain"],
+			"--rendertiddler","$:/plugins/tiddlywiki/tiddlyweb/save/offline","../../../files/feather-icons.html","text/plain"],
 		"favicon": [
 			"--savetiddler","$:/plugins/sycom/feather-icons/icon","favicon.ico"]
 	},

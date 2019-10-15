@@ -1,6 +1,6 @@
 created: 20190329154113400
-modified: 20190415140231670
+modified: 20191015155424764
 title: $:/SiteTitle
 type: text/vnd.tiddlywiki
 
-<<i18n 'SiteTitle' $:/feather-icons/config '' ''>>
+<<i18n 'SiteTitle' $:/feather-icons/config '' 'inline'>>

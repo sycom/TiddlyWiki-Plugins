@@ -1,0 +1,27 @@
+created: 20191015155358400
+modified: 20191015161641178
+title: This wiki uses Google Analytics
+type: text/vnd.tiddlywiki
+
+<<i18n disclaimer_common $:/plugins/sycom/g-analytics>>
+
+<$reveal type="match" stateTitle="$:/temp/GoogleAnalyticsDNT" text="yes">
+
+<<i18n disclaimer_dnt $:/plugins/sycom/g-analytics>>
+</$reveal>
+
+<$reveal type="nomatch" stateTitle="$:/temp/GoogleAnalyticsDNT" text="yes">
+   <$reveal type="nomatch" stateTitle="$:/temp/GoogleAnalyticsGDPRoption" text="no">
+
+<<i18n disclaimer_gdpr $:/plugins/sycom/g-analytics>>
+   </$reveal>
+   <$reveal type="match" stateTitle="$:/temp/GoogleAnalyticsGDPRoption" text="no">
+
+<<i18n disclaimer_nogdpr $:/plugins/sycom/g-analytics>>
+      <$reveal type="match" stateTitle="$:/plugins/sycom/g-analytics/settings/track_all" text="yes">
+<<i18n disclaimer_internal $:/plugins/sycom/g-analytics>>
+      </$reveal>
+
+<<i18n disclaimer_settings $:/plugins/sycom/g-analytics>>
+   </$reveal>
+</$reveal>

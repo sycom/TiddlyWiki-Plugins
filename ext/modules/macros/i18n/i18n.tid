@@ -11,7 +11,6 @@ version: 1.0.0-pre
 <$transclude mode=<<__mode__>> />
 </$list>
 <$list filter="[<__title__>addprefix[/]addprefix<__orig_lang__>addprefix[/i18n/]addprefix<__domain__>is[missing]]-[<__title__>addprefix[/]addprefix<__orig_lang__>addprefix[/i18n/]addprefix<__domain__>is[shadow]]">
-
 <div class="tc-message-box">
 //<<__orig_lang__>>// original is missing, please create it at <$link to=<<currentTiddler>>><$text text=<<currentTiddler>> /></$link></div>
 </$list>
