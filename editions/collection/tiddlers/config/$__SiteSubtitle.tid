@@ -3,4 +3,4 @@ modified: 20191011150130887
 title: $:/SiteSubtitle
 type: text/vnd.tiddlywiki
 
-<<i18n SiteSubTitle "" inline>>
+<<i18n SiteSubTitle "" "" inline>>
