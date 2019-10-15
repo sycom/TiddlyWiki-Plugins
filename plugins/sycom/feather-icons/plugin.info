@@ -2,7 +2,7 @@
     "title": "$:/plugins/sycom/feather-icons",
     "description": "Feather icons",
     "author": "Sylvain Comte",
-    "version": "0.2.1",
+    "version": "0.2.2-01",
     "core-version": ">=5.0.0",
     "source": "https://framagit.org/sycom/TiddlyWiki-Plugins",
     "plugin-type": "plugin",
