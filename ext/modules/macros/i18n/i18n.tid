@@ -4,7 +4,7 @@ modified: 20191011145435763
 tags: $:/tags/Macro
 title: $:/core/macros/i18n
 type: text/vnd.tiddlywiki
-version: 1.0.0-pre
+version: 1.0.0-pre2
 
 \define i18nOriginal(title domain orig_lang lang mode)
 <$list filter="[<__title__>addprefix[/]addprefix<__orig_lang__>addprefix[/i18n/]addprefix<__domain__>is[tiddler]] [<__title__>addprefix[/]addprefix<__orig_lang__>addprefix[/i18n/]addprefix<__domain__>is[shadow]]">
@@ -37,7 +37,7 @@ version: 1.0.0-pre
 
 \define i18n(title domain:"$:" orig_lang:"en-GB" mode:"block")
 <$set name="title" value=<<__title__>> emptyValue=<<currentTiddler>>>
-<$set name="lg-LG" tiddler={{$:/language}} field="name">
+<$set name="lg-LG" tiddler={{$:/language}} field="name" emptyValue="en-GB">
 <$macrocall $name="i18nTranslation" title=<<title>> domain=<<__domain__>> orig_lang=<<__orig_lang__>> lang=<<lg-LG>> mode=<<__mode__>>/>
 </$set>
 </$set>

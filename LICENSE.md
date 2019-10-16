@@ -7,7 +7,7 @@ TiddlyWiki plugins, widgets and macro :
 * _atom feed plugin_
 * _i18n_ and _other-tree_ macros
 
-were created by Sylvain Comte, (sylvain [dot] comte [at] free [dot] fr)
+were created by Sylvain Comte, (sylvain [dot] comte "at" free [dot] fr)
 
 Copyright (c) 2015-2019, Sylvain Comte
 All rights reserved.

@@ -6,3 +6,5 @@ type: text/vnd.tiddlywiki
 <<i18n "" "$:/collection" inline>>
 
 * <a href="./i18n.html">i18n Macro</a>(<a href="./dev/i18n.html">dev</a>)
+* <a href="./feather-icons.html">feather-icons Plugin</a>(<a href="./dev/feather-icons.html">dev</a>)
+* <a href="./g-analytics.html">G-Analytics Plugin</a>(<a href="./dev/g-analytics.html">dev</a>)

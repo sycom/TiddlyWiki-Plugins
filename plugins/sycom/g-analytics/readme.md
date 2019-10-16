@@ -8,7 +8,7 @@ Have a look at [demo page on the web][plugindemo] or at integrated documentation
 * based upon [official google analytics plugin][official] of TiddlyWiki which implements [official Google code][googlecode]
 * [this plugin][source] is released under similar [BSD 3-Clause license][license] as TiddlyWiki.
 
-[plugindemo]: https://sycom.gitlab.io/TiddlyWiki-Plugins
+[plugindemo]: https://sycom.gitlab.io/TiddlyWiki-Plugins/g-analytics
 [official]: https://github.com/Jermolene/TiddlyWiki5/tree/master/plugins/tiddlywiki/googleanalytics
 [googlecode]: https://developers.google.com/analytics/devguides/collection/analyticsjs
 [dnt]: http://donottrack.us/
