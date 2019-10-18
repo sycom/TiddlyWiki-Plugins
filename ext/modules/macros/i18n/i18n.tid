@@ -1,34 +1,33 @@
 author: @sycom
 created: 20191009144004451
-modified: 20191011145435763
+modified: 20191018064053947
 tags: $:/tags/Macro
 title: $:/core/macros/i18n
 type: text/vnd.tiddlywiki
 version: 1.0.0-pre2
 
 \define i18nOriginal(title domain orig_lang lang mode)
-<$list filter="[<__title__>addprefix[/]addprefix<__orig_lang__>addprefix[/i18n/]addprefix<__domain__>is[tiddler]] [<__title__>addprefix[/]addprefix<__orig_lang__>addprefix[/i18n/]addprefix<__domain__>is[shadow]]">
-<$transclude mode=<<__mode__>> />
-</$list>
-<$list filter="[<__title__>addprefix[/]addprefix<__orig_lang__>addprefix[/i18n/]addprefix<__domain__>is[missing]]-[<__title__>addprefix[/]addprefix<__orig_lang__>addprefix[/i18n/]addprefix<__domain__>is[shadow]]">
+<$list filter="""[[$domain$/i18n/$orig_lang$/$title$]is[tiddler]][[$domain$/i18n/$orig_lang$/$title$] is[shadow]]""">
+<$transclude mode=$mode$ />
+</$list><$list filter="""[[$domain$/i18n/$orig_lang$/$title$]is[missing]]-[[$domain$/i18n/$orig_lang$/$title$] is[shadow]]""">
 <div class="tc-message-box">
-//<<__orig_lang__>>// original is missing, please create it at <$link to=<<currentTiddler>>><$text text=<<currentTiddler>> /></$link></div>
+//$orig_lang$// original is missing, please create it at <$link to=<<currentTiddler>>><$text text=<<currentTiddler>> /></$link></div>
 </$list>
 \end
 
 \define i18nTranslation(title domain orig_lang lang mode)
-<$list filter="[<__title__>addprefix[/]addprefix<__lang__>addprefix[/i18n/]addprefix<__domain__>is[tiddler]] [<__title__>addprefix[/]addprefix<__lang__>addprefix[/i18n/]addprefix<__domain__>is[shadow]]">
-<$transclude mode=<<__mode__>> />
+<$list filter="""[[$domain$/i18n/$lang$/$title$]is[tiddler]][[$domain$/i18n/$lang$/$title$] is[shadow]]""">
+<$transclude mode=$mode$ />
 </$list>
-<$list filter="[<__title__>addprefix[/]addprefix<__lang__>addprefix[/i18n/]addprefix<__domain__>is[missing]]-[<__title__>addprefix[/]addprefix<__lang__>addprefix[/i18n/]addprefix<__domain__>is[shadow]]">
+<$list filter="""[[$domain$/i18n/$lang$/$title$]is[missing]]-[[$domain$/i18n/$lang$/$title$] is[shadow]]""">
 <$set name="target" value=<<currentTiddler>>>
-<$list filter="[<__lang__>search<__orig_lang__>]">
-<$macrocall $name="i18nOriginal" title=<<__title__>> domain=<<__domain__>> orig_lang=<<__orig_lang__>> lang=<<__lang__>> mode=<<__mode__>>/>
+<$list filter="""[[$lang$]search[$orig_lang$]]""">
+<$macrocall $name="i18nOriginal" title="$title$" domain="$domain$" orig_lang="$orig_lang$" lang="$lang$" mode="$mode$"/>
 </$list>
-<$list filter="[<__lang__>!search<__orig_lang__>]">
-<div class="tc-message-box">//<<__lang__>>// translation is missing, you may create it at <$link to=<<target>>><$text text=<<target>> /></$link></div>
-<div lang=<<__orig_lang__>>>
-<$macrocall $name="i18nOriginal" title=<<__title__>> domain=<<__domain__>> orig_lang=<<__orig_lang__>> lang=<<__lang__>> mode=<<__mode__>> />
+<$list filter="""[[$lang$]!search[$orig_lang$]]""">
+<div class="tc-message-box">//$lang$// translation is missing, you may create it at <$link to=<<target>>><$text text=<<target>> /></$link></div>
+<div lang="$orig_lang$">
+<$macrocall $name="i18nOriginal" title="$title$" domain="$domain$" orig_lang="$orig_lang$" lang="$lang$" mode="$mode$"/>
 </div>
 </$list>
 </$set>
@@ -37,8 +36,8 @@ version: 1.0.0-pre2
 
 \define i18n(title domain:"$:" orig_lang:"en-GB" mode:"block")
 <$set name="title" value=<<__title__>> emptyValue=<<currentTiddler>>>
-<$set name="lg-LG" tiddler={{$:/language}} field="name" emptyValue="en-GB">
-<$macrocall $name="i18nTranslation" title=<<title>> domain=<<__domain__>> orig_lang=<<__orig_lang__>> lang=<<lg-LG>> mode=<<__mode__>>/>
+<$set name="lg-LG" tiddler={{$:/language}} field="name">
+<$macrocall $name="i18nTranslation" title=<<title>> domain="$domain$" orig_lang="$orig_lang$" lang=<<lg-LG>> mode="$mode$"/>
 </$set>
 </$set>
 \end
