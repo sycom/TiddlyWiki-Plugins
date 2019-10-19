@@ -1,0 +1,24 @@
+created: 20191019175756600
+modified: 20191019180032052
+title: $:/plugins/sycom/tiddlystatic/utils/gitlabCiYmlGenerator
+type: text/vnd.tiddlywiki
+
+This one will have to be adapted upon [[settings|]]. A variant for github would be nice also.
+
+```
+image: node
+
+pages:
+  script:
+  - npm install -g tiddlywiki
+  - cp -r * /usr/local/lib/node_modules/tiddlywiki/
+  - tiddlywiki ./editions/yourWiki --build
+  - gzip --keep ./editions/yourWiki/output/dynamic.html
+  - mv ./editions/collection/output public
+  - cp -r ./files/* public
+  artifacts:
+    paths:
+    - public
+  only:
+  - release
+```
