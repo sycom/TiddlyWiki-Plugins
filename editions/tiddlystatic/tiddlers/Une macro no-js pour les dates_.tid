@@ -1,0 +1,17 @@
+created: 20191021074628500
+modified: 20191021104050726
+tags: 
+title: Une macro no-js pour les dates?
+type: text/vnd.tiddlywiki
+
+\define archives(datefield)
+<$set name="yearFilter" value={{$:/plugins/sycom/tiddlystatic/settings/settings/export_filter}}>
+<$list filter="[!is[system]!has[draft.of]get[$datefield$]divide[1e13]precision[4]]" subfilter="" >
+
+</$list>
+</$set>
+\end
+
+Pas du tout évident à créer. Il faudrait que la liste récupère toutes les dates, extraie les années, les déduplique (pas réussi).
+
+Puis pour chaque année, on recommence ave les mois

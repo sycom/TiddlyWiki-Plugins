@@ -1,0 +1,469 @@
+created: 20190612141457400
+creator: Sylvain
+modified: 20191021125350604
+modifier: Sylvain
+tags: Symple
+title: $:/plugins/sycom/tiddlystatic/Symple/Stylesheet
+type: text/vnd.tiddlywiki
+
+\import [[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]
+
+/* Symple stylesheet */
+
+/* Symple is a free @sycom project */
+
+/* V A R I A B L E S */
+
+:root {
+    &#45;&#45;color-dominant: <<colour primary>>;
+    &#45;&#45;color-dominant-accent: <<colour primary-accent>>;
+    &#45;&#45;color-background: <<colour background>>;
+    &#45;&#45;color-background-accent: <<colour background-accent>>;
+    &#45;&#45;color-neutral: <<colour foreground>>;
+    &#45;&#45;color-neutral-accent: <<colour foreground-accent>>;
+    &#45;&#45;color-secondary: <<colour secondary>>;
+    &#45;&#45;color-secondary-accent:<<colour secondary-accent>>;
+
+    &#45;&#45;font-sans: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    &#45;&#45;font-serif: Serif;
+    &#45;&#45;font-monospace: monospace;
+}
+
+/* N O R M A L I Z E */
+
+header,
+nav,
+main,
+footer,
+div {
+    display: block;
+}
+
+body,
+header,
+nav,
+main,
+footer,
+div,
+table,
+thead,
+tbody,
+tr,
+th,
+td,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+header,
+nav,
+main,
+footer,
+div,
+table,
+thead,
+tbody,
+tr,
+th,
+td,
+ul,
+ol,
+li {
+    box-sizing: border-box;
+}
+
+
+/* C O L O R S */
+
+body {
+    background: var(&#45;&#45;color-background);
+    color: var(&#45;&#45;color-neutral);
+    font-size: 1rem;
+}
+
+main h1, h2, h3, h4 {
+    background: var(&#45;&#45;color-background);
+}
+
+h1 {
+    color: var(&#45;&#45;color-dominant);
+}
+
+h2 {
+    color: var(&#45;&#45;color-secondary);
+}
+a, a:visited {
+  color: var(&#45;&#45;color-dominant);
+}
+a:hover {
+  color: var(&#45;&#45;color-neutral);
+}
+thead td, th {
+    background: var(&#45;&#45;color-background-accent);
+    border-left: 2px solid var(&#45;&#45;color-background);
+    border-right: 2px solid var(&#45;&#45;color-background)
+}
+
+td {
+    border-top: 1.5px solid var(&#45;&#45;color-background-accent);
+    border-bottom: 1.5px solid var(&#45;&#45;color-background-accent);
+}
+
+blockquote:before,
+blockquote:after {
+    color: var(&#45;&#45;color-dominant-accent);
+}
+
+code {
+    background: var(&#45;&#45;color-secondary-accent);
+}
+
+footer,
+#nav_list,
+#nav label {
+    background: var(&#45;&#45;color-dominant);
+    opacity: .9;
+}
+
+footer, footer li, footer a, #nav, #nav_list li, #nav_list a {
+    color: var(&#45;&#45;color-background);
+}
+
+footer .spacer {
+    background: linear-gradient(180deg, var(&#45;&#45;color-dominant) 5%, var(&#45;&#45;color-background) 95%);
+}
+
+/* T Y P O G R A P H Y */
+html, body {
+    font-family: var(&#45;&#45;font-sans);
+    font-weight: 300;
+    line-height: 1.5rem
+}
+
+main {
+    padding: 1.25rem
+}
+footer {
+    padding:.25rem 1.25rem
+}
+
+header h1 {
+    text-align: center;
+    margin: 0;
+    padding: .1rem;
+    font-size: 2rem;
+    line-height: 2.75rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding:0.2rem 0;
+}
+
+h2 {
+    margin: 1.5rem 0 .5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+h3 {
+    margin: .5rem 0 .25rem;
+    font-size: 1.35rem;
+    padding-left: 2rem;
+    font-weight: 600;
+}
+
+h4 {
+    margin: .3rem 0 .25rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+p {
+    margin: .75rem 0 .25rem;
+}
+
+thead td, th {
+    font-weight: 600;
+}
+
+blockquote,
+q {
+    margin: 0;
+    font-family: &#45;&#45;font-serif;
+    font-style: italic;
+}
+
+blockquote {
+    text-indent: -2.6rem;
+    padding: .25rem .25rem .25rem 2.5rem;
+    margin: 1em 0;
+}
+
+blockquote p {
+  display: inline;
+}
+
+blockquote:before {
+    margin: 0 .5rem 0 0;
+    font-size: 4rem;
+    font-weight: bold;
+    vertical-align: bottom;
+}
+
+blockquote:before,
+ :lang(en) blockquote:before,
+blockquote:lang(en):before {
+    content: "\201C";
+}
+
+blockquote:after {
+    float: right;
+    font-size: 4rem;
+    font-weight: 600;
+    margin-top: -1.75rem;
+}
+
+blockquote:after,
+ :lang(en) blockquote:after,
+blockquote:lang(en):after {
+    content: "\201D";
+}
+
+:lang(fr) blockquote:before,
+blockquote:lang(fr):before,
+:lang(es) blockquote:before,
+blockquote:lang(es):before,
+:lang(it) blockquote:before,
+blockquote:lang(it):before {
+    content: "\00ab";
+}
+
+:lang(fr) blockquote:after,
+blockquote:lang(fr):after,
+:lang(es) blockquote:after,
+blockquote:lang(es):after,
+:lang(it) blockquote:after,
+blockquote:lang(it):after {
+    content: "»";
+}
+
+:lang(de) blockquote:before,
+blockquote:lang(de):before {
+    content: "\201E";
+}
+
+:lang(de) blockquote:after,
+blockquote:lang(de):after {
+    content: "\201D";
+}
+
+q,
+ :lang(en) q,
+q:lang(en) {
+    quotes: '\201C' '\201D' '\2018' '\2019';
+}
+
+:lang(fr) q,
+q:lang(fr) {
+    quotes: '« ' ' »';
+}
+
+:lang(es) q,
+q:lang(es) :lang(it) q,
+q:lang(it) {
+    quotes: '«' '»';
+}
+
+:lang(de) q,
+q:lang(de) {
+    quotes: '\201E' '\201D' '»' '«';
+}
+
+blockquote cite {
+    display: block;
+    margin: 0 .25rem 0 2.6rem;
+}
+
+blockquote cite:before {
+    content: "\2013\00a0";
+}
+
+code {
+    font-family: var(&#45;&#45;font-monospace);
+    padding: .15rem .35rem .15rem .3rem
+}
+
+
+/* L A Y O U T */
+
+html,
+body {
+  height: 100%;
+}
+
+body, footer {
+  display: flex;
+  flex-flow: column;
+}
+
+header {
+  flex: 0 1 auto;
+}
+
+main {
+  flex: 1 1 auto;
+  padding: 1.25rem
+}
+
+footer {
+  flex: 0 1 100%;
+}
+
+footer .spacer {
+  margin:0 -1.25rem -.25rem;
+  flex: 0 1 100%;
+}
+
+main h1, main h2, main h3, main h4 {
+    position: sticky;
+    }
+main h1 {top:0}
+h2 {top:1.75rem}
+h3 {top:3.5rem}
+h4 {top:5.25rem}
+
+ul,
+ol {
+    padding-left: 1.25rem;
+}
+
+table {
+    width: 100%;
+    margin: 1em 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: .25rem;
+}
+
+/* collapsible menu */
+
+#nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+
+#nav_check {
+    display: none;
+}
+
+#nav label {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    width: 2rem;
+    height: 2rem;
+    margin: .5rem;
+    padding: .5rem .25rem;
+    text-align: center;
+    line-height: 1rem;
+    z-index: 9999;
+}
+
+#nav_check+label:before {
+    content: "\2261";
+    font-size: 2rem;
+}
+
+#nav_check:checked+label:before {
+    content: "X ";
+    font-size: 1rem;
+    content: "O ";
+}
+
+#nav_check:checked+label:before {
+    content: "X ";
+}
+
+#nav_list {
+    display: none;
+    overflow: auto;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
+}
+
+#nav_list::-webkit-scrollbar {
+    /* webkit */
+    width: 0;
+    height: 0;
+}
+
+#nav_check:checked+label+#nav_list {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 3rem .5rem .5rem .5rem;
+    z-index: 0;
+    width: 75vw;
+    max-width: 320px;
+}
+
+/* R E S P O N S I V E */
+
+@media only screen and (min-width: 320px) {
+
+}
+
+@media only screen and (min-width: 480px) {
+  .four.columns {column-count:2;}
+}
+
+@media only screen and (min-width: 768px) {
+  main, footer {
+    width: 768px;
+    margin: auto;
+  }
+}
+
+@media only screen and (min-width: 1245px) {
+  main,
+  header,
+  footer {
+      max-width: 768px;
+      margin-left: 320px;
+  }
+
+  .two.columns {column-count:1;}
+  .three.columns {column-count:2;}
+  .four.columns {column-count:4;}
+}
+
+
+/* P R I N T I N G */
+
+@media print {
+    body {
+        font-family: var(&#45;&#45;font-serif);
+        background: none;
+        color: black;
+    }
+    #nav,
+    footer {
+        display: none;
+    }
+    a:after {
+        content: " [" attr(href) "] ";
+    }
+}

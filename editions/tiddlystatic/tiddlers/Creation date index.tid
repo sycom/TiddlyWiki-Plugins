@@ -1,0 +1,27 @@
+created: 20190807122350260
+modified: 20191021130641264
+tags: index
+title: Creation date index
+type: text/vnd.tiddlywiki
+
+<div class="tc-timeline thee columns">
+<$list filter="[has[created]!is[system]!is[shadow]!sort[created]limit[100000]eachyear[created]]">
+   <div class="tc-menu-list-item">
+
+!! <$view field="created" format="date" template="YYYY" />
+<div class="three columns">
+   <$list filter="[sameyear:created{!!created}!sort[created]eachmonth[created]]">
+<div>
+
+!!! <$view field="created" format="date" template="MMM" />
+   
+   <ul>
+   <$list filter="[samemonth:created{!!created}!is[system]!sort[created]]">
+      <li><$link to={{!!title}}>{{!!title}}</$link></li>
+   </$list>
+   </ul>
+</div>
+   </$list>
+</div>
+
+</div>

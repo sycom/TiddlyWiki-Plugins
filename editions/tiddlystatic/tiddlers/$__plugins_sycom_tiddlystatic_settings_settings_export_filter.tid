@@ -1,0 +1,6 @@
+created: 20191021075626300
+modified: 20191021103718191
+title: $:/plugins/sycom/tiddlystatic/settings/settings/export_filter
+type: text/vnd.tiddlywiki
+
+[!is[system]!has[draft.of]]
