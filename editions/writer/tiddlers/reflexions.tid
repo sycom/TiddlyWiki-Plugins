@@ -1,6 +1,6 @@
 created: 20191104090421570
 creator: Sylvain
-modified: 20191105135300107
+modified: 20191105171614746
 modifier: Sylvain
 title: réflexions
 type: text/vnd.tiddlywiki
@@ -11,14 +11,59 @@ L'objectif premier est plutôt l'écriture de romans. Mais l'idée de permettre 
 
 Disposer d'un outil qui facilite l'écriture et propose une autre expérience, y compris potentiellement en lecture.
 
+!! Principes à l'études
+
+!!! Types d'//objets// disponibles
+
+; Project
+: TiddlyWriter peut contenir plusieurs [[projets|Project]], chacun pouvant ensuite se décomposer en plusieurs objets : un roman, une série de nouvelles, un article...
+
+; snowflake
+: [[flocon de neige|SnowFlake]] est plus une caractéristique qu'un objet. Elle est transversale à différents objets et traduit juste la capacité de cet objet à être transcrit en un triptyque //phrase// / //paragraphe// / //page//
+
+; Character
+: Le [[personnage|Character]] est un objet particulier. Il est SnowFlake, mais dispose d'une sorte de //checklist// pour aider à le décrire
+
+; Place
+: Le [[lieu|Place]] est un objet particulier. Il est SnowFlake, mais dispose d'une sorte de //checklist// pour aider à le décrire
+
+; reference
+: La référence peut permettre de documenter et sourcer un projet d'écriture. Plus utile pour des reportages ou des biographies a priori, on peut tout de même imaginer d'y mettre des sources d'inspiration pour des objets fictifs
+
+!!! Représentations
+
+Le projet devrait pouvoir être représenté de plusieurs manières en utilisant la caractéristique des objets snowflakes
+
+* Une vue ''Projet terminé'' permettant une vue d'ensemble et une édition facile
+* Des vues ''phrases'' / ''paragraphes'' / ''pages'' ou combinées en complément pour une vision plus ou moins synthétique
+* Des vues ''timeline'' permettant éventuellement de montrer des chronologies complexes, y compris ''par personnage''
+* Des vues ''relationnelles'' pour montrer les relations entre personnages, lieux, scènes, chapitres...
+
+!!! Autres outils
+
+Plusieurs outils proposent des statistiques de travail qu'il pourrait être intéressant d'installer :
+
+* nombre de mots par jour, ratio avec un objectif quotidien
+* nombre de jour de travail consécutifs (exclusions de certains jours possible)
+
 !! Sources d'inspiration
 
-Quelques pistes intéressantes pour commencer à réfléchir
+Quelques pistes intéressantes pour réfléchir
 
 !!! La méthode SnowFlake
 C'est une technique très méthodique qui par extensions successives d'une phrase à un paragraphe, puis à une page, puis à plusieurs permet de développer l'histoire, ses actes, chapitres, scènes, personnages et de travailler sur les interactions entre tous.
 
 !!! Outils inspirant
 
-* [[TrueNovelist|https://www.truenovelist.com]] : outil en ligne qui propose une décomposition en Story / Chapter / Scene et une section Research pour ranger les personnages et les lieux. En pratique, tout est une //scene//, mais peut être requalifié par un système d'icônes et hierarchisé à volonté. C'est très souple et correspond assez bien à la méthode SnowFlake
+ref :
+
+* https://joshfechter.com/best-novel-writing-software/
+
+liste :
+
+* [[TrueNovelist|https://www.truenovelist.com]] : outil SnowFlake en ligne qui propose une décomposition en Story / Chapter / Scene et une section Research pour ranger les personnages et les lieux. En pratique, tout est une //scene//, mais peut être requalifié par un système d'icônes et hierarchisé à volonté.
+* [[Squibler|https://www.squibler.io/]] : outil SnowFlake en ligne qui propose des templates par type de projet. Il fournit par ailleurs des statistiques de travail dans le temps pour motiver les troupes
 * [[Draft|https://draftin.com]] : outil en ligne qui a une dimension collaborative
+* [[Scrivener|https://www.literatureandlatte.com/scrivener/overview]] : logiciel...
+
+
