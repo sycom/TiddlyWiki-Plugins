@@ -1,0 +1,9 @@
+created: 20191105143418200
+creator: Sylvain
+modified: 20191105150740077
+modifier: Sylvain
+tags: 
+title: $:/plugins/sycom/writer/templates/snowflake/tabTitles
+type: text/vnd.tiddlywiki
+
+<$tiddler tiddler=<<currentTab>>><$set name="titre" filter="[all[current]split[/]last[]]"><<titre>></$set></$tiddler>

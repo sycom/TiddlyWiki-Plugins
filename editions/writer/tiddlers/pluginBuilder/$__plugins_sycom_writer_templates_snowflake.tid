@@ -1,0 +1,16 @@
+created: 20191105135859300
+creator: Sylvain
+modified: 20191105150915188
+modifier: Sylvain
+tags: $:/tags/ViewTemplate
+title: $:/plugins/sycom/writer/templates/snowflake
+type: text/vnd.tiddlywiki
+
+\define writer-phrase() $:/writer/$(currentTiddler)$/phrase
+
+\define writer-paragraph() $:/writer/$(currentTiddler)$/paragraph
+
+\define writer-page() $:/writer/$(currentTiddler)$/page
+
+<$list filter="[all[current]tag[snowflake]]">
+<$macrocall $name="tabs" tabsList="[<writer-phrase>] [<writer-paragraph>] [<writer-page>]" default="phrase" template="$:/plugins/sycom/writer/templates/snowflake/tabContents" buttonTemplate="$:/plugins/sycom/writer/templates/snowflake/tabTitles" /></$list>

@@ -1,0 +1,16 @@
+created: 20191105144528300
+creator: Sylvain
+modified: 20191105145556945
+modifier: Sylvain
+tags: [[ $:/tags/Macro]]
+title: $:/plugins/sycom/writer/macros
+type: text/vnd.tiddlywiki
+
+
+
+;writer-phrase()
+: construit un tiddler - résumé en une phrase - sur la base du titre du tiddler courant
+;writer-paragraph()
+: construit un tiddler - résumé en un paragraphe - sur la base du titre du tiddler courant 
+;writer-page()
+: construit un tiddler - résumé en une page- sur la base du titre du tiddler courant 

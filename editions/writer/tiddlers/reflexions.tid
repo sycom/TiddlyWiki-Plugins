@@ -1,6 +1,6 @@
 created: 20191104090421570
 creator: Sylvain
-modified: 20191104091516900
+modified: 20191105135300107
 modifier: Sylvain
 title: réflexions
 type: text/vnd.tiddlywiki
@@ -16,7 +16,9 @@ Disposer d'un outil qui facilite l'écriture et propose une autre expérience, y
 Quelques pistes intéressantes pour commencer à réfléchir
 
 !!! La méthode SnowFlake
+C'est une technique très méthodique qui par extensions successives d'une phrase à un paragraphe, puis à une page, puis à plusieurs permet de développer l'histoire, ses actes, chapitres, scènes, personnages et de travailler sur les interactions entre tous.
+
 !!! Outils inspirant
 
-* [[TrueNovelist|https://www.truenovelist.com]] : outil en ligne qui propose une décomposition en Story / Chapter / Scene et une section Research pour ranger les personnages et les lieux. En pratique, tout est une //scene//, mais peut être requalifié par un système d'icônes et hierarchisé à volonté. C'est très souple.
+* [[TrueNovelist|https://www.truenovelist.com]] : outil en ligne qui propose une décomposition en Story / Chapter / Scene et une section Research pour ranger les personnages et les lieux. En pratique, tout est une //scene//, mais peut être requalifié par un système d'icônes et hierarchisé à volonté. C'est très souple et correspond assez bien à la méthode SnowFlake
 * [[Draft|https://draftin.com]] : outil en ligne qui a une dimension collaborative

@@ -1,0 +1,35 @@
+created: 20191105081317800
+creator: Sylvain
+modified: 20191105135333866
+modifier: Sylvain
+title: SnowFlake
+type: text/vnd.tiddlywiki
+
+La méthode snowflake présente un système permettant de faire progresser la rédaction d'un récit dans une logique //fractale//. Elle est décrite en détail sur le blog de Randy Ingermanson -  [[The Snowflake Method For Designing A Novel|https://www.advancedfictionwriting.com/articles/snowflake-method/]], en résumé express :
+
+# Ecrire un résumé du roman en une phrase (exemple : “//Un physicien rebelle voyage dans le passé pour tuer l’apôtre Paul.//”)
+#* Le plus court possible : moins de 15 mots,
+#* Pas de noms de personnages,
+#* Faire le lien entre personnage principale et trame générale
+#* Les listes de best-sellers qui résument en une ligne sont de bonnes inspirations
+# Développer cette phrase en un paragraphe complet qui décrit le contexte de l’histoire, les principaux drames et la fin du roman. C'est en général à cette étape qu'on peut commencer à définir les grands //actes// du projets. Le paragraphe comporte ainsi une phrase d'introduction, une phrase par acte et une phrase de description de la fin.
+# Travailler sur chacun des personnages de manière similaire
+#* son nom
+#* son histoire en une phrase
+#* son histoire en un paragraphe
+#* ses motivations, ce qui le fait avancer
+#* ses objectifs, ses buts concrets
+#* ses conflits, ce qui s'oppose à sa volonté
+#* son épiphanie, ce que va lui apporter l'histoire, ce qui va changer pour lui
+# Travailler sur chaque acte de manière similaire
+#* passer de la phrase au paragraphe. Tous les paragraphes, sauf le dernier, doivent se terminer par un drame. Le dernier paragraphe doit raconter comment le livre finit. L'ensemble constitue un ''synopsis-intrigue'' d'une bonne page,
+# Pour chaque personnage, en fonction de son importance, passer d'un paragraphe à une page ou une demi-page
+# Développer le synopsis-intrigue d’une page en un synopsis de quatre pages. Chaque paragraphe de l’étape 4 devient une page.
+# Développer les descriptions de personnages en dossiers qui détaillent chaque personnage, date de naissance, la description, histoire, la motivations, objectifs, etc. 
+# Reprendre le synopsis de plusieurs pages et faire une liste de toutes les scènes pour chaque acte avec
+#* le personnage à travers lequel est vu la scène,
+#* ce qui se passe,
+#* éventuellement combien de pages fait la scène, dans quel chapitre elle est etc.
+# Développer chaque scène suivant la méthode habituelle : phrase > paragraphe > page... Noter les dialogues viennent à l’esprit, l’essentiel du conflit de la scène, etc. A la fin de cette étape, on a le ''synopsis détaillé'', sorte de prototype du premier jet.
+# Ecrire le roman. Ou plutôt, ses versions de brouillon (3, 4...) successives, ce travail peut-être long...
+
