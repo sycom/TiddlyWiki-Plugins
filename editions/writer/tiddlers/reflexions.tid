@@ -1,6 +1,6 @@
 created: 20191104090421570
 creator: Sylvain
-modified: 20191105171614746
+modified: 20191106094703879
 modifier: Sylvain
 title: réflexions
 type: text/vnd.tiddlywiki
@@ -16,7 +16,7 @@ Disposer d'un outil qui facilite l'écriture et propose une autre expérience, y
 !!! Types d'//objets// disponibles
 
 ; Project
-: TiddlyWriter peut contenir plusieurs [[projets|Project]], chacun pouvant ensuite se décomposer en plusieurs objets : un roman, une série de nouvelles, un article...
+: TiddlyWriter peut contenir plusieurs [[projets|Project]], chacun pouvant ensuite se décomposer en plusieurs objets : un roman, une série de nouvelles, un article... Chacun pouvant lui-même être un projet. Un projet est toujours SnowFlake.
 
 ; snowflake
 : [[flocon de neige|SnowFlake]] est plus une caractéristique qu'un objet. Elle est transversale à différents objets et traduit juste la capacité de cet objet à être transcrit en un triptyque //phrase// / //paragraphe// / //page//
@@ -34,6 +34,7 @@ Disposer d'un outil qui facilite l'écriture et propose une autre expérience, y
 
 Le projet devrait pouvoir être représenté de plusieurs manières en utilisant la caractéristique des objets snowflakes
 
+* Une vue [[Tableau de Bord|WriterDashboard]] qui présente les projets du wiki et leurs sous-projets de manière synthétique. On peut imaginer quelques [[statistiques]] aussi...
 * Une vue ''Projet terminé'' permettant une vue d'ensemble et une édition facile
 * Des vues ''phrases'' / ''paragraphes'' / ''pages'' ou combinées en complément pour une vision plus ou moins synthétique
 * Des vues ''timeline'' permettant éventuellement de montrer des chronologies complexes, y compris ''par personnage''

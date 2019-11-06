@@ -1,0 +1,13 @@
+created: 20191106092911800
+modified: 20191106093618527
+title: WriterDashboard
+type: text/vnd.tiddlywiki
+
+!! Les projets
+
+<ul>
+<$list filter="[tag[Project]tag[writer]]">
+  <li><$set name="project" value={{!!title}}>
+    <$link to=<<project>>><$view field="caption">{{!!title}}</$view></$link>
+<ul><$list filter="[tag<project>tag[Project]]">
+    <li><$link to={{!!title}}><$view field="caption">{{!!title}}</$view></$link></li></$list></ul></$set></li></$list></ul>

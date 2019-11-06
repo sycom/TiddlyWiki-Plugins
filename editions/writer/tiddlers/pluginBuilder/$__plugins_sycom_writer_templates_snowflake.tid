@@ -1,6 +1,6 @@
 created: 20191105135859300
 creator: Sylvain
-modified: 20191105162225583
+modified: 20191106094315870
 modifier: Sylvain
 tags: $:/tags/ViewTemplate
 title: $:/plugins/sycom/writer/templates/snowflake
@@ -12,5 +12,5 @@ type: text/vnd.tiddlywiki
 
 \define writer-page() $:/writer/$(currentTiddler)$/page
 
-<$list filter="[all[current]tag[snowflake]]">
+<$list filter="[all[current]tag[snowflake]] [all[current]tag[Project]]">
 <$macrocall $name="tabs" tabsList="[<writer-phrase>] [<writer-paragraph>] [<writer-page>]" default=<<writer-phrase>> template="$:/plugins/sycom/writer/templates/snowflake/tabContents" buttonTemplate="$:/plugins/sycom/writer/templates/snowflake/tabTitles" /></$list>

@@ -1,9 +1,9 @@
 created: 20191105150743700
 creator: Sylvain
-modified: 20191105151027462
+modified: 20191106094220389
 modifier: Sylvain
 tags: 
 title: $:/plugins/sycom/writer/templates/snowflake/tabContents
 type: text/vnd.tiddlywiki
 
-<div style="float:right"><$link to=<<currentTab>> >{{$:/core/images/link}}</$link></div><$transclude tiddler=<<currentTab>> />
+<div style="float:right"><$link to=<<currentTab>> >{{$:/core/images/edit-button}}</$link></div><$transclude tiddler=<<currentTab>> />

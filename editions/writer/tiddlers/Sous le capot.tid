@@ -1,0 +1,9 @@
+created: 20191106093212400
+modified: 20191106094331965
+tags: 
+title: Sous le capot
+type: text/vnd.tiddlywiki
+
+En phase de travail, il est toujours pratique d'accéder plus facilement aux tiddlers système et shadow du projet
+
+<<tree $:/plugins/sycom/writer>>

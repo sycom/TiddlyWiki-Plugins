@@ -1,0 +1,14 @@
+created: 20191106093401600
+modified: 20191106094120713
+tags: $:/tags/ViewTemplate
+title: $:/plugins/sycom/writer/templates/project
+type: text/vnd.tiddlywiki
+
+<$list filter="[all[current]tag[Project]]">
+<ul>
+<$list filter="[tag[Project]tag{!!title}]">
+  <li><$set name="project" value={{!!title}}>
+    <$link to=<<project>>><$view field="caption">{{!!title}}</$view></$link>
+<ul><$list filter="[tag<project>tag[Project]]">
+    <li><$link to={{!!title}}><$view field="caption">{{!!title}}</$view></$link></li></$list></ul></$set></li></$list></ul>
+</$list>
