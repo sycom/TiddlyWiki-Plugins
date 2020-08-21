@@ -1,0 +1,10 @@
+{
+    "title": "$:/plugins/sycom/tiddlystatic",
+    "description": "Tiddly Static",
+    "author": "Sylvain Comte",
+    "version": "0.0.0",
+    "core-version": ">=5.0.0",
+    "source": "https://framagit.org/sycom/TiddlyWiki-Plugins",
+    "plugin-type": "plugin",
+    "list": "readme settings usage"
+}

@@ -1,0 +1,11 @@
+created: 20190808145622887
+modified: 20190808150555724
+title: $:/plugins/sycom/tiddlystatic/templates/pageContent/footer
+type: text/vnd.tiddlywiki
+
+<$transclude tiddler={{$:/plugins/sycom/tiddlystatic/settings/settings.json##website_info_page}} mode=block/>
+
+<ul>
+ <$list filter="[tag{$:/plugins/sycom/tiddlystatic/settings/settings.json##website_indexes_tag}]">
+   <li><$link to={{!!title}}>{{!!title}}</$link></li>
+</$list></ul>

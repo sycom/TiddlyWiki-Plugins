@@ -1,0 +1,6 @@
+created: 20190407151615100
+modified: 20190407152216117
+title: $:/plugins/sycom/tiddlystatic/wikiLang
+type: text/vnd.tiddlywiki
+
+<$view field=name tiddler={{$:/language}}>en-GB</$view>

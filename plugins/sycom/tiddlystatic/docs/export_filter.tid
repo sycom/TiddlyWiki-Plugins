@@ -1,0 +1,14 @@
+created: 20190807085542990
+modified: 20190807090629759
+title: $:/plugins/sycom/tiddlystatic/docs/export_filter
+type: text/vnd.tiddlywiki
+
+The `export_filter` setting parameter allows to have a fine grained control about which tiddlers should be exported to your static website.
+
+!!! most common filters for this use case
+
+* all tiddlers except system and draft ones. Defaultly, the plugin sets the export filter to `[!is[system]!has[draft.of]]`
+* all tiddlers with a specific tag `[tag[my_specific_tag]]`
+* last //x// tiddlers created or modified `[!is[system]!has[draft.of]sort[created]limit[x]]`
+
+You should go to [[TiddlyWiki official doc]] to know more about the power of filters.

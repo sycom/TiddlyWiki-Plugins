@@ -1,0 +1,10 @@
+created: 20190808132249154
+modified: 20190808150226671
+tags: 
+title: $:/plugins/sycom/tiddlystatic/settings/pageContent
+type: text/vnd.tiddlywiki
+
+| [[nav|$:/plugins/sycom/tiddlystatic/templates/pageContent/nav]] | //main// |
+|<$transclude tiddler="$:/plugins/sycom/tiddlystatic/settings/pageContent/nav" mode="block" /> |<$transclude tiddler="$:/plugins/sycom/tiddlystatic/settings/pageContent/main" mode="block" /> |
+| footer |<|
+|<$transclude tiddler="$:/plugins/sycom/tiddlystatic/settings/pageContent/footer" mode="block" /> |<|

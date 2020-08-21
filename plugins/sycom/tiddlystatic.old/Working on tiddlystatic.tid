@@ -1,0 +1,15 @@
+created: 20190606123049600
+modified: 20190606123049600
+tags: 
+title: Working on tiddlystatic
+type: text/vnd.tiddlywiki
+
+TiddlyWiki under node.js can deliver a pretty well working static version that is commonly used (see official TiddlyWiki website) and works pretty well. However, I was missing some navigation functionalities and wanted to work on other features :
+
+* more responsive design, mobile first
+** work on symple framework in the same time
+* search engine (powered by lunr.js?)
+* better compliance between dynamic tiddlywiki and static wiki 
+* atom feed
+* indexes (by year/month, by tag)
+* ...

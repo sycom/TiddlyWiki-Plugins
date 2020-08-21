@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Both homepage and test page for SY mple framework experiment" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- OPTIONAL -->
+    <meta property="og:title" content="SY mple framework experiment" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Both homepage and test page for SY mple framework experiment" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="https://sycom.frama.io/symple" />
+    <meta property="og:site_name" content="SY mple framework" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="SY mple framework experiment" />
+    <meta name="twitter:description" content="Both homepage and test page for SY mple framework experiment" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:site" content="@sycom" />
+    <meta name="twitter:creator" content="@sycom" />
+
+    <link rel="canonical" href="http://example.com/" />
+    <meta name="google-site-verification" content="**************" />
+
+    <link href="./style/style.css" rel="stylesheet" type="text/css" />
+
+    <title>SY mple framework experiment</title>
+
+</head>
+
+<body>
+    <header>
+        <h1>SY mple framework experiment</h1>
+    </header>
+    <nav id="nav">
+        <input id="nav_check" type="checkbox" />
+        <label for="nav_check"></label>
+        <div id="nav_list">
+            <div id="nav_search">
+                <form action="">
+                    <input type="search" name="q">
+                    <input type="submit" value="search">
+                </form>
+            </div>
+            <ul>
+                <li><a href="">some page</a></li>
+                <li><a href="">another</a></li>
+                <li><a href="">one more</a></li>
+                <li><a href="">and so on</a></li>
+            </ul>
+            <ol>
+                <li><a href="#examples">Content examples and design principles</a>
+                    <ol>
+                        <li><a href="#colors">Colors</a></li>
+                        <li><a href="#fonts">Fonts</a></li>
+                        <li><a href="#headers">Headers</a></li>
+                        <li><a href="#tables">Tables</a></li>
+                        <li><a href="#specials">specials</a>
+                            <ol>
+                                <li><a href="#quote">Quotes and citations</a></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li><a href="#todolist">Todo list</a></li>
+                <li><a href="#questions">Questions</a></li>
+            </ol>
+        </div>
+    </nav>
+    <main>
+        <section class="main">
+            <p>
+                The SY mple framework relies on a pretty simple page organization with (in the body):
+                <ul>
+                    <li>a <code>header</code> containing the title in a <code>h1</code></li>
+                    <li>a <code>nav</code> for
+                        <ul>
+                            <li>the website navigation in a <code>ul</code></li>
+                            <li>a page index in a <code>ol</code></li>
+                        </ul>
+                        <li>a <code>main</code> containing the main content of the page in which can be deployed the whole content of the page</li>
+                        <li>a <code>footer</code> containing classical credits, legal informations and so on.</li>
+                </ul>
+            </p>
+
+            <h2 id="examples">Content examples and design principles</h2>
+
+            <h3 id="colors">Colors</h3>
+            <p>After reading some guides on the web, I decided to keep it short here. The default color scheme has only 6 colors. They are defined as variables in a <code>:root</code> section of the css to make changes easy.
+                <ul>
+                    <li><code>--color-dominant</code> is the main color for the page. Defaultly, you will find it on main titles, important informations, buttons, navigation objects.</li>
+                    <li><code>--color-background</code> is surprisingly the background color for the page. So you know where it will be...</li>
+                    <li><code>--color-neutral</code> is a neutral color contrasting with background. Typicaly for text.</li>
+                    <li><code>--color-secondary</code> is a contrast color for things you want visible on the page with less importance than dominant.</li>
+                    <li><code>--color-dominant-accent</code> is a dominant variant. Defaultly for marking differences with usualy dominant objects : selected menu, button etc...</li>
+                    <li><code>--color-secondary-accent</code> same as above for secondary...</li>
+                </ul>
+                The palette is up to you, the default one is just an example and there are good guides all around the web for choosing a nice palette. In order to be <i>color agnostic</i> the stylesheet uses a separate section for colouring.
+            </p>
+
+            <h3 id="fonts">Fonts</h3>
+            <p>Just like colors, fonts are up to you. There are plenty of good (and even free) fonts or design principles on the web. The right choice depends on so many factors that you will not find any universal solution.</p>
+            <p>I made a <em>T Y P O G R A P H Y</em> section in the stylesheet and defined some variables to make changes easier. Defaultly the styles will be very basic : Sans-Serif, Serif, monospace... That's it</p>
+
+            <h3 id="headers">Headers</h3>
+            <p>html has always <code>h1</code>, <code>h2</code>, <code>h3</code>... as headers. So there is no reason to bypass this semantic and hierarchical definition. Just work on design principles.</p>
+
+            <h3 id="tables">Tables</h3>
+            Tables are pretty classical. <code>th</code> headers are centered and have a different style.
+            <table>
+                <thead>
+                    <tr>
+                        <th>Table type</th>
+                        <th>first column</th>
+                        <th>others columns</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>numbers</td>
+                        <td>left align</td>
+                        <td>align right</td>
+                    </tr>
+                    <tr>
+                        <td>text</td>
+                        <td>left align</td>
+                        <td>align left</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="specials">Specials</h3>
+            <p>Some special elements have predefined typographies. Feel free to edit them in the typography section of the stylesheet.</p>
+
+            <h4 id="quote">Quotes and citations</h4>
+            <p>Because it's always good to have a punchline in your text (<q cite="https://en.wikipedia.org/wiki/Les_Shadoks">If there is no solution, there is no problem.</q>) you may use <code>blockquote</code> or <code>q</code> tag (and <code>cite</code>                tag for source / reference)...
+                <blockquote cite="https://en.wikipedia.org/wiki/Les_Shadoks">
+                    Only by continually trying we finally succeed. So the more it fails, the greater are the chances that it works.
+                    <cite><a href="https://en.wikipedia.org/wiki/Les_Shadoks">Les shadoks</a></cite>
+                </blockquote>
+            </p>
+            <h2 id="todolist">Todo list</h2>
+            <p>There is still a lot of objects to design
+
+                <dd>what the hell is <code>dd</code></dd>
+                <dir>and also <code>dir</code></dir>
+                <div><code>div</code> should probably be standard, but will have to work on classes</div>
+                <dl><code>dl</code></dl>
+                <dt><code>dt</code></dt>
+                <figcaption><code>figcaption</code></figcaption>
+                <figure>and <code>figure of course</code></figure>
+                <hr>
+                <ol>
+                    <li>first ordered item (<code>ol</code>)</li>
+                    <li>second ordered item</li>
+                </ol>
+                <p>Some things about <code>p</code>aragraphs</p>
+                <pre>Some work on <code>pre</code>formatted text</pre>
+                <ul>
+                    <li>first unordered item (<code>ol</code>)</li>
+                    <li>second unordered item</li>
+                </ul>
+            </p>
+            <h2 id="questions">Questions</h2>
+            <p>Some ideas and things I'll have to think about</p>
+            <ul>
+                <li>reset or normalize usage?</li>
+                <li>footnotes - usage design principles...</li>
+            </ul>
+            <article>Articles and section should not have the same rendering</article>
+            <p><code>blockquote</code> should not be treated the same way in different languages. Some <code>[lang:]</code> pseudo classes should help.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        Some elements about this work - both legal and not
+    </footer>
+    <section </body>
+
+</html>

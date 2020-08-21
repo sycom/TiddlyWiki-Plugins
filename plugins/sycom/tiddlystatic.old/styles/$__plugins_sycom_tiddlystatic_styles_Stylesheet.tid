@@ -1,0 +1,9 @@
+created: 20190613120842000
+modified: 20190807081638172
+tags: $:/tags/Stylesheet
+title: $:/plugins/sycom/tiddlystatic/styles/Stylesheet
+type: text/vnd.tiddlywiki
+
+{{$:/plugins/sycom/tiddlystatic/Symple/Stylesheet||$:/core/templates/wikified-tiddler}}
+
+{{$:/plugins/sycom/tiddlystatic/styles/vanillaReset.css}}

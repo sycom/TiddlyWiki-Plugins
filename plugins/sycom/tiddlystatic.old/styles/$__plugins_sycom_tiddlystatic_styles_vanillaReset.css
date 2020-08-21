@@ -1,0 +1,36 @@
+/* Some hacks to make TiddlyWiki work well with tiddlystatic */
+
+h2.tc-title, a.tc-tiddlylink-external {
+    color: var(--color-dominant);
+}
+
+.tc-tiddler-frame .tc-tiddler-body {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+table, table td {
+  border-left: 2px solid var(--color-background);
+  border-right: 2px solid var(--color-background);
+}
+
+blockquote {
+    border-left: none;
+    margin: none;
+    padding-left: none;
+    quotes: none;
+}
+
+body.tc-body {
+    font-size: inherit;
+    line-height: inherit;
+    word-wrap: break-word;
+    color: inherit;
+    fill: inherit;
+}
+
+.tc-titlebar h2.tc-title>span {display:none}
+
+a.tc-tiddlylink.tc-plugin-info:hover, a.tc-tiddlylink.tc-plugin-info:hover h2 {
+  background-color: var(--color-background-accent)
+}

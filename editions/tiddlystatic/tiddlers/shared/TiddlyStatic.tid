@@ -6,4 +6,27 @@ tags: wiki
 title: TiddlyStatic
 type: text/vnd.tiddlywiki
 
-<<i18n TiddlyStatic $:/TiddlyStatic>>
+The TiddlyStatic project aims at building a static website generator based upon TiddlyWiki and using node.js by enhancing already implemented capacities that delivers the static version of TiddlyWiki.
+
+For now, it works on Gitlab instances and you will need to use node.js version or TiddlyDesktop to make it work.
+
+!! Getting started
+You will have some settings and organization to do before starting
+
+* Create a repository on a gitlab instance (create an account there if you don't have one)
+* Setup this repo : the simplest way is to clone the master project. But you can start with your own node.js wiki and import the tiddlystatic plugin
+* Clone the repo on your local machine to work more easily
+* Launch the wiki with node or TiddlyDesktop
+** use your wiki as a classic TiddlyWiki
+** make some [[settings|$:/plugins/sycom/tiddlystatic/settings]] (website adress, pages to publish, colors and other options...)
+** Get updated
+*** `.gitlab-ci.yml` content from [[.gitlab-ci.yml generator|$:/plugins/sycom/tiddlystatic/utils/gitlabCiYmlGenerator]]
+*** `tiddlywiki.info` from [[tiddlywiki.info generator|$:/plugins/sycom/tiddlystatic/utils/tiddlywikiInfoGenerator]]
+* replace current one in your folder
+* //commit//, //push//.
+
+That's it your static website is working...
+
+Updating is now as easy as //pull//, launch your wiki locally and edit it, //commit//, //push//. Note that you may also //edit//, //commit// straight from the gitlab web interface. Be WikiText fluent to do this...
+
+For more technicals details about TiddlyStatic, please refer to [[Documentation]].

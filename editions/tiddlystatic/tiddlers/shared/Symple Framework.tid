@@ -1,7 +1,28 @@
 created: 20190809132233367
-modified: 20191021130258679
+creator: sycom
+modified: 20200821143818778
+modifier: sycom
 tags: Documentation
 title: Symple Framework
 type: text/vnd.tiddlywiki
 
-<<i18n '' $:/Symple>>
+Looking around and around at templates, boilerplates and other frameworks never satisfied me. So, just as other people of the babel towers I decided to create my very own, brand new (and soooo perfect of course) framework.
+
+!! content
+* Symple has no npm, scss or any of this. Only two files
+** an [[html skeleton|Symple]], both demo and //boilerplate//
+** a [[css stylesheet|$:/plugins/sycom/tiddlystatic/Symple/Stylesheet]] easy to tweak and configure
+
+!! philosophy and design principles
+* make code clear, light, simple, efficient
+** no js, css, font (...) overload
+* make it semantic
+** `hx` are headers, `a` are links, `p` are paragraphs...
+* make it responsive
+** 3 columns are a nonsense when screen width is too small
+** use mobile first concept to avoid problems
+** ...
+* make it typography respectful
+* make it printable (whenever it has a sense)
+* make it color agnostic (?)
+* ...

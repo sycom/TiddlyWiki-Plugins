@@ -1,0 +1,91 @@
+created: 20190802130404300
+modified: 20190802133306796
+title: $:/plugins/sycom/tiddlystatic/Templates/wiki/tiddler.html
+type: text/vnd.tiddlywiki
+
+\define tv-wikilink-template() $uri_doubleencoded$.html
+\define tv-config-toolbar-icons() no
+\define tv-config-toolbar-text() no
+\define tv-config-toolbar-class() tc-btn-invisible
+\define caption_title() <$view field="caption"><$view field="title"/></$view>
+`<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- OPTIONAL -->
+    <meta property="og:title" content="`<<caption_title>>`" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="`{{!!description}}`" />
+    <meta property="og:image" content="`{{!!image}}`" />
+    <meta property="og:url" content="`{{$:/plugins/sycom/tiddlystatic/settings/url}}`" />
+    <meta property="og:site_name" content="`{{$:/SiteTitle}}`" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="`<<caption_title>>`" />
+    <meta name="twitter:description" content="`{{!!description}}`" />
+    <meta name="twitter:image" content="`{{!!image}}`" />
+    <meta name="twitter:site" content="`{{$:/plugins/sycom/tiddlystatic/settings/TwitterUser}}`" />
+    <meta name="twitter:creator" content="`{{$:/plugins/sycom/tiddlystatic/settings/TwitterUser}}`" />
+
+    <link rel="canonical" href="`{{$:/plugins/sycom/tiddlystatic/settings/url}}/wiki/<$view field='title' format='urlencoded' />`" />
+    <meta name="google-site-verification" content="`{{$:/plugins/sycom/tiddlystatic/settings/GoogleVerificationCode}}`" />
+
+    <link href="../styles/symple.css" rel="stylesheet" type="text/css" />
+
+    <title>`<<caption_title>> | {{$:/SiteTitle}}`</title>
+
+</head>
+
+<body>
+    <header>
+        <h1>`<<caption_title>>`</h1>
+    </header>
+    <nav id="nav">
+        <input id="nav_check" type="checkbox" />
+        <label for="nav_check"></label>
+        <div id="nav_list">
+            <div id="nav_search">
+                <form action="">
+                    <input type="search" name="q">
+                    <input type="submit" value="search">
+                </form>
+            </div>
+            `<$view tiddler="$:/plugins/sycom/tiddlystatic/templates/pageContent/nav" format="htmlwikified"/>`
+Will contain a local index for the page (maybe)
+            <ol>
+                <li><a href="#examples"></a>
+                    <ol>
+                        <li><a href="#colors">Colors</a></li>
+                        <li><a href="#fonts">Fonts</a></li>
+                        <li><a href="#headers">Headers</a></li>
+                        <li><a href="#tables">Tables</a></li>
+                        <li><a href="#specials">specials</a>
+                            <ol>
+                                <li><a href="#quote">Quotes and citations</a></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li><a href="#todolist">Todo list</a></li>
+                <li><a href="#questions">Questions</a></li>
+            </ol>
+        </div>
+    </nav>
+    <main>
+        <section class="main">
+`<$view format="htmlwikified"/>`
+        </section>
+
+    </main>
+
+    <footer>
+        Some elements about this work - both legal and not
+        <div class="spacer">&nbsp;</div>
+    </footer>
+</body>
+
+</html>

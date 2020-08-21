@@ -3,4 +3,4 @@ modified: 20191021105851526
 title: $:/SiteSubtitle
 type: text/vnd.tiddlywiki
 
-<<i18n SiteSubtitle $:/TiddlyStatic '' 'inline'>>
+an experiment to publish static website based upon TiddlyWiki and Node.js

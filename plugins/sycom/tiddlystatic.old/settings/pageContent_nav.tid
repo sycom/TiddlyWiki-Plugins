@@ -1,0 +1,19 @@
+created: 20190808132607684
+modified: 20190808150615550
+title: $:/plugins/sycom/tiddlystatic/settings/pageContent/nav
+type: text/vnd.tiddlywiki
+
+//Contains navigation élément for your pages//
+
+* //search tool (to be created)//
+* //Main navigation//
+** Home page : <$edit-text tag=input tiddler="$:/plugins/sycom/tiddlystatic/settings/settings.json" index="index_page" />
+** Main pages tagged with : <$edit-text tag=input tiddler="$:/plugins/sycom/tiddlystatic/settings/settings.json" index="pages_tag" class="mid" />
+* //Local navigation (witthin current page - to be created)//
+//preview//
+
+<div class="nav">
+search : [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+
+{{$:/plugins/sycom/tiddlystatic/templates/pageContent/nav}}
+</div>

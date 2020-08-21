@@ -1,0 +1,11 @@
+created: 20190808133223624
+modified: 20190808150219944
+title: $:/plugins/sycom/tiddlystatic/templates/pageContent/nav
+type: text/vnd.tiddlywiki
+
+<ul>
+   <li><a href="../index.html" ><$text text={{$:/plugins/sycom/tiddlystatic/settings/settings.json##index_page}} /></a></li>
+   <$list filter="[tag{$:/plugins/sycom/tiddlystatic/settings/settings.json##pages_tag}]">
+   <li><$link to={{!!title}}>{{!!title}}</$link></li>
+</$list>
+</ul>  

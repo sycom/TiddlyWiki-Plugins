@@ -6,4 +6,81 @@ tags: [[Symple Framework]] page
 title: Symple
 type: text/vnd.tiddlywiki
 
-<<i18n '' $:/Symple>>
+The //Symple// framework relies on a pretty simple page organization with (in the body):
+
+* a `header` containing the title in a `h1`
+* a `nav` for
+** a search module in a `form`
+** the website navigation in a `ul`
+** a page index in a `ol`
+* a `main` containing the main content of the page in which can be deployed the whole content of the page
+* a `footer` containing classical credits, legal informations and so on.
+
+!! Content examples and design principles
+!!! Colors
+
+After reading some guides on the web, I decided to keep it short here. The default color palette has only a few colors and is defined as variables in a `:root` element of the css to make changes easy.
+
+*  `--color-dominant` is the main color for the page. Defaultly, you will find it on main titles, important informations, buttons, navigation objects.
+* `--color-background` is surprisingly the background color for the page. So you know where it will be...
+* `--color-neutral` is a neutral color contrasting with background. Typicaly for text.
+* `--color-secondary` is a contrast color for things you want visible on the page with less importance than dominant.
+* `--color-dominant-accent` is a dominant variant. Defaultly for marking differences with usualy dominant objects : selected menu, button etc...
+* `--color-secondary-accent` same as above for secondary...
+
+The palette is up to you, the default one is just an example and there are good guides and tools all around the web for choosing a nice palette. In order to be fully colors //agnostic// the stylesheet uses a separate //C O L O R S// section for colouring elements.
+
+!!! Fonts
+Just like colors, fonts are up to you. There are plenty of good (and even free) fonts or design principles on the web. The right choice depends on so many factors that you will not find any universal solution.
+
+Three variables are defined in the  `:root`  element to make changes easier and there is a //T Y P O G R A P H Y// section in the stylesheet fine tweaks. Defaultly the styles will be very basic : Sans-Serif, Serif, monospace... That's it
+
+!!! Headers
+html has always `h1`, `h2`, `h3`... as headers. So there is no reason to bypass this semantic and hierarchical definition. Just a small work on typography and design principles.
+
+!!! Tables
+`Table` are pretty classical. `th` headers are centered and have a different style.
+
+| Table type | first column | others columns |h
+|numbers |left align | align right|
+|text |left align |align left |
+
+!!! Specials
+
+Some special elements have predefined typographies. Feel free to edit them in the //T Y P O G R A P H Y// section of the stylesheet.
+
+!!!! Quotes and citations
+
+Because it's always good to have a punchline in your text (<q>If there is no solution, there is no problem.</q>) you may use `blockquote` or `q` tag (and `cite` tag for source / reference)...
+
+<<<
+Only by continually trying we finally succeed. So the more it fails, the greater are the chances that it works.
+<<<  [[Les shadoks|https://en.wikipedia.org/wiki/Les_Shadoks]]
+
+!! Todo list
+
+There is still a lot of objects to design
+<dd>what the hell is `dd` ?</dd>
+<dir>and also `dir` ?</dir>
+<div>`div` should probably be standard, but will have to work on classes</div>
+<dl>and `dl` ?</dl>
+<dt>or `dt`</dt>
+<figure>There will be `figure`<figcaption>and their `figcaption` of course</figcaption></figure>
+
+# first ordered item (`ol`)
+# second ordered item
+
+Some things about `p`aragraphs
+
+Some work on `pre`formatted text
+
+* first unordered item (`ul`)
+* second unordered item
+
+!! Questions
+
+Some ideas and things I'll have to think about
+
+* reset or normalize usage?
+* footnotes - usage design principles...
+* Articles and section should not have the same rendering
