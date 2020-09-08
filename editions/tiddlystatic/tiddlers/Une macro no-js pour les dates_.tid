@@ -1,5 +1,5 @@
 created: 20191021074628500
-modified: 20191021104050726
+modified: 20200907150254733
 tags: 
 title: Une macro no-js pour les dates?
 type: text/vnd.tiddlywiki
@@ -14,4 +14,4 @@ type: text/vnd.tiddlywiki
 
 Pas du tout évident à créer. Il faudrait que la liste récupère toutes les dates, extraie les années, les déduplique (pas réussi).
 
-Puis pour chaque année, on recommence ave les mois
+Puis pour chaque année, on recommence avec les mois

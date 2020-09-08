@@ -1,0 +1,28 @@
+created: 20200907150319193
+modified: 20200908112128322
+tags: index
+title: Modification date index
+type: text/vnd.tiddlywiki
+
+<div class="ts-timeline">
+<$list filter="[has[modified]!is[system]!is[shadow]!is[missing]!sort[modified]limit[100000]eachyear[modified]]">
+   <div class="ts-date-index">
+
+!! <$view field="modified" format="date" template="YYYY" />
+<div class="three columns">
+   <$list filter="[sameyear:modified{!!modified}!is[system]!is[shadow]!is[missing]!sort[modified]eachmonth[modified]]">
+<div class="ts-block">
+
+!!! <$view field="modified" format="date" template="MMM" />
+   
+      <ul>
+      <$list filter="[samemonth:modified{!!modified}!is[system]!is[shadow]!is[missing]!sort[modified]]">
+         <li><$link to={{!!title}}>{{!!title}}</$link></li>
+      </$list>
+      </ul>
+
+</div>
+   </$list>
+</div>
+
+</div>

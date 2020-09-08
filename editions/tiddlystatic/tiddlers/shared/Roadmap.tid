@@ -1,6 +1,6 @@
 created: 20190809121535763
 icon: $:/core/images/picture
-modified: 20191021130319479
+modified: 20200907150640960
 tags: Documentation
 title: Roadmap
 type: text/vnd.tiddlywiki
@@ -16,7 +16,7 @@ Here are some of the goals and ideas behind tiddlystatic. Will transform this to
 *** a [[Symple palette editor|$:/plugins/sycom/tiddlystatic/SymplePaletteEditor]] linked to the main wiki palette (defaultly a clone from Vanilla)
 *** an [[export reset stylesheet|$:/plugins/sycom/tiddlystatic/styles/exportReset]]
 * possibly make it //internationalizable//
-** work on [[i18n Macro]] in the same time
+** ~~work on [[i18n Macro]] in the same time~~. This one has to be rewritten.
 * atom feed
 ** enhance [[atom feed plugin]] in the same time
 * indexes

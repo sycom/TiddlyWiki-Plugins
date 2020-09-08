@@ -1,0 +1,13 @@
+created: 20200908094034775
+modified: 20200908094914657
+tags: index
+title: $:/plugins/sycom/tiddlystatic/templates/indexes/daily
+type: text/vnd.tiddlywiki
+
+Will be used to render `my.static.url/yyyy/mm/dd/index.html`, containing all tiddlers ''created'' at this date.
+
+Questions: 
+
+* Full tiddlers or only summary / excerpt and a link to the tiddler ?
+* Are //posts// tiddler listed in those indexes? If yes, are they displayed the same way?
+* Should depending on tiddlers be grouped by [[categories]]? An option for that?
